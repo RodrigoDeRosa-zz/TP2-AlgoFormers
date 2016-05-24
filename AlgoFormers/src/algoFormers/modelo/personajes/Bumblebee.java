@@ -19,6 +19,7 @@ public class Bumblebee extends Personaje{
 	
 	public void lala(){
 		//lalalong
+		
 	}
 	
 	public void setEstado(int estado){
