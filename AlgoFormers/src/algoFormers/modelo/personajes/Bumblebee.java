@@ -1,6 +1,6 @@
 package algoFormers.modelo.personajes;
 
-
+//Prueba
 
 public class Bumblebee extends Personaje{
 	
