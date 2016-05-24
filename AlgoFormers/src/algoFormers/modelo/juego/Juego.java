@@ -6,7 +6,7 @@ import algoFormers.modelo.tablero.Posicion;
 import algoFormers.modelo.tablero.Tablero;
 
 public class Juego {
-
+	//gays
 	private Tablero tablero;
 	private Bumblebee bumblebee;
 	
