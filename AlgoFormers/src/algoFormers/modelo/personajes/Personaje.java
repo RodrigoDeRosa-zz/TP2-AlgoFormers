@@ -8,6 +8,7 @@ public abstract class Personaje {
 		this.setEstado();
 	}
 	
-	abstract public void setEstado();
+	abstract protected void setEstado();
 	abstract public Estado getEstado();
+	abstract public void cambiarEstado();
 }

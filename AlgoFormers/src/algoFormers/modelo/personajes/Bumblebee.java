@@ -15,7 +15,7 @@ public class Bumblebee extends Personaje{
 		return instancia;
 	}
 	
-	public void setEstado(){
+	protected void setEstado(){
 		this.estado = BumblebeeAlterno.getInstance();
 	}
 	

@@ -6,7 +6,6 @@ public class BumblebeeHumanoide implements Estado{
 	private BumblebeeAlterno estadoOpuesto;
 	
 	private BumblebeeHumanoide(){
-		this.estadoOpuesto = BumblebeeAlterno.getInstance();
 	}
 	
 	public static BumblebeeHumanoide getInstance(){
@@ -17,6 +16,6 @@ public class BumblebeeHumanoide implements Estado{
 	}
 	
 	public Estado getInstanceEstadoOpuesto(){
-		return this.estadoOpuesto;
+		return this.estadoOpuesto.getInstance();
 	}
 }
