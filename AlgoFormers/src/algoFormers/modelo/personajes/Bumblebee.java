@@ -8,8 +8,6 @@ public class Bumblebee extends Personaje{
 		super();
 	}
 	
-	//lala
-	
 	public static Bumblebee getInstance(){
 		if (instancia == null){
 			instancia = new Bumblebee();
