@@ -28,4 +28,8 @@ public class Bumblebee extends Personaje{
 	public Transformable getEstado(){
 		return this.estado;
 	}
+	
+	public void caca(){
+		
+	}
 }
