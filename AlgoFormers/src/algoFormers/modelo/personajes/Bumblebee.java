@@ -1,7 +1,5 @@
 package algoFormers.modelo.personajes;
 
-//Prueba
-
 public class Bumblebee extends Personaje{
 	
 	private static Bumblebee instancia = null;
@@ -17,11 +15,6 @@ public class Bumblebee extends Personaje{
 		return instancia;
 	}
 	
-	public void lala(){
-		//lalalong
-		
-	}
-	
 	public void setEstado(int estado){
 		if (estado == Personaje.ALTERNO){
 			this.estado = BumblebeeAlterno.getInstance();
@@ -32,9 +25,5 @@ public class Bumblebee extends Personaje{
 	
 	public Transformable getEstado(){
 		return this.estado;
-	}
-	
-	public void caca(){
-		
 	}
 }
