@@ -3,7 +3,7 @@ package algoFormers.modelo.personajes;
 public class Bumblebee extends Personaje{
 	
 	private static Bumblebee instancia = null;
-	
+	//dfgd
 	private Bumblebee(){
 		super();
 	}
