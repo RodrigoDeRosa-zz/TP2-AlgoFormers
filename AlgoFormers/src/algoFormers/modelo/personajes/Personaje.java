@@ -6,9 +6,6 @@ public abstract class Personaje {
 	public static int ALTERNO = 0;
 	public static int HUMANOIDE = 1;
 	protected int vida;
-	protected int ataque;
-	protected int distanciaDeAtaque;
-	protected int velocidad;
 	
 	public Personaje(){
 		this.setEstado(ALTERNO);
