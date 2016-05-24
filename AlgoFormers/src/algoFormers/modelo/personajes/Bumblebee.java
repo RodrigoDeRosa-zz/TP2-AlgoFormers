@@ -1,5 +1,5 @@
 package algoFormers.modelo.personajes;
-// Agregue un cambio a bumblebee
+
 public class Bumblebee extends Personaje{
 	
 	private static Bumblebee instancia = null;
@@ -26,5 +26,4 @@ public class Bumblebee extends Personaje{
 	public Transformable getEstado(){
 		return this.estado;
 	}
-	
 }
