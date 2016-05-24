@@ -1,13 +1,12 @@
 package algoFormers.modelo.personajes;
 
-
+//Prueba
 
 public class Bumblebee extends Personaje{
 	
 	private static Bumblebee instancia = null;
 
 	private Bumblebee(){
-		///sos muy gay
 		super();
 	}
 	
