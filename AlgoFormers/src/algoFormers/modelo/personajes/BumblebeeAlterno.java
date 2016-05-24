@@ -1,11 +1,12 @@
 package algoFormers.modelo.personajes;
 
-public class BumblebeeAlterno implements Alterno{
+public class BumblebeeAlterno implements Estado{
 
 	private static BumblebeeAlterno instancia = null;
+	private BumblebeeHumanoide estadoOpuesto;
 	
 	private BumblebeeAlterno(){
-		
+		this.estadoOpuesto = BumblebeeHumanoide.getInstance();		
 	}
 	
 	public static BumblebeeAlterno getInstance(){
@@ -13,6 +14,10 @@ public class BumblebeeAlterno implements Alterno{
 			instancia = new BumblebeeAlterno();
 		}
 		return instancia;
+	}
+	
+	public Estado getInstanceEstadoOpuesto(){
+		return this.estadoOpuesto;
 	}
 	
 }

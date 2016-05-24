@@ -15,15 +15,15 @@ public class Bumblebee extends Personaje{
 		return instancia;
 	}
 	
-	public void setEstado(int estado){
-		if (estado == Personaje.ALTERNO){
-			this.estado = BumblebeeAlterno.getInstance();
-			return;
-		}
-		this.estado = BumblebeeHumanoide.getInstance();
+	public void setEstado(){
+		this.estado = BumblebeeAlterno.getInstance();
 	}
 	
-	public Transformable getEstado(){
+	public void cambiarEstado(){
+		this.estado.getInstanceEstadoOpuesto();
+	}
+	
+	public Estado getEstado(){
 		return this.estado;
 	}
 }
