@@ -1,5 +1,5 @@
 package algoFormers.modelo.personajes;
-
+// Agregue un cambio a bumblebee
 public class Bumblebee extends Personaje{
 	
 	private static Bumblebee instancia = null;
