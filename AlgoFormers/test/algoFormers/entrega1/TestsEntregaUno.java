@@ -1,7 +1,6 @@
 package algoFormers.entrega1;
 
 import static org.junit.Assert.*;
-
 import org.junit.Test;
 import algoFormers.modelo.personajes.*;
 

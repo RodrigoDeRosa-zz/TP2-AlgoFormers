@@ -2,6 +2,8 @@ package algoFormers.modelo.personajes;
 
 public class Bumblebee extends Personaje{
 
+	//Facu cometraba
+	
 	private static Bumblebee instancia = null;
 	
 	private Bumblebee(){
