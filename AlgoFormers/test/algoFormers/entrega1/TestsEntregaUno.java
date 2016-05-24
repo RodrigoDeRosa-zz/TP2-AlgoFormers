@@ -19,4 +19,6 @@ public class TestsEntregaUno {
 		assertEquals(BumblebeeAlterno.getInstance(), personaje.getEstado());
 	}
 	
+	
+	
 }
