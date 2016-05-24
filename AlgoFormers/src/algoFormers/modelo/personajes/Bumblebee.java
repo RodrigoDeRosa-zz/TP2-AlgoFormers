@@ -1,7 +1,5 @@
 package algoFormers.modelo.personajes;
 
-//Prueba
-
 public class Bumblebee extends Personaje{
 	
 	private static Bumblebee instancia = null;
@@ -15,11 +13,6 @@ public class Bumblebee extends Personaje{
 			instancia = new Bumblebee();
 		}
 		return instancia;
-	}
-	
-	public void lala(){
-		//lalalong
-		
 	}
 	
 	public void setEstado(int estado){
