@@ -1,6 +1,6 @@
 package algoFormers.modelo.personajes;
 
-//anda la concha de la lora
+
 
 public class Bumblebee extends Personaje{
 	
