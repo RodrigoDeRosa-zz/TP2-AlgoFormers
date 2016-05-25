@@ -8,12 +8,10 @@ public abstract class Estado {
 	protected int velocidad;
 
 	public Estado(int vida, int ataque, int distanciaAtaque, int velocidad){
-		
 		this.vida = vida;
 		this.ataque = ataque;
 		this.distanciaAtaque = distanciaAtaque;
-		this.velocidad = velocidad;
-		
+		this.velocidad = velocidad;	
 	}
 
 }
