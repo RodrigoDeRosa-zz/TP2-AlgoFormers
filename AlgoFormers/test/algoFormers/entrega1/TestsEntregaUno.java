@@ -18,6 +18,13 @@ public class TestsEntregaUno {
 		assertEquals(BumblebeeAlterno.getInstance(), personaje.getEstado());
 	}
 	
+	@Test
+	public void testCambiarDeAlternoAHumanoide(){
+		Personaje personaje = Bumblebee.getInstance();
+		assertEquals(BumblebeeAlterno.getInstance(), personaje.getEstado());
+		personaje.cambiarEstado();
+		assertEquals(BumblebeeHumanoide.getInstance(), personaje.getEstado());
+	}
 	
 	
 }

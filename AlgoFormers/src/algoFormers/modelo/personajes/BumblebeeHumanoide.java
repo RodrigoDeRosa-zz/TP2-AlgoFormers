@@ -3,7 +3,6 @@ package algoFormers.modelo.personajes;
 public class BumblebeeHumanoide implements Estado{
 
 	private static BumblebeeHumanoide instancia = null;
-	private BumblebeeAlterno estadoOpuesto;
 	
 	private BumblebeeHumanoide(){
 	}
@@ -16,6 +15,6 @@ public class BumblebeeHumanoide implements Estado{
 	}
 	
 	public Estado getInstanceEstadoOpuesto(){
-		return this.estadoOpuesto.getInstance();
+		return BumblebeeAlterno.getInstance();
 	}
 }

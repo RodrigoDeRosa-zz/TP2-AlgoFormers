@@ -20,7 +20,7 @@ public class Bumblebee extends Personaje{
 	}
 	
 	public void cambiarEstado(){
-		this.estado.getInstanceEstadoOpuesto();
+		this.estado = this.estado.getInstanceEstadoOpuesto();
 	}
 	
 	public Estado getEstado(){
