@@ -2,29 +2,58 @@ package algoFormers.entrega1;
 
 import static org.junit.Assert.*;
 import org.junit.Test;
-import algoFormers.modelo.personajes.*;
+import algoFormers.modelo.*;
 
 public class TestsEntregaUno {
 
 	@Test
+	public void testUbicarPersonajeEnCasillero(){
+		
+	}
+	
+	@Test
 	public void testCrearPersonaje(){
-		Personaje personaje = Bumblebee.getInstance();
-		assertNotNull(personaje);
+		
 	}
 	
 	@Test
-	public void testPersonajeSeCreaEnModoAlterno(){
-		Personaje personaje = Bumblebee.getInstance();
-		assertEquals(BumblebeeAlterno.getInstance(), personaje.getEstado());
+	public void testTransformarPersonajeDeAlternoAHumanoide(){
+		
 	}
 	
 	@Test
-	public void testCambiarDeAlternoAHumanoide(){
-		Personaje personaje = Bumblebee.getInstance();
-		assertEquals(BumblebeeAlterno.getInstance(), personaje.getEstado());
-		personaje.cambiarEstado();
-		assertEquals(BumblebeeHumanoide.getInstance(), personaje.getEstado());
+	public void testTransformarPersonajeDeHumanoideAAlterno(){
+		
 	}
 	
+	@Test
+	public void testMoverPersonajeEnModoAlterno(){
+		
+	}
+	
+	@Test
+	public void testMoverPersonajeEnModoHumanoide(){
+		
+	}
+	
+	@Test
+	public void testAtacarEnemigoEnRango(){
+		
+	}
+	
+	@Test
+	public void testAtacarEnemigoFueraDeRango(){
+		
+	}
+	
+	@Test
+	public void testDanioDeAtaqueEnemigoCorrectoAfecta(){
+		
+	}
+	
+	@Test
+	public void testDanioDeAtaqueEnemigoIncorrectoNoAfecta(){
+		
+	}
 	
 }
