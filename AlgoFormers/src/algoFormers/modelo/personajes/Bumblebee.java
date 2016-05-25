@@ -18,12 +18,4 @@ public class Bumblebee extends Personaje{
 	protected void setEstado(){
 		this.estado = BumblebeeAlterno.getInstance();
 	}
-	
-	public void cambiarEstado(){
-		this.estado = this.estado.getInstanceEstadoOpuesto();
-	}
-	
-	public Estado getEstado(){
-		return this.estado;
-	}
 }
