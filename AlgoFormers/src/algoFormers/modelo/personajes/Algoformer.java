@@ -1,11 +1,11 @@
 package algoFormers.modelo.personajes;
 
-public abstract class Personaje {
+public abstract class Algoformer {
 
 	protected Estado estadoActual;
 	protected Estado estadoOtro;
 	
-	public Personaje(int vidaH, int ataqueH, int distanciaAtaqueH, int velocidadH, int vidaA, int ataqueA, int distanciaAtaqueA, int velocidadA){
+	public Algoformer(int vidaH, int ataqueH, int distanciaAtaqueH, int velocidadH, int vidaA, int ataqueA, int distanciaAtaqueA, int velocidadA){
 		//supuesto: el estado actual por defecto es el humanoide
 		this.estadoActual = new Humanoide(vidaH, ataqueH, distanciaAtaqueH, velocidadH);
 		this.estadoOtro = new Alterno(vidaA, ataqueA, distanciaAtaqueA, velocidadA);	
