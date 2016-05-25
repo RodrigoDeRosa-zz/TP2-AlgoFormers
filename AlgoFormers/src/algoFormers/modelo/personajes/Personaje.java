@@ -1,7 +1,7 @@
 package algoFormers.modelo.personajes;
 
 public abstract class Personaje {
-	//asdkmasdmk
+
 	protected Estado estadoActual;
 	protected Estado estadoOtro;
 	
