@@ -1,4 +1,4 @@
-package algoFormers.entrega1;
+package fiuba.algo3.algoFormers.entrega1;
 
 import static org.junit.Assert.*;
 import org.junit.Test;
