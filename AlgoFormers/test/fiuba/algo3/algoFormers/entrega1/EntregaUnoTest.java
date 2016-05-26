@@ -90,7 +90,7 @@ public class EntregaUnoTest {
 		
 		Mapa mapa = new Mapa();
 		Posicion posicionOptimus = new Posicion(1, 1);
-		Posicion posicionMegatron = new Posicon(1, 3);
+		Posicion posicionMegatron = new Posicion(1, 3);
 		mapa.ubicar(optimus, posicionOptimus);
 		mapa.ubicar(megatron, posicionMegatron);
 		
