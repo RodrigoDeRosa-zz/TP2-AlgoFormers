@@ -3,12 +3,15 @@ package fiuba.algo3.algoFormers.entrega1;
 import static org.junit.Assert.*;
 import org.junit.Test;
 
+import fiuba.algo3.algoFormers.modelo.fabricas.AutoBotFactory;
+import fiuba.algo3.algoFormers.modelo.personajes.AlgoFormer;
+
 public class EntregaUnoTest {
 	
 	@Test
 	public void testUbicarAlfoFormerHumanoideMoverloYVerificarNuevaPosicion(){
 		AutoBotFactory factory = new AutoBotFactory();
-		AlgoFormer optimus = factory.getOptimus();
+		AlgoFormer optimus = factory.getOptimusPrime();
 		Mapa mapa = new Mapa();
 		Posicion posicion = new Posicion(1,1);
 		mapa.ubicar(optimus, posicion);
@@ -54,7 +57,7 @@ public class EntregaUnoTest {
 		
 		AutoBotFactory autoBotFactory = new AutoBotFactory();
 		
-		AlgoFormer optimus = autoBotFactory.getOptimus();
+		AlgoFormer optimus = autoBotFactory.getOptimusPrime();
 		AlgoFormer bumblebee = autoBotFactory.getBumblebee();
 		AlgoFormer ratchet = autoBotFactory.getRatchet();
 
@@ -84,7 +87,7 @@ public class EntregaUnoTest {
 	@Test
 	public void testAutoBotAtacaDecepticonEnRango(){
 		AutoBotFactory autoBotFactory = new AutoBotFactory();
-		AlgoFormer optimus = autoBotFactory.getOptimus();
+		AlgoFormer optimus = autoBotFactory.getOptimusPrime();
 		DecepticonFactory decepticonFactory = new DecepticonFactory();
 		AlgoFormer megatron = decepticonFactory.getMegatron();
 		
@@ -101,7 +104,7 @@ public class EntregaUnoTest {
 	@Test(expected=AtaqueFueraDeRangoException.class)
 	public void testAutoBotAtacaFueraDeRango(){
 		AutoBotFactory autoBotFactory = new AutoBotFactory();
-		AlgoFormer optimus = autoBotFactory.getOptimus();
+		AlgoFormer optimus = autoBotFactory.getOptimusPrime();
 		
 		Mapa mapa = new Mapa();
 		Posicion posicionOptimus = new Posicion(1, 1);
