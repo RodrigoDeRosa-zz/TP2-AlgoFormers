@@ -1,34 +1,55 @@
 package fiuba.algo3.algoFormers.modelo.fabricas;
 
 import fiuba.algo3.algoFormers.modelo.personajes.Decepticon;
+import fiuba.algo3.algoFormers.modelo.personajes.estadosDeTransformacion.Alterno;
+import fiuba.algo3.algoFormers.modelo.personajes.estadosDeTransformacion.AlternoAereo;
+import fiuba.algo3.algoFormers.modelo.personajes.estadosDeTransformacion.AlternoTerrestre;
 
 public class DecepticonFactory {
 	
+	//Constantes de vida
 	private int VIDA_MEGATRON = 550;
 	private int VIDA_FRENZY = 400;
 	private int VIDA_BONECRUSHER = 200;
+	//Constantes de velocidad
+	private int VELOCIDAD_HUM_MEGATRON = 1;
+	private int VELOCIDAD_ALT_MEGATRON = 8;
+	private int VELOCIDAD_HUM_FRENZY = 2;
+	private int VELOCIDAD_ALT_FRENZY = 6;
+	private int VELOCIDAD_HUM_BONECRUSHER = 1;
+	private int VELOCIDAD_ALT_BONECRUSHER = 8;
+	//Constantes de ataque
+	private int ATAQUE_HUM_MEGATRON = 10;
+	private int ATAQUE_ALT_MEGATRON = 55;
+	private int ATAQUE_HUM_FRENZY = 10;
+	private int ATAQUE_ALT_FRENZY = 25;
+	private int ATAQUE_HUM_BONECRUSHER = 30;
+	private int ATAQUE_ALT_BONECRUSHER = 30;
 	
 	public DecepticonFactory(){
 
 	}
 	
 	public Decepticon getMegatron(){
-		return this.crearDecepticon(VIDA_MEGATRON);
+		Alterno jetCibertroniano = new AlternoAereo(VELOCIDAD_ALT_MEGATRON);
+		return this.crearDecepticon(VIDA_MEGATRON, jetCibertroniano, VELOCIDAD_HUM_MEGATRON);
 	}
 	
 	public Decepticon getFrenzy(){
-		return this.crearDecepticon(VIDA_FRENZY);
+		Alterno buffaloHMPCV = new AlternoTerrestre(VELOCIDAD_ALT_FRENZY);
+		return this.crearDecepticon(VIDA_FRENZY, buffaloHMPCV, VELOCIDAD_HUM_FRENZY);
 	}
 	
 	public Decepticon getBonecrusher(){
-		return this.crearDecepticon(VIDA_BONECRUSHER);
+		Alterno duster = new AlternoTerrestre(VELOCIDAD_ALT_BONECRUSHER);
+		return this.crearDecepticon(VIDA_BONECRUSHER, duster, VELOCIDAD_HUM_BONECRUSHER);
 	}
 	
 	/**
 	 * Crea un Decepticon con los parametros recibidos, evita la repeticion de codigo
 	 * en las otras tres funciones. 
 	 */
-	private Decepticon crearDecepticon(int vida){
-		return new Decepticon(vida);
+	private Decepticon crearDecepticon(int vida, Alterno alterno, int velocidadH){
+		return new Decepticon(vida, alterno, velocidadH);
 	}
 }
