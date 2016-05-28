@@ -8,7 +8,7 @@ import fiuba.algo3.algoFormers.modelo.personajes.AlgoFormer;
 public class ManejadorDeMovimientos {
 	
 	private static int NULO=0;
-	private static int UNICO=0;
+	private static int UNICO=1;
 	private int movimientosRestantes; 
 	private int movimientosTotales;
 	
