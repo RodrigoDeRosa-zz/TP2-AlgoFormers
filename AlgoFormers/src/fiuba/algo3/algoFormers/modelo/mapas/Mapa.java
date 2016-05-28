@@ -3,6 +3,7 @@ package fiuba.algo3.algoFormers.modelo.mapas;
 import java.util.HashMap;
 
 import fiuba.algo3.algoFormers.modelo.direcciones.Direccion;
+import fiuba.algo3.algoFormers.modelo.excepciones.AtaqueEspacioVacioException;
 import fiuba.algo3.algoFormers.modelo.excepciones.AtaqueFueraDeRangoException;
 import fiuba.algo3.algoFormers.modelo.excepciones.CasilleroOcupadoException;
 import fiuba.algo3.algoFormers.modelo.excepciones.UbicableNoPertenceAlMapaException;
@@ -47,7 +48,7 @@ public class Mapa {
 		Posicion posicionUbicable = this.obtenerPosicion(ubicable);
 		this.verificarDistancia(posicionUbicable, posicionAtacable, distanciaAtaque);
 		Casillero casilleroAtacable = tablero.get(posicionAtacable);
-		this.verificarCasilleroEstaVacio(casilleroAtacable, posicionAtacable);
+		this.verificarCasilleroNoEstaVacio(casilleroAtacable, posicionAtacable);
 		
 		Atacable otroUbicable = (Atacable) casilleroAtacable.getUbicable();
 		otroUbicable.recibirDanio(ubicable, poderAtaque);
@@ -72,6 +73,12 @@ public class Mapa {
 	private void verificarCasilleroEstaVacio(Casillero casillero, Posicion posicion) {
 		if (casillero.estaOcupado()){
 			throw new CasilleroOcupadoException("el casillero de la posicion (" + posicion.getX() + posicion.getY() + ") esta ocupado");
+		}
+	}
+	
+	private void verificarCasilleroNoEstaVacio(Casillero casillero, Posicion posicion) {
+		if (!casillero.estaOcupado()){
+			throw new AtaqueEspacioVacioException();
 		}
 	}
 
