@@ -7,6 +7,7 @@ import fiuba.algo3.algoFormers.modelo.personajes.AlgoFormer;
 public class Mapa {
 	
 	private HashMap<Posicion, Casillero> tablero;
+	//Tamanio por defecto del mapa
 	private int TAMANIO = 40;
 
 	public Mapa(){
