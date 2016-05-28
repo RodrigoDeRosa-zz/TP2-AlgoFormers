@@ -5,6 +5,9 @@ import org.junit.Test;
 
 import fiuba.algo3.algoFormers.modelo.fabricas.AutoBotFactory;
 import fiuba.algo3.algoFormers.modelo.fabricas.DecepticonFactory;
+import fiuba.algo3.algoFormers.modelo.juego.Juego;
+import fiuba.algo3.algoFormers.modelo.mapas.Mapa;
+import fiuba.algo3.algoFormers.modelo.mapas.Posicion;
 import fiuba.algo3.algoFormers.modelo.personajes.AlgoFormer;
 import fiuba.algo3.algoFormers.modelo.personajes.estadosDeTransformacion.AlternoTerrestre;
 import fiuba.algo3.algoFormers.modelo.personajes.estadosDeTransformacion.Humanoide;
