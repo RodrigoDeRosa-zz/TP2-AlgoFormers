@@ -2,6 +2,7 @@ package fiuba.algo3.algoFormers.modelo.personajes.estadosDeTransformacion;
 
 import fiuba.algo3.algoFormers.modelo.personajes.atributos.Ataque;
 import fiuba.algo3.algoFormers.modelo.personajes.atributos.Velocidad;
+import fiuba.algo3.algoFormers.modelo.personajes.manejadores.ManejadorDeMovimientos;
 
 public class EstadoDeTransformacion {
 
@@ -25,6 +26,10 @@ public class EstadoDeTransformacion {
 		return this.ataque;
 	}
 	
+	public ManejadorDeMovimientos crearManejadorMovimientos() {
+		return this.velocidad.crearManejadorMovimientos();
+	}
+	
 	//Metodos para las pruebas. No se deberian usar.
 	public int getVelocidad(){
 		return this.velocidad.getVelocidad();
@@ -37,5 +42,6 @@ public class EstadoDeTransformacion {
 	public int getDistanciaDeAtaque(){
 		return this.ataque.getDistanciaDeAtaque();
 	}
+
 	
 }

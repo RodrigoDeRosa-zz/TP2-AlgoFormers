@@ -62,17 +62,16 @@ public abstract class AlgoFormer implements Atacable {
 		
 	}
 	
-	//falta ver como la velocidad llega hasta ahi
-	public void inicializarTurno(int movimientos){
+	public void inicializarTurno(){
 		//Funcion para setear los manejadores de un algoformer en el momento
 		//en el que el algoformer es seleccionado como el personaje de turno.
-		this.manDeMovimientos = new ManejadorDeMovimientos(movimientos);
+		ManejadorDeMovimientos manejadorM=this.estadoDeTransformacionActual.crearManejadorMovimientos();
+		this.manDeMovimientos = manejadorM;
 		this.manDeAtaques = new ManejadorDeAtaques();
 	}
 	
 	public void finalizarTurno(){
-		this.setManejadorAtaquesNull();
-		this.setManejadorMovimientosNull();
+		this.manDeMovimientos.resetearMovimientos();
 	}
 	
 	//Metodos para las pruebas. No se deberían llamar en otras clases.

@@ -8,15 +8,21 @@ public class ManejadorDeMovimientos {
 	private static int NULO=0;
 	private static int UNICO=0;
 	private int movimientosRestantes; 
+	private int movimientosTotales;
 	
 	public ManejadorDeMovimientos(int movimientos){
 		//Manejador de movimientos que se inicializa con la distancia maxima
 		//a la que se puede mover un algoformer.
 		this.setMovimientosRestantes(movimientos);
+		this.setMovimientosTotales(movimientos);
 	}
 	
 	private void setMovimientosRestantes(int movimientos){
 		this.movimientosRestantes = movimientos;
+	}
+	
+	private void setMovimientosTotales(int movimientos){
+		this.movimientosTotales=movimientos;
 	}
 	
 	private void restarMovimiento(){
@@ -30,6 +36,10 @@ public class ManejadorDeMovimientos {
 		
 		this.restarMovimiento();
 		mapa.moverAlgoformerEnDireccion(algoformer,direccion);
+	}
+	
+	public void resetearMovimientos(){
+		this.movimientosRestantes = this.movimientosTotales;
 	}
 	
 	//funcion que sirve para las pruebas
