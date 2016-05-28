@@ -9,11 +9,14 @@ import fiuba.algo3.algoFormers.modelo.juego.Juego;
 public class JuegoTest {
 
 	@Test
-	public void crearJuegoTest() {
+	public void crearJuegoNoDevuelveNullTest() {
 
 		Juego juego = new Juego();
 		assertNotNull(juego);
 		
 	}
+	
+	@Test
+	public void 
 
 }
