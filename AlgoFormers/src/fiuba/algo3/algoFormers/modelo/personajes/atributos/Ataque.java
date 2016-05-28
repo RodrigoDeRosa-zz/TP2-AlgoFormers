@@ -1,5 +1,7 @@
 package fiuba.algo3.algoFormers.modelo.personajes.atributos;
 
+import fiuba.algo3.algoFormers.modelo.personajes.manejadores.ManejadorDeAtaques;
+
 public class Ataque {
 
 	private int ataque;
@@ -18,6 +20,11 @@ public class Ataque {
 		this.distAtaque = new DistanciaDeAtaque(distAtaque);
 	}
 	
+	public ManejadorDeAtaques crearManejadorAtaque() {
+		/*Funcion utilizada para la creacion del manejador de ataque*/
+		return this.distAtaque.crearManejadorAtaques(this.ataque);
+		
+	}
 	//Este metodo es para las pruebas. No se deberia usar
 	public int getAtaque(){
 		return this.ataque;
@@ -26,4 +33,5 @@ public class Ataque {
 	public int getDistanciaDeAtaque(){
 		return this.distAtaque.getDistanciaDeAtaque();
 	}
+
 }

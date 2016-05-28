@@ -12,6 +12,12 @@ public class Vida {
 		this.vida = vida;
 	}
 	
+	public void descontarVida(int descuento){
+		/*Metodo que sirve para descontarle la vida a un jugador
+		 * que es atacado.
+		 */
+		this.vida -=descuento;
+	}
 	//Metodo para las pruebas. No se deberia usar
 	public int getVida(){
 		return this.vida;
