@@ -17,6 +17,11 @@ public class JuegoTest {
 	}
 	
 	@Test
-	public void 
+	public void getUbicableDevuelveAlUbicableCorrectoSiEstaAhiTest() {
+		
+		Juego juego = new Juego();
+		
+	
+	}
 
 }
