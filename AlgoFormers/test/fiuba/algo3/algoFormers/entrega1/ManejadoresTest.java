@@ -40,6 +40,21 @@ public class ManejadoresTest {
 		assertTrue(manejador.getMovimientosRestantes() == movimientos-1);
 	}
 	
+	@Test 
+	public void testVerifiarMovimientosRestantesConMovimientoYReseteo(){
+		
+		AutoBotFactory factory = new AutoBotFactory();
+		AlgoFormer optimusPrime = factory.getOptimusPrime();
+		int movimientos = optimusPrime.getVelocidad();
+		ManejadorDeMovimientos manejador = new ManejadorDeMovimientos(movimientos);
+		Mapa mapa = new Mapa();
+		DirDerecha direc = new DirDerecha();
+		assertTrue(manejador.getMovimientosRestantes() == movimientos);
+		manejador.moverEnDireccion(optimusPrime,direc, mapa);
+		manejador.resetearMovimientos();
+		assertTrue(manejador.getMovimientosRestantes() == movimientos);
+	}
+	
 	@Test(expected=MovimientosAgotadosException.class)
 	public void testVerifiarMovimientosRestantes(){
 
