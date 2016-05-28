@@ -111,15 +111,33 @@ public class EntregaUnoTest {
 	public void testAutoBotAtacaFueraDeRango(){
 		AutoBotFactory autoBotFactory = new AutoBotFactory();
 		AlgoFormer optimus = autoBotFactory.getOptimusPrime();
-		
 		Mapa mapa = new Mapa();
 		Posicion posicionOptimus = new Posicion(1, 1);
 		mapa.ubicar(optimus, posicionOptimus);
-		
 		optimus.atacar(new Posicion(1, 6),mapa);
-		//Falta cuando se ataca una posicion en rango pero sin AlgoFormer(AtaqueAEspacioVacioException)
 		//Falta cuando se ataca una posicion en rango con un aliado(FuegoAmigoException)
 	}
 	
+	@Test(expected=AtaqueEspacioVacioException.class)
+	public void testAutoBotAtacaEspacioVacio(){
+		AutoBotFactory autoBotFactory = new AutoBotFactory();
+		AlgoFormer optimus = autoBotFactory.getOptimusPrime();
+		Mapa mapa = new Mapa();
+		Posicion posicionOptimus = new Posicion(1, 1);
+		mapa.ubicar(optimus, posicionOptimus);
+		optimus.atacar(new Posicion(1, 2),mapa);
+	}
 	
+	@Test(expected=FuegoAmigoException.class)
+	public void testAutoBotAtacaAutoBot(){
+		AutoBotFactory autoBotFactory = new AutoBotFactory();
+		AlgoFormer optimus = autoBotFactory.getOptimusPrime();
+		AlgoFormer bumblebee = autoBotFactory.getBumblebee();
+		Mapa mapa = new Mapa();
+		Posicion posicionOptimus = new Posicion(1, 1);
+		Posicion posicionBumblebee = new Posicion(1, 2);
+		mapa.ubicar(optimus, posicionOptimus);
+		mapa.ubicar(bumblebee, posicionBumblebee);
+		optimus.atacar(new Posicion(1, 2),mapa);
+	}
 }
