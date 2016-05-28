@@ -11,17 +11,17 @@ public class AlgoFormer {
 	protected EstadoDeTransformacion estadoDeTransformacionActual;
 	protected EstadoDeTransformacion estadoDeTransformacionOpuesto;
 	
-	public AlgoFormer(int vida, Alterno alterno, int velocidadH){
+	public AlgoFormer(int vida, Alterno alterno, int velocidadH, int ataqueH, int distAtaqueH){
 		this.setVida(vida);
-		this.setEstadosDeTransformacion(alterno, velocidadH);
+		this.setEstadosDeTransformacion(alterno, velocidadH, ataqueH, distAtaqueH);
 	}
 	
 	private void setVida(int vida){
 		this.vida = new Vida(vida);
 	}
 	
-	private void setEstadosDeTransformacion(Alterno alterno, int velocidadH){
-		EstadoDeTransformacion humanoide = new Humanoide(velocidadH);
+	private void setEstadosDeTransformacion(Alterno alterno, int velocidadH, int ataqueH, int distAtaqueH){
+		EstadoDeTransformacion humanoide = new Humanoide(velocidadH, ataqueH, distAtaqueH);
 		this.estadoDeTransformacionActual = humanoide;
 		this.estadoDeTransformacionOpuesto = alterno;
 	}
@@ -43,5 +43,13 @@ public class AlgoFormer {
 	
 	public int getVelocidad(){
 		return this.estadoDeTransformacionActual.getVelocidad();
+	}
+	
+	public int getAtaque(){
+		return this.estadoDeTransformacionActual.getAtaque();
+	}
+	
+	public int getDistanciaDeAtaque(){
+		return this.estadoDeTransformacionActual.getDistanciaDeAtaque();
 	}
 }

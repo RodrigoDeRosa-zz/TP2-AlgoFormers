@@ -65,7 +65,7 @@ public class AtributosEstadoAlternoEnCreacionTests {
 		AutoBotFactory factory = new AutoBotFactory();
 		AlgoFormer optimusPrime = factory.getOptimusPrime();
 		optimusPrime.transformarse();
-		assertEquals(optimusPrime.getAtaque(), 5);
+		assertEquals(optimusPrime.getAtaque(), 15);
 	}
 	
 	@Test
@@ -73,7 +73,7 @@ public class AtributosEstadoAlternoEnCreacionTests {
 		AutoBotFactory factory = new AutoBotFactory();
 		AlgoFormer bumblebee = factory.getBumblebee();
 		bumblebee.transformarse();
-		assertEquals(bumblebee.getAtaque(), 5);
+		assertEquals(bumblebee.getAtaque(), 20);
 	}
 	
 	@Test
@@ -81,7 +81,7 @@ public class AtributosEstadoAlternoEnCreacionTests {
 		AutoBotFactory factory = new AutoBotFactory();
 		AlgoFormer ratchet = factory.getRatchet();
 		ratchet.transformarse();
-		assertEquals(ratchet.getAtaque(), 8);
+		assertEquals(ratchet.getAtaque(), 35);
 	}
 	
 	@Test
@@ -89,7 +89,7 @@ public class AtributosEstadoAlternoEnCreacionTests {
 		DecepticonFactory factory = new DecepticonFactory();
 		AlgoFormer megatron = factory.getMegatron();
 		megatron.transformarse();
-		assertEquals(megatron.getAtaque(), 8);
+		assertEquals(megatron.getAtaque(), 55);
 	}
 	
 	@Test
@@ -97,7 +97,7 @@ public class AtributosEstadoAlternoEnCreacionTests {
 		DecepticonFactory factory = new DecepticonFactory();
 		AlgoFormer frenzy = factory.getFrenzy();
 		frenzy.transformarse();
-		assertEquals(frenzy.getAtaque(), 6);
+		assertEquals(frenzy.getAtaque(), 25);
 	}
 	
 	@Test
@@ -105,6 +105,55 @@ public class AtributosEstadoAlternoEnCreacionTests {
 		DecepticonFactory factory = new DecepticonFactory();
 		AlgoFormer bonecrusher = factory.getBonecrusher();
 		bonecrusher.transformarse();
-		assertEquals(bonecrusher.getAtaque(), 8);
+		assertEquals(bonecrusher.getAtaque(), 30);
+	}
+	
+	//Tests de Distancia de Ataque
+	@Test
+	public void testOptimusPrimeSeCreaConDistanciaDeAtaqueAlternaCorrecta(){
+		AutoBotFactory factory = new AutoBotFactory();
+		AlgoFormer optimusPrime = factory.getOptimusPrime();
+		optimusPrime.transformarse();
+		assertEquals(optimusPrime.getDistanciaDeAtaque(), 4);
+	}
+	
+	@Test
+	public void testBumblebeeSeCreaConDistanciaDeAtaqueAlternaCorrecta(){
+		AutoBotFactory factory = new AutoBotFactory();
+		AlgoFormer bumblebee = factory.getBumblebee();
+		bumblebee.transformarse();
+		assertEquals(bumblebee.getDistanciaDeAtaque(), 3);
+	}
+	
+	@Test
+	public void testRatchetSeCreaConDistanciaDeAtaqueAlternaCorrecta(){
+		AutoBotFactory factory = new AutoBotFactory();
+		AlgoFormer ratchet = factory.getRatchet();
+		ratchet.transformarse();
+		assertEquals(ratchet.getDistanciaDeAtaque(), 2);
+	}
+	
+	@Test
+	public void testMegatronSeCreaConDistanciaDeAtaqueAlternaCorrecta(){
+		DecepticonFactory factory = new DecepticonFactory();
+		AlgoFormer megatron = factory.getMegatron();
+		megatron.transformarse();
+		assertEquals(megatron.getDistanciaDeAtaque(), 2);
+	}
+	
+	@Test
+	public void testFrenzySeCreaConDistanciaDeAtaqueAlternaCorrecta(){
+		DecepticonFactory factory = new DecepticonFactory();
+		AlgoFormer frenzy = factory.getFrenzy();
+		frenzy.transformarse();
+		assertEquals(frenzy.getDistanciaDeAtaque(), 2);
+	}
+	
+	@Test
+	public void testBonecrusherSeCreaConDistanciaDeAtaqueAlternaCorrecta(){
+		DecepticonFactory factory = new DecepticonFactory();
+		AlgoFormer bonecrusher = factory.getBonecrusher();
+		bonecrusher.transformarse();
+		assertEquals(bonecrusher.getDistanciaDeAtaque(), 3);
 	}
 }

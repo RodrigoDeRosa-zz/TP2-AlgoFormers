@@ -4,7 +4,10 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 
 import fiuba.algo3.algoFormers.modelo.fabricas.AutoBotFactory;
+import fiuba.algo3.algoFormers.modelo.fabricas.DecepticonFactory;
 import fiuba.algo3.algoFormers.modelo.personajes.AlgoFormer;
+import fiuba.algo3.algoFormers.modelo.personajes.estadosDeTransformacion.AlternoTerrestre;
+import fiuba.algo3.algoFormers.modelo.personajes.estadosDeTransformacion.Humanoide;
 
 public class EntregaUnoTest {
 	
@@ -63,9 +66,9 @@ public class EntregaUnoTest {
 
 		DecepticonFactory decepticonFactory = new DecepticonFactory();
 		
-		AlgoFormer megatron = autoBotFactory.getMegatron();
-		AlgoFormer bonecrusher = autoBotFactory.getBonecrusher();
-		AlgoFormer frenzy = autoBotFactory.getFrenzy();
+		AlgoFormer megatron = decepticonFactory.getMegatron();
+		AlgoFormer bonecrusher = decepticonFactory.getBonecrusher();
+		AlgoFormer frenzy = decepticonFactory.getFrenzy();
 		
 		assertEquals(optimus, juego.getUbicable(new Posicion(1, 19)));
 		assertEquals(bumblebee, juego.getUbicable(new Posicion(1, 20)));
