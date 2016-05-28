@@ -5,6 +5,7 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 
 import fiuba.algo3.algoFormers.modelo.excepciones.MovimientosAgotadosException;
+import fiuba.algo3.algoFormers.modelo.direcciones.DirDerecha;
 import fiuba.algo3.algoFormers.modelo.excepciones.AtaqueEspacioVacioException;
 import fiuba.algo3.algoFormers.modelo.excepciones.AtaqueFueraDeRangoException;
 import fiuba.algo3.algoFormers.modelo.excepciones.FuegoAmigoException;
@@ -52,7 +53,7 @@ public class ManejadoresTest {
 	}
 	
 	@Test(expected=MovimientosAgotadosException.class)
-	public void testVerifiarMovimientosRestantes(){
+	public void testVerificarMovimientosRestantes(){
 		AutoBotFactory factory = new AutoBotFactory();
 		AlgoFormer optimusPrime = factory.getOptimusPrime();
 		int movimientos = optimusPrime.getVelocidad();

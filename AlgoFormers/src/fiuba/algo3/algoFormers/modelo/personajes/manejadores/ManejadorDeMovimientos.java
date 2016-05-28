@@ -1,5 +1,6 @@
 package fiuba.algo3.algoFormers.modelo.personajes.manejadores;
 
+import fiuba.algo3.algoFormers.modelo.direcciones.Direccion;
 import fiuba.algo3.algoFormers.modelo.excepciones.MovimientosAgotadosException;
 import fiuba.algo3.algoFormers.modelo.mapas.Mapa;
 import fiuba.algo3.algoFormers.modelo.personajes.AlgoFormer;
@@ -42,7 +43,7 @@ public class ManejadorDeMovimientos {
 		}
 		
 		this.restarMovimiento();
-		mapa.moverAlgoformerEnDireccion(algoformer,direccion);
+		mapa.moverUbicableEnDireccion(algoformer,direccion);
 	}
 	
 	//funcion que sirve para las pruebas

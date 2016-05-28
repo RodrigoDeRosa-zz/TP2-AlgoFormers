@@ -2,33 +2,37 @@ package fiuba.algo3.algoFormers.modelo.mapas;
 
 import java.util.HashMap;
 
+import fiuba.algo3.algoFormers.modelo.direcciones.Direccion;
 import fiuba.algo3.algoFormers.modelo.excepciones.CasilleroOcupadoException;
 import fiuba.algo3.algoFormers.modelo.interfaces.Ubicable;
+import fiuba.algo3.algoFormers.modelo.personajes.AlgoFormer;
 
 public class Mapa {
 	
 	private HashMap<Posicion, Casillero> tablero;
-	
 	//Tamanio por defecto del mapa
 	private int TAMANIO = 40;
 
 	
 	public Mapa(){
-		
 		tablero = new HashMap<Posicion, Casillero>();
 		this.llenarTablero(tablero);
-		
 	}
 
 	
 	public void ubicar(Ubicable ubicable, Posicion posicion) {
-		
 		Casillero casillero = tablero.get(posicion);
 		this.verificarCasilleroEstaVacio(casillero, posicion);
 		casillero.setUbicable(ubicable);
-		
 	}
 	
+	public void moverUbicableEnDireccion(Ubicable ubicable, Direccion direccion) {
+		// TODO Auto-generated method stub	
+	}
+
+	public void atacarPosicion(Ubicable ubicable, int poderAtaque, int distanciaAtaque, Posicion posicion) {
+		// TODO Auto-generated method stub	
+	}
 	
 	//Metodos privados.
 	
@@ -36,29 +40,22 @@ public class Mapa {
 		if (casillero.estaOcupado()){
 			throw new CasilleroOcupadoException("el casillero de la posicion (" + posicion.getX() + posicion.getY() + ") esta ocupado");
 		}
-		
 	}
 
-	private void llenarTablero(HashMap<Posicion, Casillero> tablero) {
-		
+	private void llenarTablero(HashMap<Posicion, Casillero> tablero) {	
 		for(int i = 0; i < TAMANIO; i++){
 			for(int j = 0; j < TAMANIO; j++){
 				tablero.put(new Posicion (i,j), new Casillero());
 			}
 		}
-		
 	}
-	
 	
 	
 	//Metodos para puebas
 	
-	
 	public Ubicable getUbicable(Posicion posicion) {
-		
 		Casillero casillero = tablero.get(posicion);
-		return casillero.getUbicable();
-		
+		return casillero.getUbicable();	
 	}
 
 	
