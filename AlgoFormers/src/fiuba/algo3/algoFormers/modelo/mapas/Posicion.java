@@ -1,5 +1,7 @@
 package fiuba.algo3.algoFormers.modelo.mapas;
 
+import fiuba.algo3.algoFormers.modelo.direcciones.Direccion;
+
 public class Posicion {
 
 	private int x;
@@ -10,7 +12,15 @@ public class Posicion {
 		x = i;
 		y = j;
 	}
+	
+	public Posicion sumarDireccion(Direccion direccion) {
+		//Devuelve una nueva posicion con la direccion sumada
+		return null;
+	}
 
+
+	//Metodos de comparacion.
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -19,9 +29,6 @@ public class Posicion {
 		result = prime * result + y;
 		return result;
 	}
-
-
-	//Metodos de comparacion.
 	
 	@Override
 	public boolean equals(Object obj) {
@@ -51,5 +58,4 @@ public class Posicion {
 	public int getY() {
 		return y;
 	}
-
 }

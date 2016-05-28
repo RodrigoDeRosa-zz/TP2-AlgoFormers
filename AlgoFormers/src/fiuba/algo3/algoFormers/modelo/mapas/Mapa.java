@@ -2,6 +2,7 @@ package fiuba.algo3.algoFormers.modelo.mapas;
 
 import java.util.HashMap;
 
+import fiuba.algo3.algoFormers.entrega1.UbicableNoPertenceAlMapaException;
 import fiuba.algo3.algoFormers.modelo.direcciones.Direccion;
 import fiuba.algo3.algoFormers.modelo.excepciones.CasilleroOcupadoException;
 import fiuba.algo3.algoFormers.modelo.interfaces.Ubicable;
@@ -27,11 +28,28 @@ public class Mapa {
 	}
 	
 	public void moverUbicableEnDireccion(Ubicable ubicable, Direccion direccion) {
-		// TODO Auto-generated method stub	
+		Posicion posicion = this.obtenerPosicion(ubicable);
+		Posicion nuevaPosicion = posicion.sumarDireccion(direccion);
+		Casillero casillero = tablero.get(posicion);
+		Casillero nuevoCasillero = tablero.get(nuevaPosicion);
+		this.verificarCasilleroEstaVacio(nuevoCasillero, nuevaPosicion);
+		
+		//Se borra la posicion vieja
+		casillero.desocuparUbicable();
+		
+		//Se agrega el ubicable a la nueva posicion
+		casillero.ocuparConUbicable(ubicable);
+		
+		
 	}
 
 	public void atacarPosicion(Ubicable ubicable, int poderAtaque, int distanciaAtaque, Posicion posicion) {
 		// TODO Auto-generated method stub	
+	}
+	
+	public Ubicable getUbicable(Posicion posicion) {
+		Casillero casillero = tablero.get(posicion);
+		return casillero.getUbicable();	
 	}
 	
 	//Metodos privados.
@@ -50,14 +68,19 @@ public class Mapa {
 		}
 	}
 	
+	private Posicion obtenerPosicion(Ubicable ubicable) {
+		for(int i = 0; i < TAMANIO; i++){
+			for(int j = 0; j < TAMANIO; j++){
+				Posicion posicion = new Posicion(i,j);
+				if(this.getUbicable(posicion).getClass() == ubicable.getClass()){
+					return posicion;
+				}
+			}
+		}
+		throw new UbicableNoPertenceAlMapaException("El ubicable no pertence al mapa");
+	}
 	
 	//Metodos para puebas
-	
-	public Ubicable getUbicable(Posicion posicion) {
-		Casillero casillero = tablero.get(posicion);
-		return casillero.getUbicable();	
-	}
-
 	
 	public int getTamanio() {
 		return TAMANIO;

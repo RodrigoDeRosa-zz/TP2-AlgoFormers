@@ -1,6 +1,6 @@
 package fiuba.algo3.algoFormers.modelo.personajes;
 
-import fiuba.algo3.algoFormers.modelo.direccion.Direccion;
+import fiuba.algo3.algoFormers.modelo.direcciones.Direccion;
 import fiuba.algo3.algoFormers.modelo.interfaces.Atacable;
 import fiuba.algo3.algoFormers.modelo.mapas.Mapa;
 import fiuba.algo3.algoFormers.modelo.mapas.Posicion;

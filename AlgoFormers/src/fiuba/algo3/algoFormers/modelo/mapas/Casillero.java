@@ -32,4 +32,14 @@ public class Casillero {
 		return ubicable;
 		
 	}
+
+	public void desocuparUbicable() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void ocuparConUbicable(Ubicable ubicable) {
+		// TODO Auto-generated method stub
+		
+	}
 }
