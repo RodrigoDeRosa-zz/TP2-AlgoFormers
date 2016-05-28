@@ -48,7 +48,7 @@ public class AlgoFormer {
 	}
 	
 	public void moverEnDireccion(Direccion direccion, Mapa mapa){
-		this.manDeMovimientos.moverEnDireccion(direccion,mapa);
+		this.manDeMovimientos.moverEnDireccion(this, direccion,mapa);
 	}
 	
 	public void inicializarTurno(){

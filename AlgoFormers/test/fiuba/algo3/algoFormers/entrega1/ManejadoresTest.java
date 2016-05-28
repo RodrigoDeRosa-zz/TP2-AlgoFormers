@@ -4,6 +4,7 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
+import fiuba.algo3.algoFormers.modelo.excepciones.MovimientosAgotadosException;
 import fiuba.algo3.algoFormers.modelo.fabricas.AutoBotFactory;
 import fiuba.algo3.algoFormers.modelo.personajes.AlgoFormer;
 import fiuba.algo3.algoFormers.modelo.personajes.manejadores.ManejadorDeAtaques;
@@ -38,6 +39,20 @@ public class ManejadoresTest {
 		assertTrue(manejador.getMovimientosRestantes() == movimientos-1);
 	}
 	
+	@Test(expected=MovimientosAgotadosException.class)
+	public void testVerifiarMovimientosRestantes(){
+		int movimientos =2;
+		ManejadorDeMovimientos manejador = new ManejadorDeMovimientos(movimientos);
+		AutoBotFactory factory = new AutoBotFactory();
+		AlgoFormer optimusPrime = factory.getOptimusPrime();
+		Mapa mapa = new Mapa();
+		DirDerecha direc = new DirDerecha();
+		
+		for(int x=0; x< movimientos+1; x++){
+			manejador.moverEnDireccion(optimusPrime,direc, mapa);
+		}
+	}	
+		
 	@Test 
 	public void testCrearManejadorAtaque(){
 		ManejadorDeAtaques manejador = new ManejadorDeAtaques();

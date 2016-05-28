@@ -23,6 +23,10 @@ public class ManejadorDeMovimientos {
 	}
 	
 	public void moverEnDireccion(AlgoFormer algoformer, Direccion direccion, Mapa mapa){
+		if(this.movimientosRestantes == NULO){
+			throw new MovimientosAgotadosException();
+		}
+		
 		this.restarMovimiento();
 		mapa.moverAlgoformerEnDireccion(algoformer,direccion);
 	}
