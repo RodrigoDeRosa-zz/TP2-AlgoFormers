@@ -9,7 +9,7 @@ public class ManejadorDeMovimientos {
 	private int movimientosRestantes; 
 	
 	public ManejadorDeMovimientos(int movimientos){
-		//Manejador de movimeintos que se inicializa con la distancia maxima
+		//Manejador de movimientos que se inicializa con la distancia maxima
 		//a la que se puede mover un algoformer.
 		this.setMovimientosRestantes(movimientos);
 	}
