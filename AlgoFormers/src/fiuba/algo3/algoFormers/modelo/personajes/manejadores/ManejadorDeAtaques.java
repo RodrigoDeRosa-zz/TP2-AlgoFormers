@@ -1,5 +1,6 @@
 package fiuba.algo3.algoFormers.modelo.personajes.manejadores;
 
+import fiuba.algo3.algoFormers.modelo.excepciones.AtaqueEspacioVacioException;
 import fiuba.algo3.algoFormers.modelo.mapas.Mapa;
 import fiuba.algo3.algoFormers.modelo.mapas.Posicion;
 import fiuba.algo3.algoFormers.modelo.personajes.AlgoFormer;
@@ -32,5 +33,5 @@ public class ManejadorDeAtaques {
 		 * la posicion a la que se ataca y el mapa.
 		 */
 		mapa.atacarPosicion(algoformer, this.poderAtaque, this.distanciaAtaque, posicion);
-	}
+	}	
 }
