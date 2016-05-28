@@ -20,7 +20,7 @@ public class EntregaUnoTest {
 		mapa.ubicar(optimus, posicion);
 		Direccion direccion = new DireccionArriba();
 		for (int i = 1; i <= optimus.getVelocidad(); i++){
-			optimus.moverEnDireccion(direccion);	
+			optimus.moverEnDireccion(direccion, mapa);	
 		}
 		assertEquals(optimus, mapa.getUbicable(new Posicion(1, 3)));
 		//El mapa le dice al casillero que devuelva el Ubicable que tiene guardado
