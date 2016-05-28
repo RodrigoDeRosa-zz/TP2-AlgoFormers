@@ -9,12 +9,11 @@ public class Decepticon extends AlgoFormer{
 		super(vida, alterno, velocidadH, ataqueH, distAtaqueH);
 	}
 	
-	public void recibirDaño(Decepticon decepticon){
+	public void recibirDaño(Decepticon decepticon, int poderAtaque){
 		throw new FuegoAmigoException();
 	}
 	
-	public void recibirDaño(AutoBot autobot){
-		// falta restarle la vida this.vida = ;
-		
+	public void recibirDaño(AutoBot autobot, int poderAtaque){
+		this.vida.descontarVida(poderAtaque);
 	}
 }

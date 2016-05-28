@@ -9,12 +9,12 @@ public class AutoBot extends AlgoFormer {
 		super(vida, alterno, velocidadH, ataqueH, distAtaqueH);
 	}
 	
-	public void recibirDaño(AutoBot autobot){
+	public void recibirDaño(AutoBot autobot, int poderAtaque){
 		throw new FuegoAmigoException();
 	}
 	
-	public void recibirDaño(Decepticon decepticon){
-		// falta restarle la vida this.vida = ;
+	public void recibirDaño(Decepticon decepticon, int poderAtaque){
+		this.vida.descontarVida(poderAtaque);
 		
 	}
 }

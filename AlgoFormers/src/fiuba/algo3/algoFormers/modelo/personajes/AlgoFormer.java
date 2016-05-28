@@ -1,6 +1,8 @@
 package fiuba.algo3.algoFormers.modelo.personajes;
 
 import fiuba.algo3.algoFormers.modelo.interfaces.Atacable;
+import fiuba.algo3.algoFormers.modelo.mapas.Mapa;
+import fiuba.algo3.algoFormers.modelo.mapas.Posicion;
 import fiuba.algo3.algoFormers.modelo.personajes.atributos.Ataque;
 import fiuba.algo3.algoFormers.modelo.personajes.atributos.Vida;
 import fiuba.algo3.algoFormers.modelo.personajes.estadosDeTransformacion.Alterno;
@@ -17,8 +19,8 @@ public abstract class AlgoFormer implements Atacable {
 	protected ManejadorDeMovimientos manDeMovimientos;
 	protected ManejadorDeAtaques manDeAtaques;
 	
-	public abstract void recibirDaño(AutoBot autobot);
-	public abstract void recibirDaño(Decepticon decepticon);
+	public abstract void recibirDaño(AutoBot autobot, int poderAtaque);
+	public abstract void recibirDaño(Decepticon decepticon, int poderAtaque);
 	
 	
 	public AlgoFormer(int vida, Alterno alterno, int velocidadH, int ataqueH, int distAtaqueH){
@@ -54,24 +56,28 @@ public abstract class AlgoFormer implements Atacable {
 	}
 	
 	public void moverEnDireccion(Direccion direccion, Mapa mapa){
+		/*Funcion para mover un algoformer. Recibe una direccion de movimiento
+		 * y el mapa. Esta delega su comportamiento en el manejador de movimiento.
+		 */
 		this.manDeMovimientos.moverEnDireccion(this, direccion,mapa);
 	}
 	
 	public void atacar(Posicion posicion, Mapa mapa){
+		/* Funcion delega su comportamiento en atacar de manejador de ataques.
+		 *Recibe como parametro una posicion a la cual atacar y el mapa.
+		 */
 		this.manDeAtaques.atacar(this,posicion,mapa);
 		
 	}
 	
 	public void inicializarTurno(){
-		//Funcion para setear los manejadores de un algoformer en el momento
-		//en el que el algoformer es seleccionado como el personaje de turno.
+		/*Funcion para setear los manejadores de un algoformer en el momento
+		en el que el algoformer es seleccionado como el personaje de turno.
+		*/
 		ManejadorDeMovimientos manejadorM=this.estadoDeTransformacionActual.crearManejadorMovimientos();
+		ManejadorDeAtaques manejadorA=this.estadoDeTransformacionActual.crearManejadorAtaque();
 		this.manDeMovimientos = manejadorM;
-		this.manDeAtaques = new ManejadorDeAtaques();
-	}
-	
-	public void finalizarTurno(){
-		this.manDeMovimientos.resetearMovimientos();
+		this.manDeAtaques = manejadorA;
 	}
 	
 	//Metodos para las pruebas. No se deberían llamar en otras clases.
