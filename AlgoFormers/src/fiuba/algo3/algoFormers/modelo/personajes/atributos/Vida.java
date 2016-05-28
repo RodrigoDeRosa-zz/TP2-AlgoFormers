@@ -1,8 +1,5 @@
 package fiuba.algo3.algoFormers.modelo.personajes.atributos;
 
-//HOLA
-//CHAU
-
 public class Vida {
 
 	private int vida;
