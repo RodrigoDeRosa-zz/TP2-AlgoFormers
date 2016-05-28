@@ -58,4 +58,12 @@ public class Posicion {
 	public int getY() {
 		return y;
 	}
+
+	public int obtenerDiferenciaY(Posicion posicionUbicable) {
+		return ((this.y + posicionUbicable.y)/2);
+	}
+	
+	public int obtenerDiferenciaX(Posicion posicionUbicable) {
+		return ((this.x + posicionUbicable.x)/2);
+	}
 }

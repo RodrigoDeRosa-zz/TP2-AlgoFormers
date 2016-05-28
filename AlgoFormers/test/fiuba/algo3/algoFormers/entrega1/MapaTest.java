@@ -14,9 +14,11 @@ import fiuba.algo3.algoFormers.modelo.mapas.Posicion;
 import fiuba.algo3.algoFormers.modelo.personajes.AutoBot;
 import fiuba.algo3.algoFormers.modelo.personajes.Decepticon;
 import fiuba.algo3.algoFormers.modelo.direcciones.DirAbajo;
+import fiuba.algo3.algoFormers.modelo.direcciones.DirAbajoDer;
 import fiuba.algo3.algoFormers.modelo.direcciones.DirArriba;
 import fiuba.algo3.algoFormers.modelo.direcciones.DirArribaDer;
 import fiuba.algo3.algoFormers.modelo.excepciones.CasilleroOcupadoException;
+import fiuba.algo3.algoFormers.modelo.excepciones.UbicableNoPertenceAlMapaException;
 
 
 public class MapaTest {
@@ -83,8 +85,8 @@ public class MapaTest {
 	public void testMoverAUnAutobotUnaVezExitosamente(){
 		Posicion posicion = new Posicion(2,8); 
 		mapa.ubicar(optimusPrime, posicion);
-		mapa.moverUbicableEnDireccion(optimusPrime, new DirArriba());
-		Posicion nuevaPosicion = new Posicion (2,9);
+		mapa.moverUbicableEnDireccion(optimusPrime, new DirAbajoDer());
+		Posicion nuevaPosicion = new Posicion (3,7);
 		
 		assertEquals(mapa.getUbicable(nuevaPosicion).getClass(), optimusPrime.getClass());
 		//En la posicion vieja no esta mas optimus
@@ -133,6 +135,6 @@ public class MapaTest {
 	@Test(expected = UbicableNoPertenceAlMapaException.class)
 	public void testMoverAUnDecepticonQueNoEstaUbicadoFalla(){
 		mapa.moverUbicableEnDireccion(megatron, new DirAbajo());
-	}	
+	}
 	
 }

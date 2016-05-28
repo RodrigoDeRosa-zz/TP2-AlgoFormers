@@ -1,4 +1,4 @@
-package fiuba.algo3.algoFormers.entrega1;
+package fiuba.algo3.algoFormers.modelo.excepciones;
 
 public class UbicableNoPertenceAlMapaException extends RuntimeException {
 

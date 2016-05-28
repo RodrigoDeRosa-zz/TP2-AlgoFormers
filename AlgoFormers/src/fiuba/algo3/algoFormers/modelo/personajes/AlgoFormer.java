@@ -2,6 +2,7 @@ package fiuba.algo3.algoFormers.modelo.personajes;
 
 import fiuba.algo3.algoFormers.modelo.direcciones.Direccion;
 import fiuba.algo3.algoFormers.modelo.interfaces.Atacable;
+import fiuba.algo3.algoFormers.modelo.interfaces.Ubicable;
 import fiuba.algo3.algoFormers.modelo.mapas.Mapa;
 import fiuba.algo3.algoFormers.modelo.mapas.Posicion;
 import fiuba.algo3.algoFormers.modelo.personajes.atributos.Ataque;
@@ -20,8 +21,7 @@ public abstract class AlgoFormer implements Atacable {
 	protected ManejadorDeMovimientos manDeMovimientos;
 	protected ManejadorDeAtaques manDeAtaques;
 	
-	public abstract void recibirDanio(AutoBot autobot, int poderAtaque);
-	public abstract void recibirDanio(Decepticon decepticon, int poderAtaque);
+	public abstract void recibirDanio(Ubicable ubicable, int poderAtaque);
 	
 	
 	public AlgoFormer(int vida, Alterno alterno, int velocidadH, int ataqueH, int distAtaqueH){
