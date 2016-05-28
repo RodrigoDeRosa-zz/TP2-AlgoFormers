@@ -8,38 +8,30 @@ public class Casillero {
 	private boolean ocupado;
 	
 	public Casillero(){
-		
+		ubicable = null;
 		ocupado = false;
-		
 	}
 	
 	public void setUbicable(Ubicable unUbicable){
-		
 		this.ubicable = unUbicable;
 		ocupado = true;
-		
-		
 	}
 
 	public boolean estaOcupado() {
-		
 		return ocupado;
-	
 	}
 
 	public Ubicable getUbicable() {
-		
 		return ubicable;
-		
 	}
 
 	public void desocuparUbicable() {
-		// TODO Auto-generated method stub
-		
+		ubicable = null;
+		ocupado = false;
 	}
 
 	public void ocuparConUbicable(Ubicable ubicable) {
-		// TODO Auto-generated method stub
-		
+		this.ubicable = ubicable;
+		ocupado = true;
 	}
 }

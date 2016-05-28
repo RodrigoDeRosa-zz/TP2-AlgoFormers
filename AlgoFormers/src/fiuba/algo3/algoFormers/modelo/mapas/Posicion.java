@@ -15,7 +15,7 @@ public class Posicion {
 	
 	public Posicion sumarDireccion(Direccion direccion) {
 		//Devuelve una nueva posicion con la direccion sumada
-		return null;
+		return (new Posicion(direccion.SumarX(x), direccion.SumarY(y)));
 	}
 
 

@@ -86,9 +86,9 @@ public class MapaTest {
 		mapa.moverUbicableEnDireccion(optimusPrime, new DirArriba());
 		Posicion nuevaPosicion = new Posicion (2,9);
 		
-		assertEquals(mapa.getUbicable(nuevaPosicion), optimusPrime);
+		assertEquals(mapa.getUbicable(nuevaPosicion).getClass(), optimusPrime.getClass());
 		//En la posicion vieja no esta mas optimus
-		assertThat(mapa.getUbicable(posicion), is(not(optimusPrime)));
+		assertNull(mapa.getUbicable(posicion));
 	}
 	
 	@Test
@@ -98,9 +98,9 @@ public class MapaTest {
 		mapa.moverUbicableEnDireccion(megatron, new DirArribaDer());
 		Posicion nuevaPosicion = new Posicion (3,9);
 		
-		assertEquals(mapa.getUbicable(nuevaPosicion), megatron);
+		assertEquals(mapa.getUbicable(nuevaPosicion).getClass(), megatron.getClass());
 		//En la posicion vieja no esta mas megatron
-		assertThat(mapa.getUbicable(posicion), is(not(megatron)));
+		assertNull(mapa.getUbicable(posicion));
 	}	
 	
 	@Test(expected = CasilleroOcupadoException.class)

@@ -34,13 +34,11 @@ public class Mapa {
 		Casillero nuevoCasillero = tablero.get(nuevaPosicion);
 		this.verificarCasilleroEstaVacio(nuevoCasillero, nuevaPosicion);
 		
+		//Se agrega el ubicable a la nueva posicion
+		nuevoCasillero.ocuparConUbicable(ubicable);
+		
 		//Se borra la posicion vieja
 		casillero.desocuparUbicable();
-		
-		//Se agrega el ubicable a la nueva posicion
-		casillero.ocuparConUbicable(ubicable);
-		
-		
 	}
 
 	public void atacarPosicion(Ubicable ubicable, int poderAtaque, int distanciaAtaque, Posicion posicion) {
@@ -72,7 +70,8 @@ public class Mapa {
 		for(int i = 0; i < TAMANIO; i++){
 			for(int j = 0; j < TAMANIO; j++){
 				Posicion posicion = new Posicion(i,j);
-				if(this.getUbicable(posicion).getClass() == ubicable.getClass()){
+				Ubicable ubicableActual = this.getUbicable(posicion);
+				if((ubicableActual != null) && (ubicableActual.getClass() == ubicable.getClass())){
 					return posicion;
 				}
 			}
