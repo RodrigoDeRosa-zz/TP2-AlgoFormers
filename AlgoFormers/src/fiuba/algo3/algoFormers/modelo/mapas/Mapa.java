@@ -2,11 +2,12 @@ package fiuba.algo3.algoFormers.modelo.mapas;
 
 import java.util.HashMap;
 
-import fiuba.algo3.algoFormers.entrega1.UbicableNoPertenceAlMapaException;
 import fiuba.algo3.algoFormers.modelo.direcciones.Direccion;
+import fiuba.algo3.algoFormers.modelo.excepciones.AtaqueFueraDeRangoException;
 import fiuba.algo3.algoFormers.modelo.excepciones.CasilleroOcupadoException;
+import fiuba.algo3.algoFormers.modelo.excepciones.UbicableNoPertenceAlMapaException;
+import fiuba.algo3.algoFormers.modelo.interfaces.Atacable;
 import fiuba.algo3.algoFormers.modelo.interfaces.Ubicable;
-import fiuba.algo3.algoFormers.modelo.personajes.AlgoFormer;
 
 public class Mapa {
 	
@@ -41,16 +42,32 @@ public class Mapa {
 		casillero.desocuparUbicable();
 	}
 
-	public void atacarPosicion(Ubicable ubicable, int poderAtaque, int distanciaAtaque, Posicion posicion) {
-		// TODO Auto-generated method stub	
+	public void atacarPosicion(Ubicable ubicable, int poderAtaque, int distanciaAtaque, Posicion posicionAtacable) {
+		//verificaciones
+		Posicion posicionUbicable = this.obtenerPosicion(ubicable);
+		this.verificarDistancia(posicionUbicable, posicionAtacable, distanciaAtaque);
+		Casillero casilleroAtacable = tablero.get(posicionAtacable);
+		this.verificarCasilleroEstaVacio(casilleroAtacable, posicionAtacable);
+		
+		Atacable otroUbicable = (Atacable) casilleroAtacable.getUbicable();
+		otroUbicable.recibirDanio(ubicable, poderAtaque);
 	}
-	
+
 	public Ubicable getUbicable(Posicion posicion) {
 		Casillero casillero = tablero.get(posicion);
 		return casillero.getUbicable();	
 	}
 	
 	//Metodos privados.
+	
+	private void verificarDistancia(Posicion posicionUbicable, Posicion posicionAtacable,int distanciaAtaque) {
+		int diferenciaX = posicionUbicable.obtenerDiferenciaX(posicionUbicable);
+		int diferenciaY = posicionUbicable.obtenerDiferenciaY(posicionUbicable);
+		if (diferenciaX > distanciaAtaque || diferenciaY > distanciaAtaque){
+			throw new AtaqueFueraDeRangoException();
+		};
+		
+	}
 	
 	private void verificarCasilleroEstaVacio(Casillero casillero, Posicion posicion) {
 		if (casillero.estaOcupado()){
