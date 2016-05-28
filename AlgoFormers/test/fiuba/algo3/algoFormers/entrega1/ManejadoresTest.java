@@ -59,6 +59,8 @@ public class ManejadoresTest {
 		int movimientos = optimusPrime.getVelocidad();
 		ManejadorDeMovimientos manejador = new ManejadorDeMovimientos(movimientos);
 		Mapa mapa = new Mapa();
+		Posicion posicionOptimus = new Posicion(1, 1);
+		mapa.ubicar(optimusPrime, posicionOptimus);
 		DirDerecha direc = new DirDerecha();
 		
 		for(int x=0; x< movimientos+1; x++){
@@ -68,7 +70,9 @@ public class ManejadoresTest {
 		
 	@Test 
 	public void testCrearManejadorAtaque(){
-		ManejadorDeAtaques manejador = new ManejadorDeAtaques();
+		int poder = 5;
+		int distancia= 6;
+		ManejadorDeAtaques manejador = new ManejadorDeAtaques(poder,distancia);
 		assertNotNull(manejador);
 	}
 	
