@@ -24,7 +24,7 @@ public class ManejadorDeMovimientos {
 	
 	public void moverEnDireccion(AlgoFormer algoformer, Direccion direccion, Mapa mapa){
 		this.restarMovimiento();
-		mapa.moverJugadorEnDireccion(algoformer,direccion);
+		mapa.moverAlgoformerEnDireccion(algoformer,direccion);
 	}
 	
 	//funcion que sirve para las pruebas
