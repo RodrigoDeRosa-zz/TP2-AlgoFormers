@@ -23,11 +23,11 @@ public class Posicion {
 	
 	@Override
 	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + x;
-		result = prime * result + y;
-		return result;
+		final int numeroSemilla = 31;
+		int resultado = 1;
+		resultado = numeroSemilla * resultado + x;
+		resultado = numeroSemilla * resultado + y;
+		return resultado;
 	}
 	
 	@Override

@@ -3,6 +3,7 @@ package fiuba.algo3.algoFormers.entrega1;
 import static org.junit.Assert.*;
 import org.junit.Test;
 
+import fiuba.algo3.algoFormers.modelo.direcciones.Direccion;
 import fiuba.algo3.algoFormers.modelo.fabricas.AutoBotFactory;
 import fiuba.algo3.algoFormers.modelo.fabricas.DecepticonFactory;
 import fiuba.algo3.algoFormers.modelo.juego.Juego;

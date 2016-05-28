@@ -59,17 +59,17 @@ public class Mapa {
 	}
 
 	private void llenarTablero(HashMap<Posicion, Casillero> tablero) {	
-		for(int i = 0; i < TAMANIO; i++){
-			for(int j = 0; j < TAMANIO; j++){
-				tablero.put(new Posicion (i,j), new Casillero());
+		for(int fila = 0; fila < TAMANIO; fila++){
+			for(int columna = 0; columna < TAMANIO; columna++){
+				tablero.put(new Posicion (fila,columna), new Casillero());
 			}
 		}
 	}
 	
 	private Posicion obtenerPosicion(Ubicable ubicable) {
-		for(int i = 0; i < TAMANIO; i++){
-			for(int j = 0; j < TAMANIO; j++){
-				Posicion posicion = new Posicion(i,j);
+		for(int fila = 0; fila < TAMANIO; fila++){
+			for(int columna = 0; columna < TAMANIO; columna++){
+				Posicion posicion = new Posicion(fila,columna);
 				Ubicable ubicableActual = this.getUbicable(posicion);
 				if((ubicableActual != null) && (ubicableActual.getClass() == ubicable.getClass())){
 					return posicion;
