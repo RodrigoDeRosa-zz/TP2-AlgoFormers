@@ -32,9 +32,20 @@ public class Mapa {
 		
 	}
 
+	
+	//Metodos para puebas
+	
 	public Object getUbicable(Posicion posicion) {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	public int getTamanio() {
+		return TAMANIO;
+	}
+
+	public Casillero getCasillero(Posicion posicion) {
+		return tablero.get(posicion); 
 	}
 
 }

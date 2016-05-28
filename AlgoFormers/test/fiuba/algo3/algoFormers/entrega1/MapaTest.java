@@ -30,7 +30,7 @@ public class MapaTest {
 		int tamanio = mapa.getTamanio();
 		for(int i = 0; i < tamanio; i++){
 			for(int j = 0; j < tamanio; j++){
-				assertTrue(mapa.getCasillero(new Posicion(i,j)).class, Casillero);
+				assertEquals(mapa.getCasillero(new Posicion(i,j)).getClass(), Casillero.class);
 			}
 		}
 		
