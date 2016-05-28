@@ -4,18 +4,18 @@ import fiuba.algo3.algoFormers.modelo.direcciones.Direccion;
 
 public class Posicion {
 
-	private int x;
-	private int y;
+	private int numeroFila;
+	private int numeroColumna;
 
 
-	public Posicion(int i, int j) {
-		x = i;
-		y = j;
+	public Posicion(int fila, int columna) {
+		numeroFila = fila;
+		numeroColumna = columna;
 	}
 	
 	public Posicion sumarDireccion(Direccion direccion) {
 		//Devuelve una nueva posicion con la direccion sumada
-		return (new Posicion(direccion.SumarX(x), direccion.SumarY(y)));
+		return (new Posicion(direccion.SumarX(numeroFila), direccion.SumarY(numeroColumna)));
 	}
 
 
@@ -25,8 +25,8 @@ public class Posicion {
 	public int hashCode() {
 		final int numeroSemilla = 31;
 		int resultado = 1;
-		resultado = numeroSemilla * resultado + x;
-		resultado = numeroSemilla * resultado + y;
+		resultado = numeroSemilla * resultado + numeroFila;
+		resultado = numeroSemilla * resultado + numeroColumna;
 		return resultado;
 	}
 	
@@ -39,9 +39,9 @@ public class Posicion {
 		if (getClass() != obj.getClass())
 			return false;
 		Posicion other = (Posicion) obj;
-		if (x != other.x)
+		if (numeroFila != other.numeroFila)
 			return false;
-		if (y != other.y)
+		if (numeroColumna != other.numeroColumna)
 			return false;
 		return true;
 	}
@@ -51,19 +51,19 @@ public class Posicion {
 	//Metodos para pruebas.
 
 	public int getX() {
-		return x;
+		return numeroFila;
 	}
 
 
 	public int getY() {
-		return y;
+		return numeroColumna;
 	}
 
 	public int obtenerDiferenciaY(Posicion posicionUbicable) {
-		return ((this.y + posicionUbicable.y)/2);
+		return ((this.numeroColumna + posicionUbicable.numeroColumna)/2);
 	}
 	
 	public int obtenerDiferenciaX(Posicion posicionUbicable) {
-		return ((this.x + posicionUbicable.x)/2);
+		return ((this.numeroFila + posicionUbicable.numeroFila)/2);
 	}
 }
