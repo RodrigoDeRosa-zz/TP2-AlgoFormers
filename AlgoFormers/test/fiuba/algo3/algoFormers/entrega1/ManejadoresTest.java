@@ -28,10 +28,11 @@ public class ManejadoresTest {
 	
 	@Test 
 	public void testVerifiarMovimientosRestantesConMovimiento(){
-		int movimientos =5;
-		ManejadorDeMovimientos manejador = new ManejadorDeMovimientos(movimientos);
+		
 		AutoBotFactory factory = new AutoBotFactory();
 		AlgoFormer optimusPrime = factory.getOptimusPrime();
+		int movimientos = optimusPrime.getVelocidad();
+		ManejadorDeMovimientos manejador = new ManejadorDeMovimientos(movimientos);
 		Mapa mapa = new Mapa();
 		DirDerecha direc = new DirDerecha();
 		assertTrue(manejador.getMovimientosRestantes() == movimientos);
@@ -41,10 +42,11 @@ public class ManejadoresTest {
 	
 	@Test(expected=MovimientosAgotadosException.class)
 	public void testVerifiarMovimientosRestantes(){
-		int movimientos =2;
-		ManejadorDeMovimientos manejador = new ManejadorDeMovimientos(movimientos);
+
 		AutoBotFactory factory = new AutoBotFactory();
 		AlgoFormer optimusPrime = factory.getOptimusPrime();
+		int movimientos = optimusPrime.getVelocidad();
+		ManejadorDeMovimientos manejador = new ManejadorDeMovimientos(movimientos);
 		Mapa mapa = new Mapa();
 		DirDerecha direc = new DirDerecha();
 		
@@ -58,6 +60,6 @@ public class ManejadoresTest {
 		ManejadorDeAtaques manejador = new ManejadorDeAtaques();
 		assertNotNull(manejador);
 	}
-
+	
 }
 
