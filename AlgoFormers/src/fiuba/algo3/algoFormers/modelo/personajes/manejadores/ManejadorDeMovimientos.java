@@ -1,5 +1,6 @@
 package fiuba.algo3.algoFormers.modelo.personajes.manejadores;
 
+import fiuba.algo3.algoFormers.modelo.excepciones.MovimientosAgotadosException;
 import fiuba.algo3.algoFormers.modelo.personajes.AlgoFormer;
 
 public class ManejadorDeMovimientos {

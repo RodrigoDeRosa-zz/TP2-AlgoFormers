@@ -21,6 +21,10 @@ public class EstadoDeTransformacion {
 		this.ataque = new Ataque(ataque, distAtaque);
 	}
 	
+	public Ataque obtenerAtaque(){
+		return this.ataque;
+	}
+	
 	//Metodos para las pruebas. No se deberian usar.
 	public int getVelocidad(){
 		return this.velocidad.getVelocidad();

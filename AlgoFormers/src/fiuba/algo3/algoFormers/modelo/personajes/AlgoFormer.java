@@ -1,5 +1,7 @@
 package fiuba.algo3.algoFormers.modelo.personajes;
 
+import fiuba.algo3.algoFormers.modelo.interfaces.Atacable;
+import fiuba.algo3.algoFormers.modelo.personajes.atributos.Ataque;
 import fiuba.algo3.algoFormers.modelo.personajes.atributos.Vida;
 import fiuba.algo3.algoFormers.modelo.personajes.estadosDeTransformacion.Alterno;
 import fiuba.algo3.algoFormers.modelo.personajes.estadosDeTransformacion.EstadoDeTransformacion;
@@ -7,13 +9,17 @@ import fiuba.algo3.algoFormers.modelo.personajes.estadosDeTransformacion.Humanoi
 import fiuba.algo3.algoFormers.modelo.personajes.manejadores.ManejadorDeAtaques;
 import fiuba.algo3.algoFormers.modelo.personajes.manejadores.ManejadorDeMovimientos;
 
-public class AlgoFormer {
+public abstract class AlgoFormer implements Atacable {
 
 	protected Vida vida;
 	protected EstadoDeTransformacion estadoDeTransformacionActual;
 	protected EstadoDeTransformacion estadoDeTransformacionOpuesto;
 	protected ManejadorDeMovimientos manDeMovimientos;
 	protected ManejadorDeAtaques manDeAtaques;
+	
+	public abstract void recibirDaño(AutoBot autobot);
+	public abstract void recibirDaño(Decepticon decepticon);
+	
 	
 	public AlgoFormer(int vida, Alterno alterno, int velocidadH, int ataqueH, int distAtaqueH){
 		this.setVida(vida);
@@ -51,10 +57,15 @@ public class AlgoFormer {
 		this.manDeMovimientos.moverEnDireccion(this, direccion,mapa);
 	}
 	
-	public void inicializarTurno(){
+	public void atacar(Posicion posicion, Mapa mapa){
+		this.manDeAtaques.atacar(this,posicion,mapa);
+		
+	}
+	
+	//falta ver como la velocidad llega hasta ahi
+	public void inicializarTurno(int movimientos){
 		//Funcion para setear los manejadores de un algoformer en el momento
 		//en el que el algoformer es seleccionado como el personaje de turno.
-		int movimientos = this.estadoDeTransformacionActual.getVelocidad();
 		this.manDeMovimientos = new ManejadorDeMovimientos(movimientos);
 		this.manDeAtaques = new ManejadorDeAtaques();
 	}
@@ -84,4 +95,5 @@ public class AlgoFormer {
 	public int getDistanciaDeAtaque(){
 		return this.estadoDeTransformacionActual.getDistanciaDeAtaque();
 	}
+
 }

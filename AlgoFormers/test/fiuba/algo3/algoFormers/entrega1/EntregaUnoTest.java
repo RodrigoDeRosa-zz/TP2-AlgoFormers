@@ -113,7 +113,7 @@ public class EntregaUnoTest {
 		Posicion posicionOptimus = new Posicion(1, 1);
 		mapa.ubicar(optimus, posicionOptimus);
 		
-		optimus.atacar(new Posicion(1, 6));
+		optimus.atacar(new Posicion(1, 6),mapa);
 		//Falta cuando se ataca una posicion en rango pero sin AlgoFormer(AtaqueAEspacioVacioException)
 		//Falta cuando se ataca una posicion en rango con un aliado(FuegoAmigoException)
 	}
