@@ -52,6 +52,8 @@ public class AlgoFormer {
 	}
 	
 	public void inicializarTurno(){
+		//Funcion para setear los manejadores de un algoformer en el momento
+		//en el que el algoformer es seleccionado como el personaje de turno.
 		int movimientos = this.estadoDeTransformacionActual.getVelocidad();
 		this.manDeMovimientos = new ManejadorDeMovimientos(movimientos);
 		this.manDeAtaques = new ManejadorDeAtaques();
