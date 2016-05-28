@@ -5,35 +5,73 @@ import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 
+import fiuba.algo3.algoFormers.modelo.fabricas.AutoBotFactory;
+import fiuba.algo3.algoFormers.modelo.fabricas.DecepticonFactory;
 import fiuba.algo3.algoFormers.modelo.mapas.Casillero;
 import fiuba.algo3.algoFormers.modelo.mapas.Mapa;
 import fiuba.algo3.algoFormers.modelo.mapas.Posicion;
+import fiuba.algo3.algoFormers.modelo.personajes.AutoBot;
+import fiuba.algo3.algoFormers.modelo.personajes.Decepticon;
+import fiuba.algo3.algoFormers.modelo.excepciones.CasilleroOcupadoException;
 
 public class MapaTest {
 
+	private Mapa mapa;
+	private Decepticon megatron;
+	private AutoBot optimusPrime;
+	private Posicion posicion1;
+	private AutoBot bumblebee;
+	private Decepticon frenzy;
+
 	@Before
-	public void setUp() throws Exception {
+	public void setUp(){
+		AutoBotFactory factoryA = new AutoBotFactory();
+		optimusPrime = factoryA.getOptimusPrime();
+		bumblebee = factoryA.getBumblebee();
+		DecepticonFactory factoryD = new DecepticonFactory();
+		megatron = factoryD.getMegatron();
+		frenzy = factoryD.getFrenzy();
+		mapa = new Mapa();
+		posicion1 = new Posicion(3,4); 
 	}
 
 	@Test
 	public void testCrearUnMapa() {
-		
-		Mapa mapa = new Mapa();
 		assertNotNull(mapa);
-		
 	}
 	
 	@Test
 	public void testCrearUnMapaDeTamanioCorrectoLlenoDeCasilleros() {
-		
-		Mapa mapa = new Mapa();
 		int tamanio = mapa.getTamanio();
 		for(int i = 0; i < tamanio; i++){
 			for(int j = 0; j < tamanio; j++){
 				assertEquals(mapa.getCasillero(new Posicion(i,j)).getClass(), Casillero.class);
 			}
 		}
-		
 	}
+	
+	@Test
+	public void testUbicarExitosamenteAUnAutobot(){
+		mapa.ubicar(optimusPrime, posicion1);
+		assertEquals(mapa.getUbicable(posicion1), optimusPrime);
+	}
+	
+	@Test
+	public void testUbicarExitosamenteAUnDecepticon(){
+		mapa.ubicar(megatron, posicion1);
+		assertEquals(mapa.getUbicable(posicion1), megatron);
+	}
+	
+	@Test(expected = CasilleroOcupadoException.class)
+	public void testFallaUbicarAUnAutobot(){
+		mapa.ubicar(optimusPrime, posicion1);
+		mapa.ubicar(bumblebee, posicion1);
+	}
+	
+	@Test(expected = CasilleroOcupadoException.class)
+	public void testFallaUbicarAUnDecepticon(){
+		mapa.ubicar(megatron, posicion1);
+		mapa.ubicar(frenzy, posicion1);
+	}	
 
 }

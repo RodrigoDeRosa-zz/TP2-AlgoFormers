@@ -19,8 +19,8 @@ public abstract class AlgoFormer implements Atacable {
 	protected ManejadorDeMovimientos manDeMovimientos;
 	protected ManejadorDeAtaques manDeAtaques;
 	
-	public abstract void recibirDaño(AutoBot autobot, int poderAtaque);
-	public abstract void recibirDaño(Decepticon decepticon, int poderAtaque);
+	public abstract void recibirDanio(AutoBot autobot, int poderAtaque);
+	public abstract void recibirDanio(Decepticon decepticon, int poderAtaque);
 	
 	
 	public AlgoFormer(int vida, Alterno alterno, int velocidadH, int ataqueH, int distAtaqueH){
@@ -80,7 +80,7 @@ public abstract class AlgoFormer implements Atacable {
 		this.manDeAtaques = manejadorA;
 	}
 	
-	//Metodos para las pruebas. No se deberían llamar en otras clases.
+	//Metodos para las pruebas. No se deberian llamar en otras clases.
 	public int getVida(){
 		return this.vida.getVida();
 	}

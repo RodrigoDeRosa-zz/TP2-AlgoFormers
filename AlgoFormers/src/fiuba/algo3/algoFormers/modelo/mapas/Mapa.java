@@ -8,9 +8,11 @@ import fiuba.algo3.algoFormers.modelo.interfaces.Ubicable;
 public class Mapa {
 	
 	private HashMap<Posicion, Casillero> tablero;
+	
 	//Tamanio por defecto del mapa
 	private int TAMANIO = 40;
 
+	
 	public Mapa(){
 		
 		tablero = new HashMap<Posicion, Casillero>();
@@ -18,6 +20,7 @@ public class Mapa {
 		
 	}
 
+	
 	public void ubicar(Ubicable ubicable, Posicion posicion) {
 		
 		Casillero casillero = tablero.get(posicion);
@@ -47,7 +50,9 @@ public class Mapa {
 	}
 	
 	
+	
 	//Metodos para puebas
+	
 	
 	public Ubicable getUbicable(Posicion posicion) {
 		
@@ -56,10 +61,12 @@ public class Mapa {
 		
 	}
 
+	
 	public int getTamanio() {
 		return TAMANIO;
 	}
 
+	
 	public Casillero getCasillero(Posicion posicion) {
 		return tablero.get(posicion); 
 	}
