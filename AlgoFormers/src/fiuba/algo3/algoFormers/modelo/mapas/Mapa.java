@@ -10,6 +10,7 @@ import fiuba.algo3.algoFormers.modelo.excepciones.MovimientosAgotadosException;
 import fiuba.algo3.algoFormers.modelo.excepciones.UbicableNoPertenceAlMapaException;
 import fiuba.algo3.algoFormers.modelo.interfaces.Atacable;
 import fiuba.algo3.algoFormers.modelo.interfaces.Ubicable;
+import fiuba.algo3.algoFormers.modelo.personajes.AlgoFormer;
 
 public class Mapa {
 	
@@ -44,7 +45,7 @@ public class Mapa {
 		casillero.desocuparUbicable();
 	}
 
-	public void atacarPosicion(Ubicable ubicable, int poderAtaque, int distanciaAtaque, Posicion posicionAtacable) {
+	public void atacarPosicion(Ubicable ubicable, int distanciaAtaque, int poderAtaque, Posicion posicionAtacable) {
 		//verificaciones
 		Posicion posicionUbicable = this.obtenerPosicion(ubicable);
 		this.verificarDistancia(posicionUbicable, posicionAtacable, distanciaAtaque);
@@ -52,7 +53,7 @@ public class Mapa {
 		this.verificarCasilleroNoEstaVacio(casilleroAtacable, posicionAtacable);
 		
 		Atacable otroUbicable = (Atacable) casilleroAtacable.getUbicable();
-		otroUbicable.recibirDanio(ubicable, poderAtaque);
+		otroUbicable.atacarEnemigo((AlgoFormer) otroUbicable, poderAtaque);
 	}
 
 	public Ubicable getUbicable(Posicion posicion) {
