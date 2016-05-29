@@ -1,7 +1,7 @@
 package fiuba.algo3.algoFormers.modelo.personajes;
 
 import fiuba.algo3.algoFormers.modelo.excepciones.FuegoAmigoException;
-import fiuba.algo3.algoFormers.modelo.interfaces.Ubicable;
+import fiuba.algo3.algoFormers.modelo.interfaces.Atacable;
 import fiuba.algo3.algoFormers.modelo.personajes.estadosDeTransformacion.Alterno;
 
 public class Decepticon extends AlgoFormer{
@@ -10,12 +10,26 @@ public class Decepticon extends AlgoFormer{
 		super(vida, alterno, velocidadH, ataqueH, distAtaqueH);
 	}
 	
-	public void recibirDanio(Ubicable ubicable, int poderAtaque){
+	@Override
+	public void recibirDanio(AutoBot autobot) {
 		
-		if(ubicable.getClass() == this.getClass()){
-			throw new FuegoAmigoException();
-		}
-		this.vida.descontarVida(poderAtaque);
+		this.vida.descontarVida(autobot.getAtaque());
+				
+		
+	}
+
+	@Override
+	public void recibirDanio(Decepticon decepticon) {
+		
+		throw new FuegoAmigoException();
+		
+	}
+
+	@Override
+	public void atacar(Atacable atacable) {
+		
+		atacable.recibirDanio(this);
+		
 	}
 
 }

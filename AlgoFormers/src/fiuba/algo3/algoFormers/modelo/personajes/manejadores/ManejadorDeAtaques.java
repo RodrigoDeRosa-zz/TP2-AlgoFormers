@@ -2,6 +2,10 @@ package fiuba.algo3.algoFormers.modelo.personajes.manejadores;
 
 import fiuba.algo3.algoFormers.modelo.excepciones.AtaqueEspacioVacioException;
 import fiuba.algo3.algoFormers.modelo.excepciones.AtaqueFueraDeRangoException;
+import fiuba.algo3.algoFormers.modelo.excepciones.AtaqueInvalidoException;
+import fiuba.algo3.algoFormers.modelo.excepciones.FuegoAmigoException;
+import fiuba.algo3.algoFormers.modelo.excepciones.NoEsAtacableException;
+import fiuba.algo3.algoFormers.modelo.interfaces.Atacable;
 import fiuba.algo3.algoFormers.modelo.interfaces.Ubicable;
 import fiuba.algo3.algoFormers.modelo.mapas.Mapa;
 import fiuba.algo3.algoFormers.modelo.mapas.Posicion;
@@ -11,7 +15,7 @@ import fiuba.algo3.algoFormers.modelo.personajes.atributos.Ataque;
 public class ManejadorDeAtaques {
 	
 	private AlgoFormer atacante;
-	private Posicion destino;
+	private Atacable destino;
 	private int distanciaPretendida;
 	
 
@@ -26,13 +30,13 @@ public class ManejadorDeAtaques {
 		distanciaPretendida = calcularDistancia(algoformer.getPosicion(), posicion);
 		
 		atacante = algoformer;
-		destino = posicion;
+		destino = mapa.getAtacable(posicion);
 
 		
 		
 	}
 		
-	public void realizarAtaque() throws AtaqueFueraDeRangoException {
+	public void realizarAtaque() throws AtaqueFueraDeRangoException, AtaqueInvalidoException, FuegoAmigoException{
 		/*Funcion atacar del manejador de ataques. esta funcion le pide al mapa
 		 * que ataca a una posicion. recibe el algoformer que esta atacando por parametro
 		 * la posicion a la que se ataca y el mapa.
@@ -42,7 +46,23 @@ public class ManejadorDeAtaques {
 			throw new AtaqueFueraDeRangoException();
 		}
 		
+		if ( destino == null ) {
+			
+			throw new AtaqueInvalidoException();
+		}
 		
+		try {
+			
+			destino.recibirDanio(atacante);
+			
+		}
+		
+			
+		catch (FuegoAmigoException e) {
+			
+			throw e;
+		}
+				
 		
 	}
 	

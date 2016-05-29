@@ -22,7 +22,6 @@ public abstract class AlgoFormer implements Atacable {
 	protected ManejadorDeAtaques manDeAtaques;
 	protected Posicion posicionActual;
 	
-	public abstract void recibirDanio(Ubicable ubicable, int poderAtaque);
 	
 	
 	public AlgoFormer(int vida, Alterno alterno, int velocidadH, int ataqueH, int distAtaqueH){
