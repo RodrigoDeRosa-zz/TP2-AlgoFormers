@@ -17,6 +17,7 @@ public class Decepticon extends AlgoFormer{
 	public void recibirDanio(AutoBot autobot, int poderAtaque){
 		this.vida.descontarVida(poderAtaque);
 	}
+	
 	public void atacarEnemigo(AlgoFormer algoformerEnemigo, int poderAtaque){
 		algoformerEnemigo.recibirDanio(this,poderAtaque);
 	}
