@@ -5,8 +5,15 @@ import fiuba.algo3.algoFormers.modelo.personajes.Decepticon;
 import fiuba.algo3.algoFormers.modelo.personajes.estadosDeTransformacion.Alterno;
 import fiuba.algo3.algoFormers.modelo.personajes.estadosDeTransformacion.AlternoAereo;
 import fiuba.algo3.algoFormers.modelo.personajes.estadosDeTransformacion.AlternoTerrestre;
-
+/**
+ * Clase AlgoformerFactory, se utiliza para crear los distintos algoformers que pueden ser utilizados
+ * como personajes en el juego. Contiene todos los datos necesarios para crearlos, y metodos para
+ * devolverlos.
+ */
 public class AlgoformerFactory {
+	
+	private String NOMBRE_OPTIMUS = "OPTIMUS", NOMBRE_BUMBLEBEE = "BUMBLEBEE", NOMBRE_RATCHET = "RATCHET",
+			NOMBRE_MEGATRON = "MEGATRON", NOMBRE_FRENZY = "FRENZY", NOMBRE_BONECRUSHER = "BONECRUSHER";
 	
 	//Constantes de Vida
 	private int VIDA_OPTIMUS = 500;
@@ -60,42 +67,42 @@ public class AlgoformerFactory {
 	private int DIST_ATAQUE_HUM_BONECRUSHER = 3;
 	private int DIST_ATAQUE_ALT_BONECRUSHER = 3;
 	
-	private Decepticon crearDecepticon(int vida, Alterno alterno, int velocidadH, int ataqueH, int distAtaqueH){
-		return new Decepticon(vida, alterno, velocidadH, ataqueH, distAtaqueH);
+	private Decepticon crearDecepticon(String nombre, int vida, Alterno alterno, int velocidadH, int ataqueH, int distAtaqueH){
+		return new Decepticon(nombre, vida, alterno, velocidadH, ataqueH, distAtaqueH);
 	}
 	
-	private AutoBot crearAutoBot(int vida, Alterno alterno, int velocidadH, int ataqueH, int distAtaqueH){
-		return new AutoBot(vida, alterno, velocidadH, ataqueH, distAtaqueH);
+	private AutoBot crearAutoBot(String nombre, int vida, Alterno alterno, int velocidadH, int ataqueH, int distAtaqueH){
+		return new AutoBot(nombre, vida, alterno, velocidadH, ataqueH, distAtaqueH);
 	}
 	
 	public Decepticon getMegatron(){
 		Alterno jetCibertroniano = new AlternoAereo(VELOCIDAD_ALT_MEGATRON, ATAQUE_ALT_MEGATRON, DIST_ATAQUE_ALT_MEGATRON);
-		return this.crearDecepticon(VIDA_MEGATRON, jetCibertroniano, VELOCIDAD_HUM_MEGATRON, ATAQUE_HUM_MEGATRON, DIST_ATAQUE_HUM_MEGATRON);
+		return this.crearDecepticon(NOMBRE_MEGATRON, VIDA_MEGATRON, jetCibertroniano, VELOCIDAD_HUM_MEGATRON, ATAQUE_HUM_MEGATRON, DIST_ATAQUE_HUM_MEGATRON);
 	}
 	
 	public Decepticon getFrenzy(){
 		Alterno buffaloHMPCV = new AlternoTerrestre(VELOCIDAD_ALT_FRENZY, ATAQUE_ALT_FRENZY, DIST_ATAQUE_ALT_FRENZY);
-		return this.crearDecepticon(VIDA_FRENZY, buffaloHMPCV, VELOCIDAD_HUM_FRENZY, ATAQUE_HUM_FRENZY, DIST_ATAQUE_HUM_FRENZY);
+		return this.crearDecepticon(NOMBRE_FRENZY, VIDA_FRENZY, buffaloHMPCV, VELOCIDAD_HUM_FRENZY, ATAQUE_HUM_FRENZY, DIST_ATAQUE_HUM_FRENZY);
 	}
 	
 	public Decepticon getBonecrusher(){
 		Alterno duster = new AlternoTerrestre(VELOCIDAD_ALT_BONECRUSHER, ATAQUE_ALT_BONECRUSHER, DIST_ATAQUE_ALT_BONECRUSHER);
-		return this.crearDecepticon(VIDA_BONECRUSHER, duster, VELOCIDAD_HUM_BONECRUSHER, ATAQUE_HUM_BONECRUSHER, DIST_ATAQUE_HUM_BONECRUSHER);
+		return this.crearDecepticon(NOMBRE_BONECRUSHER, VIDA_BONECRUSHER, duster, VELOCIDAD_HUM_BONECRUSHER, ATAQUE_HUM_BONECRUSHER, DIST_ATAQUE_HUM_BONECRUSHER);
 	}
 	
 	public AutoBot getOptimusPrime(){
 		Alterno peterbilt379 = new AlternoTerrestre(VELOCIDAD_ALT_OPTIMUS, ATAQUE_ALT_OPTIMUS, DIST_ATAQUE_ALT_OPTIMUS);
-		return this.crearAutoBot(VIDA_OPTIMUS, peterbilt379, VELOCIDAD_HUM_OPTIMUS, ATAQUE_HUM_OPTIMUS, DIST_ATAQUE_HUM_OPTIMUS);
+		return this.crearAutoBot(NOMBRE_OPTIMUS, VIDA_OPTIMUS, peterbilt379, VELOCIDAD_HUM_OPTIMUS, ATAQUE_HUM_OPTIMUS, DIST_ATAQUE_HUM_OPTIMUS);
 	}
 	
 	public AutoBot getBumblebee(){
 		Alterno camaro = new AlternoTerrestre(VELOCIDAD_ALT_BUMBLEBEE, ATAQUE_ALT_BUMBLEBEE, DIST_ATAQUE_ALT_BUMBLEBEE);
-		return this.crearAutoBot(VIDA_BUMBLEBEE, camaro, VELOCIDAD_HUM_BUMBLEBEE, ATAQUE_HUM_BUMBLEBEE, DIST_ATAQUE_HUM_BUMBLEBEE);
+		return this.crearAutoBot(NOMBRE_BUMBLEBEE, VIDA_BUMBLEBEE, camaro, VELOCIDAD_HUM_BUMBLEBEE, ATAQUE_HUM_BUMBLEBEE, DIST_ATAQUE_HUM_BUMBLEBEE);
 	}
 	
 	public AutoBot getRatchet(){
 		Alterno f22raptor = new AlternoAereo(VELOCIDAD_ALT_RATCHET, ATAQUE_ALT_RATCHET, DIST_ATAQUE_ALT_RATCHET);
-		return this.crearAutoBot(VIDA_RATCHET, f22raptor, VELOCIDAD_HUM_RATCHET, ATAQUE_HUM_RATCHET, DIST_ATAQUE_HUM_RATCHET);
+		return this.crearAutoBot(NOMBRE_RATCHET, VIDA_RATCHET, f22raptor, VELOCIDAD_HUM_RATCHET, ATAQUE_HUM_RATCHET, DIST_ATAQUE_HUM_RATCHET);
 	}
 	
 }

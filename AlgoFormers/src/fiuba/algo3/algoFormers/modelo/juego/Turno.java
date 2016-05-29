@@ -13,10 +13,20 @@ public class Turno {
 		jugadorActual = jugador;
 		
 	}
-	
-	public void  setAlgoformerActual(AlgoFormer algoformer) {
+		
+	public void setAlgoformerActual(AlgoFormer algoformer) {
 		
 		algoformerActual = algoformer;
+	}
+	
+	public Jugador getJugadorActual() {
+		
+		return jugadorActual;
+	}
+	
+	public AlgoFormer getAlgoformerActual() {
+		
+		return algoformerActual;
 	}
 	
 	public void setAccion(Accion unaAccion) {
@@ -25,9 +35,9 @@ public class Turno {
 		
 	}
 	
-	public void realizarAccion(AlgoFormer algoformer) {
+	public void realizarAccion() {
 		
-		accionActual.ejecutar(algoformer);
+		accionActual.ejecutar();
 	}
 	
 }

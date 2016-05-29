@@ -1,5 +1,7 @@
 package fiuba.algo3.algoFormers.modelo.juego.acciones;
 
+import fiuba.algo3.algoFormers.modelo.excepciones.AtaqueFueraDeRangoException;
+import fiuba.algo3.algoFormers.modelo.excepciones.AtaqueInvalidoException;
 import fiuba.algo3.algoFormers.modelo.juego.Accion;
 import fiuba.algo3.algoFormers.modelo.mapas.Mapa;
 import fiuba.algo3.algoFormers.modelo.mapas.Posicion;
@@ -16,11 +18,15 @@ public class Atacar extends Accion {
 	}
 	
 	@Override
-	public void ejecutar(AlgoFormer algoformer) {
-		// int poder = optimus.getAtaque();
-		// int distancia = optimus.getDistanciaDeAtaque();
-		// ManejadorDeAtaques manejador = new ManejadorDeAtaques(mapa, atacante);
-		manejador.realizarAtaque();
+	public void ejecutar() {
+
+		try {
+			manejador.realizarAtaque();
+		} catch (AtaqueFueraDeRangoException e) {
+			throw e;
+		} catch (AtaqueInvalidoException e) {
+			throw e;
+		}
 	}
 
 }

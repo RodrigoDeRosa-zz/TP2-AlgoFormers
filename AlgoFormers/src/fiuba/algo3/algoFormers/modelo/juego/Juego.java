@@ -9,9 +9,6 @@ public class Juego {
 	private Jugador jugadorDecepticons;
 	private Turno turnoActual;
 	
-	
-
-	
 	public Juego() {
 		
 		mapa = new Mapa();
@@ -23,21 +20,27 @@ public class Juego {
 		jugadorDecepticons = new JugadorDecepticons();
 		jugadorDecepticons.inicializarEquipo();
 		jugadorDecepticons.ubicarPersonajes(mapa);
-		
-		
-		
+				
 	}
+	
 	public void Jugar() {
 		
 		while (true) {
 			
 			turnoActual = new Turno(jugadorAutobots);
 			turnoActual.realizarAccion(accion);
-		}
+		}		
 		
+	}	
+	
+	public Jugador getJugadorActual() {
 		
-		
+		return jugadorAutobots;
 	}
 	
+	public Mapa getMapa() {
+	
+		return mapa;
+	}	
 	
 }
