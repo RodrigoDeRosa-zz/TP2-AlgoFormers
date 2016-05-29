@@ -7,6 +7,10 @@ import fiuba.algo3.algoFormers.modelo.personajes.estadosDeTransformacion.Alterno
 
 public class AutoBotFactory {
 
+	//Nombres
+	private String NOMBRE_OPTIMUS = "Optimus Prime";
+	private String NOMBRE_BUMBLEBEE = "Bumblebee";
+	private String NOMBRE_RATCHET = "Ratchet";
 	//Constantes de Vida
 	private int VIDA_OPTIMUS = 500;
 	private int VIDA_BUMBLEBEE = 350;
@@ -39,25 +43,25 @@ public class AutoBotFactory {
 	
 	public AutoBot getOptimusPrime(){
 		Alterno peterbilt379 = new AlternoTerrestre(VELOCIDAD_ALT_OPTIMUS, ATAQUE_ALT_OPTIMUS, DIST_ATAQUE_ALT_OPTIMUS);
-		return this.crearAutoBot(VIDA_OPTIMUS, peterbilt379, VELOCIDAD_HUM_OPTIMUS, ATAQUE_HUM_OPTIMUS, DIST_ATAQUE_HUM_OPTIMUS);
+		return this.crearAutoBot(NOMBRE_OPTIMUS ,VIDA_OPTIMUS, peterbilt379, VELOCIDAD_HUM_OPTIMUS, ATAQUE_HUM_OPTIMUS, DIST_ATAQUE_HUM_OPTIMUS);
 	}
 	
 	public AutoBot getBumblebee(){
 		Alterno camaro = new AlternoTerrestre(VELOCIDAD_ALT_BUMBLEBEE, ATAQUE_ALT_BUMBLEBEE, DIST_ATAQUE_ALT_BUMBLEBEE);
-		return this.crearAutoBot(VIDA_BUMBLEBEE, camaro, VELOCIDAD_HUM_BUMBLEBEE, ATAQUE_HUM_BUMBLEBEE, DIST_ATAQUE_HUM_BUMBLEBEE);
+		return this.crearAutoBot(NOMBRE_BUMBLEBEE ,VIDA_BUMBLEBEE, camaro, VELOCIDAD_HUM_BUMBLEBEE, ATAQUE_HUM_BUMBLEBEE, DIST_ATAQUE_HUM_BUMBLEBEE);
 	}
 	
 	public AutoBot getRatchet(){
 		Alterno f22raptor = new AlternoAereo(VELOCIDAD_ALT_RATCHET, ATAQUE_ALT_RATCHET, DIST_ATAQUE_ALT_RATCHET);
-		return this.crearAutoBot(VIDA_RATCHET, f22raptor, VELOCIDAD_HUM_RATCHET, ATAQUE_HUM_RATCHET, DIST_ATAQUE_HUM_RATCHET);
+		return this.crearAutoBot(NOMBRE_RATCHET, VIDA_RATCHET, f22raptor, VELOCIDAD_HUM_RATCHET, ATAQUE_HUM_RATCHET, DIST_ATAQUE_HUM_RATCHET);
 	}
 	
 	/**
 	 * Crea un AutoBot con los parametros recibidos, evita la repeticion de codigo
 	 * en las otras tres funciones. 
 	 */
-	private AutoBot crearAutoBot(int vida, Alterno alterno, int velocidadH, int ataqueH, int distAtaqueH){
-		return new AutoBot(vida, alterno, velocidadH, ataqueH, distAtaqueH);
+	private AutoBot crearAutoBot(String nombre, int vida, Alterno alterno, int velocidadH, int ataqueH, int distAtaqueH){
+		return new AutoBot(nombre, vida, alterno, velocidadH, ataqueH, distAtaqueH);
 	}
 	
 }

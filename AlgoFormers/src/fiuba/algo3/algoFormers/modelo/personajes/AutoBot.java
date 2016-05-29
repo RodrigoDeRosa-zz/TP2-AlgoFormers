@@ -6,8 +6,8 @@ import fiuba.algo3.algoFormers.modelo.personajes.estadosDeTransformacion.Alterno
 
 public class AutoBot extends AlgoFormer {
 
-	public AutoBot(int vida, Alterno alterno, int velocidadH, int ataqueH, int distAtaqueH){
-		super(vida, alterno, velocidadH, ataqueH, distAtaqueH);
+	public AutoBot(String nombre, int vida, Alterno alterno, int velocidadH, int ataqueH, int distAtaqueH){
+		super(nombre, vida, alterno, velocidadH, ataqueH, distAtaqueH);
 	}
 	
 	public void recibirDanio(AutoBot autobot, int poderAtaque){

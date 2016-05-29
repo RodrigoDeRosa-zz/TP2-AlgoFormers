@@ -15,6 +15,7 @@ import fiuba.algo3.algoFormers.modelo.personajes.manejadores.ManejadorDeMovimien
 
 public abstract class AlgoFormer implements Atacable {
 
+	protected String nombre;
 	protected Vida vida;
 	protected EstadoDeTransformacion estadoDeTransformacionActual;
 	protected EstadoDeTransformacion estadoDeTransformacionOpuesto;
@@ -25,13 +26,18 @@ public abstract class AlgoFormer implements Atacable {
 	public abstract void recibirDanio(AutoBot autobot, int poderAtaque);
 	
 	
-	public AlgoFormer(int vida, Alterno alterno, int velocidadH, int ataqueH, int distAtaqueH){
+	public AlgoFormer(String nombre, int vida, Alterno alterno, int velocidadH, int ataqueH, int distAtaqueH){
+		this.setNombre(nombre);
 		this.setVida(vida);
 		this.setEstadosDeTransformacion(alterno, velocidadH, ataqueH, distAtaqueH);
 		this.setManejadorMovimientosNull();
 		this.setManejadorAtaquesNull();
 	}
 
+	private void setNombre(String nombre){
+		this.nombre = nombre;
+	}
+	
 	private void setManejadorMovimientosNull(){
 		this.manDeMovimientos = null;
 	}
