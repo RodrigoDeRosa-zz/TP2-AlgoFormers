@@ -64,9 +64,10 @@ public class Mapa {
 	//Metodos privados.
 	
 	private void verificarDistancia(Posicion posicionUbicable, Posicion posicionAtacable, int distanciaAtaque) {
-		int distancia = posicionUbicable.obtenerDistancia(posicionUbicable);
-		if (distancia > distanciaAtaque){
-			throw new AtaqueFueraDeRangoException("La distacia" + distancia + "entre ellos es mayor que posible(" + distanciaAtaque + ")");
+		double distanciaFila = posicionUbicable.obtenerDistanciaFila(posicionAtacable);
+		double distanciaColumna = posicionUbicable.obtenerDistanciaColumna(posicionAtacable);
+		if ((distanciaFila > (double) distanciaAtaque) || (distanciaColumna > (double) distanciaAtaque)){
+			throw new AtaqueFueraDeRangoException("La distacia entre ellos es mayor que posible (" + distanciaAtaque + ")");
 		}
 		
 	}

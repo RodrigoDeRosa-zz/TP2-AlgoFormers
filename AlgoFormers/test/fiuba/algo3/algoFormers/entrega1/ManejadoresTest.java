@@ -113,7 +113,7 @@ public class ManejadoresTest {
 		
 		Mapa mapa = new Mapa();
 		Posicion posicionOptimus = new Posicion(1, 1);
-		Posicion posicionAtaque = new Posicion(15, 18);
+		Posicion posicionAtaque = new Posicion(1, 7);
 		mapa.ubicar(optimus, posicionOptimus);
 		mapa.ubicar(megatron, posicionAtaque);
 		int poder = optimus.getAtaque();

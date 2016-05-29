@@ -18,8 +18,12 @@ public class Posicion {
 		return (new Posicion(direccion.SumarX(numeroFila), direccion.SumarY(numeroColumna)));
 	}
 	
-	public int obtenerDistancia(Posicion otraPosicion) {
-		return (int) Math.sqrt((Math.pow((this.numeroFila + otraPosicion.numeroFila), 2)) + (Math.pow((this.numeroColumna + otraPosicion.numeroColumna), 2)));
+	public double obtenerDistanciaFila(Posicion otraPosicion) {
+		return (double) ((this.numeroFila + otraPosicion.numeroFila) / 2);
+	}
+	
+	public double obtenerDistanciaColumna(Posicion otraPosicion) {
+		return (double) ((this.numeroColumna + otraPosicion.numeroColumna) / 2);
 	}
 
 
