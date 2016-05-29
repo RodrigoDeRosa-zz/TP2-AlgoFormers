@@ -32,6 +32,6 @@ public class ManejadorDeAtaques {
 		 * que ataca a una posicion. recibe el algoformer que esta atacando por parametro
 		 * la posicion a la que se ataca y el mapa.
 		 */
-		mapa.atacarPosicion(algoformer, this.poderAtaque, this.distanciaAtaque, posicion);
+		mapa.atacarPosicion(algoformer, this.distanciaAtaque, this.poderAtaque, posicion);
 	}	
 }

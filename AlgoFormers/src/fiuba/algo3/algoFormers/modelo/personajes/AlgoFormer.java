@@ -21,7 +21,8 @@ public abstract class AlgoFormer implements Atacable {
 	protected ManejadorDeMovimientos manDeMovimientos;
 	protected ManejadorDeAtaques manDeAtaques;
 	
-	public abstract void recibirDanio(Ubicable ubicable, int poderAtaque);
+	public abstract void recibirDanio(Decepticon decepticon, int poderAtaque);
+	public abstract void recibirDanio(AutoBot autobot, int poderAtaque);
 	
 	
 	public AlgoFormer(int vida, Alterno alterno, int velocidadH, int ataqueH, int distAtaqueH){
@@ -63,13 +64,13 @@ public abstract class AlgoFormer implements Atacable {
 		this.manDeMovimientos.moverEnDireccion(this, direccion,mapa);
 	}
 	
-	public void atacar(Posicion posicion, Mapa mapa){
+	public void atacarPosicion(Posicion posicion, Mapa mapa){
 		/* Funcion delega su comportamiento en atacar de manejador de ataques.
 		 *Recibe como parametro una posicion a la cual atacar y el mapa.
 		 */
 		this.manDeAtaques.atacar(this,posicion,mapa);
-		
 	}
+	
 	
 	public void inicializarTurno(){
 		/*Funcion para setear los manejadores de un algoformer en el momento

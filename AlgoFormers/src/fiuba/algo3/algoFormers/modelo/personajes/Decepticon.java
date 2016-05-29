@@ -10,12 +10,14 @@ public class Decepticon extends AlgoFormer{
 		super(vida, alterno, velocidadH, ataqueH, distAtaqueH);
 	}
 	
-	public void recibirDanio(Ubicable ubicable, int poderAtaque){
-		
-		if(ubicable.getClass() == this.getClass()){
-			throw new FuegoAmigoException();
-		}
+	public void recibirDanio(Decepticon decepticon, int poderAtaque){
+		throw new FuegoAmigoException();
+	}
+	
+	public void recibirDanio(AutoBot autobot, int poderAtaque){
 		this.vida.descontarVida(poderAtaque);
 	}
-
+	public void atacarEnemigo(AlgoFormer algoformerEnemigo, int poderAtaque){
+		algoformerEnemigo.recibirDanio(this,poderAtaque);
+	}
 }
