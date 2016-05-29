@@ -9,6 +9,7 @@ import fiuba.algo3.algoFormers.modelo.excepciones.CasilleroOcupadoException;
 import fiuba.algo3.algoFormers.modelo.excepciones.UbicableNoPertenceAlMapaException;
 import fiuba.algo3.algoFormers.modelo.interfaces.Atacable;
 import fiuba.algo3.algoFormers.modelo.interfaces.Ubicable;
+import fiuba.algo3.algoFormers.modelo.personajes.AlgoFormer;
 
 public class Mapa {
 	
@@ -29,6 +30,14 @@ public class Mapa {
 		casillero.ocupar(ubicable);
 	}
 	
+	public Atacable getAtacable(Posicion posicion) {
+		
+		Casillero casillero = tablero.get(posicion);
+		
+		
+	}
+	
+	
 	public void moverUbicableEnDireccion(Ubicable ubicable, Direccion direccion) {
 		Posicion posicion = this.obtenerPosicion(ubicable);
 		Posicion nuevaPosicion = posicion.sumarDireccion(direccion);
@@ -43,16 +52,6 @@ public class Mapa {
 		casillero.desocuparUbicable();
 	}
 
-	public void atacarPosicion(Ubicable ubicable, int poderAtaque, int distanciaAtaque, Posicion posicionAtacable) {
-		//verificaciones
-		Posicion posicionUbicable = this.obtenerPosicion(ubicable);
-		this.verificarDistancia(posicionUbicable, posicionAtacable, distanciaAtaque);
-		Casillero casilleroAtacable = tablero.get(posicionAtacable);
-		this.verificarCasilleroNoEstaVacio(casilleroAtacable, posicionAtacable);
-		
-		Atacable otroUbicable = (Atacable) casilleroAtacable.getUbicable();
-		otroUbicable.recibirDanio(ubicable, poderAtaque);
-	}
 
 	public Ubicable getUbicable(Posicion posicion) {
 		Casillero casillero = tablero.get(posicion);
@@ -113,5 +112,8 @@ public class Mapa {
 	public Casillero getCasillero(Posicion posicion) {
 		return tablero.get(posicion); 
 	}
+
+
+	
 
 }

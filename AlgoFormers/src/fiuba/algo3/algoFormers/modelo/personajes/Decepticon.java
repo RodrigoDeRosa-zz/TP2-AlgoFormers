@@ -31,5 +31,12 @@ public class Decepticon extends AlgoFormer{
 		atacable.recibirDanio(this);
 		
 	}
+	
+	@Override
+	public void recibirDanio(AlgoFormer algoformer) {
+		
+		algoformer.atacar(this);
+		
+	}
 
 }
