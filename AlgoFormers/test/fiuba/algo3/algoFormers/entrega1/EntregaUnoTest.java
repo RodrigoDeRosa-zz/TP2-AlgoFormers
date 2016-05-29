@@ -3,6 +3,7 @@ package fiuba.algo3.algoFormers.entrega1;
 import static org.junit.Assert.*;
 import org.junit.Test;
 
+import fiuba.algo3.algoFormers.modelo.direcciones.DirArriba;
 import fiuba.algo3.algoFormers.modelo.direcciones.Direccion;
 import fiuba.algo3.algoFormers.modelo.fabricas.AutoBotFactory;
 import fiuba.algo3.algoFormers.modelo.fabricas.DecepticonFactory;
@@ -12,6 +13,9 @@ import fiuba.algo3.algoFormers.modelo.mapas.Posicion;
 import fiuba.algo3.algoFormers.modelo.personajes.AlgoFormer;
 import fiuba.algo3.algoFormers.modelo.personajes.estadosDeTransformacion.AlternoTerrestre;
 import fiuba.algo3.algoFormers.modelo.personajes.estadosDeTransformacion.Humanoide;
+import fiuba.algo3.algoFormers.modelo.excepciones.AtaqueEspacioVacioException;
+import fiuba.algo3.algoFormers.modelo.excepciones.AtaqueFueraDeRangoException;
+import fiuba.algo3.algoFormers.modelo.excepciones.FuegoAmigoException;
 
 public class EntregaUnoTest {
 	
@@ -22,7 +26,8 @@ public class EntregaUnoTest {
 		Mapa mapa = new Mapa();
 		Posicion posicion = new Posicion(1,1);
 		mapa.ubicar(optimus, posicion);
-		Direccion direccion = new DireccionArriba();
+		optimus.inicializarTurno();
+		DirArriba direccion = new DirArriba();
 		for (int i = 1; i <= optimus.getVelocidad(); i++){
 			optimus.moverEnDireccion(direccion, mapa);	
 		}
@@ -40,9 +45,10 @@ public class EntregaUnoTest {
 		Mapa mapa = new Mapa();
 		Posicion posicion = new Posicion(1,1);
 		mapa.ubicar(ratchet, posicion);
-		Direccion direccion = new DireccionArriba();
+		DirArriba direccion = new DirArriba();
+		ratchet.inicializarTurno();
 		for (int i = 1; i <= ratchet.getVelocidad(); i++){
-			ratchet.moverEnDireccion(direccion);	
+			ratchet.moverEnDireccion(direccion, mapa);	
 		}
 		assertEquals(ratchet, mapa.getUbicable(new Posicion(1, 9)));
 	}
@@ -103,8 +109,8 @@ public class EntregaUnoTest {
 		Posicion posicionMegatron = new Posicion(1, 3);
 		mapa.ubicar(optimus, posicionOptimus);
 		mapa.ubicar(megatron, posicionMegatron);
-		
-		optimus.atacar(posicionMegatron);
+		optimus.inicializarTurno();
+		optimus.atacar(posicionMegatron, mapa);
 		assertEquals(megatron.getVida(), 500);
 	}
 	
@@ -115,6 +121,7 @@ public class EntregaUnoTest {
 		Mapa mapa = new Mapa();
 		Posicion posicionOptimus = new Posicion(1, 1);
 		mapa.ubicar(optimus, posicionOptimus);
+		optimus.inicializarTurno();
 		optimus.atacar(new Posicion(1, 6),mapa);
 		//Falta cuando se ataca una posicion en rango con un aliado(FuegoAmigoException)
 	}
@@ -126,6 +133,7 @@ public class EntregaUnoTest {
 		Mapa mapa = new Mapa();
 		Posicion posicionOptimus = new Posicion(1, 1);
 		mapa.ubicar(optimus, posicionOptimus);
+		optimus.inicializarTurno();
 		optimus.atacar(new Posicion(1, 2),mapa);
 	}
 	
@@ -139,6 +147,7 @@ public class EntregaUnoTest {
 		Posicion posicionBumblebee = new Posicion(1, 2);
 		mapa.ubicar(optimus, posicionOptimus);
 		mapa.ubicar(bumblebee, posicionBumblebee);
+		optimus.inicializarTurno();
 		optimus.atacar(new Posicion(1, 2),mapa);
 	}
 }
