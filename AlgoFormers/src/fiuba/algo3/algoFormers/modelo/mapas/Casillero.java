@@ -5,33 +5,25 @@ import fiuba.algo3.algoFormers.modelo.interfaces.Ubicable;
 public class Casillero {
 
 	private Ubicable ubicable;
-	private boolean ocupado;
 	
 	public Casillero(){
 		ubicable = null;
-		ocupado = false;
 	}
 	
-	public void setUbicable(Ubicable unUbicable){
+	public void ocupar(Ubicable unUbicable){
 		this.ubicable = unUbicable;
-		ocupado = true;
 	}
 
 	public boolean estaOcupado() {
-		return ocupado;
+		return (ubicable != null);
 	}
 
 	public Ubicable getUbicable() {
 		return ubicable;
 	}
 
-	public void desocuparUbicable() {
+	public void desocupar() {
 		ubicable = null;
-		ocupado = false;
 	}
 
-	public void ocuparConUbicable(Ubicable ubicable) {
-		this.ubicable = ubicable;
-		ocupado = true;
-	}
 }

@@ -20,6 +20,7 @@ public abstract class AlgoFormer implements Atacable {
 	protected EstadoDeTransformacion estadoDeTransformacionOpuesto;
 	protected ManejadorDeMovimientos manDeMovimientos;
 	protected ManejadorDeAtaques manDeAtaques;
+	protected Posicion posicionActual;
 	
 	public abstract void recibirDanio(Ubicable ubicable, int poderAtaque);
 	
@@ -79,6 +80,16 @@ public abstract class AlgoFormer implements Atacable {
 		ManejadorDeAtaques manejadorA=this.estadoDeTransformacionActual.crearManejadorAtaque();
 		this.manDeMovimientos = manejadorM;
 		this.manDeAtaques = manejadorA;
+	}
+	
+	public void setPosicion(Posicion pos) {
+		
+		posicionActual = pos;
+	}
+	
+	public Posicion getPosicion() {
+		
+		return posicionActual;
 	}
 	
 	//Metodos para las pruebas. No se deberian llamar en otras clases.

@@ -19,14 +19,14 @@ public class Mapa {
 	
 	public Mapa(){
 		tablero = new HashMap<Posicion, Casillero>();
-		this.llenarTablero(tablero);
+		llenarTablero(tablero);
 	}
 
 	
 	public void ubicar(Ubicable ubicable, Posicion posicion) {
 		Casillero casillero = tablero.get(posicion);
-		this.verificarCasilleroEstaVacio(casillero, posicion);
-		casillero.setUbicable(ubicable);
+		verificarCasilleroEstaVacio(casillero, posicion);
+		casillero.ocupar(ubicable);
 	}
 	
 	public void moverUbicableEnDireccion(Ubicable ubicable, Direccion direccion) {
@@ -83,8 +83,8 @@ public class Mapa {
 	}
 
 	private void llenarTablero(HashMap<Posicion, Casillero> tablero) {	
-		for(int fila = 0; fila < TAMANIO; fila++){
-			for(int columna = 0; columna < TAMANIO; columna++){
+		for(int fila = 1; fila <= TAMANIO; fila++){
+			for(int columna = 1; columna <= TAMANIO; columna++){
 				tablero.put(new Posicion (fila,columna), new Casillero());
 			}
 		}
