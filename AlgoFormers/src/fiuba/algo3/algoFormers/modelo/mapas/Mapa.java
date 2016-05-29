@@ -65,7 +65,9 @@ public class Mapa {
 	
 	private void verificarDistancia(Posicion posicionUbicable, Posicion posicionAtacable, int distanciaAtaque) {
 		int distancia = posicionUbicable.obtenerDistancia(posicionUbicable);
+		
 		if (distancia > distanciaAtaque){
+			
 			throw new AtaqueFueraDeRangoException("La distacia" + distancia + "entre ellos es mayor que posible(" + distanciaAtaque + ")");
 		}
 		
