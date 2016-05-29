@@ -17,6 +17,10 @@ public class Posicion {
 		//Devuelve una nueva posicion con la direccion sumada
 		return (new Posicion(direccion.SumarX(numeroFila), direccion.SumarY(numeroColumna)));
 	}
+	
+	public int obtenerDistancia(Posicion otraPosicion) {
+		return (int) Math.sqrt((Math.pow((this.numeroFila + otraPosicion.numeroFila), 2)) + (Math.pow((this.numeroColumna + otraPosicion.numeroColumna), 2)));
+	}
 
 
 	//Metodos de comparacion.
@@ -57,13 +61,5 @@ public class Posicion {
 
 	public int getY() {
 		return numeroColumna;
-	}
-
-	public int obtenerDiferenciaY(Posicion posicionUbicable) {
-		return ((this.numeroColumna + posicionUbicable.numeroColumna)/2);
-	}
-	
-	public int obtenerDiferenciaX(Posicion posicionUbicable) {
-		return ((this.numeroFila + posicionUbicable.numeroFila)/2);
 	}
 }

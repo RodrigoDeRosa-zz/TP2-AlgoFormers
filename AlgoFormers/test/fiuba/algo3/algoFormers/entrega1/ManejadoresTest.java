@@ -108,12 +108,14 @@ public class ManejadoresTest {
 	public void testAtaqueFueraDeRango(){
 		AutoBotFactory autoBotFactory = new AutoBotFactory();
 		AlgoFormer optimus = autoBotFactory.getOptimusPrime();
+		DecepticonFactory decepticonFactory = new DecepticonFactory();
+		AlgoFormer megatron = decepticonFactory.getMegatron();
 		
 		Mapa mapa = new Mapa();
 		Posicion posicionOptimus = new Posicion(1, 1);
-		Posicion posicionAtaque = new Posicion(1, 7);
+		Posicion posicionAtaque = new Posicion(15, 18);
 		mapa.ubicar(optimus, posicionOptimus);
-		
+		mapa.ubicar(megatron, posicionAtaque);
 		int poder = optimus.getAtaque();
 		int distancia = optimus.getDistanciaDeAtaque();
 		ManejadorDeAtaques manejador = new ManejadorDeAtaques(poder, distancia);

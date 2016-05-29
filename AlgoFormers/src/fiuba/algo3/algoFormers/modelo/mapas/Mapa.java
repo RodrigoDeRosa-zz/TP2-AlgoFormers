@@ -6,6 +6,7 @@ import fiuba.algo3.algoFormers.modelo.direcciones.Direccion;
 import fiuba.algo3.algoFormers.modelo.excepciones.AtaqueEspacioVacioException;
 import fiuba.algo3.algoFormers.modelo.excepciones.AtaqueFueraDeRangoException;
 import fiuba.algo3.algoFormers.modelo.excepciones.CasilleroOcupadoException;
+import fiuba.algo3.algoFormers.modelo.excepciones.MovimientosAgotadosException;
 import fiuba.algo3.algoFormers.modelo.excepciones.UbicableNoPertenceAlMapaException;
 import fiuba.algo3.algoFormers.modelo.interfaces.Atacable;
 import fiuba.algo3.algoFormers.modelo.interfaces.Ubicable;
@@ -61,12 +62,11 @@ public class Mapa {
 	
 	//Metodos privados.
 	
-	private void verificarDistancia(Posicion posicionUbicable, Posicion posicionAtacable,int distanciaAtaque) {
-		int diferenciaX = posicionUbicable.obtenerDiferenciaX(posicionUbicable);
-		int diferenciaY = posicionUbicable.obtenerDiferenciaY(posicionUbicable);
-		if (diferenciaX > distanciaAtaque || diferenciaY > distanciaAtaque){
-			throw new AtaqueFueraDeRangoException();
-		};
+	private void verificarDistancia(Posicion posicionUbicable, Posicion posicionAtacable, int distanciaAtaque) {
+		int distancia = posicionUbicable.obtenerDistancia(posicionUbicable);
+		if (distancia > distanciaAtaque){
+			throw new AtaqueFueraDeRangoException("La distacia" + distancia + "entre ellos es mayor que posible(" + distanciaAtaque + ")");
+		}
 		
 	}
 	
