@@ -108,5 +108,9 @@ public abstract class AlgoFormer implements Atacable {
 	public int getDistanciaDeAtaque(){
 		return this.estadoDeTransformacionActual.getDistanciaDeAtaque();
 	}
+	
+	public String getNombre(){
+		return this.nombre;
+	}
 
 }

@@ -52,4 +52,47 @@ public class AtributosEnCreacionTest {
 		AlgoFormer bonecrusher = factory.getBonecrusher();
 		assertEquals(bonecrusher.getVida(), 200);
 	}
+	
+	//Tests de nombre
+	@Test
+	public void testOptimusPrimeSeCreaConNombreCorrecta(){
+		AutoBotFactory factory = new AutoBotFactory();
+		AlgoFormer optimusPrime = factory.getOptimusPrime();
+		assertEquals(optimusPrime.getNombre(), "Optimus Prime");
+	}
+	
+	@Test
+	public void testBumblebeeSeCreaConNombreCorrecta(){
+		AutoBotFactory factory = new AutoBotFactory();
+		AlgoFormer bumblebee = factory.getBumblebee();
+		assertEquals(bumblebee.getNombre(), "Bumblebee");
+	}
+	
+	@Test
+	public void testRatchetSeCreaConNombreCorrecta(){
+		AutoBotFactory factory = new AutoBotFactory();
+		AlgoFormer ratchet = factory.getRatchet();
+		assertEquals(ratchet.getNombre(), "Ratchet");
+	}
+	
+	@Test
+	public void testMegatronSeCreaConNombreCorrecta(){
+		DecepticonFactory factory = new DecepticonFactory();
+		AlgoFormer megatron = factory.getMegatron();
+		assertEquals(megatron.getNombre(), "Megatron");
+	}
+	
+	@Test
+	public void testFrenzySeCreaConNombreCorrecta(){
+		DecepticonFactory factory = new DecepticonFactory();
+		AlgoFormer frenzy = factory.getFrenzy();
+		assertEquals(frenzy.getNombre(), "Frenzy");
+	}
+	
+	@Test
+	public void testBonecrusherSeCreaConNombreCorrecta(){
+		DecepticonFactory factory = new DecepticonFactory();
+		AlgoFormer bonecrusher = factory.getBonecrusher();
+		assertEquals(bonecrusher.getNombre(), "Bonecrusher");
+	}
 }
