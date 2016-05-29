@@ -1,5 +1,6 @@
 package fiuba.algo3.algoFormers.modelo.interfaces;
 
-public interface Ubicable {
+import fiuba.algo3.algoFormers.modelo.personajes.AlgoFormer;
 
+public interface Ubicable {
 }

@@ -53,7 +53,7 @@ public class Mapa {
 		this.verificarCasilleroNoEstaVacio(casilleroAtacable, posicionAtacable);
 		
 		Atacable otroUbicable = (Atacable) casilleroAtacable.getUbicable();
-		otroUbicable.atacarEnemigo((AlgoFormer) otroUbicable, poderAtaque);
+		((Atacable)ubicable).atacarEnemigo((AlgoFormer)otroUbicable, poderAtaque);
 	}
 
 	public Ubicable getUbicable(Posicion posicion) {

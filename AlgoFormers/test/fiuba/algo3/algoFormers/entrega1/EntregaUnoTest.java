@@ -110,7 +110,7 @@ public class EntregaUnoTest {
 		mapa.ubicar(optimus, posicionOptimus);
 		mapa.ubicar(megatron, posicionMegatron);
 		optimus.inicializarTurno();
-		optimus.atacar(posicionMegatron, mapa);
+		optimus.atacarPosicion(posicionMegatron, mapa);
 		assertEquals(megatron.getVida(), 500);
 	}
 	
@@ -122,7 +122,7 @@ public class EntregaUnoTest {
 		Posicion posicionOptimus = new Posicion(1, 1);
 		mapa.ubicar(optimus, posicionOptimus);
 		optimus.inicializarTurno();
-		optimus.atacar(new Posicion(1, 6),mapa);
+		optimus.atacarPosicion(new Posicion(1, 6),mapa);
 		//Falta cuando se ataca una posicion en rango con un aliado(FuegoAmigoException)
 	}
 	
@@ -134,7 +134,7 @@ public class EntregaUnoTest {
 		Posicion posicionOptimus = new Posicion(1, 1);
 		mapa.ubicar(optimus, posicionOptimus);
 		optimus.inicializarTurno();
-		optimus.atacar(new Posicion(1, 2),mapa);
+		optimus.atacarPosicion(new Posicion(1, 2),mapa);
 	}
 	
 	@Test(expected=FuegoAmigoException.class)
@@ -148,6 +148,6 @@ public class EntregaUnoTest {
 		mapa.ubicar(optimus, posicionOptimus);
 		mapa.ubicar(bumblebee, posicionBumblebee);
 		optimus.inicializarTurno();
-		optimus.atacar(new Posicion(1, 2),mapa);
+		optimus.atacarPosicion(new Posicion(1, 2),mapa);
 	}
 }
