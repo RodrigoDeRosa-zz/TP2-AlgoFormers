@@ -5,7 +5,6 @@ import java.util.Random;
 
 import fiuba.algo3.algoFormers.modelo.capturables.Chispa;
 import fiuba.algo3.algoFormers.modelo.direcciones.Direccion;
-import fiuba.algo3.algoFormers.modelo.excepciones.AtaqueEspacioVacioException;
 import fiuba.algo3.algoFormers.modelo.excepciones.CasilleroOcupadoException;
 import fiuba.algo3.algoFormers.modelo.excepciones.UbicableNoPertenceAlMapaException;
 import fiuba.algo3.algoFormers.modelo.interfaces.Atacable;

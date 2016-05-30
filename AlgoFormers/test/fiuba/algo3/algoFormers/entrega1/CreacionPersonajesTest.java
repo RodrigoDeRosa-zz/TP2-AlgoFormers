@@ -5,20 +5,28 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 
 import fiuba.algo3.algoFormers.modelo.fabricas.AlgoFormerFactory;
+import fiuba.algo3.algoFormers.modelo.fabricas.AutoBotFactory;
+import fiuba.algo3.algoFormers.modelo.fabricas.DecepticonFactory;
 import fiuba.algo3.algoFormers.modelo.personajes.AlgoFormer;
 
 public class CreacionPersonajesTest {
 
 	//Tests de creacion de fabricas
 	@Test
-	public void testCrearFabricaDeAutoBots(){
+	public void testCrearFabricaDeAlgoFormers(){
 		AlgoFormerFactory factory = new AlgoFormerFactory();
 		assertNotNull(factory);
 	}
 	
 	@Test
+	public void testCrearFabricaDeAutoBots(){
+		AutoBotFactory factory = new AutoBotFactory();
+		assertNotNull(factory);
+	}
+	
+	@Test
 	public void testCrearFabricaDeDecepticons(){
-		AlgoFormerFactory factory = new AlgoFormerFactory();
+		DecepticonFactory factory = new DecepticonFactory();
 		assertNotNull(factory);
 	}
 	

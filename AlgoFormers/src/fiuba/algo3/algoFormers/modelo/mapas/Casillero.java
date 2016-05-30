@@ -1,6 +1,5 @@
 package fiuba.algo3.algoFormers.modelo.mapas;
 
-import fiuba.algo3.algoFormers.modelo.capturables.Chispa;
 import fiuba.algo3.algoFormers.modelo.interfaces.Atacable;
 import fiuba.algo3.algoFormers.modelo.interfaces.Capturable;
 
