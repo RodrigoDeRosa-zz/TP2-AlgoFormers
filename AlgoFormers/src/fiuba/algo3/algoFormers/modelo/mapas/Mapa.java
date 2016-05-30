@@ -43,17 +43,6 @@ public class Mapa {
 		casillero.desocuparUbicable();
 	}
 
-	/*public void atacarPosicion(Ubicable ubicable, int distanciaAtaque, int poderAtaque, Posicion posicionAtacable) {
-		//verificaciones
-		Posicion posicionUbicable = this.obtenerPosicion(ubicable);
-		this.verificarDistancia(posicionUbicable, posicionAtacable, distanciaAtaque);
-		Casillero casilleroAtacable = tablero.get(posicionAtacable);
-		this.verificarCasilleroNoEstaVacio(casilleroAtacable, posicionAtacable);
-		
-		Atacable otroUbicable = (Atacable) casilleroAtacable.getUbicable();
-		((Atacable)ubicable).atacarEnemigo((AlgoFormer)otroUbicable, poderAtaque);
-	}*/
-
 	public Ubicable getUbicable(Posicion posicion) {
 		Casillero casillero = tablero.get(posicion);
 		return casillero.getUbicable();	
