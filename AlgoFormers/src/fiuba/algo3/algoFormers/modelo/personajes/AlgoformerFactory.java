@@ -79,8 +79,8 @@ public class AlgoformerFactory {
 		return new Decepticon(nombre, vida, alterno, velocidadH, ataqueH, distAtaqueH);
 	}
 	
-	private AutoBot crearAutoBot(String nombre, int vida, Alterno alterno, int velocidadH, int ataqueH, int distAtaqueH){
-		return new AutoBot(nombre, vida, alterno, velocidadH, ataqueH, distAtaqueH);
+	private Autobot crearAutoBot(String nombre, int vida, Alterno alterno, int velocidadH, int ataqueH, int distAtaqueH){
+		return new Autobot(nombre, vida, alterno, velocidadH, ataqueH, distAtaqueH);
 	}
 	
 	public Decepticon getMegatron(){
@@ -98,17 +98,17 @@ public class AlgoformerFactory {
 		return this.crearDecepticon(NOMBRE_BONECRUSHER, VIDA_BONECRUSHER, duster, VELOCIDAD_HUM_BONECRUSHER, ATAQUE_HUM_BONECRUSHER, DIST_ATAQUE_HUM_BONECRUSHER);
 	}
 	
-	public AutoBot getOptimusPrime(){
+	public Autobot getOptimusPrime(){
 		Alterno peterbilt379 = new AlternoTerrestre(VELOCIDAD_ALT_OPTIMUS, ATAQUE_ALT_OPTIMUS, DIST_ATAQUE_ALT_OPTIMUS);
 		return this.crearAutoBot(NOMBRE_OPTIMUS, VIDA_OPTIMUS, peterbilt379, VELOCIDAD_HUM_OPTIMUS, ATAQUE_HUM_OPTIMUS, DIST_ATAQUE_HUM_OPTIMUS);
 	}
 	
-	public AutoBot getBumblebee(){
+	public Autobot getBumblebee(){
 		Alterno camaro = new AlternoTerrestre(VELOCIDAD_ALT_BUMBLEBEE, ATAQUE_ALT_BUMBLEBEE, DIST_ATAQUE_ALT_BUMBLEBEE);
 		return this.crearAutoBot(NOMBRE_BUMBLEBEE, VIDA_BUMBLEBEE, camaro, VELOCIDAD_HUM_BUMBLEBEE, ATAQUE_HUM_BUMBLEBEE, DIST_ATAQUE_HUM_BUMBLEBEE);
 	}
 	
-	public AutoBot getRatchet(){
+	public Autobot getRatchet(){
 		Alterno f22raptor = new AlternoAereo(VELOCIDAD_ALT_RATCHET, ATAQUE_ALT_RATCHET, DIST_ATAQUE_ALT_RATCHET);
 		return this.crearAutoBot(NOMBRE_RATCHET, VIDA_RATCHET, f22raptor, VELOCIDAD_HUM_RATCHET, ATAQUE_HUM_RATCHET, DIST_ATAQUE_HUM_RATCHET);
 	}

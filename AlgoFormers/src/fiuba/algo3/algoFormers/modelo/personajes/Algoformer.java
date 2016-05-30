@@ -16,7 +16,7 @@ public abstract class Algoformer implements Atacable {
 	protected Posicion posicionActual;
 	private String nombre;
 	
-	public abstract void atacar(AutoBot autobot);
+	public abstract void atacar(Autobot autobot);
 	public abstract void atacar(Decepticon decepticon);
 	
 	

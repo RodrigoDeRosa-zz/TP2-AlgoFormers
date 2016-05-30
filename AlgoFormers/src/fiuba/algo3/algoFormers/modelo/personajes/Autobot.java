@@ -4,9 +4,9 @@ import fiuba.algo3.algoFormers.modelo.excepciones.FuegoAmigoException;
 
 import fiuba.algo3.algoFormers.modelo.personajes.estadosDeTransformacion.Alterno;
 
-public class AutoBot extends Algoformer {
+public class Autobot extends Algoformer {
 
-	public AutoBot(String nombre, int vida, Alterno alterno, int velocidadH, int ataqueH, int distAtaqueH){
+	public Autobot(String nombre, int vida, Alterno alterno, int velocidadH, int ataqueH, int distAtaqueH){
 		super(nombre, vida, alterno, velocidadH, ataqueH, distAtaqueH);
 	}
 
@@ -18,7 +18,7 @@ public class AutoBot extends Algoformer {
 	}
 
 	@Override
-	public void atacar(AutoBot autobot) {
+	public void atacar(Autobot autobot) {
 		autobot.recibirDanio(this);
 		
 	}
@@ -30,7 +30,7 @@ public class AutoBot extends Algoformer {
 	}
 	
 	@Override
-	public void recibirDanio(AutoBot autobot) {
+	public void recibirDanio(Autobot autobot) {
 		
 		throw new FuegoAmigoException();		
 		

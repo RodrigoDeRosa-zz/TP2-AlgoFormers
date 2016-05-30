@@ -18,7 +18,7 @@ public class Decepticon extends Algoformer{
 	}
 	
 	@Override
-	public void atacar(AutoBot autobot) {
+	public void atacar(Autobot autobot) {
 		autobot.recibirDanio(this);
 		
 	}
@@ -30,7 +30,7 @@ public class Decepticon extends Algoformer{
 	}
 	
 	@Override
-	public void recibirDanio(AutoBot autobot) {
+	public void recibirDanio(Autobot autobot) {
 		
 		this.vida.descontar(autobot.getPuntosAtaque());
 				

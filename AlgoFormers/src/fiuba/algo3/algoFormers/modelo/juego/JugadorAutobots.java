@@ -6,16 +6,16 @@ import java.util.List;
 import fiuba.algo3.algoFormers.modelo.mapas.Mapa;
 import fiuba.algo3.algoFormers.modelo.mapas.Posicion;
 import fiuba.algo3.algoFormers.modelo.personajes.Algoformer;
-import fiuba.algo3.algoFormers.modelo.personajes.AutoBot;
+import fiuba.algo3.algoFormers.modelo.personajes.Autobot;
 
 public class JugadorAutobots extends Jugador {
 
-	private List<AutoBot> personajes;
+	private List<Autobot> personajes;
 	
 	public JugadorAutobots() {
 		
 		super();
-		this.personajes = new ArrayList<AutoBot>();
+		this.personajes = new ArrayList<Autobot>();
 	}
 	
 	public void inicializarEquipo() {
