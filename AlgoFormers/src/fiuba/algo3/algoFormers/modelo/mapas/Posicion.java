@@ -59,11 +59,5 @@ public class Posicion {
 		return numeroColumna;
 	}
 
-	public int obtenerDiferenciaY(Posicion posicionUbicable) {
-		return ((this.numeroColumna + posicionUbicable.numeroColumna)/2);
-	}
 	
-	public int obtenerDiferenciaX(Posicion posicionUbicable) {
-		return ((this.numeroFila + posicionUbicable.numeroFila)/2);
-	}
 }

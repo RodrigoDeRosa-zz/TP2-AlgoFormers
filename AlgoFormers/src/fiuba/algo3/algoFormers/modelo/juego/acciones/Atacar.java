@@ -8,16 +8,26 @@ import fiuba.algo3.algoFormers.modelo.mapas.Posicion;
 import fiuba.algo3.algoFormers.modelo.personajes.AlgoFormer;
 import fiuba.algo3.algoFormers.modelo.personajes.manejadores.ManejadorDeAtaques;
 
-public class Atacar extends Accion {
+public class Atacar implements Accion {
 
 	private ManejadorDeAtaques manejador;
 	
+	/**
+	 * Crea un manejador de ataques y lo asigna a esta accion, segun los parametros recibidos,
+	 * para poder ejecutar la accion de ataque.
+	 * @param mapa :Mapa del juego en estado valido
+	 * @param algoformerAtacante :algoformer en estado valido
+	 * @param posicion :posicion en estado valido
+	 */
 	public Atacar(Mapa mapa, AlgoFormer algoformerAtacante, Posicion posicion) {
 		
 		manejador = new ManejadorDeAtaques(mapa, algoformerAtacante, posicion);
 	}
 	
 	@Override
+	/**
+	 * Realiza el ataque segun el manejador establecido.
+	 */
 	public void ejecutar() {
 
 		try {

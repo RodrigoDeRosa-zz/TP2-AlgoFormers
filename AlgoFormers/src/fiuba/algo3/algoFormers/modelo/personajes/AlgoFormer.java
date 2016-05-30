@@ -1,11 +1,7 @@
 package fiuba.algo3.algoFormers.modelo.personajes;
 
-import fiuba.algo3.algoFormers.modelo.direcciones.Direccion;
 import fiuba.algo3.algoFormers.modelo.interfaces.Atacable;
-import fiuba.algo3.algoFormers.modelo.interfaces.Ubicable;
-import fiuba.algo3.algoFormers.modelo.mapas.Mapa;
 import fiuba.algo3.algoFormers.modelo.mapas.Posicion;
-import fiuba.algo3.algoFormers.modelo.personajes.atributos.Ataque;
 import fiuba.algo3.algoFormers.modelo.personajes.atributos.Vida;
 import fiuba.algo3.algoFormers.modelo.personajes.estadosDeTransformacion.Alterno;
 import fiuba.algo3.algoFormers.modelo.personajes.estadosDeTransformacion.EstadoDeTransformacion;
@@ -22,6 +18,8 @@ public abstract class AlgoFormer implements Atacable {
 	
 	public abstract void atacar(AutoBot autobot);
 	public abstract void atacar(Decepticon decepticon);
+	
+	
 	
 	public AlgoFormer(String nombre, int vida, Alterno alterno, int velocidadH, int ataqueH, int distAtaqueH){
 		this.setVida(vida);
@@ -58,7 +56,7 @@ public abstract class AlgoFormer implements Atacable {
 	
 	//Metodos para las pruebas. No se deberian llamar en otras clases.
 	public int getVida(){
-		return this.vida.getVida();
+		return this.vida.get();
 	}
 
 	public EstadoDeTransformacion getEstado() {

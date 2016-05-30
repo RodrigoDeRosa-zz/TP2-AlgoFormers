@@ -1,26 +1,32 @@
 package fiuba.algo3.algoFormers.modelo.personajes.atributos;
 
-public class Vida {
-
-	private int vida;
+public class Vida extends Atributo {
 	
-	public Vida(int vida){
-		this.setVida(vida);
+	private boolean hayEscudo;
+	
+	public Vida(int inicial) {
+		super(inicial);
+		
+	}	
+			
+	public void aplicarEscudo() {
+		hayEscudo = true;
 	}
 	
-	private void setVida(int vida){
-		this.vida = vida;
+	public void quitarEscudo() {
+		hayEscudo = false;
 	}
 	
-	public void descontarVida(int descuento){
+	public void descontar(int descuento){
 		/*Metodo que sirve para descontarle la vida a un jugador
 		 * que es atacado.
-		 */
-		this.vida -=descuento;
+		 * ACA SE DEBERIA MANEJAR LO DE LOS BONUS CUANDO NO LE HACEN DANIO
+		 */		
+		if (hayEscudo) {
+			return;
+		}		
+		this.valor -=descuento;
 	}
-	//Metodo para las pruebas. No se deberia usar
-	public int getVida(){
-		return this.vida;
-	}
+	
 	
 }

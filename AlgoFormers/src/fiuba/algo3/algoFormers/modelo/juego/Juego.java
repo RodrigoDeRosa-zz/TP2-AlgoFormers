@@ -28,7 +28,7 @@ public class Juego {
 		while (true) {
 			
 			turnoActual = new Turno(jugadorAutobots);
-			turnoActual.realizarAccion(accion);
+			//turnoActual.realizarAccion(accion);
 		}		
 		
 	}	
