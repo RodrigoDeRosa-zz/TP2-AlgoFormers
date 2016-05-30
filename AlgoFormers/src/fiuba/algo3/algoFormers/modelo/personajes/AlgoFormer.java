@@ -58,7 +58,7 @@ public abstract class AlgoFormer implements Atacable {
 		return this.estadoDeTransformacionActual;
 	}
 	
-	public int getVida(){
+	public int getPuntosVida(){
 		return this.vida.get();
 	}
 	
