@@ -4,8 +4,8 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-import fiuba.algo3.algoFormers.modelo.fabricas.AutoBotFactory;
-import fiuba.algo3.algoFormers.modelo.fabricas.DecepticonFactory;
+import fiuba.algo3.algoFormers.modelo.fabricas.AlgoFormerFactory;
+import fiuba.algo3.algoFormers.modelo.fabricas.AlgoFormerFactory;
 import fiuba.algo3.algoFormers.modelo.personajes.AlgoFormer;
 import fiuba.algo3.algoFormers.modelo.personajes.estadosDeTransformacion.AlternoAereo;
 import fiuba.algo3.algoFormers.modelo.personajes.estadosDeTransformacion.AlternoTerrestre;
@@ -17,14 +17,14 @@ public class EstadoDeTransformacionDePersonajesTests {
 		//Tests estados OptimusPrime
 	@Test
 	public void testOptimusPrimeSeCreaEnEstadoHumanoide(){
-		AutoBotFactory factory = new AutoBotFactory();
+		AlgoFormerFactory factory = new AlgoFormerFactory();
 		AlgoFormer optimusPrime = factory.getOptimusPrime(); // Se crea en estado humanoide
 		assertEquals(optimusPrime.getEstado().getClass(), Humanoide.class);
 	}
 	
 	@Test
 	public void testOptimusPrimeSeTransformaDeHumanoideEnAlterno(){
-		AutoBotFactory factory = new AutoBotFactory();
+		AlgoFormerFactory factory = new AlgoFormerFactory();
 		AlgoFormer optimusPrime = factory.getOptimusPrime();
 		optimusPrime.transformarse();
 		assertEquals(optimusPrime.getEstado().getClass(), AlternoTerrestre.class);
@@ -32,7 +32,7 @@ public class EstadoDeTransformacionDePersonajesTests {
 	
 	@Test
 	public void testOptimusPrimeSeTransformaDeAlternoEnHumanoide(){
-		AutoBotFactory factory = new AutoBotFactory();
+		AlgoFormerFactory factory = new AlgoFormerFactory();
 		AlgoFormer optimusPrime = factory.getOptimusPrime();
 		optimusPrime.transformarse();
 		optimusPrime.transformarse();
@@ -42,14 +42,14 @@ public class EstadoDeTransformacionDePersonajesTests {
 		//Tests estados Bumblebee
 	@Test
 	public void testBumblebeeSeCreaEnEstadoHumanoide(){
-		AutoBotFactory factory = new AutoBotFactory();
+		AlgoFormerFactory factory = new AlgoFormerFactory();
 		AlgoFormer bumblebee = factory.getBumblebee(); // Se crea en estado humanoide
 		assertEquals(bumblebee.getEstado().getClass(), Humanoide.class);
 	}
 	
 	@Test
 	public void testBumblebeeSeTransformaDeHumanoideEnAlterno(){
-		AutoBotFactory factory = new AutoBotFactory();
+		AlgoFormerFactory factory = new AlgoFormerFactory();
 		AlgoFormer bumblebee = factory.getBumblebee();
 		bumblebee.transformarse();
 		assertEquals(bumblebee.getEstado().getClass(), AlternoTerrestre.class);
@@ -57,7 +57,7 @@ public class EstadoDeTransformacionDePersonajesTests {
 	
 	@Test
 	public void testBumblebeeSeTransformaDeAlternoEnHumanoide(){
-		AutoBotFactory factory = new AutoBotFactory();
+		AlgoFormerFactory factory = new AlgoFormerFactory();
 		AlgoFormer bumblebee = factory.getBumblebee();
 		bumblebee.transformarse();
 		bumblebee.transformarse();
@@ -67,14 +67,14 @@ public class EstadoDeTransformacionDePersonajesTests {
 		//Tests estados Ratchet
 	@Test
 	public void testRatchetSeCreaEnEstadoHumanoide(){
-		AutoBotFactory factory = new AutoBotFactory();
+		AlgoFormerFactory factory = new AlgoFormerFactory();
 		AlgoFormer ratchet = factory.getRatchet(); // Se crea en estado humanoide
 		assertEquals(ratchet.getEstado().getClass(), Humanoide.class);
 	}
 	
 	@Test
 	public void testRatchetSeTransformaDeHumanoideEnAlterno(){
-		AutoBotFactory factory = new AutoBotFactory();
+		AlgoFormerFactory factory = new AlgoFormerFactory();
 		AlgoFormer ratchet = factory.getRatchet();
 		ratchet.transformarse();
 		assertEquals(ratchet.getEstado().getClass(), AlternoAereo.class);
@@ -82,7 +82,7 @@ public class EstadoDeTransformacionDePersonajesTests {
 	
 	@Test
 	public void testRatchetSeTransformaDeAlternoEnHumanoide(){
-		AutoBotFactory factory = new AutoBotFactory();
+		AlgoFormerFactory factory = new AlgoFormerFactory();
 		AlgoFormer ratchet = factory.getRatchet();
 		ratchet.transformarse();
 		ratchet.transformarse();
@@ -93,14 +93,14 @@ public class EstadoDeTransformacionDePersonajesTests {
 		//Tests estados Megatron
 	@Test
 	public void testMegatronSeCreaEnEstadoHumanoide(){
-		DecepticonFactory factory = new DecepticonFactory();
+		AlgoFormerFactory factory = new AlgoFormerFactory();
 		AlgoFormer megatron = factory.getMegatron();
 		assertEquals(megatron.getEstado().getClass(), Humanoide.class);
 	}
 	
 	@Test
 	public void testMegatronSeTransformaDeHumanoideEnAlterno(){
-		DecepticonFactory factory = new DecepticonFactory();
+		AlgoFormerFactory factory = new AlgoFormerFactory();
 		AlgoFormer megatron = factory.getMegatron();
 		megatron.transformarse();
 		assertEquals(megatron.getEstado().getClass(), AlternoAereo.class);
@@ -108,7 +108,7 @@ public class EstadoDeTransformacionDePersonajesTests {
 	
 	@Test
 	public void testMegatronSeTransformaDeAlternoEnHumanoide(){
-		DecepticonFactory factory = new DecepticonFactory();
+		AlgoFormerFactory factory = new AlgoFormerFactory();
 		AlgoFormer megatron = factory.getMegatron();
 		megatron.transformarse();
 		megatron.transformarse();
@@ -118,14 +118,14 @@ public class EstadoDeTransformacionDePersonajesTests {
 	//Tests de estado de Frenzy
 	@Test
 	public void testFrenzySeCreaEnEstadoHumanoide(){
-		DecepticonFactory factory = new DecepticonFactory();
+		AlgoFormerFactory factory = new AlgoFormerFactory();
 		AlgoFormer frenzy = factory.getFrenzy();
 		assertEquals(frenzy.getEstado().getClass(), Humanoide.class);
 	}
 	
 	@Test
 	public void testFrenzySeTransformaDeHumanoideEnAlterno(){
-		DecepticonFactory factory = new DecepticonFactory();
+		AlgoFormerFactory factory = new AlgoFormerFactory();
 		AlgoFormer frenzy = factory.getFrenzy();
 		frenzy.transformarse();
 		assertEquals(frenzy.getEstado().getClass(), AlternoTerrestre.class);
@@ -133,7 +133,7 @@ public class EstadoDeTransformacionDePersonajesTests {
 	
 	@Test
 	public void testFrenzySeTransformaDeAlternoEnHumanoide(){
-		DecepticonFactory factory = new DecepticonFactory();
+		AlgoFormerFactory factory = new AlgoFormerFactory();
 		AlgoFormer frenzy = factory.getFrenzy();
 		frenzy.transformarse();
 		frenzy.transformarse();
@@ -143,14 +143,14 @@ public class EstadoDeTransformacionDePersonajesTests {
 	//Tests de estado de Bonecrusher
 	@Test
 	public void testBonecrusherSeCreaEnEstadoHumanoide(){
-		DecepticonFactory factory = new DecepticonFactory();
+		AlgoFormerFactory factory = new AlgoFormerFactory();
 		AlgoFormer bonecrusher = factory.getBonecrusher();
 		assertEquals(bonecrusher.getEstado().getClass(), Humanoide.class);
 	}
 	
 	@Test
 	public void testBonecrusherSeTransformaDeHumanoideEnAlterno(){
-		DecepticonFactory factory = new DecepticonFactory();
+		AlgoFormerFactory factory = new AlgoFormerFactory();
 		AlgoFormer bonecrusher = factory.getBonecrusher();
 		bonecrusher.transformarse();
 		assertEquals(bonecrusher.getEstado().getClass(), AlternoTerrestre.class);
@@ -158,7 +158,7 @@ public class EstadoDeTransformacionDePersonajesTests {
 	
 	@Test
 	public void testBonecrusherSeTransformaDeAlternoEnHumanoide(){
-		DecepticonFactory factory = new DecepticonFactory();
+		AlgoFormerFactory factory = new AlgoFormerFactory();
 		AlgoFormer bonecrusher = factory.getBonecrusher();
 		bonecrusher.transformarse();
 		bonecrusher.transformarse();

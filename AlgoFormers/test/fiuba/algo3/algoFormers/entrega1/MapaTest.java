@@ -1,18 +1,15 @@
 package fiuba.algo3.algoFormers.entrega1;
 
 import static org.junit.Assert.*;
-import static org.hamcrest.CoreMatchers.*;
 
 import org.junit.Before;
 import org.junit.Test;
 
-import fiuba.algo3.algoFormers.modelo.fabricas.AutoBotFactory;
-import fiuba.algo3.algoFormers.modelo.fabricas.DecepticonFactory;
+import fiuba.algo3.algoFormers.modelo.fabricas.AlgoFormerFactory;
 import fiuba.algo3.algoFormers.modelo.mapas.Casillero;
 import fiuba.algo3.algoFormers.modelo.mapas.Mapa;
 import fiuba.algo3.algoFormers.modelo.mapas.Posicion;
-import fiuba.algo3.algoFormers.modelo.personajes.AutoBot;
-import fiuba.algo3.algoFormers.modelo.personajes.Decepticon;
+import fiuba.algo3.algoFormers.modelo.personajes.AlgoFormer;
 import fiuba.algo3.algoFormers.modelo.direcciones.DirAbajo;
 import fiuba.algo3.algoFormers.modelo.direcciones.DirAbajoDer;
 import fiuba.algo3.algoFormers.modelo.direcciones.DirArriba;
@@ -24,20 +21,19 @@ import fiuba.algo3.algoFormers.modelo.excepciones.UbicableNoPertenceAlMapaExcept
 public class MapaTest {
 
 	private Mapa mapa;
-	private Decepticon megatron;
-	private AutoBot optimusPrime;
+	private AlgoFormer megatron;
+	private AlgoFormer optimusPrime;
 	private Posicion posicion1;
-	private AutoBot bumblebee;
-	private Decepticon frenzy;
+	private AlgoFormer bumblebee;
+	private AlgoFormer frenzy;
 
 	@Before
 	public void setUp(){
-		AutoBotFactory factoryA = new AutoBotFactory();
+		AlgoFormerFactory factoryA = new AlgoFormerFactory();
 		optimusPrime = factoryA.getOptimusPrime();
 		bumblebee = factoryA.getBumblebee();
-		DecepticonFactory factoryD = new DecepticonFactory();
-		megatron = factoryD.getMegatron();
-		frenzy = factoryD.getFrenzy();
+		megatron = factoryA.getMegatron();
+		frenzy = factoryA.getFrenzy();
 		mapa = new Mapa();
 		posicion1 = new Posicion(3,4); 
 	}

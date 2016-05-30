@@ -9,8 +9,7 @@ import fiuba.algo3.algoFormers.modelo.direcciones.DirDerecha;
 import fiuba.algo3.algoFormers.modelo.excepciones.AtaqueEspacioVacioException;
 import fiuba.algo3.algoFormers.modelo.excepciones.AtaqueFueraDeRangoException;
 import fiuba.algo3.algoFormers.modelo.excepciones.FuegoAmigoException;
-import fiuba.algo3.algoFormers.modelo.fabricas.AutoBotFactory;
-import fiuba.algo3.algoFormers.modelo.fabricas.DecepticonFactory;
+import fiuba.algo3.algoFormers.modelo.fabricas.AlgoFormerFactory;
 import fiuba.algo3.algoFormers.modelo.mapas.Mapa;
 import fiuba.algo3.algoFormers.modelo.mapas.Posicion;
 import fiuba.algo3.algoFormers.modelo.personajes.AlgoFormer;
@@ -35,7 +34,7 @@ public class ManejadoresTest {
 	
 	@Test 
 	public void testVerifiarMovimientosRestantesConMovimiento(){
-		AutoBotFactory factory = new AutoBotFactory();
+		AlgoFormerFactory factory = new AlgoFormerFactory();
 		AlgoFormer optimusPrime = factory.getOptimusPrime();
 		int movimientos = optimusPrime.getVelocidad();
 		ManejadorDeMovimientos manejador = new ManejadorDeMovimientos(movimientos);
@@ -54,7 +53,7 @@ public class ManejadoresTest {
 	
 	@Test(expected=MovimientosAgotadosException.class)
 	public void testVerificarMovimientosRestantes(){
-		AutoBotFactory factory = new AutoBotFactory();
+		AlgoFormerFactory factory = new AlgoFormerFactory();
 		AlgoFormer optimusPrime = factory.getOptimusPrime();
 		int movimientos = optimusPrime.getVelocidad();
 		ManejadorDeMovimientos manejador = new ManejadorDeMovimientos(movimientos);
@@ -78,10 +77,9 @@ public class ManejadoresTest {
 	
 	@Test
 	public void testAtaqueEnRango(){
-		AutoBotFactory autoBotFactory = new AutoBotFactory();
-		AlgoFormer optimus = autoBotFactory.getOptimusPrime();
-		DecepticonFactory decepticonFactory = new DecepticonFactory();
-		AlgoFormer megatron = decepticonFactory.getMegatron();
+		AlgoFormerFactory factory = new AlgoFormerFactory();
+		AlgoFormer optimus = factory.getOptimusPrime();
+		AlgoFormer megatron = factory.getMegatron();
 		
 		Mapa mapa = new Mapa();
 		Posicion posicionOptimus = new Posicion(1, 1);
@@ -106,10 +104,9 @@ public class ManejadoresTest {
 	
 	@Test(expected=AtaqueFueraDeRangoException.class)
 	public void testAtaqueFueraDeRango(){
-		AutoBotFactory autoBotFactory = new AutoBotFactory();
-		AlgoFormer optimus = autoBotFactory.getOptimusPrime();
-		DecepticonFactory decepticonFactory = new DecepticonFactory();
-		AlgoFormer megatron = decepticonFactory.getMegatron();
+		AlgoFormerFactory factory = new AlgoFormerFactory();
+		AlgoFormer optimus = factory.getOptimusPrime();
+		AlgoFormer megatron = factory.getMegatron();
 		
 		Mapa mapa = new Mapa();
 		Posicion posicionOptimus = new Posicion(1, 1);
@@ -125,8 +122,8 @@ public class ManejadoresTest {
 	
 	@Test(expected=AtaqueEspacioVacioException.class)
 	public void testAtaqueEspacioVacio(){
-		AutoBotFactory autoBotFactory = new AutoBotFactory();
-		AlgoFormer optimus = autoBotFactory.getOptimusPrime();
+		AlgoFormerFactory factory = new AlgoFormerFactory();
+		AlgoFormer optimus = factory.getOptimusPrime();
 		
 		Mapa mapa = new Mapa();
 		Posicion posicionOptimus = new Posicion(1, 1);
@@ -141,9 +138,9 @@ public class ManejadoresTest {
 	
 	@Test(expected=FuegoAmigoException.class)
 	public void testAutoBotAtacaAutoBot(){
-		AutoBotFactory autoBotFactory = new AutoBotFactory();
-		AlgoFormer optimus = autoBotFactory.getOptimusPrime();
-		AlgoFormer bumblebee = autoBotFactory.getBumblebee();
+		AlgoFormerFactory factory = new AlgoFormerFactory();
+		AlgoFormer optimus = factory.getOptimusPrime();
+		AlgoFormer bumblebee = factory.getBumblebee();
 		Mapa mapa = new Mapa();
 		Posicion posicionOptimus = new Posicion(1, 1);
 		Posicion posicionBumblebee = new Posicion(1, 2);

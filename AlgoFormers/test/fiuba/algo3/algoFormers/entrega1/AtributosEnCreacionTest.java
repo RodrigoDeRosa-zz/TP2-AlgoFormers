@@ -4,8 +4,8 @@ import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 
-import fiuba.algo3.algoFormers.modelo.fabricas.AutoBotFactory;
-import fiuba.algo3.algoFormers.modelo.fabricas.DecepticonFactory;
+import fiuba.algo3.algoFormers.modelo.fabricas.AlgoFormerFactory;
+import fiuba.algo3.algoFormers.modelo.fabricas.AlgoFormerFactory;
 import fiuba.algo3.algoFormers.modelo.personajes.AlgoFormer;
 
 public class AtributosEnCreacionTest {
@@ -13,42 +13,42 @@ public class AtributosEnCreacionTest {
 	//Tests de vida
 	@Test
 	public void testOptimusPrimeSeCreaConVidaCorrecta(){
-		AutoBotFactory factory = new AutoBotFactory();
+		AlgoFormerFactory factory = new AlgoFormerFactory();
 		AlgoFormer optimusPrime = factory.getOptimusPrime();
 		assertEquals(optimusPrime.getVida(), 500);
 	}
 	
 	@Test
 	public void testBumblebeeSeCreaConVidaCorrecta(){
-		AutoBotFactory factory = new AutoBotFactory();
+		AlgoFormerFactory factory = new AlgoFormerFactory();
 		AlgoFormer bumblebee = factory.getBumblebee();
 		assertEquals(bumblebee.getVida(), 350);
 	}
 	
 	@Test
 	public void testRatchetSeCreaConVidaCorrecta(){
-		AutoBotFactory factory = new AutoBotFactory();
+		AlgoFormerFactory factory = new AlgoFormerFactory();
 		AlgoFormer ratchet = factory.getRatchet();
 		assertEquals(ratchet.getVida(), 150);
 	}
 	
 	@Test
 	public void testMegatronSeCreaConVidaCorrecta(){
-		DecepticonFactory factory = new DecepticonFactory();
+		AlgoFormerFactory factory = new AlgoFormerFactory();
 		AlgoFormer megatron = factory.getMegatron();
 		assertEquals(megatron.getVida(), 550);
 	}
 	
 	@Test
 	public void testFrenzySeCreaConVidaCorrecta(){
-		DecepticonFactory factory = new DecepticonFactory();
+		AlgoFormerFactory factory = new AlgoFormerFactory();
 		AlgoFormer frenzy = factory.getFrenzy();
 		assertEquals(frenzy.getVida(), 400);
 	}
 	
 	@Test
 	public void testBonecrusherSeCreaConVidaCorrecta(){
-		DecepticonFactory factory = new DecepticonFactory();
+		AlgoFormerFactory factory = new AlgoFormerFactory();
 		AlgoFormer bonecrusher = factory.getBonecrusher();
 		assertEquals(bonecrusher.getVida(), 200);
 	}
@@ -56,42 +56,42 @@ public class AtributosEnCreacionTest {
 	//Tests de nombre
 	@Test
 	public void testOptimusPrimeSeCreaConNombreCorrecta(){
-		AutoBotFactory factory = new AutoBotFactory();
+		AlgoFormerFactory factory = new AlgoFormerFactory();
 		AlgoFormer optimusPrime = factory.getOptimusPrime();
 		assertEquals(optimusPrime.getNombre(), "Optimus Prime");
 	}
 	
 	@Test
 	public void testBumblebeeSeCreaConNombreCorrecta(){
-		AutoBotFactory factory = new AutoBotFactory();
+		AlgoFormerFactory factory = new AlgoFormerFactory();
 		AlgoFormer bumblebee = factory.getBumblebee();
 		assertEquals(bumblebee.getNombre(), "Bumblebee");
 	}
 	
 	@Test
 	public void testRatchetSeCreaConNombreCorrecta(){
-		AutoBotFactory factory = new AutoBotFactory();
+		AlgoFormerFactory factory = new AlgoFormerFactory();
 		AlgoFormer ratchet = factory.getRatchet();
 		assertEquals(ratchet.getNombre(), "Ratchet");
 	}
 	
 	@Test
 	public void testMegatronSeCreaConNombreCorrecta(){
-		DecepticonFactory factory = new DecepticonFactory();
+		AlgoFormerFactory factory = new AlgoFormerFactory();
 		AlgoFormer megatron = factory.getMegatron();
 		assertEquals(megatron.getNombre(), "Megatron");
 	}
 	
 	@Test
 	public void testFrenzySeCreaConNombreCorrecta(){
-		DecepticonFactory factory = new DecepticonFactory();
+		AlgoFormerFactory factory = new AlgoFormerFactory();
 		AlgoFormer frenzy = factory.getFrenzy();
 		assertEquals(frenzy.getNombre(), "Frenzy");
 	}
 	
 	@Test
 	public void testBonecrusherSeCreaConNombreCorrecta(){
-		DecepticonFactory factory = new DecepticonFactory();
+		AlgoFormerFactory factory = new AlgoFormerFactory();
 		AlgoFormer bonecrusher = factory.getBonecrusher();
 		assertEquals(bonecrusher.getNombre(), "Bonecrusher");
 	}

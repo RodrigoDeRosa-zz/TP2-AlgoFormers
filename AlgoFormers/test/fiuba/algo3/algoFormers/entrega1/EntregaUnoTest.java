@@ -5,8 +5,7 @@ import org.junit.Test;
 
 import fiuba.algo3.algoFormers.modelo.direcciones.DirArriba;
 import fiuba.algo3.algoFormers.modelo.direcciones.Direccion;
-import fiuba.algo3.algoFormers.modelo.fabricas.AutoBotFactory;
-import fiuba.algo3.algoFormers.modelo.fabricas.DecepticonFactory;
+import fiuba.algo3.algoFormers.modelo.fabricas.AlgoFormerFactory;
 import fiuba.algo3.algoFormers.modelo.juego.Juego;
 import fiuba.algo3.algoFormers.modelo.mapas.Mapa;
 import fiuba.algo3.algoFormers.modelo.mapas.Posicion;
@@ -21,7 +20,7 @@ public class EntregaUnoTest {
 	
 	@Test
 	public void testUbicarAlfoFormerHumanoideMoverloYVerificarNuevaPosicion(){
-		AutoBotFactory factory = new AutoBotFactory();
+		AlgoFormerFactory factory = new AlgoFormerFactory();
 		AlgoFormer optimus = factory.getOptimusPrime();
 		Mapa mapa = new Mapa();
 		Posicion posicion = new Posicion(1,1);
@@ -39,7 +38,7 @@ public class EntregaUnoTest {
 	
 	@Test
 	public void testUbicarAlfoFormerAlternoMoverloYVerificarNuevaPosicion(){
-		AutoBotFactory factory = new AutoBotFactory();
+		AlgoFormerFactory factory = new AlgoFormerFactory();
 		AlgoFormer ratchet = factory.getRatchet();
 		ratchet.transformarse(); //Se transforma en Alterno
 		Mapa mapa = new Mapa();
@@ -55,7 +54,7 @@ public class EntregaUnoTest {
 	
 	@Test
 	public void testTransformarAlgoFormerDeHumanoideAAlterno(){
-		AutoBotFactory factory = new AutoBotFactory();
+		AlgoFormerFactory factory = new AlgoFormerFactory();
 		AlgoFormer bumblebee = factory.getBumblebee(); //Se crea Humanoide
 		assertEquals(bumblebee.getEstado().getClass(), Humanoide.class);
 		bumblebee.transformarse();
@@ -68,17 +67,15 @@ public class EntregaUnoTest {
 	public void testIntegracionUbicarDosEquiposDeTresPersonajesYChispa(){
 		Juego juego = new Juego();
 		
-		AutoBotFactory autoBotFactory = new AutoBotFactory();
+		AlgoFormerFactory factory = new AlgoFormerFactory();
 		
-		AlgoFormer optimus = autoBotFactory.getOptimusPrime();
-		AlgoFormer bumblebee = autoBotFactory.getBumblebee();
-		AlgoFormer ratchet = autoBotFactory.getRatchet();
-
-		DecepticonFactory decepticonFactory = new DecepticonFactory();
+		AlgoFormer optimus = factory.getOptimusPrime();
+		AlgoFormer bumblebee = factory.getBumblebee();
+		AlgoFormer ratchet = factory.getRatchet();
 		
-		AlgoFormer megatron = decepticonFactory.getMegatron();
-		AlgoFormer bonecrusher = decepticonFactory.getBonecrusher();
-		AlgoFormer frenzy = decepticonFactory.getFrenzy();
+		AlgoFormer megatron = factory.getMegatron();
+		AlgoFormer bonecrusher = factory.getBonecrusher();
+		AlgoFormer frenzy = factory.getFrenzy();
 		
 		assertEquals(optimus, juego.getUbicable(new Posicion(1, 19)));
 		assertEquals(bumblebee, juego.getUbicable(new Posicion(1, 20)));
@@ -99,10 +96,9 @@ public class EntregaUnoTest {
 	
 	@Test
 	public void testAutoBotAtacaDecepticonEnRango(){
-		AutoBotFactory autoBotFactory = new AutoBotFactory();
-		AlgoFormer optimus = autoBotFactory.getOptimusPrime();
-		DecepticonFactory decepticonFactory = new DecepticonFactory();
-		AlgoFormer megatron = decepticonFactory.getMegatron();
+		AlgoFormerFactory factory = new AlgoFormerFactory();
+		AlgoFormer optimus = factory.getOptimusPrime();
+		AlgoFormer megatron = factory.getMegatron();
 		
 		Mapa mapa = new Mapa();
 		Posicion posicionOptimus = new Posicion(1, 1);
@@ -116,20 +112,19 @@ public class EntregaUnoTest {
 	
 	@Test(expected=AtaqueFueraDeRangoException.class)
 	public void testAutoBotAtacaFueraDeRango(){
-		AutoBotFactory autoBotFactory = new AutoBotFactory();
-		AlgoFormer optimus = autoBotFactory.getOptimusPrime();
+		AlgoFormerFactory factory = new AlgoFormerFactory();
+		AlgoFormer optimus = factory.getOptimusPrime();
 		Mapa mapa = new Mapa();
 		Posicion posicionOptimus = new Posicion(1, 1);
 		mapa.ubicar(optimus, posicionOptimus);
 		optimus.inicializarTurno();
 		optimus.atacarPosicion(new Posicion(1, 6),mapa);
-		//Falta cuando se ataca una posicion en rango con un aliado(FuegoAmigoException)
 	}
 	
 	@Test(expected=AtaqueEspacioVacioException.class)
 	public void testAutoBotAtacaEspacioVacio(){
-		AutoBotFactory autoBotFactory = new AutoBotFactory();
-		AlgoFormer optimus = autoBotFactory.getOptimusPrime();
+		AlgoFormerFactory factory = new AlgoFormerFactory();
+		AlgoFormer optimus = factory.getOptimusPrime();
 		Mapa mapa = new Mapa();
 		Posicion posicionOptimus = new Posicion(1, 1);
 		mapa.ubicar(optimus, posicionOptimus);
@@ -139,9 +134,9 @@ public class EntregaUnoTest {
 	
 	@Test(expected=FuegoAmigoException.class)
 	public void testAutoBotAtacaAutoBot(){
-		AutoBotFactory autoBotFactory = new AutoBotFactory();
-		AlgoFormer optimus = autoBotFactory.getOptimusPrime();
-		AlgoFormer bumblebee = autoBotFactory.getBumblebee();
+		AlgoFormerFactory factory = new AlgoFormerFactory();
+		AlgoFormer optimus = factory.getOptimusPrime();
+		AlgoFormer bumblebee = factory.getBumblebee();
 		Mapa mapa = new Mapa();
 		Posicion posicionOptimus = new Posicion(1, 1);
 		Posicion posicionBumblebee = new Posicion(1, 2);
