@@ -6,7 +6,7 @@ import org.junit.Test;
 
 import fiuba.algo3.algoFormers.modelo.excepciones.AtaqueFueraDeRangoException;
 import fiuba.algo3.algoFormers.modelo.excepciones.FuegoAmigoException;
-import fiuba.algo3.algoFormers.modelo.juego.Accion;
+import fiuba.algo3.algoFormers.modelo.interfaces.Accion;
 import fiuba.algo3.algoFormers.modelo.juego.Juego;
 import fiuba.algo3.algoFormers.modelo.juego.Jugador;
 import fiuba.algo3.algoFormers.modelo.juego.JugadorAutobots;

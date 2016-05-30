@@ -3,7 +3,7 @@ package fiuba.algo3.algoFormers.modelo.juego.acciones;
 import fiuba.algo3.algoFormers.modelo.direcciones.Direccion;
 import fiuba.algo3.algoFormers.modelo.excepciones.CasilleroOcupadoException;
 import fiuba.algo3.algoFormers.modelo.excepciones.PosicionFueraDelMapaException;
-import fiuba.algo3.algoFormers.modelo.juego.Accion;
+import fiuba.algo3.algoFormers.modelo.interfaces.Accion;
 import fiuba.algo3.algoFormers.modelo.mapas.Mapa;
 import fiuba.algo3.algoFormers.modelo.personajes.Algoformer;
 import fiuba.algo3.algoFormers.modelo.personajes.manejadores.ManejadorDeMovimientos;

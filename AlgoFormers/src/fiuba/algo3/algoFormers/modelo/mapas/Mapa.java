@@ -77,11 +77,7 @@ public class Mapa {
 		Casillero casillero = tablero.get(posicion);
 		return casillero.getUbicable();	
 	}
-		
-		
 	
-	
-		
 	//Metodos para puebas
 	
 	public int getTamanio() {

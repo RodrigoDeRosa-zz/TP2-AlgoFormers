@@ -37,9 +37,6 @@ public class EntregaUnoTest {
 			manejador.RealizarMovimiento();	
 		}
 		assertEquals(optimus, mapa.getUbicable(new Posicion(1, 3)));
-		
-		//Puede ser un Ubicable o null.
-		//Hay que hacer una prueba para cuando se queda sin nafta(SinPuntosDeMovimientoException)
 	}
 	
 	

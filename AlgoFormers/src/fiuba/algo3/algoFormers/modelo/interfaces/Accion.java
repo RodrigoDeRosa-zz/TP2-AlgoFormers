@@ -1,4 +1,4 @@
-package fiuba.algo3.algoFormers.modelo.juego;
+package fiuba.algo3.algoFormers.modelo.interfaces;
 
 /**
  *Interface Accion, tiene un metodo ejecutar que permite aplicarla a un juego.

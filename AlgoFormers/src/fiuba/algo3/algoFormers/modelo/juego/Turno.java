@@ -1,5 +1,6 @@
 package fiuba.algo3.algoFormers.modelo.juego;
 
+import fiuba.algo3.algoFormers.modelo.interfaces.Accion;
 import fiuba.algo3.algoFormers.modelo.personajes.Algoformer;
 
 public class Turno {
