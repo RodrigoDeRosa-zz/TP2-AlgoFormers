@@ -39,7 +39,7 @@ public class AutoBot extends AlgoFormer {
 	@Override
 	public void recibirDanio(Decepticon decepticon) {
 		
-		this.vida.descontar(decepticon.getAtaque());
+		this.vida.descontar(decepticon.getPuntosAtaque());
 		
 	}
 

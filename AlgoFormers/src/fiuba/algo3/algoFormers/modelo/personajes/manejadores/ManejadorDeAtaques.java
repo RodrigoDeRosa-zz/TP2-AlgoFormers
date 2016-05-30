@@ -14,8 +14,6 @@ public class ManejadorDeAtaques {
 	private AlgoFormer atacante;
 	private Ubicable destino;
 	private int distanciaPretendida;
-	// private Ubicable atacado;
-	// private int distanciaPretendida;
 	
 	public ManejadorDeAtaques(Mapa mapa, AlgoFormer algoformer, Posicion posicion){
 		/*constructor del manejador de ataques. Este contiene la distancia de 
@@ -32,7 +30,7 @@ public class ManejadorDeAtaques {
 		 * que ataca a una posicion. recibe el algoformer que esta atacando por parametro
 		 * la posicion a la que se ataca y el mapa.
 		 */
-		if ( distanciaPretendida > atacante.getDistanciaDeAtaque()) {
+		if ( distanciaPretendida > atacante.getPuntosDistanciaDeAtaque()) {
 			
 			throw new AtaqueFueraDeRangoException();
 		}
@@ -56,8 +54,7 @@ public class ManejadorDeAtaques {
 		catch (NoEsAtacableException e) {
 			
 			throw e;
-		}
-				
+		}				
 		
 	}
 	

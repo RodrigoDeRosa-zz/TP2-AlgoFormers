@@ -12,58 +12,68 @@ import fiuba.algo3.algoFormers.modelo.personajes.estadosDeTransformacion.Alterno
  */
 public class AlgoformerFactory {
 	
-	private String NOMBRE_OPTIMUS = "OPTIMUS", NOMBRE_BUMBLEBEE = "BUMBLEBEE", NOMBRE_RATCHET = "RATCHET",
-			NOMBRE_MEGATRON = "MEGATRON", NOMBRE_FRENZY = "FRENZY", NOMBRE_BONECRUSHER = "BONECRUSHER";
+	/* AUTOBOTS */
 	
-	//Constantes de Vida
+	//OPTIMUS
+	private String NOMBRE_OPTIMUS = "OPTIMUS";
 	private int VIDA_OPTIMUS = 500;
-	private int VIDA_BUMBLEBEE = 350;
-	private int VIDA_RATCHET = 150;
-	//Constantes de Velocidad
 	private int VELOCIDAD_HUM_OPTIMUS = 2;
 	private int VELOCIDAD_ALT_OPTIMUS = 5;
-	private int VELOCIDAD_HUM_BUMBLEBEE = 2;
-	private int VELOCIDAD_ALT_BUMBLEBEE = 5;
-	private int VELOCIDAD_HUM_RATCHET = 1;
-	private int VELOCIDAD_ALT_RATCHET = 8;
-	//Constantes de ataque
 	private int ATAQUE_HUM_OPTIMUS = 50;
 	private int ATAQUE_ALT_OPTIMUS = 15;
-	private int ATAQUE_HUM_BUMBLEBEE = 40;
-	private int ATAQUE_ALT_BUMBLEBEE = 20;
-	private int ATAQUE_HUM_RATCHET = 5;
-	private int ATAQUE_ALT_RATCHET = 35;
-	//Constantes de DistanciaDeAtaque
 	private int DIST_ATAQUE_HUM_OPTIMUS = 2;
 	private int DIST_ATAQUE_ALT_OPTIMUS = 4;
+	
+	//BUMBLEBEE
+	private String NOMBRE_BUMBLEBEE = "BUMBLEBEE"; 
+	private int VIDA_BUMBLEBEE = 350;
+	private int VELOCIDAD_HUM_BUMBLEBEE = 2;
+	private int VELOCIDAD_ALT_BUMBLEBEE = 5;
+	private int ATAQUE_HUM_BUMBLEBEE = 40;
+	private int ATAQUE_ALT_BUMBLEBEE = 20;
 	private int DIST_ATAQUE_HUM_BUMBLEBEE = 1;
 	private int DIST_ATAQUE_ALT_BUMBLEBEE = 3;
+	
+	//RATCHET
+	private String NOMBRE_RATCHET = "RATCHET";
+	private int VIDA_RATCHET = 150;
+	private int VELOCIDAD_HUM_RATCHET = 1;
+	private int VELOCIDAD_ALT_RATCHET = 8;
+	private int ATAQUE_HUM_RATCHET = 5;
+	private int ATAQUE_ALT_RATCHET = 35;
 	private int DIST_ATAQUE_HUM_RATCHET = 5;
 	private int DIST_ATAQUE_ALT_RATCHET = 2;
 	
-	//Constantes de vida
+	
+	/* DECEPTICONS */
+	
+	//MEGATRON
+	private String NOMBRE_MEGATRON = "MEGATRON";
 	private int VIDA_MEGATRON = 550;
-	private int VIDA_FRENZY = 400;
-	private int VIDA_BONECRUSHER = 200;
-	//Constantes de velocidad
 	private int VELOCIDAD_HUM_MEGATRON = 1;
 	private int VELOCIDAD_ALT_MEGATRON = 8;
-	private int VELOCIDAD_HUM_FRENZY = 2;
-	private int VELOCIDAD_ALT_FRENZY = 6;
-	private int VELOCIDAD_HUM_BONECRUSHER = 1;
-	private int VELOCIDAD_ALT_BONECRUSHER = 8;
-	//Constantes de ataque
 	private int ATAQUE_HUM_MEGATRON = 10;
 	private int ATAQUE_ALT_MEGATRON = 55;
-	private int ATAQUE_HUM_FRENZY = 10;
-	private int ATAQUE_ALT_FRENZY = 25;
-	private int ATAQUE_HUM_BONECRUSHER = 30;
-	private int ATAQUE_ALT_BONECRUSHER = 30;
-	//Constantes de distancia de ataque
 	private int DIST_ATAQUE_HUM_MEGATRON = 3;
 	private int DIST_ATAQUE_ALT_MEGATRON = 2;
+	
+	//FRENZY
+	private String NOMBRE_FRENZY = "FRENZY";
+	private int VIDA_FRENZY = 400;
+	private int VELOCIDAD_HUM_FRENZY = 2;
+	private int VELOCIDAD_ALT_FRENZY = 6;
+	private int ATAQUE_HUM_FRENZY = 10;
+	private int ATAQUE_ALT_FRENZY = 25;
 	private int DIST_ATAQUE_HUM_FRENZY = 5;
 	private int DIST_ATAQUE_ALT_FRENZY = 2;
+	
+	//BONECRUSHER
+	private String NOMBRE_BONECRUSHER = "BONECRUSHER";
+	private int VIDA_BONECRUSHER = 200;	
+	private int VELOCIDAD_HUM_BONECRUSHER = 1;
+	private int VELOCIDAD_ALT_BONECRUSHER = 8;	
+	private int ATAQUE_HUM_BONECRUSHER = 30;
+	private int ATAQUE_ALT_BONECRUSHER = 30;	
 	private int DIST_ATAQUE_HUM_BONECRUSHER = 3;
 	private int DIST_ATAQUE_ALT_BONECRUSHER = 3;
 	

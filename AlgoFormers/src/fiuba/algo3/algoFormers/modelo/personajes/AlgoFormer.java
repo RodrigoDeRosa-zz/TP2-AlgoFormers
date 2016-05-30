@@ -54,25 +54,24 @@ public abstract class AlgoFormer implements Atacable {
 		return posicionActual;
 	}
 	
-	//Metodos para las pruebas. No se deberian llamar en otras clases.
-	public int getVida(){
-		return this.vida.get();
-	}
-
 	public EstadoDeTransformacion getEstado() {
 		return this.estadoDeTransformacionActual;
 	}
 	
-	public int getVelocidad(){
-		return this.estadoDeTransformacionActual.getVelocidad();
+	public int getVida(){
+		return this.vida.get();
 	}
 	
-	public int getAtaque(){
-		return this.estadoDeTransformacionActual.getAtaque();
+	public int getPuntosVelocidad(){
+		return this.estadoDeTransformacionActual.getVelocidad().get();
 	}
 	
-	public int getDistanciaDeAtaque(){
-		return this.estadoDeTransformacionActual.getDistanciaDeAtaque();
+	public int getPuntosAtaque(){
+		return this.estadoDeTransformacionActual.getAtaque().get();
+	}
+	
+	public int getPuntosDistanciaDeAtaque(){
+		return this.estadoDeTransformacionActual.getDistanciaDeAtaque().get();
 	}
 	public String getNombre() {
 		return this.nombre;
