@@ -31,6 +31,10 @@ public class ManejadorDeMovimientos {
 		this.movimientosRestantes -= UNICO;
 	}
 	
+	public void resetearMovimientos(){
+		this.movimientosRestantes = this.movimientosTotales;
+	}
+	
 	public void moverEnDireccion(AlgoFormer algoformer, Direccion direccion, Mapa mapa){
 		/*Funcion que le pide al mapa que mueva un algoformer en alguina direccion.
 		 * Recibe como parametro el algoformer a mover, la direccion y el mapa.
