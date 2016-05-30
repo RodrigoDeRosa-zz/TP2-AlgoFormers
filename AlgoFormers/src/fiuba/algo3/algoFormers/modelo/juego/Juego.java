@@ -1,6 +1,8 @@
 package fiuba.algo3.algoFormers.modelo.juego;
 
+import fiuba.algo3.algoFormers.modelo.interfaces.Ubicable;
 import fiuba.algo3.algoFormers.modelo.mapas.Mapa;
+import fiuba.algo3.algoFormers.modelo.mapas.Posicion;
 
 public class Juego {
 
@@ -23,6 +25,8 @@ public class Juego {
 				
 	}
 	
+	
+	
 	public void Jugar() {
 		
 		while (true) {
@@ -33,6 +37,11 @@ public class Juego {
 		
 	}	
 	
+	public Ubicable getUbicable(Posicion posicion) {
+		
+		return mapa.getUbicable(posicion);
+	}
+	
 	public Jugador getJugadorActual() {
 		
 		return jugadorAutobots;
@@ -42,5 +51,17 @@ public class Juego {
 	
 		return mapa;
 	}	
+	
+	
+	/* METODOS PARA TESTS */
+	public Jugador getJugadorAutobots() {
+		
+		return jugadorAutobots;
+	}
+	
+	public Jugador getJugadorDecepticons() {
+		
+		return jugadorDecepticons;
+	}
 	
 }

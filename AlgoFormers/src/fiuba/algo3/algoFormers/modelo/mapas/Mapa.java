@@ -43,8 +43,9 @@ public class Mapa {
 	}
 	
 	public void ubicar(Ubicable ubicable, Posicion posicion) {
-		Casillero casillero = tablero.get(posicion);
+		
 		verificarCasilleroExiste(posicion);
+		Casillero casillero = tablero.get(posicion);		
 		verificarCasilleroEstaVacio(casillero, posicion);
 		casillero.ocupar(ubicable);
 		ubicable.setPosicion(posicion);

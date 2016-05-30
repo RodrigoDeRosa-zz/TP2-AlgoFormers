@@ -10,18 +10,25 @@ import fiuba.algo3.algoFormers.modelo.personajes.Algoformer;
 
 public class ManejadorDeMovimientos {
 	
-	private Posicion posicionOrigen, posicionDestino;
-	private Algoformer algoformer;
+	private Posicion posicionOrigen;
+	private Algoformer algoformerActual;
 	private Mapa mapa;
 	private int movimientosDisponibles;
+	private Direccion direccion;
 	
-	public ManejadorDeMovimientos(Mapa mapaDelJuego, Algoformer algoformer, Direccion dir) {
+	public ManejadorDeMovimientos(Mapa mapaDelJuego, Algoformer algoformer, Direccion unaDireccion) {
 		
-		posicionOrigen = algoformer.getPosicion();
-		posicionDestino = posicionOrigen.sumarDireccion(dir);
 		mapa = mapaDelJuego;
+				
 		movimientosDisponibles = algoformer.getPuntosVelocidad();
+		algoformerActual = algoformer;
+		direccion = unaDireccion;
 		
+	}
+	
+	public void  setDireccion(Direccion unaDireccion) {
+		
+		direccion = unaDireccion;
 	}
 	
 	public void RealizarMovimiento() {
@@ -32,7 +39,9 @@ public class ManejadorDeMovimientos {
 		}
 		
 		try {
-			mapa.ubicar(algoformer, posicionDestino);
+			posicionOrigen = algoformerActual.getPosicion();
+			Posicion posicionDestino = posicionOrigen.sumarDireccion(direccion);
+			mapa.ubicar(algoformerActual, posicionDestino);
 		}
 		catch (PosicionFueraDelMapaException e) {
 			throw e;
@@ -42,7 +51,7 @@ public class ManejadorDeMovimientos {
 		}
 		mapa.desocupar(posicionOrigen);
 		movimientosDisponibles--;
-		
+			
 	}
 	
 }

@@ -20,15 +20,15 @@ public class JugadorDecepticons extends Jugador {
 	
 	@Override
 	public void inicializarEquipo() {
-		this.personajes.add(this.fabrica.getMegatron());
-		this.personajes.add(this.fabrica.getBonecrusher());
-		this.personajes.add(this.fabrica.getFrenzy());
+		this.personajes.add(0, this.fabrica.getMegatron());
+		this.personajes.add(1, this.fabrica.getBonecrusher());
+		this.personajes.add(2, this.fabrica.getFrenzy());
 
 	}
 
 	@Override
 	public void ubicarPersonajes(Mapa mapa) {
-		int columnaActual = mapa.getTamanio() / 2;
+		int columnaActual = ( mapa.getTamanio() / 2 ) - 1;
 		int filaInicio = mapa.getTamanio();
 		
 		for (Algoformer algoformer : this.personajes) {

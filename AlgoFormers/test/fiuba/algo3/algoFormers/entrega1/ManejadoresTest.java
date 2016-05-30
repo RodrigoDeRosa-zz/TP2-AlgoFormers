@@ -6,7 +6,6 @@ import org.junit.Test;
 
 import fiuba.algo3.algoFormers.modelo.excepciones.MovimientosAgotadosException;
 import fiuba.algo3.algoFormers.modelo.direcciones.DireccionDerecha;
-import fiuba.algo3.algoFormers.modelo.excepciones.AtaqueEspacioVacioException;
 import fiuba.algo3.algoFormers.modelo.excepciones.AtaqueFueraDeRangoException;
 import fiuba.algo3.algoFormers.modelo.excepciones.FuegoAmigoException;
 import fiuba.algo3.algoFormers.modelo.mapas.Mapa;

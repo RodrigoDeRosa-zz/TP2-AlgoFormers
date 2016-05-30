@@ -37,7 +37,7 @@ public class JuegoTest {
 		jugadorAutobots.ubicarPersonajes(mapa);
 		Turno turno = new Turno(jugadorAutobots);	
 		Algoformer optimus = jugadorAutobots.getAlgoformer("OPTIMUS");
-		assertTrue(optimus.getNombre() == mapa.getUbicable(new Posicion(1, 20)).getNombre());
+		assertTrue(optimus.getNombre() == mapa.getUbicable(new Posicion(1, 19)).getNombre());
 	
 		turno.setAlgoformerActual(optimus);
 		

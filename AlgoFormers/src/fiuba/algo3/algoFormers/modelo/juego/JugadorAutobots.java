@@ -20,15 +20,15 @@ public class JugadorAutobots extends Jugador {
 	
 	public void inicializarEquipo() {
 
-		this.personajes.add(this.fabrica.getOptimusPrime());
-		this.personajes.add(this.fabrica.getBumblebee());
-		this.personajes.add(this.fabrica.getRatchet());
+		this.personajes.add(0, this.fabrica.getOptimusPrime());
+		this.personajes.add(1, this.fabrica.getBumblebee());
+		this.personajes.add(2, this.fabrica.getRatchet());
 
 	}
 
 	@Override
 	public void ubicarPersonajes(Mapa mapa) {
-		int columnaActual = mapa.getTamanio() / 2;
+		int columnaActual = ( mapa.getTamanio() / 2 ) - 1;
 		int filaInicio = 1;
 		
 		for (Algoformer algoformer : this.personajes) {
