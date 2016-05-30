@@ -1,6 +1,7 @@
 package fiuba.algo3.algoFormers.modelo.mapas;
 
 import java.util.HashMap;
+import java.util.Random;
 
 import fiuba.algo3.algoFormers.modelo.capturables.Chispa;
 import fiuba.algo3.algoFormers.modelo.direcciones.Direccion;
@@ -27,6 +28,22 @@ public class Mapa {
 		Casillero casillero = tablero.get(posicion);
 		this.verificarCasilleroEstaVacio(casillero, posicion);
 		casillero.setUbicable(ubicable);
+	}
+
+	public void ubicarChispa(Chispa laChispa) {
+		
+		int medio = TAMANIO / 2;
+		int desplazamiento = 2;
+		int max = medio + desplazamiento;
+		int min = medio - desplazamiento;
+		
+		Random generador = new Random();
+		int resultadoX = generador.nextInt(max - min + 1) + min;
+		int resultadoY = generador.nextInt(max - min + 1) + min;
+		
+		Posicion pos = new Posicion(resultadoX, resultadoY);
+		
+		this.ubicar((Ubicable) laChispa, pos);
 	}
 	
 	public void moverUbicableEnDireccion(Ubicable ubicable, Direccion direccion) {
@@ -111,8 +128,8 @@ public class Mapa {
 		return tablero.get(posicion); 
 	}
 	
-	public Posicion getPosicionChispa(){
-		return this.obtenerPosicion((Ubicable) new Chispa());
+	public Posicion getPosicionChispa(Chispa chispa){
+		return this.obtenerPosicion((Ubicable)chispa);
 	}
 
 }

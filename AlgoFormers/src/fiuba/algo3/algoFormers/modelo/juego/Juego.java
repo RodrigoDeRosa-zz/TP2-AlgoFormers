@@ -1,5 +1,6 @@
 package fiuba.algo3.algoFormers.modelo.juego;
 
+import fiuba.algo3.algoFormers.modelo.capturables.Chispa;
 import fiuba.algo3.algoFormers.modelo.fabricas.*;
 import fiuba.algo3.algoFormers.modelo.interfaces.Ubicable;
 import fiuba.algo3.algoFormers.modelo.mapas.Mapa;
@@ -12,14 +13,15 @@ public class Juego {
 	private static AutoBotFactory autobots = new AutoBotFactory();
 	private static DecepticonFactory decepticons = new DecepticonFactory();;
 	private AlgoFormer optimus, bumblebee, ratchet, megatron, bonecrusher, frenzy;
+	private Chispa chispa;
 	
 	private static int 
-	filaOptimus = 1, columnaOptimus = 1, 
-	filaBumblebee = 1, columnaBumblebee = 2,
-	filaRatchet = 1, columnaRatchet = 3,
-	filaMegatron = 2, columnaMegatron = 1, 
-	filaBonecrusher = 2, columnaBonecrusher = 2,
-	filaFrenzy = 2, columnaFrenzy = 3;	
+	filaOptimus = 0, columnaOptimus = 18, 
+	filaBumblebee = 0, columnaBumblebee = 19,
+	filaRatchet = 0, columnaRatchet = 20,
+	filaMegatron = 39, columnaMegatron = 18, 
+	filaBonecrusher = 39, columnaBonecrusher = 19,
+	filaFrenzy = 39, columnaFrenzy = 20;	
 	
 	public Juego() {
 		
@@ -39,13 +41,19 @@ public class Juego {
 		this.ubicar(bonecrusher, filaBonecrusher, columnaBonecrusher);
 		this.ubicar(frenzy, filaFrenzy, columnaFrenzy);
 		
+		this.chispa = new Chispa();
+		this.ubicarChispa(this.chispa);
 		
-	}
+		}
 	
 	public void ubicar(Ubicable ubicable, int fila, int columna) {
 		
 		Posicion pos = new Posicion(fila, columna);
 		this.mapa.ubicar(ubicable, pos);
+	}
+	
+	public void ubicarChispa(Chispa chispa){
+		this.mapa.ubicarChispa(chispa);
 	}
 	
 
@@ -55,7 +63,7 @@ public class Juego {
 	}
 	
 	public Posicion getPosicionChispa(){
-		return this.mapa.getPosicionChispa();
+		return this.mapa.getPosicionChispa(this.chispa);
 	}
 
 }

@@ -23,7 +23,6 @@ public abstract class AlgoFormer implements Atacable {
 	public abstract void recibirDanio(Decepticon decepticon, int poderAtaque);
 	public abstract void recibirDanio(AutoBot autobot, int poderAtaque);
 	
-	
 	public AlgoFormer(String nombre, int vida, Alterno alterno, int velocidadH, int ataqueH, int distAtaqueH){
 		this.setNombre(nombre);
 		this.setVida(vida);
@@ -86,6 +85,29 @@ public abstract class AlgoFormer implements Atacable {
 		this.manDeAtaques = manejadorA;
 	}
 	
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((nombre == null) ? 0 : nombre.hashCode());
+		return result;
+	}
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		AlgoFormer other = (AlgoFormer) obj;
+		if (nombre == null) {
+			if (other.nombre != null)
+				return false;
+		} else if (!nombre.equals(other.nombre))
+			return false;
+		return true;
+	}
 	//Metodos para las pruebas. No se deberian llamar en otras clases.
 	public int getVida(){
 		return this.vida.getVida();
