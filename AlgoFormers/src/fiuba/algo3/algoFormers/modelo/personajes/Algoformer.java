@@ -17,9 +17,7 @@ public abstract class Algoformer implements Atacable {
 	private String nombre;
 	
 	public abstract void atacar(Autobot autobot);
-	public abstract void atacar(Decepticon decepticon);
-	
-	
+	public abstract void atacar(Decepticon decepticon);	
 	
 	public Algoformer(String nombre, int vida, Alterno alterno, int velocidadH, int ataqueH, int distAtaqueH){
 		this.setVida(vida);
