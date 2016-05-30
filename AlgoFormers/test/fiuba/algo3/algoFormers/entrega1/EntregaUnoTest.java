@@ -3,10 +3,8 @@ package fiuba.algo3.algoFormers.entrega1;
 import static org.junit.Assert.*;
 import org.junit.Test;
 
-import fiuba.algo3.algoFormers.modelo.direcciones.DirArriba;
+import fiuba.algo3.algoFormers.modelo.direcciones.DireccionArriba;
 import fiuba.algo3.algoFormers.modelo.direcciones.Direccion;
-import fiuba.algo3.algoFormers.modelo.fabricas.AutoBotFactory;
-import fiuba.algo3.algoFormers.modelo.fabricas.DecepticonFactory;
 import fiuba.algo3.algoFormers.modelo.juego.Juego;
 import fiuba.algo3.algoFormers.modelo.mapas.Mapa;
 import fiuba.algo3.algoFormers.modelo.mapas.Posicion;
@@ -16,7 +14,7 @@ import fiuba.algo3.algoFormers.modelo.personajes.estadosDeTransformacion.Humanoi
 import fiuba.algo3.algoFormers.modelo.excepciones.AtaqueEspacioVacioException;
 import fiuba.algo3.algoFormers.modelo.excepciones.AtaqueFueraDeRangoException;
 import fiuba.algo3.algoFormers.modelo.excepciones.FuegoAmigoException;
-
+/*
 public class EntregaUnoTest {
 	
 	@Test
@@ -151,3 +149,4 @@ public class EntregaUnoTest {
 		optimus.atacar(new Posicion(1, 2),mapa);
 	}
 }
+*/

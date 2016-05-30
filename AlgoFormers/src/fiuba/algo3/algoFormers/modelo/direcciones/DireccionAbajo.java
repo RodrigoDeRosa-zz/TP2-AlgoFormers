@@ -1,8 +1,8 @@
 package fiuba.algo3.algoFormers.modelo.direcciones;
 
-public class DirAbajo extends Direccion {
+public class DireccionAbajo extends Direccion {
 
-	public DirAbajo(){
+	public DireccionAbajo(){
 		x = 0;
 		y = -1;
 	}
