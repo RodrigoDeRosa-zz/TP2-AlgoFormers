@@ -9,6 +9,7 @@ import fiuba.algo3.algoFormers.modelo.excepciones.AtaqueEspacioVacioException;
 import fiuba.algo3.algoFormers.modelo.excepciones.CasilleroOcupadoException;
 import fiuba.algo3.algoFormers.modelo.excepciones.UbicableNoPertenceAlMapaException;
 import fiuba.algo3.algoFormers.modelo.interfaces.Atacable;
+import fiuba.algo3.algoFormers.modelo.interfaces.Capturable;
 import fiuba.algo3.algoFormers.modelo.interfaces.Ubicable;
 
 public class Mapa {
@@ -43,7 +44,9 @@ public class Mapa {
 		
 		Posicion pos = new Posicion(resultadoX, resultadoY);
 		
-		this.ubicar((Ubicable) laChispa, pos);
+		Casillero casillero = tablero.get(pos);
+		this.verificarCasilleroEstaVacio(casillero, pos);
+		casillero.setCapturable(laChispa);
 	}
 	
 	public void moverUbicableEnDireccion(Ubicable ubicable, Direccion direccion) {
@@ -63,6 +66,11 @@ public class Mapa {
 	public Ubicable getUbicable(Posicion posicion) {
 		Casillero casillero = tablero.get(posicion);
 		return casillero.getUbicable();	
+	}
+	
+	private Capturable getCapturable(Posicion posicion) {
+		Casillero casillero = tablero.get(posicion);
+		return casillero.getCapturable();	
 	}
 	
 	public Atacable getAtacable(Posicion posicion) {
@@ -118,7 +126,16 @@ public class Mapa {
 	}
 	
 	public Posicion getPosicionChispa(Chispa chispa){
-		return this.obtenerPosicion((Ubicable)chispa);
+		for(int fila = 0; fila < TAMANIO; fila++){
+			for(int columna = 0; columna < TAMANIO; columna++){
+				Posicion posicion = new Posicion(fila,columna);
+				Capturable capturableActual = this.getCapturable(posicion);
+				if((capturableActual != null) && (capturableActual.getClass() == chispa.getClass())){
+					return posicion;
+				}
+			}
+		}
+		throw new UbicableNoPertenceAlMapaException("El ubicable no pertence al mapa");
 	}
 
 }

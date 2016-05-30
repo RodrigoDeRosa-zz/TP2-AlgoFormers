@@ -1,14 +1,18 @@
 package fiuba.algo3.algoFormers.modelo.mapas;
 
+import fiuba.algo3.algoFormers.modelo.capturables.Chispa;
+import fiuba.algo3.algoFormers.modelo.interfaces.Capturable;
 import fiuba.algo3.algoFormers.modelo.interfaces.Ubicable;
 
 public class Casillero {
 
 	private Ubicable ubicable;
+	private Capturable capturable;
 	private boolean ocupado;
 	
 	public Casillero(){
 		ubicable = null;
+		capturable = null;
 		ocupado = false;
 	}
 	
@@ -17,6 +21,11 @@ public class Casillero {
 		ocupado = true;
 	}
 
+	public void setCapturable(Chispa laChispa) {
+		this.capturable = laChispa;
+		ocupado = true;
+	}
+	
 	public boolean estaOcupado() {
 		return ocupado;
 	}
@@ -34,4 +43,9 @@ public class Casillero {
 		this.ubicable = ubicable;
 		ocupado = true;
 	}
+
+	public Capturable getCapturable() {
+		return this.capturable;
+	}
+
 }

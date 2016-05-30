@@ -88,10 +88,10 @@ public class EntregaUnoTest {
 		Posicion posicionChispa = juego.getPosicionChispa();
 		int coordenadaX = posicionChispa.getX();
 		int coordenadaY = posicionChispa.getY();
-		assertTrue(coordenadaX <= 21);
-		assertTrue(coordenadaX >= 17);
-		assertTrue(coordenadaY <= 21);
-		assertTrue(coordenadaY >= 17);
+		assertTrue(coordenadaX <= 22);
+		assertTrue(coordenadaX >= 18);
+		assertTrue(coordenadaY <= 22);
+		assertTrue(coordenadaY >= 18);
 	}
 	
 	@Test
