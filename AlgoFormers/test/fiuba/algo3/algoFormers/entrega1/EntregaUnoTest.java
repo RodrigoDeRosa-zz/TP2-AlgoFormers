@@ -86,14 +86,15 @@ public class EntregaUnoTest {
 		assertEquals(decep.getAlgoformer("BONECRUSHER"), juego.getUbicable(new Posicion(40, 20)));
 		assertEquals(decep.getAlgoformer("FRENZY"), juego.getUbicable(new Posicion(40, 21)));
 		
-		/*Posicion posicionChispa = juego.getPosicionChispa();
+		Posicion posicionChispa = juego.getPosicionChispa();
 		int coordenadaX = posicionChispa.getX();
 		int coordenadaY = posicionChispa.getY();
 		assertTrue(coordenadaX <= 22);
 		assertTrue(coordenadaX >= 18);
 		assertTrue(coordenadaY <= 22);
-		assertTrue(coordenadaY >= 18);*/
-	}
+		assertTrue(coordenadaY >= 18);
+		
+		}
 	
 	@Test
 	public void testAutoBotAtacaDecepticonEnRango(){

@@ -1,10 +1,13 @@
 package fiuba.algo3.algoFormers.modelo.mapas;
 
 import java.util.HashMap;
+import java.util.Random;
 
 import fiuba.algo3.algoFormers.modelo.excepciones.CasilleroOcupadoException;
 import fiuba.algo3.algoFormers.modelo.excepciones.PosicionFueraDelMapaException;
+import fiuba.algo3.algoFormers.modelo.excepciones.UbicableNoPertenceAlMapaException;
 import fiuba.algo3.algoFormers.modelo.interfaces.Ubicable;
+import fiuba.algo3.algoFormers.modelo.personajes.Chispa;
 
 public class Mapa {
 	
@@ -42,6 +45,19 @@ public class Mapa {
 		
 	}
 	
+	private Posicion obtenerPosicion(Ubicable ubicable) {
+		for(int fila = 1; fila <= TAMANIO; fila++){
+			for(int columna = 1; columna <= TAMANIO; columna++){
+				Posicion posicion = new Posicion(fila,columna);
+				Ubicable ubicableActual = this.getUbicable(posicion);
+				if((ubicableActual != null) && (ubicableActual.getClass() == ubicable.getClass())){
+					return posicion;
+				}
+			}
+		}
+		throw new UbicableNoPertenceAlMapaException("El ubicable no pertence al mapa");
+	}
+	
 	public void ubicar(Ubicable ubicable, Posicion posicion) {
 		
 		verificarCasilleroExiste(posicion);
@@ -76,6 +92,30 @@ public class Mapa {
 	public Casillero getCasillero(Posicion posicion) {
 		return tablero.get(posicion); 
 	}
+
+	public Posicion getPosicionChispa(Chispa laChispa) {
+		
+		return obtenerPosicion(laChispa);
+	}
+
+	public void ubicarChispa(Chispa laChispa) {
+		
+		int medio = TAMANIO / 2;
+		int desplazamiento = 2;
+		int max = medio + desplazamiento;
+		int min = medio - desplazamiento;
+		
+		Random generador = new Random();
+		int resultadoX = generador.nextInt(max - min + 1) + min;
+		int resultadoY = generador.nextInt(max - min + 1) + min;
+		
+		Posicion pos = new Posicion(resultadoX, resultadoY);
+		
+		this.ubicar(laChispa, pos);
+		
+		
+	}
+
 
 
 	

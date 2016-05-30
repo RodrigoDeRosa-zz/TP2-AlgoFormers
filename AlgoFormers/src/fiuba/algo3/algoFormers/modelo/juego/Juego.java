@@ -3,6 +3,7 @@ package fiuba.algo3.algoFormers.modelo.juego;
 import fiuba.algo3.algoFormers.modelo.interfaces.Ubicable;
 import fiuba.algo3.algoFormers.modelo.mapas.Mapa;
 import fiuba.algo3.algoFormers.modelo.mapas.Posicion;
+import fiuba.algo3.algoFormers.modelo.personajes.Chispa;
 
 public class Juego {
 
@@ -10,6 +11,7 @@ public class Juego {
 	private Jugador jugadorAutobots;
 	private Jugador jugadorDecepticons;
 	private Turno turnoActual;
+	private Chispa chispaSuprema;
 	
 	public Juego() {
 		
@@ -22,11 +24,17 @@ public class Juego {
 		jugadorDecepticons = new JugadorDecepticons();
 		jugadorDecepticons.inicializarEquipo();
 		jugadorDecepticons.ubicarPersonajes(mapa);
+		
+		chispaSuprema = new Chispa("CHISPA SUPREMA");
+		ubicarChispa();
 				
+	}	
+	
+	private void ubicarChispa() {
+		mapa.ubicarChispa(chispaSuprema);
+		
 	}
-	
-	
-	
+
 	public void Jugar() {
 		
 		while (true) {
@@ -63,5 +71,12 @@ public class Juego {
 		
 		return jugadorDecepticons;
 	}
-	
+
+
+
+	public Posicion getPosicionChispa() {
+		
+		return mapa.getPosicionChispa(chispaSuprema);
+	}
+		
 }
