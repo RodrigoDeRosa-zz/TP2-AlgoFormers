@@ -27,20 +27,22 @@ public abstract class AlgoFormer implements Atacable {
 		this.setNombre(nombre);
 		this.setVida(vida);
 		this.setEstadosDeTransformacion(alterno, velocidadH, ataqueH, distAtaqueH);
-		this.setManejadorMovimientosNull();
-		this.setManejadorAtaquesNull();
+		this.setManejadorMovimientos();
+		this.setManejadorAtaques();
 	}
 
 	private void setNombre(String nombre){
 		this.nombre = nombre;
 	}
 	
-	private void setManejadorMovimientosNull(){
-		this.manDeMovimientos = null;
+	private void setManejadorMovimientos(){
+		ManejadorDeMovimientos manejadorM=this.estadoDeTransformacionActual.crearManejadorMovimientos();
+		this.manDeMovimientos = manejadorM;
 	}
 
-	private void setManejadorAtaquesNull(){
-		this.manDeAtaques =null;
+	private void setManejadorAtaques(){
+		ManejadorDeAtaques manejadorA=this.estadoDeTransformacionActual.crearManejadorAtaque();
+		this.manDeAtaques = manejadorA;
 	}
 
 	
@@ -58,6 +60,8 @@ public abstract class AlgoFormer implements Atacable {
 		EstadoDeTransformacion estadoAux = this.estadoDeTransformacionActual;
 		this.estadoDeTransformacionActual = this.estadoDeTransformacionOpuesto;
 		this.estadoDeTransformacionOpuesto = estadoAux;
+		this.setManejadorMovimientos();
+		this.setManejadorAtaques();
 	}
 	
 	public void moverEnDireccion(Direccion direccion, Mapa mapa){
@@ -75,14 +79,11 @@ public abstract class AlgoFormer implements Atacable {
 	}
 	
 	
-	public void inicializarTurno(){
+	public void finalizarTurno(){
 		/*Funcion para setear los manejadores de un algoformer en el momento
 		en el que el algoformer es seleccionado como el personaje de turno.
 		*/
-		ManejadorDeMovimientos manejadorM=this.estadoDeTransformacionActual.crearManejadorMovimientos();
-		ManejadorDeAtaques manejadorA=this.estadoDeTransformacionActual.crearManejadorAtaque();
-		this.manDeMovimientos = manejadorM;
-		this.manDeAtaques = manejadorA;
+		this.manDeMovimientos.resetearMovimientos();
 	}
 	
 	@Override
