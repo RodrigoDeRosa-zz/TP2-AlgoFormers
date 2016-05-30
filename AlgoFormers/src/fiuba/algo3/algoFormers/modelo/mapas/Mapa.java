@@ -45,10 +45,10 @@ public class Mapa {
 		Posicion pos = new Posicion(resultadoX, resultadoY);
 		
 		Casillero casillero = tablero.get(pos);
-		this.verificarCasilleroEstaVacio(casillero, pos);
+		this.verificarCasilleroCapturableEstaVacio(casillero, pos);
 		casillero.setCapturable(laChispa);
 	}
-	
+
 	public void moverUbicableEnDireccion(Ubicable ubicable, Direccion direccion) {
 		Posicion posicion = this.obtenerPosicion(ubicable);
 		Posicion nuevaPosicion = posicion.sumarDireccion(direccion);
@@ -93,6 +93,12 @@ public class Mapa {
 	}
 	
 	//Metodos privados.
+	
+	private void verificarCasilleroCapturableEstaVacio(Casillero casillero, Posicion posicion) {
+		if (casillero.estaOcupadoCapturable()){
+			throw new CasilleroOcupadoException("el casillero de la posicion (" + posicion.getX() + posicion.getY() + ") esta ocupado");
+		}
+	}
 	
 	private void verificarCasilleroEstaVacio(Casillero casillero, Posicion posicion) {
 		if (casillero.estaOcupado()){

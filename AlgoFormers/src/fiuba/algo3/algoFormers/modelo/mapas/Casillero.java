@@ -9,11 +9,13 @@ public class Casillero {
 	private Ubicable ubicable;
 	private Capturable capturable;
 	private boolean ocupado;
+	private boolean ocupadoCapturable;
 	
 	public Casillero(){
 		ubicable = null;
 		capturable = null;
 		ocupado = false;
+		ocupadoCapturable = false;
 	}
 	
 	public void setUbicable(Ubicable unUbicable){
@@ -23,13 +25,17 @@ public class Casillero {
 
 	public void setCapturable(Chispa laChispa) {
 		this.capturable = laChispa;
-		ocupado = true;
+		ocupadoCapturable = true;
 	}
 	
 	public boolean estaOcupado() {
 		return ocupado;
 	}
 
+	public boolean estaOcupadoCapturable() {
+		return ocupadoCapturable;
+	}
+	
 	public Ubicable getUbicable() {
 		return ubicable;
 	}
