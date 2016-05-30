@@ -77,21 +77,21 @@ public class EntregaUnoTest {
 		AlgoFormer bonecrusher = factory.getBonecrusher();
 		AlgoFormer frenzy = factory.getFrenzy();
 		
-		assertEquals(optimus, juego.getUbicable(new Posicion(1, 19)));
-		assertEquals(bumblebee, juego.getUbicable(new Posicion(1, 20)));
-		assertEquals(ratchet, juego.getUbicable(new Posicion(1, 21)));
+		assertEquals(optimus, juego.getUbicable(new Posicion(0, 18)));
+		assertEquals(bumblebee, juego.getUbicable(new Posicion(0, 19)));
+		assertEquals(ratchet, juego.getUbicable(new Posicion(0, 20)));
 		
-		assertEquals(megatron, juego.getUbicable(new Posicion(40, 19)));
-		assertEquals(bonecrusher, juego.getUbicable(new Posicion(40, 20)));
-		assertEquals(frenzy, juego.getUbicable(new Posicion(40, 21)));
+		assertEquals(megatron, juego.getUbicable(new Posicion(39, 18)));
+		assertEquals(bonecrusher, juego.getUbicable(new Posicion(39, 19)));
+		assertEquals(frenzy, juego.getUbicable(new Posicion(39, 20)));
 		
 		Posicion posicionChispa = juego.getPosicionChispa();
 		int coordenadaX = posicionChispa.getX();
 		int coordenadaY = posicionChispa.getY();
-		assertTrue(coordenadaX <= 22);
-		assertTrue(coordenadaX >= 18);
-		assertTrue(coordenadaY <= 22);
-		assertTrue(coordenadaY >= 18);
+		assertTrue(coordenadaX <= 21);
+		assertTrue(coordenadaX >= 17);
+		assertTrue(coordenadaY <= 21);
+		assertTrue(coordenadaY >= 17);
 	}
 	
 	@Test
