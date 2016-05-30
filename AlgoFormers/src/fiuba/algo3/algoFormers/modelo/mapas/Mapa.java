@@ -45,7 +45,7 @@ public class Mapa {
 		casillero.desocuparUbicable();
 	}
 
-	public void atacarPosicion(Ubicable ubicable, int distanciaAtaque, int poderAtaque, Posicion posicionAtacable) {
+	/*public void atacarPosicion(Ubicable ubicable, int distanciaAtaque, int poderAtaque, Posicion posicionAtacable) {
 		//verificaciones
 		Posicion posicionUbicable = this.obtenerPosicion(ubicable);
 		this.verificarDistancia(posicionUbicable, posicionAtacable, distanciaAtaque);
@@ -54,11 +54,30 @@ public class Mapa {
 		
 		Atacable otroUbicable = (Atacable) casilleroAtacable.getUbicable();
 		((Atacable)ubicable).atacarEnemigo((AlgoFormer)otroUbicable, poderAtaque);
-	}
+	}*/
 
 	public Ubicable getUbicable(Posicion posicion) {
 		Casillero casillero = tablero.get(posicion);
 		return casillero.getUbicable();	
+	}
+	
+	public Atacable getAtacable(Posicion posicion) {
+		Casillero casillero = tablero.get(posicion);
+		this.verificarCasilleroNoEstaVacio(casillero, posicion);
+		return (Atacable) casillero.getUbicable();	
+	}	
+	
+	public Posicion obtenerPosicion(Ubicable ubicable) {
+		for(int fila = 0; fila < TAMANIO; fila++){
+			for(int columna = 0; columna < TAMANIO; columna++){
+				Posicion posicion = new Posicion(fila,columna);
+				Ubicable ubicableActual = this.getUbicable(posicion);
+				if((ubicableActual != null) && (ubicableActual.getClass() == ubicable.getClass())){
+					return posicion;
+				}
+			}
+		}
+		throw new UbicableNoPertenceAlMapaException("El ubicable no pertence al mapa");
 	}
 	
 	//Metodos privados.
@@ -90,19 +109,6 @@ public class Mapa {
 				tablero.put(new Posicion (fila,columna), new Casillero());
 			}
 		}
-	}
-	
-	private Posicion obtenerPosicion(Ubicable ubicable) {
-		for(int fila = 0; fila < TAMANIO; fila++){
-			for(int columna = 0; columna < TAMANIO; columna++){
-				Posicion posicion = new Posicion(fila,columna);
-				Ubicable ubicableActual = this.getUbicable(posicion);
-				if((ubicableActual != null) && (ubicableActual.getClass() == ubicable.getClass())){
-					return posicion;
-				}
-			}
-		}
-		throw new UbicableNoPertenceAlMapaException("El ubicable no pertence al mapa");
 	}
 	
 	//Metodos para puebas
