@@ -16,8 +16,7 @@ public class Mover implements Accion {
 		
 		manejador = new ManejadorDeMovimientos(mapaDelJuego, algoformer, dir);
 		
-	}
-	
+	}	
 	
 	@Override
 	public void ejecutar() {

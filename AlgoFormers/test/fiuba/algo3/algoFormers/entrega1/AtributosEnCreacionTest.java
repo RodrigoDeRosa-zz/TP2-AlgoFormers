@@ -4,8 +4,7 @@ import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 
-import fiuba.algo3.algoFormers.modelo.fabricas.AutoBotFactory;
-import fiuba.algo3.algoFormers.modelo.fabricas.DecepticonFactory;
+import fiuba.algo3.algoFormers.modelo.fabricas.AlgoformerFactory;
 import fiuba.algo3.algoFormers.modelo.personajes.AlgoFormer;
 
 public class AtributosEnCreacionTest {
@@ -13,43 +12,43 @@ public class AtributosEnCreacionTest {
 	//Tests de vida
 	@Test
 	public void testOptimusPrimeSeCreaConVidaCorrecta(){
-		AutoBotFactory factory = new AutoBotFactory();
+		AlgoformerFactory factory = new AlgoformerFactory();
 		AlgoFormer optimusPrime = factory.getOptimusPrime();
-		assertEquals(optimusPrime.getVida(), 500);
+		assertEquals(optimusPrime.getPuntosVida(), 500);
 	}
 	
 	@Test
 	public void testBumblebeeSeCreaConVidaCorrecta(){
-		AutoBotFactory factory = new AutoBotFactory();
+		AlgoformerFactory factory = new AlgoformerFactory();
 		AlgoFormer bumblebee = factory.getBumblebee();
-		assertEquals(bumblebee.getVida(), 350);
+		assertEquals(bumblebee.getPuntosVida(), 350);
 	}
 	
 	@Test
 	public void testRatchetSeCreaConVidaCorrecta(){
-		AutoBotFactory factory = new AutoBotFactory();
+		AlgoformerFactory factory = new AlgoformerFactory();
 		AlgoFormer ratchet = factory.getRatchet();
-		assertEquals(ratchet.getVida(), 150);
+		assertEquals(ratchet.getPuntosVida(), 150);
 	}
 	
 	@Test
 	public void testMegatronSeCreaConVidaCorrecta(){
-		DecepticonFactory factory = new DecepticonFactory();
+		AlgoformerFactory factory = new AlgoformerFactory();
 		AlgoFormer megatron = factory.getMegatron();
-		assertEquals(megatron.getVida(), 550);
+		assertEquals(megatron.getPuntosVida(), 550);
 	}
 	
 	@Test
 	public void testFrenzySeCreaConVidaCorrecta(){
-		DecepticonFactory factory = new DecepticonFactory();
+		AlgoformerFactory factory = new AlgoformerFactory();
 		AlgoFormer frenzy = factory.getFrenzy();
-		assertEquals(frenzy.getVida(), 400);
+		assertEquals(frenzy.getPuntosVida(), 400);
 	}
 	
 	@Test
 	public void testBonecrusherSeCreaConVidaCorrecta(){
-		DecepticonFactory factory = new DecepticonFactory();
+		AlgoformerFactory factory = new AlgoformerFactory();
 		AlgoFormer bonecrusher = factory.getBonecrusher();
-		assertEquals(bonecrusher.getVida(), 200);
+		assertEquals(bonecrusher.getPuntosVida(), 200);
 	}
 }
