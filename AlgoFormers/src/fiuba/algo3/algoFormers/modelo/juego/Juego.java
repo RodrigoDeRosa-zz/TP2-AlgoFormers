@@ -42,17 +42,20 @@ public class Juego {
 		
 	}
 	
-	public Ubicable getUbicable(Posicion posicion) {
-		return this.mapa.getUbicable(posicion);
-	}
-	
 	public void ubicar(Ubicable ubicable, int fila, int columna) {
 		
 		Posicion pos = new Posicion(fila, columna);
 		this.mapa.ubicar(ubicable, pos);
 	}
+	
 
+	//Metodos para las pruebas
+	public Ubicable getUbicable(Posicion posicion) {
+		return this.mapa.getUbicable(posicion);
+	}
 	
-	
+	public Posicion getPosicionChispa(){
+		return this.mapa.getPosicionChispa();
+	}
 
 }

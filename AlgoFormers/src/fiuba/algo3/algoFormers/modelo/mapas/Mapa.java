@@ -2,14 +2,13 @@ package fiuba.algo3.algoFormers.modelo.mapas;
 
 import java.util.HashMap;
 
+import fiuba.algo3.algoFormers.modelo.capturables.Chispa;
 import fiuba.algo3.algoFormers.modelo.direcciones.Direccion;
 import fiuba.algo3.algoFormers.modelo.excepciones.AtaqueEspacioVacioException;
-import fiuba.algo3.algoFormers.modelo.excepciones.AtaqueFueraDeRangoException;
 import fiuba.algo3.algoFormers.modelo.excepciones.CasilleroOcupadoException;
 import fiuba.algo3.algoFormers.modelo.excepciones.UbicableNoPertenceAlMapaException;
 import fiuba.algo3.algoFormers.modelo.interfaces.Atacable;
 import fiuba.algo3.algoFormers.modelo.interfaces.Ubicable;
-import fiuba.algo3.algoFormers.modelo.personajes.AlgoFormer;
 
 public class Mapa {
 	
@@ -81,15 +80,6 @@ public class Mapa {
 	
 	//Metodos privados.
 	
-	private void verificarDistancia(Posicion posicionUbicable, Posicion posicionAtacable, int distanciaAtaque) {
-		double distanciaFila = posicionUbicable.obtenerDistanciaFila(posicionAtacable);
-		double distanciaColumna = posicionUbicable.obtenerDistanciaColumna(posicionAtacable);
-		if ((distanciaFila > (double) distanciaAtaque) || (distanciaColumna > (double) distanciaAtaque)){
-			throw new AtaqueFueraDeRangoException("La distacia entre ellos es mayor que posible (" + distanciaAtaque + ")");
-		}
-		
-	}
-	
 	private void verificarCasilleroEstaVacio(Casillero casillero, Posicion posicion) {
 		if (casillero.estaOcupado()){
 			throw new CasilleroOcupadoException("el casillero de la posicion (" + posicion.getX() + posicion.getY() + ") esta ocupado");
@@ -119,6 +109,10 @@ public class Mapa {
 	
 	public Casillero getCasillero(Posicion posicion) {
 		return tablero.get(posicion); 
+	}
+	
+	public Posicion getPosicionChispa(){
+		return this.obtenerPosicion((Ubicable) new Chispa());
 	}
 
 }
