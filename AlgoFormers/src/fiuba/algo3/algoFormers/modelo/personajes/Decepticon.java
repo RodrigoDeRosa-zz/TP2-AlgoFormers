@@ -3,7 +3,7 @@ package fiuba.algo3.algoFormers.modelo.personajes;
 import fiuba.algo3.algoFormers.modelo.excepciones.FuegoAmigoException;
 import fiuba.algo3.algoFormers.modelo.personajes.estadosDeTransformacion.Alterno;
 
-public class Decepticon extends AlgoFormer{
+public class Decepticon extends Algoformer{
 
 	public Decepticon(String nombre, int vida, Alterno alterno, int velocidadH, int ataqueH, int distAtaqueH){
 		super(nombre, vida, alterno, velocidadH, ataqueH, distAtaqueH);
@@ -11,7 +11,7 @@ public class Decepticon extends AlgoFormer{
 	
 	
 	@Override
-	public void recibirDanio(AlgoFormer algoformer) {
+	public void recibirDanio(Algoformer algoformer) {
 		
 		algoformer.atacar(this);
 		

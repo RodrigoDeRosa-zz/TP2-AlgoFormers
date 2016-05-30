@@ -8,7 +8,7 @@ import fiuba.algo3.algoFormers.modelo.personajes.estadosDeTransformacion.EstadoD
 import fiuba.algo3.algoFormers.modelo.personajes.estadosDeTransformacion.Humanoide;
 
 
-public abstract class AlgoFormer implements Atacable {
+public abstract class Algoformer implements Atacable {
 
 	protected Vida vida;
 	protected EstadoDeTransformacion estadoDeTransformacionActual;
@@ -21,7 +21,7 @@ public abstract class AlgoFormer implements Atacable {
 	
 	
 	
-	public AlgoFormer(String nombre, int vida, Alterno alterno, int velocidadH, int ataqueH, int distAtaqueH){
+	public Algoformer(String nombre, int vida, Alterno alterno, int velocidadH, int ataqueH, int distAtaqueH){
 		this.setVida(vida);
 		this.setEstadosDeTransformacion(alterno, velocidadH, ataqueH, distAtaqueH);
 		this.nombre = nombre;

@@ -5,15 +5,15 @@ import fiuba.algo3.algoFormers.modelo.excepciones.CasilleroOcupadoException;
 import fiuba.algo3.algoFormers.modelo.excepciones.PosicionFueraDelMapaException;
 import fiuba.algo3.algoFormers.modelo.mapas.Mapa;
 import fiuba.algo3.algoFormers.modelo.mapas.Posicion;
-import fiuba.algo3.algoFormers.modelo.personajes.AlgoFormer;
+import fiuba.algo3.algoFormers.modelo.personajes.Algoformer;
 
 public class ManejadorDeMovimientos {
 	
 	private Posicion posicionOrigen, posicionDestino;
-	private AlgoFormer algoformer;
+	private Algoformer algoformer;
 	private Mapa mapa;
 	
-	public ManejadorDeMovimientos(Mapa mapaDelJuego, AlgoFormer algoformer, Direccion dir) {
+	public ManejadorDeMovimientos(Mapa mapaDelJuego, Algoformer algoformer, Direccion dir) {
 		
 		posicionOrigen = algoformer.getPosicion();
 		posicionDestino = posicionOrigen.sumarDireccion(dir);

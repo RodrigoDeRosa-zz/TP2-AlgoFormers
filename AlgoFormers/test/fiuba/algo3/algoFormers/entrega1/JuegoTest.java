@@ -14,7 +14,7 @@ import fiuba.algo3.algoFormers.modelo.juego.Turno;
 import fiuba.algo3.algoFormers.modelo.juego.acciones.Atacar;
 import fiuba.algo3.algoFormers.modelo.mapas.Mapa;
 import fiuba.algo3.algoFormers.modelo.mapas.Posicion;
-import fiuba.algo3.algoFormers.modelo.personajes.AlgoFormer;
+import fiuba.algo3.algoFormers.modelo.personajes.Algoformer;
 
 public class JuegoTest {
 
@@ -36,7 +36,7 @@ public class JuegoTest {
 		jugadorAutobots.inicializarEquipo();
 		jugadorAutobots.ubicarPersonajes(mapa);
 		Turno turno = new Turno(jugadorAutobots);	
-		AlgoFormer optimus = jugadorAutobots.getAlgoformer("OPTIMUS");
+		Algoformer optimus = jugadorAutobots.getAlgoformer("OPTIMUS");
 		assertTrue(optimus.getNombre() == mapa.getUbicable(new Posicion(1, 20)).getNombre());
 	
 		turno.setAlgoformerActual(optimus);
@@ -57,7 +57,7 @@ public class JuegoTest {
 		jugadorAutobots.inicializarEquipo();
 		jugadorAutobots.ubicarPersonajes(mapa);
 		Turno turno = new Turno(jugadorAutobots);	
-		AlgoFormer optimus = jugadorAutobots.getAlgoformer("OPTIMUS");
+		Algoformer optimus = jugadorAutobots.getAlgoformer("OPTIMUS");
 	
 		turno.setAlgoformerActual(optimus);
 		

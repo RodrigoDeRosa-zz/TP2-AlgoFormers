@@ -4,8 +4,8 @@ import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 
-import fiuba.algo3.algoFormers.modelo.fabricas.AlgoformerFactory;
-import fiuba.algo3.algoFormers.modelo.personajes.AlgoFormer;
+import fiuba.algo3.algoFormers.modelo.personajes.Algoformer;
+import fiuba.algo3.algoFormers.modelo.personajes.AlgoformerFactory;
 
 public class AtributosEstadoAlternoEnCreacionTests {
 
@@ -13,7 +13,7 @@ public class AtributosEstadoAlternoEnCreacionTests {
 	@Test
 	public void testOptimusPrimeSeCreaConVelocidadAlternaCorrecta(){
 		AlgoformerFactory factory = new AlgoformerFactory();
-		AlgoFormer optimusPrime = factory.getOptimusPrime();
+		Algoformer optimusPrime = factory.getOptimusPrime();
 		optimusPrime.transformarse();
 		assertEquals(optimusPrime.getPuntosVelocidad(), 5);
 	}
@@ -21,7 +21,7 @@ public class AtributosEstadoAlternoEnCreacionTests {
 	@Test
 	public void testBumblebeeSeCreaConVelocidadAlternaCorrecta(){
 		AlgoformerFactory factory = new AlgoformerFactory();
-		AlgoFormer bumblebee = factory.getBumblebee();
+		Algoformer bumblebee = factory.getBumblebee();
 		bumblebee.transformarse();
 		assertEquals(bumblebee.getPuntosVelocidad(), 5);
 	}
@@ -29,7 +29,7 @@ public class AtributosEstadoAlternoEnCreacionTests {
 	@Test
 	public void testRatchetSeCreaConVelocidadAlternaCorrecta(){
 		AlgoformerFactory factory = new AlgoformerFactory();
-		AlgoFormer ratchet = factory.getRatchet();
+		Algoformer ratchet = factory.getRatchet();
 		ratchet.transformarse();
 		assertEquals(ratchet.getPuntosVelocidad(), 8);
 	}
@@ -37,7 +37,7 @@ public class AtributosEstadoAlternoEnCreacionTests {
 	@Test
 	public void testMegatronSeCreaConVelocidadAlternaCorrecta(){
 		AlgoformerFactory factory = new AlgoformerFactory();
-		AlgoFormer megatron = factory.getMegatron();
+		Algoformer megatron = factory.getMegatron();
 		megatron.transformarse();
 		assertEquals(megatron.getPuntosVelocidad(), 8);
 	}
@@ -45,7 +45,7 @@ public class AtributosEstadoAlternoEnCreacionTests {
 	@Test
 	public void testFrenzySeCreaConVelocidadAlternaCorrecta(){
 		AlgoformerFactory factory = new AlgoformerFactory();
-		AlgoFormer frenzy = factory.getFrenzy();
+		Algoformer frenzy = factory.getFrenzy();
 		frenzy.transformarse();
 		assertEquals(frenzy.getPuntosVelocidad(), 6);
 	}
@@ -53,7 +53,7 @@ public class AtributosEstadoAlternoEnCreacionTests {
 	@Test
 	public void testBonecrusherSeCreaConVelocidadAlternaCorrecta(){
 		AlgoformerFactory factory = new AlgoformerFactory();
-		AlgoFormer bonecrusher = factory.getBonecrusher();
+		Algoformer bonecrusher = factory.getBonecrusher();
 		bonecrusher.transformarse();
 		assertEquals(bonecrusher.getPuntosVelocidad(), 8);
 	}
@@ -62,7 +62,7 @@ public class AtributosEstadoAlternoEnCreacionTests {
 	@Test
 	public void testOptimusPrimeSeCreaConAtaqueAlternaCorrecta(){
 		AlgoformerFactory factory = new AlgoformerFactory();
-		AlgoFormer optimusPrime = factory.getOptimusPrime();
+		Algoformer optimusPrime = factory.getOptimusPrime();
 		optimusPrime.transformarse();
 		assertEquals(optimusPrime.getPuntosAtaque(), 15);
 	}
@@ -70,7 +70,7 @@ public class AtributosEstadoAlternoEnCreacionTests {
 	@Test
 	public void testBumblebeeSeCreaConAtaqueAlternaCorrecta(){
 		AlgoformerFactory factory = new AlgoformerFactory();
-		AlgoFormer bumblebee = factory.getBumblebee();
+		Algoformer bumblebee = factory.getBumblebee();
 		bumblebee.transformarse();
 		assertEquals(bumblebee.getPuntosAtaque(), 20);
 	}
@@ -78,7 +78,7 @@ public class AtributosEstadoAlternoEnCreacionTests {
 	@Test
 	public void testRatchetSeCreaConAtaqueAlternaCorrecta(){
 		AlgoformerFactory factory = new AlgoformerFactory();
-		AlgoFormer ratchet = factory.getRatchet();
+		Algoformer ratchet = factory.getRatchet();
 		ratchet.transformarse();
 		assertEquals(ratchet.getPuntosAtaque(), 35);
 	}
@@ -86,7 +86,7 @@ public class AtributosEstadoAlternoEnCreacionTests {
 	@Test
 	public void testMegatronSeCreaConAtaqueAlternaCorrecta(){
 		AlgoformerFactory factory = new AlgoformerFactory();
-		AlgoFormer megatron = factory.getMegatron();
+		Algoformer megatron = factory.getMegatron();
 		megatron.transformarse();
 		assertEquals(megatron.getPuntosAtaque(), 55);
 	}
@@ -94,7 +94,7 @@ public class AtributosEstadoAlternoEnCreacionTests {
 	@Test
 	public void testFrenzySeCreaConAtaqueAlternaCorrecta(){
 		AlgoformerFactory factory = new AlgoformerFactory();
-		AlgoFormer frenzy = factory.getFrenzy();
+		Algoformer frenzy = factory.getFrenzy();
 		frenzy.transformarse();
 		assertEquals(frenzy.getPuntosAtaque(), 25);
 	}
@@ -102,7 +102,7 @@ public class AtributosEstadoAlternoEnCreacionTests {
 	@Test
 	public void testBonecrusherSeCreaConAtaqueAlternaCorrecta(){
 		AlgoformerFactory factory = new AlgoformerFactory();
-		AlgoFormer bonecrusher = factory.getBonecrusher();
+		Algoformer bonecrusher = factory.getBonecrusher();
 		bonecrusher.transformarse();
 		assertEquals(bonecrusher.getPuntosAtaque(), 30);
 	}
@@ -111,7 +111,7 @@ public class AtributosEstadoAlternoEnCreacionTests {
 	@Test
 	public void testOptimusPrimeSeCreaConDistanciaDeAtaqueAlternaCorrecta(){
 		AlgoformerFactory factory = new AlgoformerFactory();
-		AlgoFormer optimusPrime = factory.getOptimusPrime();
+		Algoformer optimusPrime = factory.getOptimusPrime();
 		optimusPrime.transformarse();
 		assertEquals(optimusPrime.getPuntosDistanciaDeAtaque(), 4);
 	}
@@ -119,7 +119,7 @@ public class AtributosEstadoAlternoEnCreacionTests {
 	@Test
 	public void testBumblebeeSeCreaConDistanciaDeAtaqueAlternaCorrecta(){
 		AlgoformerFactory factory = new AlgoformerFactory();
-		AlgoFormer bumblebee = factory.getBumblebee();
+		Algoformer bumblebee = factory.getBumblebee();
 		bumblebee.transformarse();
 		assertEquals(bumblebee.getPuntosDistanciaDeAtaque(), 3);
 	}
@@ -127,7 +127,7 @@ public class AtributosEstadoAlternoEnCreacionTests {
 	@Test
 	public void testRatchetSeCreaConDistanciaDeAtaqueAlternaCorrecta(){
 		AlgoformerFactory factory = new AlgoformerFactory();
-		AlgoFormer ratchet = factory.getRatchet();
+		Algoformer ratchet = factory.getRatchet();
 		ratchet.transformarse();
 		assertEquals(ratchet.getPuntosDistanciaDeAtaque(), 2);
 	}
@@ -135,7 +135,7 @@ public class AtributosEstadoAlternoEnCreacionTests {
 	@Test
 	public void testMegatronSeCreaConDistanciaDeAtaqueAlternaCorrecta(){
 		AlgoformerFactory factory = new AlgoformerFactory();
-		AlgoFormer megatron = factory.getMegatron();
+		Algoformer megatron = factory.getMegatron();
 		megatron.transformarse();
 		assertEquals(megatron.getPuntosDistanciaDeAtaque(), 2);
 	}
@@ -143,7 +143,7 @@ public class AtributosEstadoAlternoEnCreacionTests {
 	@Test
 	public void testFrenzySeCreaConDistanciaDeAtaqueAlternaCorrecta(){
 		AlgoformerFactory factory = new AlgoformerFactory();
-		AlgoFormer frenzy = factory.getFrenzy();
+		Algoformer frenzy = factory.getFrenzy();
 		frenzy.transformarse();
 		assertEquals(frenzy.getPuntosDistanciaDeAtaque(), 2);
 	}
@@ -151,7 +151,7 @@ public class AtributosEstadoAlternoEnCreacionTests {
 	@Test
 	public void testBonecrusherSeCreaConDistanciaDeAtaqueAlternaCorrecta(){
 		AlgoformerFactory factory = new AlgoformerFactory();
-		AlgoFormer bonecrusher = factory.getBonecrusher();
+		Algoformer bonecrusher = factory.getBonecrusher();
 		bonecrusher.transformarse();
 		assertEquals(bonecrusher.getPuntosDistanciaDeAtaque(), 3);
 	}

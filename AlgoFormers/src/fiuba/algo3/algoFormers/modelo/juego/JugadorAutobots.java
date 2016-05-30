@@ -5,7 +5,7 @@ import java.util.List;
 
 import fiuba.algo3.algoFormers.modelo.mapas.Mapa;
 import fiuba.algo3.algoFormers.modelo.mapas.Posicion;
-import fiuba.algo3.algoFormers.modelo.personajes.AlgoFormer;
+import fiuba.algo3.algoFormers.modelo.personajes.Algoformer;
 import fiuba.algo3.algoFormers.modelo.personajes.AutoBot;
 
 public class JugadorAutobots extends Jugador {
@@ -31,7 +31,7 @@ public class JugadorAutobots extends Jugador {
 		int columnaActual = mapa.getTamanio() / 2;
 		int filaInicio = 1;
 		
-		for (AlgoFormer algoformer : this.personajes) {
+		for (Algoformer algoformer : this.personajes) {
             
 			Posicion pos = new Posicion(filaInicio, columnaActual);
 			mapa.ubicar(algoformer, pos);
@@ -41,9 +41,9 @@ public class JugadorAutobots extends Jugador {
 	}
 
 	@Override
-	public AlgoFormer getAlgoformer(String nombre) {
+	public Algoformer getAlgoformer(String nombre) {
 
-		for (AlgoFormer algoformer : this.personajes) {
+		for (Algoformer algoformer : this.personajes) {
             
 			if (algoformer.getNombre() == nombre) {
 				

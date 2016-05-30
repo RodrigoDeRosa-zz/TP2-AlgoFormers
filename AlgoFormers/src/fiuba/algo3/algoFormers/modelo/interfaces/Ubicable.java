@@ -1,7 +1,7 @@
 package fiuba.algo3.algoFormers.modelo.interfaces;
 
 import fiuba.algo3.algoFormers.modelo.mapas.Posicion;
-import fiuba.algo3.algoFormers.modelo.personajes.AlgoFormer;
+import fiuba.algo3.algoFormers.modelo.personajes.Algoformer;
 
 
 public interface Ubicable {
@@ -11,7 +11,7 @@ public interface Ubicable {
 	 * segun sea este un Autobot o un Decepticon.
 	 * @param atacante :Un algoformer en estado valido.
 	 */
-	public void recibirDanio(AlgoFormer atacante);		
+	public void recibirDanio(Algoformer atacante);		
 	
 	/**
 	 * Establece la posicion de este ubicable en la posicion recibida por parametro.

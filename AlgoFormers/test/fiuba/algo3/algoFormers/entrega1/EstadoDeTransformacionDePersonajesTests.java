@@ -4,9 +4,8 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-import fiuba.algo3.algoFormers.modelo.fabricas.AlgoformerFactory;
-import fiuba.algo3.algoFormers.modelo.fabricas.AlgoformerFactory;
-import fiuba.algo3.algoFormers.modelo.personajes.AlgoFormer;
+import fiuba.algo3.algoFormers.modelo.personajes.Algoformer;
+import fiuba.algo3.algoFormers.modelo.personajes.AlgoformerFactory;
 import fiuba.algo3.algoFormers.modelo.personajes.estadosDeTransformacion.AlternoAereo;
 import fiuba.algo3.algoFormers.modelo.personajes.estadosDeTransformacion.AlternoTerrestre;
 import fiuba.algo3.algoFormers.modelo.personajes.estadosDeTransformacion.Humanoide;
@@ -18,14 +17,14 @@ public class EstadoDeTransformacionDePersonajesTests {
 	@Test
 	public void testOptimusPrimeSeCreaEnEstadoHumanoide(){
 		AlgoformerFactory factory = new AlgoformerFactory();
-		AlgoFormer optimusPrime = factory.getOptimusPrime(); // Se crea en estado humanoide
+		Algoformer optimusPrime = factory.getOptimusPrime(); // Se crea en estado humanoide
 		assertEquals(optimusPrime.getEstado().getClass(), Humanoide.class);
 	}
 	
 	@Test
 	public void testOptimusPrimeSeTransformaDeHumanoideEnAlterno(){
 		AlgoformerFactory factory = new AlgoformerFactory();
-		AlgoFormer optimusPrime = factory.getOptimusPrime();
+		Algoformer optimusPrime = factory.getOptimusPrime();
 		optimusPrime.transformarse();
 		assertEquals(optimusPrime.getEstado().getClass(), AlternoTerrestre.class);
 	}
@@ -33,7 +32,7 @@ public class EstadoDeTransformacionDePersonajesTests {
 	@Test
 	public void testOptimusPrimeSeTransformaDeAlternoEnHumanoide(){
 		AlgoformerFactory factory = new AlgoformerFactory();
-		AlgoFormer optimusPrime = factory.getOptimusPrime();
+		Algoformer optimusPrime = factory.getOptimusPrime();
 		optimusPrime.transformarse();
 		optimusPrime.transformarse();
 		assertEquals(optimusPrime.getEstado().getClass(), Humanoide.class);
@@ -43,14 +42,14 @@ public class EstadoDeTransformacionDePersonajesTests {
 	@Test
 	public void testBumblebeeSeCreaEnEstadoHumanoide(){
 		AlgoformerFactory factory = new AlgoformerFactory();
-		AlgoFormer bumblebee = factory.getBumblebee(); // Se crea en estado humanoide
+		Algoformer bumblebee = factory.getBumblebee(); // Se crea en estado humanoide
 		assertEquals(bumblebee.getEstado().getClass(), Humanoide.class);
 	}
 	
 	@Test
 	public void testBumblebeeSeTransformaDeHumanoideEnAlterno(){
 		AlgoformerFactory factory = new AlgoformerFactory();
-		AlgoFormer bumblebee = factory.getBumblebee();
+		Algoformer bumblebee = factory.getBumblebee();
 		bumblebee.transformarse();
 		assertEquals(bumblebee.getEstado().getClass(), AlternoTerrestre.class);
 	}
@@ -58,7 +57,7 @@ public class EstadoDeTransformacionDePersonajesTests {
 	@Test
 	public void testBumblebeeSeTransformaDeAlternoEnHumanoide(){
 		AlgoformerFactory factory = new AlgoformerFactory();
-		AlgoFormer bumblebee = factory.getBumblebee();
+		Algoformer bumblebee = factory.getBumblebee();
 		bumblebee.transformarse();
 		bumblebee.transformarse();
 		assertEquals(bumblebee.getEstado().getClass(), Humanoide.class);
@@ -68,14 +67,14 @@ public class EstadoDeTransformacionDePersonajesTests {
 	@Test
 	public void testRatchetSeCreaEnEstadoHumanoide(){
 		AlgoformerFactory factory = new AlgoformerFactory();
-		AlgoFormer ratchet = factory.getRatchet(); // Se crea en estado humanoide
+		Algoformer ratchet = factory.getRatchet(); // Se crea en estado humanoide
 		assertEquals(ratchet.getEstado().getClass(), Humanoide.class);
 	}
 	
 	@Test
 	public void testRatchetSeTransformaDeHumanoideEnAlterno(){
 		AlgoformerFactory factory = new AlgoformerFactory();
-		AlgoFormer ratchet = factory.getRatchet();
+		Algoformer ratchet = factory.getRatchet();
 		ratchet.transformarse();
 		assertEquals(ratchet.getEstado().getClass(), AlternoAereo.class);
 	}
@@ -83,7 +82,7 @@ public class EstadoDeTransformacionDePersonajesTests {
 	@Test
 	public void testRatchetSeTransformaDeAlternoEnHumanoide(){
 		AlgoformerFactory factory = new AlgoformerFactory();
-		AlgoFormer ratchet = factory.getRatchet();
+		Algoformer ratchet = factory.getRatchet();
 		ratchet.transformarse();
 		ratchet.transformarse();
 		assertEquals(ratchet.getEstado().getClass(), Humanoide.class);
@@ -94,14 +93,14 @@ public class EstadoDeTransformacionDePersonajesTests {
 	@Test
 	public void testMegatronSeCreaEnEstadoHumanoide(){
 		AlgoformerFactory factory = new AlgoformerFactory();
-		AlgoFormer megatron = factory.getMegatron();
+		Algoformer megatron = factory.getMegatron();
 		assertEquals(megatron.getEstado().getClass(), Humanoide.class);
 	}
 	
 	@Test
 	public void testMegatronSeTransformaDeHumanoideEnAlterno(){
 		AlgoformerFactory factory = new AlgoformerFactory();
-		AlgoFormer megatron = factory.getMegatron();
+		Algoformer megatron = factory.getMegatron();
 		megatron.transformarse();
 		assertEquals(megatron.getEstado().getClass(), AlternoAereo.class);
 	}
@@ -109,7 +108,7 @@ public class EstadoDeTransformacionDePersonajesTests {
 	@Test
 	public void testMegatronSeTransformaDeAlternoEnHumanoide(){
 		AlgoformerFactory factory = new AlgoformerFactory();
-		AlgoFormer megatron = factory.getMegatron();
+		Algoformer megatron = factory.getMegatron();
 		megatron.transformarse();
 		megatron.transformarse();
 		assertEquals(megatron.getEstado().getClass(), Humanoide.class);
@@ -119,14 +118,14 @@ public class EstadoDeTransformacionDePersonajesTests {
 	@Test
 	public void testFrenzySeCreaEnEstadoHumanoide(){
 		AlgoformerFactory factory = new AlgoformerFactory();
-		AlgoFormer frenzy = factory.getFrenzy();
+		Algoformer frenzy = factory.getFrenzy();
 		assertEquals(frenzy.getEstado().getClass(), Humanoide.class);
 	}
 	
 	@Test
 	public void testFrenzySeTransformaDeHumanoideEnAlterno(){
 		AlgoformerFactory factory = new AlgoformerFactory();
-		AlgoFormer frenzy = factory.getFrenzy();
+		Algoformer frenzy = factory.getFrenzy();
 		frenzy.transformarse();
 		assertEquals(frenzy.getEstado().getClass(), AlternoTerrestre.class);
 	}
@@ -134,7 +133,7 @@ public class EstadoDeTransformacionDePersonajesTests {
 	@Test
 	public void testFrenzySeTransformaDeAlternoEnHumanoide(){
 		AlgoformerFactory factory = new AlgoformerFactory();
-		AlgoFormer frenzy = factory.getFrenzy();
+		Algoformer frenzy = factory.getFrenzy();
 		frenzy.transformarse();
 		frenzy.transformarse();
 		assertEquals(frenzy.getEstado().getClass(), Humanoide.class);
@@ -144,14 +143,14 @@ public class EstadoDeTransformacionDePersonajesTests {
 	@Test
 	public void testBonecrusherSeCreaEnEstadoHumanoide(){
 		AlgoformerFactory factory = new AlgoformerFactory();
-		AlgoFormer bonecrusher = factory.getBonecrusher();
+		Algoformer bonecrusher = factory.getBonecrusher();
 		assertEquals(bonecrusher.getEstado().getClass(), Humanoide.class);
 	}
 	
 	@Test
 	public void testBonecrusherSeTransformaDeHumanoideEnAlterno(){
 		AlgoformerFactory factory = new AlgoformerFactory();
-		AlgoFormer bonecrusher = factory.getBonecrusher();
+		Algoformer bonecrusher = factory.getBonecrusher();
 		bonecrusher.transformarse();
 		assertEquals(bonecrusher.getEstado().getClass(), AlternoTerrestre.class);
 	}
@@ -159,7 +158,7 @@ public class EstadoDeTransformacionDePersonajesTests {
 	@Test
 	public void testBonecrusherSeTransformaDeAlternoEnHumanoide(){
 		AlgoformerFactory factory = new AlgoformerFactory();
-		AlgoFormer bonecrusher = factory.getBonecrusher();
+		Algoformer bonecrusher = factory.getBonecrusher();
 		bonecrusher.transformarse();
 		bonecrusher.transformarse();
 		assertEquals(bonecrusher.getEstado().getClass(), Humanoide.class);

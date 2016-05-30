@@ -6,10 +6,10 @@ import static org.hamcrest.CoreMatchers.*;
 import org.junit.Before;
 import org.junit.Test;
 
-import fiuba.algo3.algoFormers.modelo.fabricas.AlgoformerFactory;
 import fiuba.algo3.algoFormers.modelo.mapas.Casillero;
 import fiuba.algo3.algoFormers.modelo.mapas.Mapa;
 import fiuba.algo3.algoFormers.modelo.mapas.Posicion;
+import fiuba.algo3.algoFormers.modelo.personajes.AlgoformerFactory;
 import fiuba.algo3.algoFormers.modelo.personajes.AutoBot;
 import fiuba.algo3.algoFormers.modelo.personajes.Decepticon;
 import fiuba.algo3.algoFormers.modelo.excepciones.CasilleroOcupadoException;

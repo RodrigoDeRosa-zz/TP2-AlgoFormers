@@ -1,11 +1,11 @@
 package fiuba.algo3.algoFormers.modelo.juego;
 
-import fiuba.algo3.algoFormers.modelo.personajes.AlgoFormer;
+import fiuba.algo3.algoFormers.modelo.personajes.Algoformer;
 
 public class Turno {
 	
 	private Jugador jugadorActual;
-	private AlgoFormer algoformerActual;
+	private Algoformer algoformerActual;
 	private Accion accionActual;
 	
 	public Turno(Jugador jugador) {
@@ -14,7 +14,7 @@ public class Turno {
 		
 	}
 		
-	public void setAlgoformerActual(AlgoFormer algoformer) {
+	public void setAlgoformerActual(Algoformer algoformer) {
 		
 		algoformerActual = algoformer;
 	}
@@ -24,7 +24,7 @@ public class Turno {
 		return jugadorActual;
 	}
 	
-	public AlgoFormer getAlgoformerActual() {
+	public Algoformer getAlgoformerActual() {
 		
 		return algoformerActual;
 	}

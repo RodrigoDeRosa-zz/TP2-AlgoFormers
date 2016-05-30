@@ -2,9 +2,9 @@ package fiuba.algo3.algoFormers.modelo.juego;
 
 
 
-import fiuba.algo3.algoFormers.modelo.fabricas.AlgoformerFactory;
 import fiuba.algo3.algoFormers.modelo.mapas.Mapa;
-import fiuba.algo3.algoFormers.modelo.personajes.AlgoFormer;
+import fiuba.algo3.algoFormers.modelo.personajes.Algoformer;
+import fiuba.algo3.algoFormers.modelo.personajes.AlgoformerFactory;
 
 public abstract class Jugador {
 	
@@ -34,6 +34,6 @@ public abstract class Jugador {
 	 * de los prefijados en la Fabrica de personajes
 	 * @return Algoformer de nombre coincidente con el recibido.
 	 */
-	public abstract AlgoFormer getAlgoformer(String nombre);
+	public abstract Algoformer getAlgoformer(String nombre);
 		
 }

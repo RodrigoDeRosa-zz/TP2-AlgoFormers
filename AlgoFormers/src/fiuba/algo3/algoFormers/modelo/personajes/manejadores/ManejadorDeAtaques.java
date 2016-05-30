@@ -7,15 +7,15 @@ import fiuba.algo3.algoFormers.modelo.excepciones.NoEsAtacableException;
 import fiuba.algo3.algoFormers.modelo.interfaces.Ubicable;
 import fiuba.algo3.algoFormers.modelo.mapas.Mapa;
 import fiuba.algo3.algoFormers.modelo.mapas.Posicion;
-import fiuba.algo3.algoFormers.modelo.personajes.AlgoFormer;
+import fiuba.algo3.algoFormers.modelo.personajes.Algoformer;
 
 public class ManejadorDeAtaques {
 	
-	private AlgoFormer atacante;
+	private Algoformer atacante;
 	private Ubicable destino;
 	private int distanciaPretendida;
 	
-	public ManejadorDeAtaques(Mapa mapa, AlgoFormer algoformer, Posicion posicion){
+	public ManejadorDeAtaques(Mapa mapa, Algoformer algoformer, Posicion posicion){
 		/*constructor del manejador de ataques. Este contiene la distancia de 
 		 * ataque del algoformer en su modo actual y el poder de ataque*/
 		
