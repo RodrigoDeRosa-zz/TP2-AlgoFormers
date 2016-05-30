@@ -16,14 +16,10 @@ public class JuegoTest {
 		
 	}
 	
-	@Test
-	public void getUbicableDevuelveAlUbicableCorrectoSiEstaAhiTest() {
-		
-		Juego juego = new Juego();
-		
-		
-		
-	
-	}
+//	@Test
+//	public void getUbicableDevuelveAlUbicableCorrectoSiEstaAhiTest() {
+//		
+//		Juego juego = new Juego();	
+//	}
 
 }
