@@ -2,6 +2,7 @@ package fiuba.algo3.algoFormers.modelo.juego;
 
 import fiuba.algo3.algoFormers.modelo.capturables.Chispa;
 import fiuba.algo3.algoFormers.modelo.fabricas.*;
+import fiuba.algo3.algoFormers.modelo.interfaces.Atacable;
 import fiuba.algo3.algoFormers.modelo.interfaces.Ubicable;
 import fiuba.algo3.algoFormers.modelo.mapas.Mapa;
 import fiuba.algo3.algoFormers.modelo.mapas.Posicion;
@@ -30,26 +31,26 @@ public class Juego {
 		this.optimus = autobots.getOptimusPrime();
 		this.bumblebee = autobots.getBumblebee();
 		this.ratchet = autobots.getRatchet();
-		this.ubicar(optimus, filaOptimus, columnaOptimus);
-		this.ubicar(bumblebee, filaBumblebee, columnaBumblebee);
-		this.ubicar(ratchet, filaRatchet, columnaRatchet);
+		this.ubicarAtacable(optimus, filaOptimus, columnaOptimus);
+		this.ubicarAtacable(bumblebee, filaBumblebee, columnaBumblebee);
+		this.ubicarAtacable(ratchet, filaRatchet, columnaRatchet);
 		
 		this.megatron = decepticons.getMegatron();
 		this.bonecrusher = decepticons.getBonecrusher();
 		this.frenzy = decepticons.getFrenzy();
-		this.ubicar(megatron, filaMegatron, columnaMegatron);
-		this.ubicar(bonecrusher, filaBonecrusher, columnaBonecrusher);
-		this.ubicar(frenzy, filaFrenzy, columnaFrenzy);
+		this.ubicarAtacable(megatron, filaMegatron, columnaMegatron);
+		this.ubicarAtacable(bonecrusher, filaBonecrusher, columnaBonecrusher);
+		this.ubicarAtacable(frenzy, filaFrenzy, columnaFrenzy);
 		
 		this.chispa = new Chispa();
 		this.ubicarChispa(this.chispa);
 		
 		}
 	
-	public void ubicar(Ubicable ubicable, int fila, int columna) {
+	public void ubicarAtacable(Atacable atacable, int fila, int columna) {
 		
 		Posicion pos = new Posicion(fila, columna);
-		this.mapa.ubicar(ubicable, pos);
+		this.mapa.ubicarAtacable(atacable, pos);
 	}
 	
 	public void ubicarChispa(Chispa chispa){
@@ -58,8 +59,8 @@ public class Juego {
 	
 
 	//Metodos para las pruebas
-	public Ubicable getUbicable(Posicion posicion) {
-		return this.mapa.getUbicable(posicion);
+	public Atacable getAtacable(Posicion posicion) {
+		return this.mapa.getAtacable(posicion);
 	}
 	
 	public Posicion getPosicionChispa(){

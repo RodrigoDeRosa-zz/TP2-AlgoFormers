@@ -33,14 +33,14 @@ public class ManejadoresTest {
 	}
 	
 	@Test 
-	public void testVerifiarMovimientosRestantesConMovimiento(){
+	public void testVerificarMovimientosRestantesConMovimiento(){
 		AlgoFormerFactory factory = new AlgoFormerFactory();
 		AlgoFormer optimusPrime = factory.getOptimusPrime();
 		int movimientos = optimusPrime.getVelocidad();
 		ManejadorDeMovimientos manejador = new ManejadorDeMovimientos(movimientos);
 		Mapa mapa = new Mapa();
 		Posicion posicionOptimus = new Posicion(1, 1);		
-		mapa.ubicar(optimusPrime, posicionOptimus);
+		mapa.ubicarAtacable(optimusPrime, posicionOptimus);
 		DirDerecha direc = new DirDerecha();
 	
 		manejador.moverEnDireccion(optimusPrime,direc, mapa);
@@ -59,7 +59,7 @@ public class ManejadoresTest {
 		ManejadorDeMovimientos manejador = new ManejadorDeMovimientos(movimientos);
 		Mapa mapa = new Mapa();
 		Posicion posicionOptimus = new Posicion(1, 1);
-		mapa.ubicar(optimusPrime, posicionOptimus);
+		mapa.ubicarAtacable(optimusPrime, posicionOptimus);
 		DirDerecha direc = new DirDerecha();
 		
 		for(int x=0; x< movimientos+1; x++){
@@ -84,8 +84,8 @@ public class ManejadoresTest {
 		Mapa mapa = new Mapa();
 		Posicion posicionOptimus = new Posicion(1, 1);
 		Posicion posicionMegatron = new Posicion(1, 3);
-		mapa.ubicar(optimus, posicionOptimus);
-		mapa.ubicar(megatron, posicionMegatron);
+		mapa.ubicarAtacable(optimus, posicionOptimus);
+		mapa.ubicarAtacable(megatron, posicionMegatron);
 		
 		int vida = megatron.getVida();
 		int poder = optimus.getAtaque();
@@ -111,8 +111,8 @@ public class ManejadoresTest {
 		Mapa mapa = new Mapa();
 		Posicion posicionOptimus = new Posicion(1, 1);
 		Posicion posicionAtaque = new Posicion(1, 7);
-		mapa.ubicar(optimus, posicionOptimus);
-		mapa.ubicar(megatron, posicionAtaque);
+		mapa.ubicarAtacable(optimus, posicionOptimus);
+		mapa.ubicarAtacable(megatron, posicionAtaque);
 		int poder = optimus.getAtaque();
 		int distancia = optimus.getDistanciaDeAtaque();
 		ManejadorDeAtaques manejador = new ManejadorDeAtaques(poder, distancia);
@@ -128,7 +128,7 @@ public class ManejadoresTest {
 		Mapa mapa = new Mapa();
 		Posicion posicionOptimus = new Posicion(1, 1);
 		Posicion posicionAtaque = new Posicion(1, 2);
-		mapa.ubicar(optimus, posicionOptimus);
+		mapa.ubicarAtacable(optimus, posicionOptimus);
 		
 		int poder = optimus.getAtaque();
 		int distancia = optimus.getDistanciaDeAtaque();
@@ -144,8 +144,8 @@ public class ManejadoresTest {
 		Mapa mapa = new Mapa();
 		Posicion posicionOptimus = new Posicion(1, 1);
 		Posicion posicionBumblebee = new Posicion(1, 2);
-		mapa.ubicar(optimus, posicionOptimus);
-		mapa.ubicar(bumblebee, posicionBumblebee);
+		mapa.ubicarAtacable(optimus, posicionOptimus);
+		mapa.ubicarAtacable(bumblebee, posicionBumblebee);
 		
 		int poder = optimus.getAtaque();
 		int distancia = optimus.getDistanciaDeAtaque();

@@ -24,13 +24,13 @@ public class EntregaUnoTest {
 		AlgoFormer optimus = factory.getOptimusPrime();
 		Mapa mapa = new Mapa();
 		Posicion posicion = new Posicion(1,1);
-		mapa.ubicar(optimus, posicion);
+		mapa.ubicarAtacable(optimus, posicion);
 		optimus.inicializarTurno();
 		DirArriba direccion = new DirArriba();
 		for (int i = 1; i <= optimus.getVelocidad(); i++){
 			optimus.moverEnDireccion(direccion, mapa);	
 		}
-		assertEquals(optimus, mapa.getUbicable(new Posicion(1, 3)));
+		assertEquals(optimus, mapa.getAtacable(new Posicion(1, 3)));
 		//El mapa le dice al casillero que devuelva el Ubicable que tiene guardado
 		//Puede ser un Ubicable o null.
 		//Hay que hacer una prueba para cuando se queda sin nafta(SinPuntosDeMovimientoException)
@@ -43,13 +43,13 @@ public class EntregaUnoTest {
 		ratchet.transformarse(); //Se transforma en Alterno
 		Mapa mapa = new Mapa();
 		Posicion posicion = new Posicion(1,1);
-		mapa.ubicar(ratchet, posicion);
+		mapa.ubicarAtacable(ratchet, posicion);
 		DirArriba direccion = new DirArriba();
 		ratchet.inicializarTurno();
 		for (int i = 1; i <= ratchet.getVelocidad(); i++){
 			ratchet.moverEnDireccion(direccion, mapa);	
 		}
-		assertEquals(ratchet, mapa.getUbicable(new Posicion(1, 9)));
+		assertEquals(ratchet, mapa.getAtacable(new Posicion(1, 9)));
 	}
 	
 	@Test
@@ -77,13 +77,13 @@ public class EntregaUnoTest {
 		AlgoFormer bonecrusher = factory.getBonecrusher();
 		AlgoFormer frenzy = factory.getFrenzy();
 		
-		assertEquals(optimus, juego.getUbicable(new Posicion(0, 18)));
-		assertEquals(bumblebee, juego.getUbicable(new Posicion(0, 19)));
-		assertEquals(ratchet, juego.getUbicable(new Posicion(0, 20)));
+		assertEquals(optimus, juego.getAtacable(new Posicion(0, 18)));
+		assertEquals(bumblebee, juego.getAtacable(new Posicion(0, 19)));
+		assertEquals(ratchet, juego.getAtacable(new Posicion(0, 20)));
 		
-		assertEquals(megatron, juego.getUbicable(new Posicion(39, 18)));
-		assertEquals(bonecrusher, juego.getUbicable(new Posicion(39, 19)));
-		assertEquals(frenzy, juego.getUbicable(new Posicion(39, 20)));
+		assertEquals(megatron, juego.getAtacable(new Posicion(39, 18)));
+		assertEquals(bonecrusher, juego.getAtacable(new Posicion(39, 19)));
+		assertEquals(frenzy, juego.getAtacable(new Posicion(39, 20)));
 		
 		Posicion posicionChispa = juego.getPosicionChispa();
 		int coordenadaX = posicionChispa.getX();
@@ -103,8 +103,8 @@ public class EntregaUnoTest {
 		Mapa mapa = new Mapa();
 		Posicion posicionOptimus = new Posicion(1, 1);
 		Posicion posicionMegatron = new Posicion(1, 3);
-		mapa.ubicar(optimus, posicionOptimus);
-		mapa.ubicar(megatron, posicionMegatron);
+		mapa.ubicarAtacable(optimus, posicionOptimus);
+		mapa.ubicarAtacable(megatron, posicionMegatron);
 		optimus.inicializarTurno();
 		optimus.atacarPosicion(posicionMegatron, mapa);
 		assertEquals(megatron.getVida(), 500);
@@ -116,7 +116,7 @@ public class EntregaUnoTest {
 		AlgoFormer optimus = factory.getOptimusPrime();
 		Mapa mapa = new Mapa();
 		Posicion posicionOptimus = new Posicion(1, 1);
-		mapa.ubicar(optimus, posicionOptimus);
+		mapa.ubicarAtacable(optimus, posicionOptimus);
 		optimus.inicializarTurno();
 		optimus.atacarPosicion(new Posicion(1, 6),mapa);
 	}
@@ -127,7 +127,7 @@ public class EntregaUnoTest {
 		AlgoFormer optimus = factory.getOptimusPrime();
 		Mapa mapa = new Mapa();
 		Posicion posicionOptimus = new Posicion(1, 1);
-		mapa.ubicar(optimus, posicionOptimus);
+		mapa.ubicarAtacable(optimus, posicionOptimus);
 		optimus.inicializarTurno();
 		optimus.atacarPosicion(new Posicion(1, 2),mapa);
 	}
@@ -140,8 +140,8 @@ public class EntregaUnoTest {
 		Mapa mapa = new Mapa();
 		Posicion posicionOptimus = new Posicion(1, 1);
 		Posicion posicionBumblebee = new Posicion(1, 2);
-		mapa.ubicar(optimus, posicionOptimus);
-		mapa.ubicar(bumblebee, posicionBumblebee);
+		mapa.ubicarAtacable(optimus, posicionOptimus);
+		mapa.ubicarAtacable(bumblebee, posicionBumblebee);
 		optimus.inicializarTurno();
 		optimus.atacarPosicion(new Posicion(1, 2),mapa);
 	}

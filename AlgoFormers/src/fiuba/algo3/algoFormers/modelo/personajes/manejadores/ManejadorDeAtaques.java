@@ -1,5 +1,6 @@
 package fiuba.algo3.algoFormers.modelo.personajes.manejadores;
 
+import fiuba.algo3.algoFormers.modelo.excepciones.AtaqueEspacioVacioException;
 import fiuba.algo3.algoFormers.modelo.excepciones.AtaqueFueraDeRangoException;
 import fiuba.algo3.algoFormers.modelo.mapas.Mapa;
 import fiuba.algo3.algoFormers.modelo.mapas.Posicion;
@@ -34,8 +35,13 @@ public class ManejadorDeAtaques {
 		Posicion posicionAlgoformerAtacante = mapa.obtenerPosicion(algoformer);
 		this.verificarDistancia(posicionAlgoformerAtacante, posicionAtacable, this.distanciaAtaque);
 		AlgoFormer algoformerAtacado = (AlgoFormer) mapa.getAtacable(posicionAtacable);
+		this.verificarObjetivoValido(algoformerAtacado);
 		algoformer.atacarEnemigo(algoformerAtacado, poderAtaque);
 	}	
+	
+	private void verificarObjetivoValido(AlgoFormer objetivo){
+		if (objetivo == null) throw new AtaqueEspacioVacioException();
+	}
 	
 	private void verificarDistancia(Posicion posicionUbicable, Posicion posicionAtacable, int distanciaAtaque) {
 		double distanciaFila = posicionUbicable.obtenerDistanciaFila(posicionAtacable);

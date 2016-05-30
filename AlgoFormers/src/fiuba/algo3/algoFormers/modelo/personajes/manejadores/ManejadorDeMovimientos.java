@@ -43,7 +43,7 @@ public class ManejadorDeMovimientos {
 		}
 		
 		this.restarMovimiento();
-		mapa.moverUbicableEnDireccion(algoformer,direccion);
+		mapa.moverAtacableEnDireccion(algoformer,direccion);
 	}
 	
 	//funcion que sirve para las pruebas

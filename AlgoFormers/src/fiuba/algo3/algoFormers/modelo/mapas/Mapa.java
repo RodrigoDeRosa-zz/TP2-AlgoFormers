@@ -25,14 +25,20 @@ public class Mapa {
 	}
 
 	
-	public void ubicar(Ubicable ubicable, Posicion posicion) {
+	public void ubicarAtacable(Atacable atacable, Posicion posicion) {
 		Casillero casillero = tablero.get(posicion);
 		this.verificarCasilleroEstaVacio(casillero, posicion);
-		casillero.setUbicable(ubicable);
+		casillero.setAtacable(atacable);
 	}
-
-	public void ubicarChispa(Chispa laChispa) {
-		
+	
+	public void ubicarCapturable(Capturable capturable, Posicion posicion) {		
+		Casillero casillero = tablero.get(posicion);
+		this.verificarCasilleroCapturableEstaVacio(casillero, posicion);
+		this.verificarCasilleroEstaVacio(casillero, posicion);
+		casillero.setCapturable(capturable);
+	}
+	
+	public void ubicarChispa(Chispa chispa){
 		int medio = TAMANIO / 2;
 		int desplazamiento = 2;
 		int max = medio + desplazamiento;
@@ -42,31 +48,23 @@ public class Mapa {
 		int resultadoX = generador.nextInt(max - min + 1) + min;
 		int resultadoY = generador.nextInt(max - min + 1) + min;
 		
-		Posicion pos = new Posicion(resultadoX, resultadoY);
+		Posicion posicion = new Posicion(resultadoX, resultadoY);
 		
-		Casillero casillero = tablero.get(pos);
-		this.verificarCasilleroCapturableEstaVacio(casillero, pos);
-		this.verificarCasilleroEstaVacio(casillero, pos);
-		casillero.setCapturable(laChispa);
+		this.ubicarCapturable(chispa, posicion);
 	}
 
-	public void moverUbicableEnDireccion(Ubicable ubicable, Direccion direccion) {
-		Posicion posicion = this.obtenerPosicion(ubicable);
+	public void moverAtacableEnDireccion(Atacable atacable, Direccion direccion) {
+		Posicion posicion = this.obtenerPosicion(atacable);
 		Posicion nuevaPosicion = posicion.sumarDireccion(direccion);
 		Casillero casillero = tablero.get(posicion);
 		Casillero nuevoCasillero = tablero.get(nuevaPosicion);
 		this.verificarCasilleroEstaVacio(nuevoCasillero, nuevaPosicion);
 		
 		//Se agrega el ubicable a la nueva posicion
-		nuevoCasillero.ocuparConUbicable(ubicable);
+		nuevoCasillero.setAtacable(atacable);
 		
 		//Se borra la posicion vieja
-		casillero.desocuparUbicable();
-	}
-
-	public Ubicable getUbicable(Posicion posicion) {
-		Casillero casillero = tablero.get(posicion);
-		return casillero.getUbicable();	
+		casillero.desocuparAtacable();
 	}
 	
 	private Capturable getCapturable(Posicion posicion) {
@@ -76,16 +74,15 @@ public class Mapa {
 	
 	public Atacable getAtacable(Posicion posicion) {
 		Casillero casillero = tablero.get(posicion);
-		this.verificarCasilleroNoEstaVacio(casillero, posicion);
-		return (Atacable) casillero.getUbicable();	
+		return casillero.getAtacable();	
 	}	
 	
 	public Posicion obtenerPosicion(Ubicable ubicable) {
 		for(int fila = 0; fila < TAMANIO; fila++){
 			for(int columna = 0; columna < TAMANIO; columna++){
 				Posicion posicion = new Posicion(fila,columna);
-				Ubicable ubicableActual = this.getUbicable(posicion);
-				if((ubicableActual != null) && (ubicableActual.getClass() == ubicable.getClass())){
+				Atacable atacableActual = this.getAtacable(posicion);
+				if((atacableActual != null) && (atacableActual.getClass() == ubicable.getClass())){
 					return posicion;
 				}
 			}
@@ -104,12 +101,6 @@ public class Mapa {
 	private void verificarCasilleroEstaVacio(Casillero casillero, Posicion posicion) {
 		if (casillero.estaOcupado()){
 			throw new CasilleroOcupadoException("el casillero de la posicion (" + posicion.getX() + posicion.getY() + ") esta ocupado");
-		}
-	}
-	
-	private void verificarCasilleroNoEstaVacio(Casillero casillero, Posicion posicion) {
-		if (!casillero.estaOcupado()){
-			throw new AtaqueEspacioVacioException();
 		}
 	}
 
@@ -142,7 +133,7 @@ public class Mapa {
 				}
 			}
 		}
-		throw new UbicableNoPertenceAlMapaException("El ubicable no pertence al mapa");
+		throw new UbicableNoPertenceAlMapaException("La chispa no esta en el mapa");
 	}
 
 }
