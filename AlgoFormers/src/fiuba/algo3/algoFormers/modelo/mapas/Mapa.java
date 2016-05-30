@@ -46,6 +46,7 @@ public class Mapa {
 		
 		Casillero casillero = tablero.get(pos);
 		this.verificarCasilleroCapturableEstaVacio(casillero, pos);
+		this.verificarCasilleroEstaVacio(casillero, pos);
 		casillero.setCapturable(laChispa);
 	}
 
