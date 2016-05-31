@@ -5,7 +5,6 @@ import java.util.Random;
 
 import fiuba.algo3.algoFormers.modelo.capturables.Chispa;
 import fiuba.algo3.algoFormers.modelo.direcciones.Direccion;
-import fiuba.algo3.algoFormers.modelo.excepciones.CasilleroOcupadoException;
 import fiuba.algo3.algoFormers.modelo.excepciones.UbicableNoPertenceAlMapaException;
 import fiuba.algo3.algoFormers.modelo.interfaces.Atacable;
 import fiuba.algo3.algoFormers.modelo.interfaces.Capturable;
@@ -26,15 +25,12 @@ public class Mapa {
 	
 	public void ubicarAtacable(Atacable atacable, Posicion posicion) {
 		Casillero casillero = tablero.get(posicion);
-		this.verificarCasilleroEstaVacio(casillero, posicion);
-		casillero.setAtacable(atacable);
+		casillero.ubicar(atacable);
 	}
 	
 	public void ubicarCapturable(Capturable capturable, Posicion posicion) {		
 		Casillero casillero = tablero.get(posicion);
-		this.verificarCasilleroCapturableEstaVacio(casillero, posicion);
-		this.verificarCasilleroEstaVacio(casillero, posicion);
-		casillero.setCapturable(capturable);
+		casillero.ubicar(capturable);
 	}
 	
 	public void ubicarChispa(Chispa chispa){
@@ -57,12 +53,9 @@ public class Mapa {
 		Posicion nuevaPosicion = posicion.sumarDireccion(direccion);
 		Casillero casillero = tablero.get(posicion);
 		Casillero nuevoCasillero = tablero.get(nuevaPosicion);
-		this.verificarCasilleroEstaVacio(nuevoCasillero, nuevaPosicion);
-		
-		//Se agrega el ubicable a la nueva posicion
-		nuevoCasillero.setAtacable(atacable);
-		
-		//Se borra la posicion vieja
+		//Se agrega el atacable a la nueva posicion
+		nuevoCasillero.ubicar(atacable);
+		//Se borra de la posicion vieja
 		casillero.desocuparAtacable();
 	}
 	
@@ -91,18 +84,6 @@ public class Mapa {
 	
 	//Metodos privados.
 	
-	private void verificarCasilleroCapturableEstaVacio(Casillero casillero, Posicion posicion) {
-		if (casillero.estaOcupadoCapturable()){
-			throw new CasilleroOcupadoException("el casillero de la posicion (" + posicion.getX() + posicion.getY() + ") esta ocupado");
-		}
-	}
-	
-	private void verificarCasilleroEstaVacio(Casillero casillero, Posicion posicion) {
-		if (casillero.estaOcupado()){
-			throw new CasilleroOcupadoException("el casillero de la posicion (" + posicion.getX() + posicion.getY() + ") esta ocupado");
-		}
-	}
-
 	private void llenarTablero(HashMap<Posicion, Casillero> tablero) {	
 		for(int fila = 0; fila < TAMANIO; fila++){
 			for(int columna = 0; columna < TAMANIO; columna++){

@@ -1,5 +1,6 @@
 package fiuba.algo3.algoFormers.modelo.mapa;
 
+import fiuba.algo3.algoFormers.modelo.excepciones.CasilleroOcupadoException;
 import fiuba.algo3.algoFormers.modelo.interfaces.Atacable;
 import fiuba.algo3.algoFormers.modelo.interfaces.Capturable;
 
@@ -17,40 +18,58 @@ public class Casillero {
 		ocupadoCapturable = false;
 	}
 	
-	public void setAtacable(Atacable atacable){
+	public void ubicar(Atacable atacable){
+		this.verificarCasilleroEstaVacio();
+		this.setAtacable(atacable);
+	}
+	
+	public void ubicar(Capturable capturable){
+		this.verificarCasilleroCapturableEstaVacio();
+		this.setCapturable(capturable);
+	}
+	
+	private void setAtacable(Atacable atacable){
 		this.atacable = atacable;
 		ocupado = true;
 	}
 
-	public void setCapturable(Capturable capturable) {
+	private void setCapturable(Capturable capturable) {
 		this.capturable = capturable;
 		ocupadoCapturable = true;
 	}
 	
-	public boolean estaOcupado() {
+	private boolean estaOcupado() {
 		return ocupado;
 	}
 
-	public boolean estaOcupadoCapturable() {
+	private boolean estaOcupadoCapturable() {
 		return ocupadoCapturable;
 	}
 	
 	public Atacable getAtacable() {
 		return atacable;
 	}
-
+	
+	public Capturable getCapturable() {
+		return this.capturable;
+	}
+	
 	public void desocuparAtacable() {
 		atacable = null;
 		ocupado = false;
 	}
-
-	public void ocuparConAtacable(Atacable atacable) {
-		this.atacable = atacable;
-		ocupado = true;
+	
+	private void verificarCasilleroEstaVacio() {
+		if (this.estaOcupado()){
+			throw new CasilleroOcupadoException("Ya hay un atacable en este casillero");
+		}
 	}
 
-	public Capturable getCapturable() {
-		return this.capturable;
+
+	private void verificarCasilleroCapturableEstaVacio() {
+		if (this.estaOcupadoCapturable()){
+			throw new CasilleroOcupadoException("Ya hay un capturable en este casillero");
+		}
 	}
 
 }
