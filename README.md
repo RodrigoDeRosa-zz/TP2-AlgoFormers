@@ -1,2 +1,3 @@
 # TP2-AlgoFormers
-https://travis-ci.org/RodrigoDeRosa/TP2-AlgoFormers.svg?branch=master
+Travis 
+[![Build Status](https://travis-ci.org/RodrigoDeRosa/TP2-AlgoFormers.svg?branch=master)](https://travis-ci.org/RodrigoDeRosa/TP2-AlgoFormers)
