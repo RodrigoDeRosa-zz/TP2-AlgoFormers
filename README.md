@@ -1,2 +1,2 @@
 # TP2-AlgoFormers
-Readme
+https://travis-ci.org/RodrigoDeRosa/TP2-AlgoFormers.svg?branch=master
