@@ -98,7 +98,6 @@ public class Mapa {
 		return TAMANIO;
 	}
 
-	
 	public Casillero getCasillero(Posicion posicion) {
 		return tablero.get(posicion); 
 	}
