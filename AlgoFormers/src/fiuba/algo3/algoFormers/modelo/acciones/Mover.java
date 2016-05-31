@@ -2,7 +2,7 @@ package fiuba.algo3.algoFormers.modelo.acciones;
 
 import fiuba.algo3.algoFormers.modelo.direcciones.Direccion;
 import fiuba.algo3.algoFormers.modelo.interfaces.Accion;
-import fiuba.algo3.algoFormers.modelo.mapas.Mapa;
+import fiuba.algo3.algoFormers.modelo.mapa.Mapa;
 import fiuba.algo3.algoFormers.modelo.personajes.AlgoFormer;
 
 public class Mover implements Accion {

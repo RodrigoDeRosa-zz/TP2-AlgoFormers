@@ -6,9 +6,9 @@ import org.junit.Before;
 import org.junit.Test;
 
 import fiuba.algo3.algoFormers.modelo.fabricas.AlgoFormerFactory;
-import fiuba.algo3.algoFormers.modelo.mapas.Casillero;
-import fiuba.algo3.algoFormers.modelo.mapas.Mapa;
-import fiuba.algo3.algoFormers.modelo.mapas.Posicion;
+import fiuba.algo3.algoFormers.modelo.mapa.Casillero;
+import fiuba.algo3.algoFormers.modelo.mapa.Mapa;
+import fiuba.algo3.algoFormers.modelo.mapa.Posicion;
 import fiuba.algo3.algoFormers.modelo.personajes.AlgoFormer;
 import fiuba.algo3.algoFormers.modelo.direcciones.DirAbajo;
 import fiuba.algo3.algoFormers.modelo.direcciones.DirAbajoDer;

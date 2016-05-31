@@ -2,8 +2,8 @@ package fiuba.algo3.algoFormers.modelo.personajes;
 
 import fiuba.algo3.algoFormers.modelo.direcciones.Direccion;
 import fiuba.algo3.algoFormers.modelo.interfaces.Atacable;
-import fiuba.algo3.algoFormers.modelo.mapas.Mapa;
-import fiuba.algo3.algoFormers.modelo.mapas.Posicion;
+import fiuba.algo3.algoFormers.modelo.mapa.Mapa;
+import fiuba.algo3.algoFormers.modelo.mapa.Posicion;
 import fiuba.algo3.algoFormers.modelo.personajes.atributos.Vida;
 import fiuba.algo3.algoFormers.modelo.personajes.estadosDeTransformacion.Alterno;
 import fiuba.algo3.algoFormers.modelo.personajes.estadosDeTransformacion.EstadoDeTransformacion;

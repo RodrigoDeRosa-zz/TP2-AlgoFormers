@@ -2,8 +2,8 @@ package fiuba.algo3.algoFormers.modelo.personajes.manejadores;
 
 import fiuba.algo3.algoFormers.modelo.excepciones.AtaqueEspacioVacioException;
 import fiuba.algo3.algoFormers.modelo.excepciones.AtaqueFueraDeRangoException;
-import fiuba.algo3.algoFormers.modelo.mapas.Mapa;
-import fiuba.algo3.algoFormers.modelo.mapas.Posicion;
+import fiuba.algo3.algoFormers.modelo.mapa.Mapa;
+import fiuba.algo3.algoFormers.modelo.mapa.Posicion;
 import fiuba.algo3.algoFormers.modelo.personajes.AlgoFormer;
 
 public class ManejadorDeAtaques {

@@ -6,8 +6,8 @@ import org.junit.Test;
 import fiuba.algo3.algoFormers.modelo.direcciones.DirArriba;
 import fiuba.algo3.algoFormers.modelo.fabricas.AlgoFormerFactory;
 import fiuba.algo3.algoFormers.modelo.juego.Juego;
-import fiuba.algo3.algoFormers.modelo.mapas.Mapa;
-import fiuba.algo3.algoFormers.modelo.mapas.Posicion;
+import fiuba.algo3.algoFormers.modelo.mapa.Mapa;
+import fiuba.algo3.algoFormers.modelo.mapa.Posicion;
 import fiuba.algo3.algoFormers.modelo.personajes.AlgoFormer;
 import fiuba.algo3.algoFormers.modelo.personajes.estadosDeTransformacion.AlternoTerrestre;
 import fiuba.algo3.algoFormers.modelo.personajes.estadosDeTransformacion.Humanoide;
@@ -29,9 +29,6 @@ public class EntregaUnoTest {
 			optimus.moverEnDireccion(direccion, mapa);	
 		}
 		assertEquals(optimus, mapa.getAtacable(new Posicion(1, 3)));
-		//El mapa le dice al casillero que devuelva el Ubicable que tiene guardado
-		//Puede ser un Ubicable o null.
-		//Hay que hacer una prueba para cuando se queda sin nafta(SinPuntosDeMovimientoException)
 	}
 	
 	@Test

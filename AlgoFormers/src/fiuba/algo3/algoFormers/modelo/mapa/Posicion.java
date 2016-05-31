@@ -1,4 +1,4 @@
-package fiuba.algo3.algoFormers.modelo.mapas;
+package fiuba.algo3.algoFormers.modelo.mapa;
 
 import fiuba.algo3.algoFormers.modelo.direcciones.Direccion;
 

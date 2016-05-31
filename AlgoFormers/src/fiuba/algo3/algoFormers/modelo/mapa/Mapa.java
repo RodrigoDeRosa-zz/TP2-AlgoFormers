@@ -1,4 +1,4 @@
-package fiuba.algo3.algoFormers.modelo.mapas;
+package fiuba.algo3.algoFormers.modelo.mapa;
 
 import java.util.HashMap;
 import java.util.Random;
