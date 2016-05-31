@@ -1,13 +1,12 @@
 package fiuba.algo3.algoFormers.modelo.juego;
 
 import fiuba.algo3.algoFormers.modelo.capturables.Chispa;
-import fiuba.algo3.algoFormers.modelo.fabricas.*;
 import fiuba.algo3.algoFormers.modelo.interfaces.Atacable;
 import fiuba.algo3.algoFormers.modelo.jugadores.JugadorAutobots;
 import fiuba.algo3.algoFormers.modelo.jugadores.JugadorDecepticons;
 import fiuba.algo3.algoFormers.modelo.mapa.Mapa;
 import fiuba.algo3.algoFormers.modelo.mapa.Posicion;
-import fiuba.algo3.algoFormers.modelo.personajes.AlgoFormer;
+
 
 public class Juego {
 

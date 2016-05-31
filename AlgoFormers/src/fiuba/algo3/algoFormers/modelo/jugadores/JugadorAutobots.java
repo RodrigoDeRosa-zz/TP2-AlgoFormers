@@ -42,7 +42,7 @@ public class JugadorAutobots extends Jugador {
 	}
 
 	@Override
-	public AlgoFormer getAlgoformer(String nombre) {
+	public AutoBot getAlgoformer(String nombre) {
 		for (AutoBot algoformer : this.personajes) {
             
 			if (algoformer.getNombre() == nombre) {

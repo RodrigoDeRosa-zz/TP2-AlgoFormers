@@ -42,7 +42,7 @@ public class JugadorDecepticons extends Jugador {
 	}
 
 	@Override
-	public AlgoFormer getAlgoformer(String nombre) {
+	public Decepticon getAlgoformer(String nombre) {
 		for (Decepticon algoformer : this.personajes) {
             
 			if (algoformer.getNombre() == nombre) {
