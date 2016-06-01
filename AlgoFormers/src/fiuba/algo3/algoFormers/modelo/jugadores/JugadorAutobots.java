@@ -5,7 +5,6 @@ import java.util.List;
 
 import fiuba.algo3.algoFormers.modelo.mapa.Mapa;
 import fiuba.algo3.algoFormers.modelo.mapa.Posicion;
-import fiuba.algo3.algoFormers.modelo.personajes.AlgoFormer;
 import fiuba.algo3.algoFormers.modelo.personajes.AutoBot;
 
 public class JugadorAutobots extends Jugador {
