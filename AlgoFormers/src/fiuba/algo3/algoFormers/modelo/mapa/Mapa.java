@@ -9,6 +9,7 @@ import fiuba.algo3.algoFormers.modelo.excepciones.UbicableNoPertenceAlMapaExcept
 import fiuba.algo3.algoFormers.modelo.interfaces.Atacable;
 import fiuba.algo3.algoFormers.modelo.interfaces.Capturable;
 import fiuba.algo3.algoFormers.modelo.interfaces.Ubicable;
+import fiuba.algo3.algoFormers.modelo.mapa.superficies.Superficie;
 
 public class Mapa {
 	
@@ -82,6 +83,11 @@ public class Mapa {
 		throw new UbicableNoPertenceAlMapaException("El ubicable no pertence al mapa");
 	}
 	
+	public void agregarSuperficieEnCasillero(Superficie superficie, Posicion posicion) {
+		Casillero casillero = this.tablero.get(posicion);
+		casillero.agregarSuperficie(superficie);
+	}
+	
 	//Metodos privados.
 	
 	private void llenarTablero(HashMap<Posicion, Casillero> tablero) {	
@@ -92,7 +98,7 @@ public class Mapa {
 		}
 	}
 	
-	//Metodos para puebas
+	//Metodos para pruebas
 	
 	public int getTamanio() {
 		return TAMANIO;

@@ -1,11 +1,11 @@
 package fiuba.algo3.algoFormers.modelo.acciones;
 
-import fiuba.algo3.algoFormers.modelo.interfaces.Accion;
+import fiuba.algo3.algoFormers.modelo.interfaces.Accionable;
 import fiuba.algo3.algoFormers.modelo.mapa.Mapa;
 import fiuba.algo3.algoFormers.modelo.mapa.Posicion;
 import fiuba.algo3.algoFormers.modelo.personajes.AlgoFormer;
 
-public class Atacar implements Accion {
+public class Atacar implements Accionable {
 
 	private Mapa mapa;
 	private AlgoFormer atacante;

@@ -1,8 +1,11 @@
 package fiuba.algo3.algoFormers.modelo.mapa;
 
+import java.util.ArrayList;
+
 import fiuba.algo3.algoFormers.modelo.excepciones.CasilleroOcupadoException;
 import fiuba.algo3.algoFormers.modelo.interfaces.Atacable;
 import fiuba.algo3.algoFormers.modelo.interfaces.Capturable;
+import fiuba.algo3.algoFormers.modelo.mapa.superficies.Superficie;
 
 public class Casillero {
 
@@ -10,6 +13,7 @@ public class Casillero {
 	private Capturable capturable;
 	private boolean ocupado;
 	private boolean ocupadoCapturable;
+	private ArrayList<Superficie> superficies;
 	
 	public Casillero(){
 		atacable = null;
@@ -20,9 +24,16 @@ public class Casillero {
 	
 	public void ubicar(Atacable atacable){
 		this.verificarCasilleroEstaVacio();
+		this.afectarConSuperficie(atacable);
 		this.setAtacable(atacable);
 	}
 	
+	private void afectarConSuperficie(Atacable atacable) {
+		for ( Superficie superficie : this.superficies){
+			superficie.afectar(atacable);
+		}
+	}
+
 	public void ubicar(Capturable capturable){
 		this.verificarCasilleroCapturableEstaVacio();
 		this.setCapturable(capturable);
@@ -59,6 +70,10 @@ public class Casillero {
 		ocupado = false;
 	}
 	
+	public void agregarSuperficie(Superficie superficie) {
+		this.superficies.add(superficie);
+	}
+	
 	private void verificarCasilleroEstaVacio() {
 		if (this.estaOcupado()){
 			throw new CasilleroOcupadoException("Ya hay un atacable en este casillero");
@@ -71,5 +86,4 @@ public class Casillero {
 			throw new CasilleroOcupadoException("Ya hay un capturable en este casillero");
 		}
 	}
-
 }

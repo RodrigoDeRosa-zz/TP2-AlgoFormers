@@ -4,6 +4,7 @@ import fiuba.algo3.algoFormers.modelo.direcciones.Direccion;
 import fiuba.algo3.algoFormers.modelo.interfaces.Atacable;
 import fiuba.algo3.algoFormers.modelo.mapa.Mapa;
 import fiuba.algo3.algoFormers.modelo.mapa.Posicion;
+import fiuba.algo3.algoFormers.modelo.mapa.superficies.Superficie;
 import fiuba.algo3.algoFormers.modelo.personajes.atributos.Vida;
 import fiuba.algo3.algoFormers.modelo.personajes.estadosDeTransformacion.Alterno;
 import fiuba.algo3.algoFormers.modelo.personajes.estadosDeTransformacion.EstadoDeTransformacion;
@@ -80,10 +81,11 @@ public abstract class AlgoFormer implements Atacable {
 	
 	
 	public void finalizarTurno(){
-		/*Funcion para setear los manejadores de un algoformer en el momento
-		en el que el algoformer es seleccionado como el personaje de turno.
-		*/
 		this.manDeMovimientos.resetearMovimientos();
+	}
+	
+	public void afectarseConSuperficie(Superficie superficie){
+		this.estadoDeTransformacionActual.afectarseConSuperficie(superficie);
 	}
 	
 	@Override

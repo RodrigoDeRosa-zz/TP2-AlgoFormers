@@ -1,5 +1,6 @@
 package fiuba.algo3.algoFormers.modelo.personajes.estadosDeTransformacion;
 
+import fiuba.algo3.algoFormers.modelo.mapa.superficies.Superficie;
 import fiuba.algo3.algoFormers.modelo.personajes.atributos.Ataque;
 import fiuba.algo3.algoFormers.modelo.personajes.atributos.Velocidad;
 import fiuba.algo3.algoFormers.modelo.personajes.manejadores.ManejadorDeAtaques;
@@ -52,6 +53,11 @@ public class EstadoDeTransformacion {
 	
 	public int getDistanciaDeAtaque(){
 		return this.ataque.getDistanciaDeAtaque();
+	}
+
+	public void afectarseConSuperficie(Superficie superficie) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }
