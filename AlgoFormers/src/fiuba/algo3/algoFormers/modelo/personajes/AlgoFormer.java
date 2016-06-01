@@ -4,7 +4,8 @@ import fiuba.algo3.algoFormers.modelo.direcciones.Direccion;
 import fiuba.algo3.algoFormers.modelo.interfaces.Atacable;
 import fiuba.algo3.algoFormers.modelo.mapa.Mapa;
 import fiuba.algo3.algoFormers.modelo.mapa.Posicion;
-import fiuba.algo3.algoFormers.modelo.mapa.superficies.Superficie;
+import fiuba.algo3.algoFormers.modelo.mapa.superficies.SuperficieAerea;
+import fiuba.algo3.algoFormers.modelo.mapa.superficies.SuperficieTerrestre;
 import fiuba.algo3.algoFormers.modelo.personajes.atributos.Vida;
 import fiuba.algo3.algoFormers.modelo.personajes.estadosDeTransformacion.Alterno;
 import fiuba.algo3.algoFormers.modelo.personajes.estadosDeTransformacion.EstadoDeTransformacion;
@@ -84,8 +85,12 @@ public abstract class AlgoFormer implements Atacable {
 		this.manDeMovimientos.resetearMovimientos();
 	}
 	
-	public void afectarseConSuperficie(Superficie superficie){
-		this.estadoDeTransformacionActual.afectarseConSuperficie(superficie);
+	public void afectarseConSuperficie(SuperficieTerrestre superficie){
+		this.estadoDeTransformacionActual.afectarseConSuperficie(superficie, this);
+	}
+	
+	public void afectarseConSuperficie(SuperficieAerea superficie){
+		this.estadoDeTransformacionActual.afectarseConSuperficie(superficie, this);
 	}
 	
 	@Override

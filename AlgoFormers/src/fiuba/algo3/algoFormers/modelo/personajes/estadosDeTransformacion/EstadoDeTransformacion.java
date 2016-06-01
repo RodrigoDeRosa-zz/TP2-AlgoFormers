@@ -1,8 +1,11 @@
 package fiuba.algo3.algoFormers.modelo.personajes.estadosDeTransformacion;
 
-import fiuba.algo3.algoFormers.modelo.mapa.superficies.Superficie;
+import fiuba.algo3.algoFormers.modelo.mapa.superficies.SuperficieAerea;
+import fiuba.algo3.algoFormers.modelo.mapa.superficies.SuperficieTerrestre;
+import fiuba.algo3.algoFormers.modelo.personajes.AlgoFormer;
 import fiuba.algo3.algoFormers.modelo.personajes.atributos.Ataque;
 import fiuba.algo3.algoFormers.modelo.personajes.atributos.Velocidad;
+import fiuba.algo3.algoFormers.modelo.personajes.estadosDeTransformacion.tipos.TipoDeUnidad;
 import fiuba.algo3.algoFormers.modelo.personajes.manejadores.ManejadorDeAtaques;
 import fiuba.algo3.algoFormers.modelo.personajes.manejadores.ManejadorDeMovimientos;
 
@@ -10,6 +13,7 @@ public class EstadoDeTransformacion {
 
 	protected Velocidad velocidad;
 	protected Ataque ataque;
+	protected TipoDeUnidad tipo;
 	
 	public EstadoDeTransformacion(int velocidad, int ataque, int distAtaque){
 		this.setVelocidad(velocidad);
@@ -55,9 +59,12 @@ public class EstadoDeTransformacion {
 		return this.ataque.getDistanciaDeAtaque();
 	}
 
-	public void afectarseConSuperficie(Superficie superficie) {
-		// TODO Auto-generated method stub
-		
+	public void afectarseConSuperficie(SuperficieTerrestre superficie, AlgoFormer algoformer) {
+		this.tipo.afectarseConSuperficie(superficie, algoformer);
+	}
+	
+	public void afectarseConSuperficie(SuperficieAerea superficie, AlgoFormer algoformer) {
+		this.tipo.afectarseConSuperficie(superficie, algoformer);
 	}
 
 }

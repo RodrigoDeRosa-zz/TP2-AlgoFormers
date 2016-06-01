@@ -9,8 +9,8 @@ import fiuba.algo3.algoFormers.modelo.excepciones.SuperficieInaccesibleException
 import fiuba.algo3.algoFormers.modelo.fabricas.AlgoFormerFactory;
 import fiuba.algo3.algoFormers.modelo.mapa.Mapa;
 import fiuba.algo3.algoFormers.modelo.mapa.Posicion;
-import fiuba.algo3.algoFormers.modelo.mapa.superficies.SuperficiePantano;
-import fiuba.algo3.algoFormers.modelo.mapa.superficies.SuperficieRocosa;
+import fiuba.algo3.algoFormers.modelo.mapa.superficies.terrestres.Pantano;
+import fiuba.algo3.algoFormers.modelo.mapa.superficies.terrestres.Rocas;
 import fiuba.algo3.algoFormers.modelo.personajes.AlgoFormer;
 
 public class EntregaDosTest {
@@ -19,7 +19,7 @@ public class EntregaDosTest {
 	public void testHumanoideAtraviesaZonaRocosaSinProblema(){
 		Mapa mapa = new Mapa();
 		Posicion posicionSuperficie = new Posicion(1, 2);
-		mapa.agregarSuperficieEnCasillero(SuperficieRocosa.getInstance(), posicionSuperficie);
+		mapa.agregarSuperficieEnCasillero(Rocas.getInstance(), posicionSuperficie);
 		
 		AlgoFormerFactory factory = new AlgoFormerFactory();
 		AlgoFormer optimus = factory.getOptimusPrime();
@@ -36,7 +36,7 @@ public class EntregaDosTest {
 	public void testHumanoideNoPuedeAtravesarZonaPantano(){
 		Mapa mapa = new Mapa();
 		Posicion posicionSuperficie = new Posicion(1, 2);
-		mapa.agregarSuperficieEnCasillero(SuperficiePantano.getInstance(), posicionSuperficie);
+		mapa.agregarSuperficieEnCasillero(Pantano.getInstance(), posicionSuperficie);
 		
 		AlgoFormerFactory factory = new AlgoFormerFactory();
 		AlgoFormer optimus = factory.getOptimusPrime();

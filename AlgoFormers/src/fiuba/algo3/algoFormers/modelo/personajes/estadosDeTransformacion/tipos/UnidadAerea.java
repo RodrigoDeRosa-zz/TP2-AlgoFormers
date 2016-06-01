@@ -4,16 +4,15 @@ import fiuba.algo3.algoFormers.modelo.mapa.superficies.SuperficieAerea;
 import fiuba.algo3.algoFormers.modelo.mapa.superficies.SuperficieTerrestre;
 import fiuba.algo3.algoFormers.modelo.personajes.AlgoFormer;
 
-public class UnidadTerrestre extends TipoDeUnidad {
+public class UnidadAerea extends TipoDeUnidad {
 
 	@Override
 	public void afectarseConSuperficie(SuperficieTerrestre superficie, AlgoFormer personaje) {
-		superficie.aplicarEfectoA(personaje);
 	}
-	
+
 	@Override
 	public void afectarseConSuperficie(SuperficieAerea superficie, AlgoFormer personaje) {
-		
+		superficie.aplicarEfectoA(personaje);
 	}
-	
+
 }

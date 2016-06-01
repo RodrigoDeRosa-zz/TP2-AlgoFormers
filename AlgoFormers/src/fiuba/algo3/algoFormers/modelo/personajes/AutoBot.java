@@ -1,6 +1,7 @@
 package fiuba.algo3.algoFormers.modelo.personajes;
 
 import fiuba.algo3.algoFormers.modelo.excepciones.FuegoAmigoException;
+import fiuba.algo3.algoFormers.modelo.mapa.superficies.Superficie;
 import fiuba.algo3.algoFormers.modelo.personajes.estadosDeTransformacion.Alterno;
 
 public class AutoBot extends AlgoFormer {
@@ -20,5 +21,4 @@ public class AutoBot extends AlgoFormer {
 	public void atacarEnemigo(AlgoFormer algoformerEnemigo, int poderAtaque){
 		algoformerEnemigo.recibirDanio(this,poderAtaque);
 	}
-	
 }
