@@ -6,7 +6,7 @@ import fiuba.algo3.algoFormers.modelo.mapa.superficies.SuperficieTerrestre;
 public class Pantano extends SuperficieTerrestre {
 
 	private static Pantano instancia;
-	private static int DISMINUCION_VELOCIDAD = 2;
+	private static int DISMINUCION_VELOCIDAD = -2;
 	
 	private Pantano(){
 		this.setEfecto();

@@ -28,9 +28,21 @@ public abstract class Atributo {
 		this.bonus.add(atributo);
 	}
 	
+	private void quitarBonus(Atributo atributo){
+		this.bonus.remove(this.bonus.indexOf(atributo));
+	}
+	
+	private int calcularValor(){
+		int valor_final = this.valor;
+		for (Atributo efecto : this.bonus){
+			valor_final += efecto.getValor();
+		}
+		return valor_final;
+	}
+	
 	//Metodos para las pruebas. No se deberian usar
 	public int getValor(){
-		return this.valor;
+		return this.calcularValor();
 	}
 
 }
