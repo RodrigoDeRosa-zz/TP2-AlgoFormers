@@ -6,6 +6,8 @@ import fiuba.algo3.algoFormers.modelo.mapa.Mapa;
 import fiuba.algo3.algoFormers.modelo.mapa.Posicion;
 import fiuba.algo3.algoFormers.modelo.mapa.superficies.SuperficieAerea;
 import fiuba.algo3.algoFormers.modelo.mapa.superficies.SuperficieTerrestre;
+import fiuba.algo3.algoFormers.modelo.personajes.atributos.Ataque;
+import fiuba.algo3.algoFormers.modelo.personajes.atributos.Velocidad;
 import fiuba.algo3.algoFormers.modelo.personajes.atributos.Vida;
 import fiuba.algo3.algoFormers.modelo.personajes.estadosDeTransformacion.Alterno;
 import fiuba.algo3.algoFormers.modelo.personajes.estadosDeTransformacion.EstadoDeTransformacion;
@@ -80,7 +82,6 @@ public abstract class AlgoFormer implements Atacable {
 		this.manDeAtaques.atacar(this,posicion,mapa);
 	}
 	
-	
 	public void finalizarTurno(){
 		this.manDeMovimientos.resetearMovimientos();
 	}
@@ -91,6 +92,18 @@ public abstract class AlgoFormer implements Atacable {
 	
 	public void afectarseConSuperficie(SuperficieAerea superficie){
 		this.estadoDeTransformacionActual.afectarseConSuperficie(superficie, this);
+	}
+	
+	public void aplicarEfecto(Vida bonusVida) {
+		this.vida.agregarBonus(bonusVida);
+	}
+	
+	public void aplicarEfecto(Velocidad bonusVelocidad) {
+		this.estadoDeTransformacionActual.aplicarEfecto(bonusVelocidad);
+	}
+	
+	public void aplicarEfecto(Ataque bonusAtaque) {
+		this.estadoDeTransformacionActual.aplicarEfecto(bonusAtaque);
 	}
 	
 	@Override
@@ -116,9 +129,10 @@ public abstract class AlgoFormer implements Atacable {
 			return false;
 		return true;
 	}
+
 	//Metodos para las pruebas. No se deberian llamar en otras clases.
 	public int getVida(){
-		return this.vida.getVida();
+		return this.vida.getValor();
 	}
 
 	public EstadoDeTransformacion getEstado() {

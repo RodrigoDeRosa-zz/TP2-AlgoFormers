@@ -46,17 +46,25 @@ public class EstadoDeTransformacion {
 		return this.ataque.crearManejadorAtaque();
 	}
 	
+	public void aplicarEfecto(Velocidad bonusVelocidad) {
+		this.velocidad.agregarBonus(bonusVelocidad);		
+	}
+	
+	public void aplicarEfecto(Ataque bonusAtaque){
+		this.ataque.agregarBonus(bonusAtaque);
+	}
+	
 	//Metodos para las pruebas. No se deberian usar.
 	public int getVelocidad(){
-		return this.velocidad.getVelocidad();
+		return this.velocidad.getValor();
 	}
 	
 	public int getAtaque(){
-		return this.ataque.getAtaque();
+		return this.ataque.getValor();
 	}
 	
 	public int getDistanciaDeAtaque(){
-		return this.ataque.getDistanciaDeAtaque();
+		return this.ataque.getValor();
 	}
 
 	public void afectarseConSuperficie(SuperficieTerrestre superficie, AlgoFormer algoformer) {

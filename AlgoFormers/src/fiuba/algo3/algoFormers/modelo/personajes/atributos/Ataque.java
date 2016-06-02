@@ -1,19 +1,14 @@
 package fiuba.algo3.algoFormers.modelo.personajes.atributos;
 
+import fiuba.algo3.algoFormers.modelo.personajes.AlgoFormer;
 import fiuba.algo3.algoFormers.modelo.personajes.manejadores.ManejadorDeAtaques;
 
-public class Ataque {
-
-	private int ataque;
+public class Ataque extends Atributo{
 	private DistanciaDeAtaque distAtaque;
 	
 	public Ataque(int ataque, int distAtaque){
-		this.setAtaque(ataque);
+		super(ataque);
 		this.setDistanciaDeAtaque(distAtaque);
-	}
-	
-	private void setAtaque(int ataque){
-		this.ataque = ataque;
 	}
 	
 	private void setDistanciaDeAtaque(int distAtaque){
@@ -22,16 +17,17 @@ public class Ataque {
 	
 	public ManejadorDeAtaques crearManejadorAtaque() {
 		/*Funcion utilizada para la creacion del manejador de ataque*/
-		return this.distAtaque.crearManejadorAtaques(this.ataque);
-		
-	}
-	//Este metodo es para las pruebas. No se deberia usar
-	public int getAtaque(){
-		return this.ataque;
+		return this.distAtaque.crearManejadorAtaques(this.valor);
 	}
 	
+	public void aplicarseEn(AlgoFormer algoformer) {
+		algoformer.aplicarEfecto(this);	
+	}
+	
+	//Este metodo es para las pruebas. No se deberia usar
+	
 	public int getDistanciaDeAtaque(){
-		return this.distAtaque.getDistanciaDeAtaque();
+		return this.distAtaque.getValor();
 	}
 
 }
