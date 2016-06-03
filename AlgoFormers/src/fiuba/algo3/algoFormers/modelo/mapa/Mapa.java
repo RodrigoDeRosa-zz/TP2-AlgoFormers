@@ -5,6 +5,7 @@ import java.util.Random;
 
 import fiuba.algo3.algoFormers.modelo.capturables.Chispa;
 import fiuba.algo3.algoFormers.modelo.direcciones.Direccion;
+import fiuba.algo3.algoFormers.modelo.excepciones.AtaqueFueraDeRangoException;
 import fiuba.algo3.algoFormers.modelo.excepciones.UbicableNoPertenceAlMapaException;
 import fiuba.algo3.algoFormers.modelo.interfaces.Atacable;
 import fiuba.algo3.algoFormers.modelo.interfaces.Capturable;
@@ -82,6 +83,16 @@ public class Mapa {
 		throw new UbicableNoPertenceAlMapaException("El ubicable no pertence al mapa");
 	}
 	
+	public double obtenerDistanciaF(Posicion posicionUbicable, Posicion posicionAtacable, int distanciaAtaque) {
+		double distanciaFila = posicionUbicable.obtenerDistanciaFila(posicionAtacable);
+		return distanciaFila;
+		
+	}
+	
+	public double obtenerDistanciaC(Posicion posicionUbicable, Posicion posicionAtacable, int distanciaAtaque) {
+		double distanciaColumna = posicionUbicable.obtenerDistanciaColumna(posicionAtacable);
+		return distanciaColumna;
+	}
 	//Metodos privados.
 	
 	private void llenarTablero(HashMap<Posicion, Casillero> tablero) {	

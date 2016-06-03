@@ -33,7 +33,13 @@ public class ManejadorDeAtaques {
 		 * la posicion a la que se ataca y el mapa.
 		 */
 		Posicion posicionAlgoformerAtacante = mapa.obtenerPosicion(algoformer);
-		this.verificarDistancia(posicionAlgoformerAtacante, posicionAtacable, this.distanciaAtaque);
+		double distFila=mapa.obtenerDistanciaF(posicionAlgoformerAtacante, posicionAtacable, this.distanciaAtaque);
+		double distColumna=mapa.obtenerDistanciaC(posicionAlgoformerAtacante, posicionAtacable, this.distanciaAtaque);
+				
+		if ((distFila > (double) distanciaAtaque) || (distColumna > (double) distanciaAtaque)){
+			throw new AtaqueFueraDeRangoException("La distacia entre ellos es mayor que posible (" + distanciaAtaque + ")");
+		}
+		
 		AlgoFormer algoformerAtacado = (AlgoFormer) mapa.getAtacable(posicionAtacable);
 		this.verificarObjetivoValido(algoformerAtacado);
 		algoformer.atacarEnemigo(algoformerAtacado, poderAtaque);
@@ -43,12 +49,4 @@ public class ManejadorDeAtaques {
 		if (objetivo == null) throw new AtaqueEspacioVacioException();
 	}
 	
-	private void verificarDistancia(Posicion posicionUbicable, Posicion posicionAtacable, int distanciaAtaque) {
-		double distanciaFila = posicionUbicable.obtenerDistanciaFila(posicionAtacable);
-		double distanciaColumna = posicionUbicable.obtenerDistanciaColumna(posicionAtacable);
-		if ((distanciaFila > (double) distanciaAtaque) || (distanciaColumna > (double) distanciaAtaque)){
-			throw new AtaqueFueraDeRangoException("La distacia entre ellos es mayor que posible (" + distanciaAtaque + ")");
-		}
-		
-	}
 }
