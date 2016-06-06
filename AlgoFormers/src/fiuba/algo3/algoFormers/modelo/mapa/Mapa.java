@@ -7,9 +7,11 @@ import fiuba.algo3.algoFormers.modelo.capturables.Chispa;
 import fiuba.algo3.algoFormers.modelo.direcciones.Direccion;
 import fiuba.algo3.algoFormers.modelo.excepciones.AtaqueFueraDeRangoException;
 import fiuba.algo3.algoFormers.modelo.excepciones.UbicableNoPertenceAlMapaException;
+import fiuba.algo3.algoFormers.modelo.fabricas.SuperficieRocosa;
 import fiuba.algo3.algoFormers.modelo.interfaces.Atacable;
 import fiuba.algo3.algoFormers.modelo.interfaces.Capturable;
 import fiuba.algo3.algoFormers.modelo.interfaces.Ubicable;
+import fiuba.algo3.algoFormers.modelo.mapa.superficies.Superficie;
 
 public class Mapa {
 	
@@ -32,6 +34,11 @@ public class Mapa {
 	public void ubicarCapturable(Capturable capturable, Posicion posicion) {		
 		Casillero casillero = tablero.get(posicion);
 		casillero.ubicar(capturable);
+	}
+	
+	public void ubicarSuperficie(Superficie superficie, Posicion posicion) {
+		Casillero casillero = tablero.get(posicion);
+		casillero.ubicar(superficie);
 	}
 	
 	public void ubicarChispa(Chispa chispa){

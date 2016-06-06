@@ -8,10 +8,6 @@ public class Velocidad extends Atributo{
 		super(velocidad);
 	}
 	
-	private void setVelocidad(int velocidad){
-		this.velocidad = velocidad;
-	}
-	
 	//Metodo para las pruebas. No se deberian usar
 	public int getVelocidad(){
 		return this.valorActual;

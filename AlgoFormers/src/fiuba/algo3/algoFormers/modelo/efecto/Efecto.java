@@ -13,4 +13,11 @@ public abstract class Efecto {
 		this.base = base;
 	}
 	
+	public int obtenerValorFijo() {
+		return base;
+	}
+	
+	public int obtenerValorMult() {
+		return multiplicador;
+	}
 }
