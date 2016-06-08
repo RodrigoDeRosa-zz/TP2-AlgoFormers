@@ -8,8 +8,13 @@ public abstract class Superficie {
 	
 	protected Efecto efecto;
 	
-	public Superficie(){
-	}	
+	public Superficie(Efecto efecto){
+		this.setEfecto(efecto);
+	}
+	
+	private void setEfecto(Efecto efecto){
+		this.efecto = efecto;
+	}
 
 	public abstract void afectar(Atacable atacable);
 
