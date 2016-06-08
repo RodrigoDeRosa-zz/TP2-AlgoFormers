@@ -2,6 +2,7 @@ package fiuba.algo3.algoFormers.modelo.personajes.estadosDeTransformacion;
 
 import fiuba.algo3.algoFormers.modelo.efecto.EfectoAtaque;
 import fiuba.algo3.algoFormers.modelo.efecto.EfectoEstatico;
+import fiuba.algo3.algoFormers.modelo.efecto.EfectoPantano;
 import fiuba.algo3.algoFormers.modelo.efecto.EfectoTemporal;
 import fiuba.algo3.algoFormers.modelo.efecto.EfectoVelocidad;
 import fiuba.algo3.algoFormers.modelo.mapa.superficies.SuperficieAerea;
@@ -13,7 +14,7 @@ import fiuba.algo3.algoFormers.modelo.personajes.estadosDeTransformacion.tipos.T
 import fiuba.algo3.algoFormers.modelo.personajes.manejadores.ManejadorDeAtaques;
 import fiuba.algo3.algoFormers.modelo.personajes.manejadores.ManejadorDeMovimientos;
 
-public class EstadoDeTransformacion {
+public abstract class EstadoDeTransformacion {
 
 	protected Velocidad velocidad;
 	protected Ataque ataque;
@@ -86,5 +87,7 @@ public class EstadoDeTransformacion {
 	public void guardarEfectoEstatico(EfectoEstatico efecto, EfectoAtaque tipo) {
 		this.velocidad.agregarEfectoFijo(efecto);
 	}
+
+	public abstract void guardarEfectoPantano(EfectoPantano efecto);	
 	
 }

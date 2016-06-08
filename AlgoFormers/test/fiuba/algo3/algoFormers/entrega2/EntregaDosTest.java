@@ -7,7 +7,7 @@ import org.junit.Test;
 import fiuba.algo3.algoFormers.modelo.direcciones.DirArriba;
 import fiuba.algo3.algoFormers.modelo.direcciones.DirDerecha;
 import fiuba.algo3.algoFormers.modelo.fabricas.AlgoFormerFactory;
-import fiuba.algo3.algoFormers.modelo.fabricas.SuperficieRocosa;
+import fiuba.algo3.algoFormers.modelo.fabricas.SuperficiesFactory;
 import fiuba.algo3.algoFormers.modelo.juego.Juego;
 import fiuba.algo3.algoFormers.modelo.mapa.Mapa;
 import fiuba.algo3.algoFormers.modelo.mapa.Posicion;

@@ -3,6 +3,7 @@ package fiuba.algo3.algoFormers.modelo.personajes;
 import fiuba.algo3.algoFormers.modelo.direcciones.Direccion;
 import fiuba.algo3.algoFormers.modelo.efecto.EfectoAtaque;
 import fiuba.algo3.algoFormers.modelo.efecto.EfectoEstatico;
+import fiuba.algo3.algoFormers.modelo.efecto.EfectoPantano;
 import fiuba.algo3.algoFormers.modelo.efecto.EfectoTemporal;
 import fiuba.algo3.algoFormers.modelo.efecto.EfectoVelocidad;
 import fiuba.algo3.algoFormers.modelo.efecto.EfectoVida;
@@ -123,6 +124,10 @@ public abstract class AlgoFormer implements Atacable {
 		} else if (!nombre.equals(other.nombre))
 			return false;
 		return true;
+	}
+	
+	public void guardarEfecto(EfectoPantano efecto){
+		this.estadoDeTransformacionActual.guardarEfectoPantano(efecto);		
 	}
 	
 	public void guardarEfecto(EfectoTemporal efecto, EfectoVida tipo) {
