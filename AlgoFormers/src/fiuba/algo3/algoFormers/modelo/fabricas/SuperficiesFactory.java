@@ -2,6 +2,7 @@ package fiuba.algo3.algoFormers.modelo.fabricas;
 
 import fiuba.algo3.algoFormers.modelo.efecto.EfectoAtaque;
 import fiuba.algo3.algoFormers.modelo.efecto.EfectoEstatico;
+import fiuba.algo3.algoFormers.modelo.efecto.EfectoPantano;
 import fiuba.algo3.algoFormers.modelo.efecto.EfectoTemporal;
 import fiuba.algo3.algoFormers.modelo.efecto.EfectoVelocidad;
 import fiuba.algo3.algoFormers.modelo.efecto.EfectoVida;
@@ -12,9 +13,7 @@ public class SuperficiesFactory {
 	
 		
 	public SuperficieTerrestre getPantano(){
-		EfectoVelocidad efectoV = new EfectoVelocidad();
-		EfectoTemporal efectoPantano = new EfectoTemporal(DatosS.EFECTOPANTANO.getMultiplicador(),
-				DatosS.EFECTOPANTANO.getBase(), efectoV, DatosS.EFECTOPANTANO.getTurnos());
+		EfectoTemporal efectoPantano = new EfectoPantano();
 		SuperficieTerrestre sup = new SuperficieTerrestre(efectoPantano);
 		return sup;
 	}
