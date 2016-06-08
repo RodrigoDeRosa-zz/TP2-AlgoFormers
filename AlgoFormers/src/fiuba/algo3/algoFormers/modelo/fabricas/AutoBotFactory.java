@@ -5,55 +5,25 @@ import fiuba.algo3.algoFormers.modelo.personajes.estadosDeTransformacion.Alterno
 import fiuba.algo3.algoFormers.modelo.personajes.estadosDeTransformacion.AlternoAereo;
 import fiuba.algo3.algoFormers.modelo.personajes.estadosDeTransformacion.AlternoTerrestre;
 
-public class AutoBotFactory {
-
-	//Nombres
-	private String NOMBRE_OPTIMUS = "Optimus Prime";
-	private String NOMBRE_BUMBLEBEE = "Bumblebee";
-	private String NOMBRE_RATCHET = "Ratchet";
-	//Constantes de Vida
-	private int VIDA_OPTIMUS = 500;
-	private int VIDA_BUMBLEBEE = 350;
-	private int VIDA_RATCHET = 150;
-	//Constantes de Velocidad
-	private int VELOCIDAD_HUM_OPTIMUS = 2;
-	private int VELOCIDAD_ALT_OPTIMUS = 5;
-	private int VELOCIDAD_HUM_BUMBLEBEE = 2;
-	private int VELOCIDAD_ALT_BUMBLEBEE = 5;
-	private int VELOCIDAD_HUM_RATCHET = 1;
-	private int VELOCIDAD_ALT_RATCHET = 8;
-	//Constantes de ataque
-	private int ATAQUE_HUM_OPTIMUS = 50;
-	private int ATAQUE_ALT_OPTIMUS = 15;
-	private int ATAQUE_HUM_BUMBLEBEE = 40;
-	private int ATAQUE_ALT_BUMBLEBEE = 20;
-	private int ATAQUE_HUM_RATCHET = 5;
-	private int ATAQUE_ALT_RATCHET = 35;
-	//Constantes de DistanciaDeAtaque
-	private int DIST_ATAQUE_HUM_OPTIMUS = 2;
-	private int DIST_ATAQUE_ALT_OPTIMUS = 4;
-	private int DIST_ATAQUE_HUM_BUMBLEBEE = 1;
-	private int DIST_ATAQUE_ALT_BUMBLEBEE = 3;
-	private int DIST_ATAQUE_HUM_RATCHET = 5;
-	private int DIST_ATAQUE_ALT_RATCHET = 2;	
+public class AutoBotFactory {	
 	
 	public AutoBotFactory(){
 		
 	}
 	
 	public AutoBot getOptimusPrime(){
-		Alterno peterbilt379 = new AlternoTerrestre(VELOCIDAD_ALT_OPTIMUS, ATAQUE_ALT_OPTIMUS, DIST_ATAQUE_ALT_OPTIMUS);
-		return this.crearAutoBot(NOMBRE_OPTIMUS ,VIDA_OPTIMUS, peterbilt379, VELOCIDAD_HUM_OPTIMUS, ATAQUE_HUM_OPTIMUS, DIST_ATAQUE_HUM_OPTIMUS);
+		Alterno peterbilt379 = new AlternoTerrestre(EAF.OPTIMUS.velA(), EAF.OPTIMUS.atA(), EAF.OPTIMUS.dAtA());
+		return this.crearAutoBot(EAF.OPTIMUS.nombre() , EAF.OPTIMUS.vida(), peterbilt379, EAF.OPTIMUS.velH(), EAF.OPTIMUS.atH(), EAF.OPTIMUS.dAtH());
 	}
 	
 	public AutoBot getBumblebee(){
-		Alterno camaro = new AlternoTerrestre(VELOCIDAD_ALT_BUMBLEBEE, ATAQUE_ALT_BUMBLEBEE, DIST_ATAQUE_ALT_BUMBLEBEE);
-		return this.crearAutoBot(NOMBRE_BUMBLEBEE ,VIDA_BUMBLEBEE, camaro, VELOCIDAD_HUM_BUMBLEBEE, ATAQUE_HUM_BUMBLEBEE, DIST_ATAQUE_HUM_BUMBLEBEE);
+		Alterno camaro = new AlternoTerrestre(EAF.BUMBLEBEE.velA(), EAF.BUMBLEBEE.atA(), EAF.BUMBLEBEE.dAtA());
+		return this.crearAutoBot(EAF.BUMBLEBEE.nombre() , EAF.BUMBLEBEE.vida(), camaro, EAF.BUMBLEBEE.velH(), EAF.BUMBLEBEE.atH(), EAF.BUMBLEBEE.dAtH());
 	}
 	
 	public AutoBot getRatchet(){
-		Alterno f22raptor = new AlternoAereo(VELOCIDAD_ALT_RATCHET, ATAQUE_ALT_RATCHET, DIST_ATAQUE_ALT_RATCHET);
-		return this.crearAutoBot(NOMBRE_RATCHET, VIDA_RATCHET, f22raptor, VELOCIDAD_HUM_RATCHET, ATAQUE_HUM_RATCHET, DIST_ATAQUE_HUM_RATCHET);
+		Alterno f22raptor = new AlternoAereo(EAF.RATCHET.velA(), EAF.RATCHET.atA(), EAF.RATCHET.dAtA());
+		return this.crearAutoBot(EAF.RATCHET.nombre() , EAF.RATCHET.vida(), f22raptor, EAF.RATCHET.velH(), EAF.RATCHET.atH(), EAF.RATCHET.dAtH());
 	}
 	
 	/**
