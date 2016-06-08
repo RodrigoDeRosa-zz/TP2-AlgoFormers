@@ -241,9 +241,62 @@ public class EntregaDosTest {
 		optimus.moverEnDireccion(direccion, mapa);	
 		}
 	
-		//FALTAN LOS OTROS 5 ALGOFORMERS
+	@Test(expected = HumanoideNoPuedeAtravezarException.class)
+	public void testBumblebeeHumanoideNoAtraviezaZonaPantano(){
+		SuperficiePantano superficie = factoryS.getPantano();
+		Posicion posicion1 = new Posicion(1,1);
+		Posicion posicion2 = new Posicion(1,2);
+		mapa.ubicarAtacable(bumblebee, posicion1);
+		mapa.ubicarSuperficie(superficie, posicion2);
+		DirArriba direccion = new DirArriba();
+		bumblebee.moverEnDireccion(direccion, mapa);	
+		}
+
+	@Test(expected = HumanoideNoPuedeAtravezarException.class)
+	public void testRatchetHumanoideNoAtraviezaZonaPantano(){
+		SuperficiePantano superficie = factoryS.getPantano();
+		Posicion posicion1 = new Posicion(1,1);
+		Posicion posicion2 = new Posicion(1,2);
+		mapa.ubicarAtacable(ratchet, posicion1);
+		mapa.ubicarSuperficie(superficie, posicion2);
+		DirArriba direccion = new DirArriba();
+		ratchet.moverEnDireccion(direccion, mapa);	
+		}
 	
-	@Test(expected = MovimientosAgotadosException.class)
+	@Test(expected = HumanoideNoPuedeAtravezarException.class)
+	public void testMegatronHumanoideNoAtraviezaZonaPantano(){
+		SuperficiePantano superficie = factoryS.getPantano();
+		Posicion posicion1 = new Posicion(1,1);
+		Posicion posicion2 = new Posicion(1,2);
+		mapa.ubicarAtacable(megatron, posicion1);
+		mapa.ubicarSuperficie(superficie, posicion2);
+		DirArriba direccion = new DirArriba();
+		megatron.moverEnDireccion(direccion, mapa);	
+		}
+	
+	@Test(expected = HumanoideNoPuedeAtravezarException.class)
+	public void testFrenzyHumanoideNoAtraviezaZonaPantano(){
+		SuperficiePantano superficie = factoryS.getPantano();
+		Posicion posicion1 = new Posicion(1,1);
+		Posicion posicion2 = new Posicion(1,2);
+		mapa.ubicarAtacable(frenzy, posicion1);
+		mapa.ubicarSuperficie(superficie, posicion2);
+		DirArriba direccion = new DirArriba();
+		frenzy.moverEnDireccion(direccion, mapa);	
+		}
+	
+	@Test(expected = HumanoideNoPuedeAtravezarException.class)
+	public void testBonecrusherHumanoideNoAtraviezaZonaPantano(){
+		SuperficiePantano superficie = factoryS.getPantano();
+		Posicion posicion1 = new Posicion(1,1);
+		Posicion posicion2 = new Posicion(1,2);
+		mapa.ubicarAtacable(bonecrusher, posicion1);
+		mapa.ubicarSuperficie(superficie, posicion2);
+		DirArriba direccion = new DirArriba();
+		bonecrusher.moverEnDireccion(direccion, mapa);	
+		}
+	
+	@Test
 	public void testOptimusAlternoAtraviezaZonaPantanoConLaMitadDeVelocidad(){
 		SuperficiePantano superficie = factoryS.getPantano();
 		Posicion posicion1 = new Posicion(1,1);
@@ -260,5 +313,287 @@ public class EntregaDosTest {
 			optimus.moverEnDireccion(direccion, mapa);	
 		}
 	}
-
+	
+	@Test
+	public void testRatchetAlternoAtraviezaZonaPantano(){
+		SuperficiePantano superficie = factoryS.getPantano();
+		Posicion posicion1 = new Posicion(1,1);
+		Posicion posicion2 = new Posicion(1,2);
+		mapa.ubicarAtacable(ratchet, posicion1);
+		mapa.ubicarSuperficie(superficie, posicion2);
+		DirArriba direccion = new DirArriba();
+		ratchet.transformarse();
+		ratchet.moverEnDireccion(direccion, mapa);	
+		assertTrue(ratchet.getVida() == 150);
+		assertTrue(ratchet.getAtaque() == 35);
+		assertTrue(ratchet.getDistanciaDeAtaque() == 2);
+		assertTrue(ratchet.getVelocidad() == 8);
+	}
+	
+	@Test
+	public void testMegatronAlternoAtraviezaZonaPantano(){
+		SuperficiePantano superficie = factoryS.getPantano();
+		Posicion posicion1 = new Posicion(1,1);
+		Posicion posicion2 = new Posicion(1,2);
+		mapa.ubicarAtacable(megatron, posicion1);
+		mapa.ubicarSuperficie(superficie, posicion2);
+		DirArriba direccion = new DirArriba();
+		megatron.transformarse();
+		megatron.moverEnDireccion(direccion, mapa);	
+		assertTrue(megatron.getVida() == 550);
+		assertTrue(megatron.getAtaque() == 55);
+		assertTrue(megatron.getDistanciaDeAtaque() == 2);
+		assertTrue(megatron.getVelocidad() == 8);		
+	}
+	
+	@Test
+	public void testOptimusHumanoideAtraviezaZonaEspinasYSeDania(){
+		SuperficieEspinas superficie = factoryS.getEspinas();
+		Posicion posicion1 = new Posicion(1,1);
+		Posicion posicion2 = new Posicion(1,2);
+		Posicion posicion3 = new Posicion(1,3);
+		mapa.ubicarAtacable(optimus, posicion1);
+		mapa.ubicarSuperficie(superficie, posicion2);
+		mapa.ubicarSuperficie(superficie, posicion3);
+		DirArriba direccion = new DirArriba();
+		optimus.moverEnDireccion(direccion, mapa);	
+		assertTrue(optimus.getVida() == 475);
+		optimus.moverEnDireccion(direccion, mapa);	
+		assertTrue(optimus.getVida() == 451);
+	}
+	
+	@Test
+	public void testRatchetHumanoideAtraviezaZonaEspinasYSeDania(){
+		SuperficieEspinas superficie = factoryS.getEspinas();
+		Posicion posicion1 = new Posicion(1,1);
+		Posicion posicion2 = new Posicion(1,2);
+		mapa.ubicarAtacable(ratchet, posicion1);
+		mapa.ubicarSuperficie(superficie, posicion2);
+		DirArriba direccion = new DirArriba();
+		ratchet.moverEnDireccion(direccion, mapa);	
+		assertTrue(ratchet.getVida() == 143);		
+	}
+	
+	@Test
+	public void testBumblebeeHumanoideAtraviezaZonaEspinasYSeDania(){
+		SuperficieEspinas superficie = factoryS.getEspinas();
+		Posicion posicion1 = new Posicion(1,1);
+		Posicion posicion2 = new Posicion(1,2);
+		Posicion posicion3 = new Posicion(1,3);
+		mapa.ubicarAtacable(bumblebee, posicion1);
+		mapa.ubicarSuperficie(superficie, posicion2);
+		mapa.ubicarSuperficie(superficie, posicion3);
+		DirArriba direccion = new DirArriba();
+		bumblebee.moverEnDireccion(direccion, mapa);	
+		assertTrue(bumblebee.getVida() == 333);
+		bumblebee.moverEnDireccion(direccion, mapa);	
+		assertTrue(bumblebee.getVida() == 316);
+	
+	}
+	
+	@Test
+	public void testMegatronHumanoideAtraviezaZonaEspinasYSeDania(){
+		SuperficieEspinas superficie = factoryS.getEspinas();
+		Posicion posicion1 = new Posicion(1,1);
+		Posicion posicion2 = new Posicion(1,2);
+		mapa.ubicarAtacable(megatron, posicion1);
+		mapa.ubicarSuperficie(superficie, posicion2);
+		DirArriba direccion = new DirArriba();
+		megatron.moverEnDireccion(direccion, mapa);	
+		assertTrue(megatron.getVida() == 523);
+	}
+	
+	@Test
+	public void testFrenzyHumanoideAtraviezaZonaEspinasYSeDania(){
+		SuperficieEspinas superficie = factoryS.getEspinas();
+		Posicion posicion1 = new Posicion(1,1);
+		Posicion posicion2 = new Posicion(1,2);
+		Posicion posicion2 = new Posicion(1,3);
+		mapa.ubicarAtacable(frenzy, posicion1);
+		mapa.ubicarSuperficie(superficie, posicion2);
+		mapa.ubicarSuperficie(superficie, posicion3);
+		DirArriba direccion = new DirArriba();
+		frenzy.moverEnDireccion(direccion, mapa);	
+		assertTrue(frenzy.getVida() == 380);
+		frenzy.moverEnDireccion(direccion, mapa);	
+		assertTrue(frenzy.getVida() == 361);
+	}
+	
+	@Test
+	public void testBonecrusherHumanoideAtraviezaZonaEspinasYSeDania(){
+		SuperficieEspinas superficie = factoryS.getEspinas();
+		Posicion posicion1 = new Posicion(1,1);
+		Posicion posicion2 = new Posicion(1,2);
+		mapa.ubicarAtacable(bonecrusher, posicion1);
+		mapa.ubicarSuperficie(superficie, posicion2);
+		DirArriba direccion = new DirArriba();
+		bonecrusher.moverEnDireccion(direccion, mapa);	
+		assertTrue(bonecrusher.getVida() == 190);		
+	}
+	
+	@Test
+	public void testRatchetAlternoAtraviezaZonaEspinas(){
+		SuperficieEspinas superficie = factoryS.getEspinas();
+		Posicion posicion1 = new Posicion(1,1);
+		Posicion posicion2 = new Posicion(1,2);
+		mapa.ubicarAtacable(ratchet, posicion1);
+		mapa.ubicarSuperficie(superficie, posicion2);
+		DirArriba direccion = new DirArriba();
+		ratchet.transformarse();
+		ratchet.moverEnDireccion(direccion, mapa);	
+		assertTrue(ratchet.getVida() == 150);
+		assertTrue(ratchet.getAtaque() == 35);
+		assertTrue(ratchet.getDistanciaDeAtaque() == 2);
+		assertTrue(ratchet.getVelocidad() == 8);
+	}
+	
+	@Test
+	public void testMegatronAlternoAtraviezaZonaEspinas(){
+		SuperficieEspinas superficie = factoryS.getEspinas();
+		Posicion posicion1 = new Posicion(1,1);
+		Posicion posicion2 = new Posicion(1,2);
+		mapa.ubicarAtacable(megatron, posicion1);
+		mapa.ubicarSuperficie(superficie, posicion2);
+		DirArriba direccion = new DirArriba();
+		megatron.transformarse();
+		megatron.moverEnDireccion(direccion, mapa);	
+		assertTrue(megatron.getVida() == 550);
+		assertTrue(megatron.getAtaque() == 55);
+		assertTrue(megatron.getDistanciaDeAtaque() == 2);
+		assertTrue(megatron.getVelocidad() == 8);		
+	}
+	
+	@Test
+	public void testRatchetAlternoAtraviezaZonaNube(){
+		SuperficieNube superficie = factoryS.getNube();
+		Posicion posicion1 = new Posicion(1,1);
+		Posicion posicion2 = new Posicion(1,2);
+		mapa.ubicarAtacable(ratchet, posicion1);
+		mapa.ubicarSuperficie(superficie, posicion2);
+		DirArriba direccion = new DirArriba();
+		ratchet.transformarse();
+		ratchet.moverEnDireccion(direccion, mapa);	
+		assertTrue(ratchet.getVida() == 150);
+		assertTrue(ratchet.getAtaque() == 35);
+		assertTrue(ratchet.getDistanciaDeAtaque() == 2);
+		assertTrue(ratchet.getVelocidad() == 8);
+	}
+	
+	@Test
+	public void testMegatronAlternoAtraviezaZonaNube(){
+		SuperficieNube superficie = factoryS.getNube();
+		Posicion posicion1 = new Posicion(1,1);
+		Posicion posicion2 = new Posicion(1,2);
+		mapa.ubicarAtacable(megatron, posicion1);
+		mapa.ubicarSuperficie(superficie, posicion2);
+		DirArriba direccion = new DirArriba();
+		megatron.transformarse();
+		megatron.moverEnDireccion(direccion, mapa);	
+		assertTrue(megatron.getVida() == 550);
+		assertTrue(megatron.getAtaque() == 55);
+		assertTrue(megatron.getDistanciaDeAtaque() == 2);
+		assertTrue(megatron.getVelocidad() == 8);		
+	}
+	
+	@Test
+	public void testRatchetAlternoAtrapadoEnLaNebulosaDeAndromeda(){
+		SuperficieNebulosaDeAndromeda superficie = factoryS.getNebulosaDeAndromeda();
+		Posicion posicion1 = new Posicion(1,1);
+		Posicion posicion2 = new Posicion(1,2);
+		Posicion posicion3 = new Posicion(1,3);
+		mapa.ubicarAtacable(ratchet, posicion1);
+		mapa.ubicarSuperficie(superficie, posicion2);
+		DirArriba direccion = new DirArriba();
+		ratchet.transformarse();
+		ratchet.moverEnDireccion(direccion, mapa);
+		for(int i = 0; i < 3; i++){
+			try {
+				ratchet.moverEnDireccion(direccion, mapa);
+			} catch (MovimientosAgotadosException e) {
+				assertTrue(mapa.getAtacable(posicion2).getClass() == ratchet.getClass());
+			}
+		}
+		ratchet.moverEnDireccion(direccion, mapa);
+		assertTrue(mapa.getAtacable(posicion3).getClass() == ratchet.getClass());
+	}
+	
+	@Test
+	public void testMegatronAlternoAtrapadoEnLaNebulosaDeAndromeda(){
+		SuperficieNebulosaDeAndromeda superficie = factoryS.getNebulosaDeAndromeda();
+		Posicion posicion1 = new Posicion(1,1);
+		Posicion posicion2 = new Posicion(1,2);
+		Posicion posicion3 = new Posicion(1,3);
+		mapa.ubicarAtacable(megatron, posicion1);
+		mapa.ubicarSuperficie(superficie, posicion2);
+		DirArriba direccion = new DirArriba();
+		megatron.transformarse();
+		megatron.moverEnDireccion(direccion, mapa);
+		for(int i = 0; i < 3; i++){
+			try {
+				megatron.moverEnDireccion(direccion, mapa);
+			} catch (MovimientosAgotadosException e) {
+				assertTrue(mapa.getAtacable(posicion2).getClass() == megatron.getClass());
+			}
+		}
+		megatron.moverEnDireccion(direccion, mapa);
+		assertTrue(mapa.getAtacable(posicion3).getClass() == megatron.getClass());
+	}
+	
+	@Test
+	public void testMegatronAlternoAtraviezaTormentaPsionicaYSeDania(){
+		SuperficieTormentaPsionica superficie = factoryS.getTormentaPsionica();
+		Posicion posicion1 = new Posicion(1,1);
+		Posicion posicion2 = new Posicion(1,2);
+		mapa.ubicarAtacable(megatron, posicion1);
+		mapa.ubicarSuperficie(superficie, posicion2);
+		DirArriba direccion = new DirArriba();
+		megatron.moverEnDireccion(direccion, mapa);	
+		assertTrue(megatron.getAtaque() == 33);		
+	}
+	
+	@Test
+	public void testRatchetAlternoAtraviezaTormentaPsionicaYSeDania(){
+		SuperficieTormentaPsionica superficie = factoryS.getTormentaPsionica();
+		Posicion posicion1 = new Posicion(1,1);
+		Posicion posicion2 = new Posicion(1,2);
+		mapa.ubicarAtacable(ratchet, posicion1);
+		mapa.ubicarSuperficie(superficie, posicion2);
+		DirArriba direccion = new DirArriba();
+		ratchet.moverEnDireccion(direccion, mapa);	
+		assertTrue(ratchet.getAtaque() == 21);		
+	}
+	
+	@Test
+	public void testMegatronAlternoAtraviezaTormentaPsionicaDosVecesYSeDaniaUna(){
+		SuperficieTormentaPsionica superficie = factoryS.getTormentaPsionica();
+		Posicion posicion1 = new Posicion(1,1);
+		Posicion posicion2 = new Posicion(1,2);
+		Posicion posicion3 = new Posicion(1,3);
+		mapa.ubicarAtacable(megatron, posicion1);
+		mapa.ubicarSuperficie(superficie, posicion2);
+		mapa.ubicarSuperficie(superficie, posicion3);
+		DirArriba direccion = new DirArriba();
+		megatron.moverEnDireccion(direccion, mapa);	
+		assertTrue(megatron.getAtaque() == 33);
+		megatron.moverEnDireccion(direccion, mapa);	
+		assertTrue(megatron.getAtaque() == 33);
+	}
+	
+	@Test
+	public void testRatchetAlternoAtraviezaTormentaPsionicaDosVecesYSeDaniaUna(){
+		SuperficieTormentaPsionica superficie = factoryS.getTormentaPsionica();
+		Posicion posicion1 = new Posicion(1,1);
+		Posicion posicion2 = new Posicion(1,2);
+		Posicion posicion2 = new Posicion(1,3);
+		mapa.ubicarAtacable(ratchet, posicion1);
+		mapa.ubicarSuperficie(superficie, posicion2);
+		mapa.ubicarSuperficie(superficie, posicion3);
+		DirArriba direccion = new DirArriba();
+		ratchet.moverEnDireccion(direccion, mapa);	
+		assertTrue(ratchet.getAtaque() == 21);
+		ratchet.moverEnDireccion(direccion, mapa);	
+		assertTrue(ratchet.getAtaque() == 21);
+	}
+	
+	
 }

@@ -19,6 +19,7 @@ public abstract class Atributo {
 	}
 	
 	public void agregarEfectoFijo(EfectoEstatico efecto){
+		efectosEstaticos.remove(efecto);
 		efectosEstaticos.add(efecto);
 	}
 	
@@ -34,7 +35,7 @@ public abstract class Atributo {
 		}
 		for (EfectoTemporal efecto : this.efectosTemporales){
 			valorCalculado += efecto.obtenerValorFijo();
-			valorCalculado += valorActual*efecto.obtenerValorMult();
+			valorCalculado -= valorActual*efecto.obtenerValorMult();
 			efecto.restarTurno();
 			if (efecto.tiempoTerminado()){
 				efectosTemporales.remove(efecto);
