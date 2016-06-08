@@ -1,9 +1,17 @@
 package fiuba.algo3.algoFormers.modelo.personajes;
 
 import fiuba.algo3.algoFormers.modelo.direcciones.Direccion;
+import fiuba.algo3.algoFormers.modelo.efecto.EfectoEstaticoAtaque;
+import fiuba.algo3.algoFormers.modelo.efecto.EfectoEstaticoVelocidad;
+import fiuba.algo3.algoFormers.modelo.efecto.EfectoEstaticoVida;
+import fiuba.algo3.algoFormers.modelo.efecto.EfectoTemporalAtaque;
+import fiuba.algo3.algoFormers.modelo.efecto.EfectoTemporalVelocidad;
+import fiuba.algo3.algoFormers.modelo.efecto.EfectoTemporalVida;
 import fiuba.algo3.algoFormers.modelo.interfaces.Atacable;
 import fiuba.algo3.algoFormers.modelo.mapa.Mapa;
 import fiuba.algo3.algoFormers.modelo.mapa.Posicion;
+import fiuba.algo3.algoFormers.modelo.mapa.superficies.SuperficieAerea;
+import fiuba.algo3.algoFormers.modelo.mapa.superficies.SuperficieTerrestre;
 import fiuba.algo3.algoFormers.modelo.personajes.atributos.Vida;
 import fiuba.algo3.algoFormers.modelo.personajes.estadosDeTransformacion.Alterno;
 import fiuba.algo3.algoFormers.modelo.personajes.estadosDeTransformacion.EstadoDeTransformacion;
@@ -86,6 +94,14 @@ public abstract class AlgoFormer implements Atacable {
 		this.manDeMovimientos.resetearMovimientos();
 	}
 	
+	public void afectarConSuperficie(SuperficieAerea superficie) {
+		this.estadoDeTransformacionActual.afectarConSuperficie(superficie,this);	
+	}
+
+	public void afectarConSuperficie(SuperficieTerrestre superficie) {
+		this.estadoDeTransformacionActual.afectarConSuperficie(superficie,this);
+	}
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -109,6 +125,31 @@ public abstract class AlgoFormer implements Atacable {
 			return false;
 		return true;
 	}
+	
+	public void guardarEfecto(EfectoTemporalVida efecto) {
+		this.vida.agregarEfectoTemporal(efecto);
+	}
+	
+	public void guardarEfecto(EfectoTemporalVelocidad efecto) {
+		this.estadoDeTransformacionActual.guardarEfectoTemporal(efecto);
+	}
+	
+	public void guardarEfecto(EfectoTemporalAtaque efecto) {
+		this.estadoDeTransformacionActual.guardarEfectoTemporal(efecto);
+	}
+	
+	public void guardarEfecto(EfectoEstaticoVida efecto) {
+		this.vida.agregarEfectoFijo(efecto);
+	}
+	
+	public void guardarEfecto(EfectoEstaticoVelocidad efecto) {
+		this.estadoDeTransformacionActual.guardarEfectoEstatico(efecto);	
+	}
+	
+	public void guardarEfecto(EfectoEstaticoAtaque efecto) {
+		this.estadoDeTransformacionActual.guardarEfectoEstatico(efecto);		
+	}
+	
 	//Metodos para las pruebas. No se deberian llamar en otras clases.
 	public int getVida(){
 		return this.vida.getVida();
@@ -133,5 +174,4 @@ public abstract class AlgoFormer implements Atacable {
 	public String getNombre(){
 		return this.nombre;
 	}
-
 }

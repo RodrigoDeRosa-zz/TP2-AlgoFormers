@@ -2,7 +2,7 @@ package fiuba.algo3.algoFormers.modelo.efecto;
 
 import fiuba.algo3.algoFormers.modelo.personajes.AlgoFormer;
 
-public class EfectoTemporal extends Efecto{
+public abstract class EfectoTemporal extends Efecto{
 
 	protected int turnos;
 
@@ -11,11 +11,7 @@ public class EfectoTemporal extends Efecto{
 		 this.turnos = turnos;
 	}
 
-	@Override
-	public void aplicarseEn(AlgoFormer algoformer) {
-		// TODO Auto-generated method stub
-		
-	}
+	public abstract void aplicarseEn(AlgoFormer algoformer);
 
 	public void restarTurno() {
 		turnos--;

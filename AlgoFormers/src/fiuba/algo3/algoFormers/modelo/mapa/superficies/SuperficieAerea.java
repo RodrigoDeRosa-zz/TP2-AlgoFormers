@@ -6,7 +6,7 @@ public class SuperficieAerea extends Superficie{
 
 	@Override
 	public void afectar(Atacable atacable) {
-		// TODO Auto-generated method stub
+		atacable.afectarConSuperficie(this);
 		
 	}
 

@@ -1,7 +1,16 @@
 package fiuba.algo3.algoFormers.modelo.personajes.estadosDeTransformacion;
 
+import fiuba.algo3.algoFormers.modelo.efecto.EfectoEstaticoAtaque;
+import fiuba.algo3.algoFormers.modelo.efecto.EfectoEstaticoVelocidad;
+import fiuba.algo3.algoFormers.modelo.efecto.EfectoTemporalAtaque;
+import fiuba.algo3.algoFormers.modelo.efecto.EfectoTemporalVelocidad;
+import fiuba.algo3.algoFormers.modelo.efecto.EfectoTemporalVida;
+import fiuba.algo3.algoFormers.modelo.mapa.superficies.SuperficieAerea;
+import fiuba.algo3.algoFormers.modelo.mapa.superficies.SuperficieTerrestre;
+import fiuba.algo3.algoFormers.modelo.personajes.AlgoFormer;
 import fiuba.algo3.algoFormers.modelo.personajes.atributos.Ataque;
 import fiuba.algo3.algoFormers.modelo.personajes.atributos.Velocidad;
+import fiuba.algo3.algoFormers.modelo.personajes.estadosDeTransformacion.tipos.TipoDeUnidad;
 import fiuba.algo3.algoFormers.modelo.personajes.manejadores.ManejadorDeAtaques;
 import fiuba.algo3.algoFormers.modelo.personajes.manejadores.ManejadorDeMovimientos;
 
@@ -9,6 +18,7 @@ public class EstadoDeTransformacion {
 
 	protected Velocidad velocidad;
 	protected Ataque ataque;
+	protected TipoDeUnidad tipo;
 	
 	public EstadoDeTransformacion(int velocidad, int ataque, int distAtaque){
 		this.setVelocidad(velocidad);
@@ -54,4 +64,29 @@ public class EstadoDeTransformacion {
 		return this.ataque.getDistanciaDeAtaque();
 	}
 
+	public void afectarConSuperficie(SuperficieTerrestre superficie, AlgoFormer algoformer) {
+		this.tipo.afectarConSuperficie(superficie, algoformer);
+	}
+
+	public void afectarConSuperficie(SuperficieAerea superficie, AlgoFormer algoformer) {
+		this.tipo.afectarConSuperficie(superficie, algoformer);	
+	}
+
+	public void guardarEfectoTemporal(EfectoTemporalVelocidad efecto) {
+		this.velocidad.agregarEfectoTemporal(efecto);
+	}
+	
+	public void guardarEfectoTemporal(EfectoTemporalAtaque efecto) {
+		this.ataque.agregarEfectoTemporal(efecto);
+	}
+
+	public void guardarEfectoEstatico(EfectoEstaticoVelocidad efecto) {
+		this.velocidad.agregarEfectoFijo(efecto);
+	}
+
+	public void guardarEfectoEstatico(EfectoEstaticoAtaque efecto) {
+		this.ataque.agregarEfectoFijo(efecto);
+		
+	}
+	
 }
