@@ -6,11 +6,14 @@ public abstract class Efecto {
 	
 	protected int multiplicador;
 	protected int base;
+	protected TipoDeEfecto tipo;
+	
 	public abstract void aplicarseEn(AlgoFormer algoformer);
 	
-	public Efecto(int multiplicador, int base){
+	public Efecto(int multiplicador, int base, TipoDeEfecto tipo){
 		this.multiplicador = multiplicador;
 		this.base = base;
+		this.tipo = tipo;
 	}
 	
 	public int obtenerValorFijo() {

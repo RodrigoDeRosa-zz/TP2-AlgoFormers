@@ -2,16 +2,18 @@ package fiuba.algo3.algoFormers.modelo.efecto;
 
 import fiuba.algo3.algoFormers.modelo.personajes.AlgoFormer;
 
-public abstract class EfectoTemporal extends Efecto{
+public class EfectoTemporal extends Efecto{
 
 	protected int turnos;
 
-	public EfectoTemporal(int multiplicador, int base, int turnos){
-		 super(multiplicador,base);
+	public EfectoTemporal(int multiplicador, int base, TipoDeEfecto tipo, int turnos){
+		 super(multiplicador, base, tipo);
 		 this.turnos = turnos;
 	}
 
-	public abstract void aplicarseEn(AlgoFormer algoformer);
+	public void aplicarseEn(AlgoFormer algoformer){
+		this.tipo.aplicarEn(algoformer, this);
+	}
 
 	public void restarTurno() {
 		turnos--;

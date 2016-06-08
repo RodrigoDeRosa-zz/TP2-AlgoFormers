@@ -1,12 +1,11 @@
 package fiuba.algo3.algoFormers.modelo.personajes;
 
 import fiuba.algo3.algoFormers.modelo.direcciones.Direccion;
-import fiuba.algo3.algoFormers.modelo.efecto.EfectoEstaticoAtaque;
-import fiuba.algo3.algoFormers.modelo.efecto.EfectoEstaticoVelocidad;
-import fiuba.algo3.algoFormers.modelo.efecto.EfectoEstaticoVida;
-import fiuba.algo3.algoFormers.modelo.efecto.EfectoTemporalAtaque;
-import fiuba.algo3.algoFormers.modelo.efecto.EfectoTemporalVelocidad;
-import fiuba.algo3.algoFormers.modelo.efecto.EfectoTemporalVida;
+import fiuba.algo3.algoFormers.modelo.efecto.EfectoAtaque;
+import fiuba.algo3.algoFormers.modelo.efecto.EfectoEstatico;
+import fiuba.algo3.algoFormers.modelo.efecto.EfectoTemporal;
+import fiuba.algo3.algoFormers.modelo.efecto.EfectoVelocidad;
+import fiuba.algo3.algoFormers.modelo.efecto.EfectoVida;
 import fiuba.algo3.algoFormers.modelo.interfaces.Atacable;
 import fiuba.algo3.algoFormers.modelo.mapa.Mapa;
 import fiuba.algo3.algoFormers.modelo.mapa.Posicion;
@@ -126,28 +125,28 @@ public abstract class AlgoFormer implements Atacable {
 		return true;
 	}
 	
-	public void guardarEfecto(EfectoTemporalVida efecto) {
+	public void guardarEfecto(EfectoTemporal efecto, EfectoVida tipo) {
 		this.vida.agregarEfectoTemporal(efecto);
 	}
 	
-	public void guardarEfecto(EfectoTemporalVelocidad efecto) {
-		this.estadoDeTransformacionActual.guardarEfectoTemporal(efecto);
+	public void guardarEfecto(EfectoTemporal efecto, EfectoVelocidad tipo) {
+		this.estadoDeTransformacionActual.guardarEfectoTemporal(efecto, tipo);
 	}
 	
-	public void guardarEfecto(EfectoTemporalAtaque efecto) {
-		this.estadoDeTransformacionActual.guardarEfectoTemporal(efecto);
+	public void guardarEfecto(EfectoTemporal efecto, EfectoAtaque tipo) {
+		this.estadoDeTransformacionActual.guardarEfectoTemporal(efecto, tipo);
 	}
 	
-	public void guardarEfecto(EfectoEstaticoVida efecto) {
+	public void guardarEfecto(EfectoEstatico efecto, EfectoVida tipo) {
 		this.vida.agregarEfectoFijo(efecto);
 	}
 	
-	public void guardarEfecto(EfectoEstaticoVelocidad efecto) {
-		this.estadoDeTransformacionActual.guardarEfectoEstatico(efecto);	
+	public void guardarEfecto(EfectoEstatico efecto, EfectoVelocidad tipo) {
+		this.estadoDeTransformacionActual.guardarEfectoEstatico(efecto, tipo);	
 	}
 	
-	public void guardarEfecto(EfectoEstaticoAtaque efecto) {
-		this.estadoDeTransformacionActual.guardarEfectoEstatico(efecto);		
+	public void guardarEfecto(EfectoEstatico efecto, EfectoAtaque tipo) {
+		this.estadoDeTransformacionActual.guardarEfectoEstatico(efecto, tipo);		
 	}
 	
 	//Metodos para las pruebas. No se deberian llamar en otras clases.

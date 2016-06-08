@@ -1,10 +1,9 @@
 package fiuba.algo3.algoFormers.modelo.personajes.estadosDeTransformacion;
 
-import fiuba.algo3.algoFormers.modelo.efecto.EfectoEstaticoAtaque;
-import fiuba.algo3.algoFormers.modelo.efecto.EfectoEstaticoVelocidad;
-import fiuba.algo3.algoFormers.modelo.efecto.EfectoTemporalAtaque;
-import fiuba.algo3.algoFormers.modelo.efecto.EfectoTemporalVelocidad;
-import fiuba.algo3.algoFormers.modelo.efecto.EfectoTemporalVida;
+import fiuba.algo3.algoFormers.modelo.efecto.EfectoAtaque;
+import fiuba.algo3.algoFormers.modelo.efecto.EfectoEstatico;
+import fiuba.algo3.algoFormers.modelo.efecto.EfectoTemporal;
+import fiuba.algo3.algoFormers.modelo.efecto.EfectoVelocidad;
 import fiuba.algo3.algoFormers.modelo.mapa.superficies.SuperficieAerea;
 import fiuba.algo3.algoFormers.modelo.mapa.superficies.SuperficieTerrestre;
 import fiuba.algo3.algoFormers.modelo.personajes.AlgoFormer;
@@ -72,21 +71,20 @@ public class EstadoDeTransformacion {
 		this.tipo.afectarConSuperficie(superficie, algoformer);	
 	}
 
-	public void guardarEfectoTemporal(EfectoTemporalVelocidad efecto) {
+	public void guardarEfectoTemporal(EfectoTemporal efecto, EfectoVelocidad tipo) {
 		this.velocidad.agregarEfectoTemporal(efecto);
 	}
-	
-	public void guardarEfectoTemporal(EfectoTemporalAtaque efecto) {
-		this.ataque.agregarEfectoTemporal(efecto);
-	}
 
-	public void guardarEfectoEstatico(EfectoEstaticoVelocidad efecto) {
+	public void guardarEfectoEstatico(EfectoEstatico efecto, EfectoVelocidad tipo) {
 		this.velocidad.agregarEfectoFijo(efecto);
 	}
+	
+	public void guardarEfectoTemporal(EfectoTemporal efecto, EfectoAtaque tipo) {
+		this.velocidad.agregarEfectoTemporal(efecto);
+	}
 
-	public void guardarEfectoEstatico(EfectoEstaticoAtaque efecto) {
-		this.ataque.agregarEfectoFijo(efecto);
-		
+	public void guardarEfectoEstatico(EfectoEstatico efecto, EfectoAtaque tipo) {
+		this.velocidad.agregarEfectoFijo(efecto);
 	}
 	
 }
