@@ -56,10 +56,10 @@ public class EntregaDosTest {
 		mapa.ubicarSuperficie(superficie, posicion2);
 		DirArriba direccion = new DirArriba();
 		optimus.moverEnDireccion(direccion, mapa);	
-		assertTrue(optimus.getVida() == 500);
-		assertTrue(optimus.getAtaque() == 50);
-		assertTrue(optimus.getDistanciaDeAtaque() == 2);
-		assertTrue(optimus.getVelocidad() == 2);		
+		assertEquals(optimus.getVida(), 500);
+		assertEquals(optimus.getAtaque(), 50);
+		assertEquals(optimus.getDistanciaDeAtaque(), 2);
+		assertEquals(optimus.getVelocidad(), 2);		
 	}
 	
 	@Test
@@ -71,10 +71,10 @@ public class EntregaDosTest {
 		mapa.ubicarSuperficie(superficie, posicion2);
 		DirArriba direccion = new DirArriba();
 		ratchet.moverEnDireccion(direccion, mapa);	
-		assertTrue(ratchet.getVida() == 150);
-		assertTrue(ratchet.getAtaque() == 5);
-		assertTrue(ratchet.getDistanciaDeAtaque() == 5);
-		assertTrue(ratchet.getVelocidad() == 1);		
+		assertEquals(ratchet.getVida(), 150);
+		assertEquals(ratchet.getAtaque(), 5);
+		assertEquals(ratchet.getDistanciaDeAtaque(), 5);
+		assertEquals(ratchet.getVelocidad(), 1);		
 	}
 	
 	@Test
@@ -86,10 +86,10 @@ public class EntregaDosTest {
 		mapa.ubicarSuperficie(superficie, posicion2);
 		DirArriba direccion = new DirArriba();
 		bumblebee.moverEnDireccion(direccion, mapa);	
-		assertTrue(bumblebee.getVida() == 350);
-		assertTrue(bumblebee.getAtaque() == 40);
-		assertTrue(bumblebee.getDistanciaDeAtaque() == 1);
-		assertTrue(bumblebee.getVelocidad() == 2);		
+		assertEquals(bumblebee.getVida(), 350);
+		assertEquals(bumblebee.getAtaque(), 40);
+		assertEquals(bumblebee.getDistanciaDeAtaque(), 1);
+		assertEquals(bumblebee.getVelocidad(), 2);		
 	}
 	
 	@Test
@@ -101,10 +101,10 @@ public class EntregaDosTest {
 		mapa.ubicarSuperficie(superficie, posicion2);
 		DirArriba direccion = new DirArriba();
 		megatron.moverEnDireccion(direccion, mapa);	
-		assertTrue(megatron.getVida() == 550);
-		assertTrue(megatron.getAtaque() == 10);
-		assertTrue(megatron.getDistanciaDeAtaque() == 3);
-		assertTrue(megatron.getVelocidad() == 1);		
+		assertEquals(megatron.getVida(), 550);
+		assertEquals(megatron.getAtaque(), 10);
+		assertEquals(megatron.getDistanciaDeAtaque(), 3);
+		assertEquals(megatron.getVelocidad(), 1);		
 	}
 	
 	@Test
@@ -116,10 +116,10 @@ public class EntregaDosTest {
 		mapa.ubicarSuperficie(superficie, posicion2);
 		DirArriba direccion = new DirArriba();
 		frenzy.moverEnDireccion(direccion, mapa);	
-		assertTrue(frenzy.getVida() == 400);
-		assertTrue(frenzy.getAtaque() == 10);
-		assertTrue(frenzy.getDistanciaDeAtaque() == 5);
-		assertTrue(frenzy.getVelocidad() == 2);		
+		assertEquals(frenzy.getVida(), 400);
+		assertEquals(frenzy.getAtaque(), 10);
+		assertEquals(frenzy.getDistanciaDeAtaque(), 5);
+		assertEquals(frenzy.getVelocidad(), 2);		
 	}
 	
 	@Test
@@ -131,10 +131,10 @@ public class EntregaDosTest {
 		mapa.ubicarSuperficie(superficie, posicion2);
 		DirArriba direccion = new DirArriba();
 		bonecrusher.moverEnDireccion(direccion, mapa);	
-		assertTrue(bonecrusher.getVida() == 200);
-		assertTrue(bonecrusher.getAtaque() == 30);
-		assertTrue(bonecrusher.getDistanciaDeAtaque() == 3);
-		assertTrue(bonecrusher.getVelocidad() == 1);		
+		assertEquals(bonecrusher.getVida(), 200);
+		assertEquals(bonecrusher.getAtaque(), 30);
+		assertEquals(bonecrusher.getDistanciaDeAtaque(), 3);
+		assertEquals(bonecrusher.getVelocidad(), 1);		
 	}
 	
 	@Test
@@ -147,10 +147,10 @@ public class EntregaDosTest {
 		DirArriba direccion = new DirArriba();
 		optimus.transformarse();
 		optimus.moverEnDireccion(direccion, mapa);	
-		assertTrue(optimus.getVida() == 500);
-		assertTrue(optimus.getAtaque() == 15);
-		assertTrue(optimus.getDistanciaDeAtaque() == 4);
-		assertTrue(optimus.getVelocidad() == 5);
+		assertEquals(optimus.getVida(), 500);
+		assertEquals(optimus.getAtaque(), 15);
+		assertEquals(optimus.getDistanciaDeAtaque(), 4);
+		assertEquals(optimus.getVelocidad(), 5);
 	}
 	
 	@Test
@@ -163,10 +163,10 @@ public class EntregaDosTest {
 		DirArriba direccion = new DirArriba();
 		ratchet.transformarse();
 		ratchet.moverEnDireccion(direccion, mapa);	
-		assertTrue(ratchet.getVida() == 150);
-		assertTrue(ratchet.getAtaque() == 35);
-		assertTrue(ratchet.getDistanciaDeAtaque() == 2);
-		assertTrue(ratchet.getVelocidad() == 8);		
+		assertEquals(ratchet.getVida(), 150);
+		assertEquals(ratchet.getAtaque(), 35);
+		assertEquals(ratchet.getDistanciaDeAtaque(), 2);
+		assertEquals(ratchet.getVelocidad(), 8);		
 	}
 	
 	@Test
@@ -179,10 +179,10 @@ public class EntregaDosTest {
 		DirArriba direccion = new DirArriba();
 		bumblebee.transformarse();
 		bumblebee.moverEnDireccion(direccion, mapa);
-		assertTrue(bumblebee.getVida() == 350);
-		assertTrue(bumblebee.getAtaque() == 20);
-		assertTrue(bumblebee.getDistanciaDeAtaque() == 3);
-		assertTrue(bumblebee.getVelocidad() == 5);		
+		assertEquals(bumblebee.getVida(), 350);
+		assertEquals(bumblebee.getAtaque(), 20);
+		assertEquals(bumblebee.getDistanciaDeAtaque(), 3);
+		assertEquals(bumblebee.getVelocidad(), 5);		
 	}
 	
 	@Test
@@ -195,10 +195,10 @@ public class EntregaDosTest {
 		DirArriba direccion = new DirArriba();
 		megatron.transformarse();
 		megatron.moverEnDireccion(direccion, mapa);	
-		assertTrue(megatron.getVida() == 550);
-		assertTrue(megatron.getAtaque() == 55);
-		assertTrue(megatron.getDistanciaDeAtaque() == 2);
-		assertTrue(megatron.getVelocidad() == 8);		
+		assertEquals(megatron.getVida(), 550);
+		assertEquals(megatron.getAtaque(), 55);
+		assertEquals(megatron.getDistanciaDeAtaque(), 2);
+		assertEquals(megatron.getVelocidad(), 8);		
 	}
 	
 	@Test
@@ -211,10 +211,10 @@ public class EntregaDosTest {
 		DirArriba direccion = new DirArriba();
 		frenzy.transformarse();
 		frenzy.moverEnDireccion(direccion, mapa);	
-		assertTrue(frenzy.getVida() == 400);
-		assertTrue(frenzy.getAtaque() == 25);
-		assertTrue(frenzy.getDistanciaDeAtaque() == 2);
-		assertTrue(frenzy.getVelocidad() == 6);		
+		assertEquals(frenzy.getVida(), 400);
+		assertEquals(frenzy.getAtaque(), 25);
+		assertEquals(frenzy.getDistanciaDeAtaque(), 2);
+		assertEquals(frenzy.getVelocidad(), 6);		
 	}
 	
 	@Test
@@ -227,10 +227,10 @@ public class EntregaDosTest {
 		DirArriba direccion = new DirArriba();
 		bonecrusher.transformarse();
 		bonecrusher.moverEnDireccion(direccion, mapa);	
-		assertTrue(bonecrusher.getVida() == 200);
-		assertTrue(bonecrusher.getAtaque() == 30);
-		assertTrue(bonecrusher.getDistanciaDeAtaque() == 3);
-		assertTrue(bonecrusher.getVelocidad() == 8);		
+		assertEquals(bonecrusher.getVida(), 200);
+		assertEquals(bonecrusher.getAtaque(), 30);
+		assertEquals(bonecrusher.getDistanciaDeAtaque(), 3);
+		assertEquals(bonecrusher.getVelocidad(), 8);		
 	}
 	
 	@Test(expected = HumanoideNoPuedeAtravesarException.class)
@@ -327,10 +327,10 @@ public class EntregaDosTest {
 		DirArriba direccion = new DirArriba();
 		ratchet.transformarse();
 		ratchet.moverEnDireccion(direccion, mapa);	
-		assertTrue(ratchet.getVida() == 150);
-		assertTrue(ratchet.getAtaque() == 35);
-		assertTrue(ratchet.getDistanciaDeAtaque() == 2);
-		assertTrue(ratchet.getVelocidad() == 8);
+		assertEquals(ratchet.getVida(), 150);
+		assertEquals(ratchet.getAtaque(), 35);
+		assertEquals(ratchet.getDistanciaDeAtaque(), 2);
+		assertEquals(ratchet.getVelocidad(), 8);
 	}
 	
 	@Test
@@ -343,10 +343,10 @@ public class EntregaDosTest {
 		DirArriba direccion = new DirArriba();
 		megatron.transformarse();
 		megatron.moverEnDireccion(direccion, mapa);	
-		assertTrue(megatron.getVida() == 550);
-		assertTrue(megatron.getAtaque() == 55);
-		assertTrue(megatron.getDistanciaDeAtaque() == 2);
-		assertTrue(megatron.getVelocidad() == 8);		
+		assertEquals(megatron.getVida(), 550);
+		assertEquals(megatron.getAtaque(), 55);
+		assertEquals(megatron.getDistanciaDeAtaque(), 2);
+		assertEquals(megatron.getVelocidad(), 8);		
 	}
 	
 	@Test
@@ -360,9 +360,9 @@ public class EntregaDosTest {
 		mapa.ubicarSuperficie(superficie, posicion3);
 		DirArriba direccion = new DirArriba();
 		optimus.moverEnDireccion(direccion, mapa);	
-		assertTrue(optimus.getVida() == 475);
+		assertEquals(optimus.getVida(), 475);
 		optimus.moverEnDireccion(direccion, mapa);	
-		assertTrue(optimus.getVida() == 451);
+		assertEquals(optimus.getVida(), 452);
 	}
 	
 	@Test
@@ -388,9 +388,9 @@ public class EntregaDosTest {
 		mapa.ubicarSuperficie(superficie, posicion3);
 		DirArriba direccion = new DirArriba();
 		bumblebee.moverEnDireccion(direccion, mapa);	
-		assertTrue(bumblebee.getVida() == 333);
+		assertEquals(bumblebee.getVida(), 333);
 		bumblebee.moverEnDireccion(direccion, mapa);	
-		assertTrue(bumblebee.getVida() == 316);
+		assertEquals(bumblebee.getVida(), 317);
 	
 	}
 	
@@ -403,7 +403,7 @@ public class EntregaDosTest {
 		mapa.ubicarSuperficie(superficie, posicion2);
 		DirArriba direccion = new DirArriba();
 		megatron.moverEnDireccion(direccion, mapa);	
-		assertTrue(megatron.getVida() == 523);
+		assertEquals(megatron.getVida(), 523);
 	}
 	
 	@Test
@@ -417,9 +417,9 @@ public class EntregaDosTest {
 		mapa.ubicarSuperficie(superficie, posicion3);
 		DirArriba direccion = new DirArriba();
 		frenzy.moverEnDireccion(direccion, mapa);	
-		assertTrue(frenzy.getVida() == 380);
+		assertEquals(frenzy.getVida(), 380);
 		frenzy.moverEnDireccion(direccion, mapa);	
-		assertTrue(frenzy.getVida() == 361);
+		assertEquals(frenzy.getVida(), 361);
 	}
 	
 	@Test
@@ -431,7 +431,7 @@ public class EntregaDosTest {
 		mapa.ubicarSuperficie(superficie, posicion2);
 		DirArriba direccion = new DirArriba();
 		bonecrusher.moverEnDireccion(direccion, mapa);	
-		assertTrue(bonecrusher.getVida() == 190);		
+		assertEquals(bonecrusher.getVida(), 190);		
 	}
 	
 	@Test
@@ -444,10 +444,10 @@ public class EntregaDosTest {
 		DirArriba direccion = new DirArriba();
 		ratchet.transformarse();
 		ratchet.moverEnDireccion(direccion, mapa);	
-		assertTrue(ratchet.getVida() == 150);
-		assertTrue(ratchet.getAtaque() == 35);
-		assertTrue(ratchet.getDistanciaDeAtaque() == 2);
-		assertTrue(ratchet.getVelocidad() == 8);
+		assertEquals(ratchet.getVida(), 150);
+		assertEquals(ratchet.getAtaque(), 35);
+		assertEquals(ratchet.getDistanciaDeAtaque(), 2);
+		assertEquals(ratchet.getVelocidad(), 8);
 	}
 	
 	@Test
@@ -460,10 +460,10 @@ public class EntregaDosTest {
 		DirArriba direccion = new DirArriba();
 		megatron.transformarse();
 		megatron.moverEnDireccion(direccion, mapa);	
-		assertTrue(megatron.getVida() == 550);
-		assertTrue(megatron.getAtaque() == 55);
-		assertTrue(megatron.getDistanciaDeAtaque() == 2);
-		assertTrue(megatron.getVelocidad() == 8);		
+		assertEquals(megatron.getVida(), 550);
+		assertEquals(megatron.getAtaque(), 55);
+		assertEquals(megatron.getDistanciaDeAtaque(), 2);
+		assertEquals(megatron.getVelocidad(), 8);		
 	}
 	
 	@Test
@@ -476,10 +476,10 @@ public class EntregaDosTest {
 		DirArriba direccion = new DirArriba();
 		ratchet.transformarse();
 		ratchet.moverEnDireccion(direccion, mapa);	
-		assertTrue(ratchet.getVida() == 150);
-		assertTrue(ratchet.getAtaque() == 35);
-		assertTrue(ratchet.getDistanciaDeAtaque() == 2);
-		assertTrue(ratchet.getVelocidad() == 8);
+		assertEquals(ratchet.getVida(), 150);
+		assertEquals(ratchet.getAtaque(), 35);
+		assertEquals(ratchet.getDistanciaDeAtaque(), 2);
+		assertEquals(ratchet.getVelocidad(), 8);
 	}
 	
 	@Test
@@ -492,10 +492,10 @@ public class EntregaDosTest {
 		DirArriba direccion = new DirArriba();
 		megatron.transformarse();
 		megatron.moverEnDireccion(direccion, mapa);	
-		assertTrue(megatron.getVida() == 550);
-		assertTrue(megatron.getAtaque() == 55);
-		assertTrue(megatron.getDistanciaDeAtaque() == 2);
-		assertTrue(megatron.getVelocidad() == 8);		
+		assertEquals(megatron.getVida(), 550);
+		assertEquals(megatron.getAtaque(), 55);
+		assertEquals(megatron.getDistanciaDeAtaque(), 2);
+		assertEquals(megatron.getVelocidad(), 8);		
 	}
 	
 	@Test
@@ -513,11 +513,11 @@ public class EntregaDosTest {
 			try {
 				ratchet.moverEnDireccion(direccion, mapa);
 			} catch (MovimientosAgotadosException e) {
-				assertTrue(mapa.getAtacable(posicion2).getClass() == ratchet.getClass());
+				assertEquals(mapa.getAtacable(posicion2).getClass(), ratchet.getClass());
 			}
 		}
 		ratchet.moverEnDireccion(direccion, mapa);
-		assertTrue(mapa.getAtacable(posicion3).getClass() == ratchet.getClass());
+		assertEquals(mapa.getAtacable(posicion3).getClass(), ratchet.getClass());
 	}
 	
 	@Test
@@ -535,11 +535,11 @@ public class EntregaDosTest {
 			try {
 				megatron.moverEnDireccion(direccion, mapa);
 			} catch (MovimientosAgotadosException e) {
-				assertTrue(mapa.getAtacable(posicion2).getClass() == megatron.getClass());
+				assertEquals(mapa.getAtacable(posicion2).getClass(), megatron.getClass());
 			}
 		}
 		megatron.moverEnDireccion(direccion, mapa);
-		assertTrue(mapa.getAtacable(posicion3).getClass() == megatron.getClass());
+		assertEquals(mapa.getAtacable(posicion3).getClass(), megatron.getClass());
 	}
 	
 	@Test
@@ -551,7 +551,7 @@ public class EntregaDosTest {
 		mapa.ubicarSuperficie(superficie, posicion2);
 		DirArriba direccion = new DirArriba();
 		megatron.moverEnDireccion(direccion, mapa);	
-		assertTrue(megatron.getAtaque() == 33);		
+		assertEquals(megatron.getAtaque(), 33);		
 	}
 	
 	@Test
@@ -563,7 +563,7 @@ public class EntregaDosTest {
 		mapa.ubicarSuperficie(superficie, posicion2);
 		DirArriba direccion = new DirArriba();
 		ratchet.moverEnDireccion(direccion, mapa);	
-		assertTrue(ratchet.getAtaque() == 21);		
+		assertEquals(ratchet.getAtaque(), 21);		
 	}
 	
 	@Test
@@ -577,9 +577,9 @@ public class EntregaDosTest {
 		mapa.ubicarSuperficie(superficie, posicion3);
 		DirArriba direccion = new DirArriba();
 		megatron.moverEnDireccion(direccion, mapa);	
-		assertTrue(megatron.getAtaque() == 33);
+		assertEquals(megatron.getAtaque(), 33);
 		megatron.moverEnDireccion(direccion, mapa);	
-		assertTrue(megatron.getAtaque() == 33);
+		assertEquals(megatron.getAtaque(), 33);
 	}
 	
 	@Test
@@ -593,9 +593,9 @@ public class EntregaDosTest {
 		mapa.ubicarSuperficie(superficie, posicion3);
 		DirArriba direccion = new DirArriba();
 		ratchet.moverEnDireccion(direccion, mapa);	
-		assertTrue(ratchet.getAtaque() == 21);
+		assertEquals(ratchet.getAtaque(), 21);
 		ratchet.moverEnDireccion(direccion, mapa);	
-		assertTrue(ratchet.getAtaque() == 21);
+		assertEquals(ratchet.getAtaque(), 21);
 	}
 	
 	
