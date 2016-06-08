@@ -18,5 +18,10 @@ public class Vida extends Atributo{
 	public int getVida(){
 		return this.valorActual;
 	}
+
+	public void recalcularVida() {
+		valorActual = this.calcularValorActual();
+		
+	}
 	
 }

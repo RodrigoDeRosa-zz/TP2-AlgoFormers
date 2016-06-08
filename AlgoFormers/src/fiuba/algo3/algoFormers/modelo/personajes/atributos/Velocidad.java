@@ -14,7 +14,8 @@ public class Velocidad extends Atributo{
 	}
 
 	public ManejadorDeMovimientos crearManejadorMovimientos() {
-		ManejadorDeMovimientos manejador = new ManejadorDeMovimientos(this.calcularValorActual());
+		valorActual = this.calcularValorActual();
+		ManejadorDeMovimientos manejador = new ManejadorDeMovimientos(valorActual);
 		return manejador;
 	}
 	

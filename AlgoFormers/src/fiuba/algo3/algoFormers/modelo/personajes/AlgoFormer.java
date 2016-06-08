@@ -132,6 +132,7 @@ public abstract class AlgoFormer implements Atacable {
 	
 	public void guardarEfecto(EfectoTemporal efecto, EfectoVida tipo) {
 		this.vida.agregarEfectoTemporal(efecto);
+		this.vida.recalcularVida();
 	}
 	
 	public void guardarEfecto(EfectoTemporal efecto, EfectoVelocidad tipo) {
@@ -144,6 +145,7 @@ public abstract class AlgoFormer implements Atacable {
 	
 	public void guardarEfecto(EfectoEstatico efecto, EfectoVida tipo) {
 		this.vida.agregarEfectoFijo(efecto);
+		this.vida.recalcularVida();
 	}
 	
 	public void guardarEfecto(EfectoEstatico efecto, EfectoVelocidad tipo) {

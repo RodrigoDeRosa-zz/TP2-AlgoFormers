@@ -11,12 +11,15 @@ import fiuba.algo3.algoFormers.modelo.fabricas.SuperficiesFactory;
 import fiuba.algo3.algoFormers.modelo.juego.Juego;
 import fiuba.algo3.algoFormers.modelo.mapa.Mapa;
 import fiuba.algo3.algoFormers.modelo.mapa.Posicion;
+import fiuba.algo3.algoFormers.modelo.mapa.superficies.SuperficieAerea;
+import fiuba.algo3.algoFormers.modelo.mapa.superficies.SuperficieTerrestre;
 import fiuba.algo3.algoFormers.modelo.personajes.AlgoFormer;
 import fiuba.algo3.algoFormers.modelo.personajes.estadosDeTransformacion.AlternoTerrestre;
 import fiuba.algo3.algoFormers.modelo.personajes.estadosDeTransformacion.Humanoide;
 import fiuba.algo3.algoFormers.modelo.excepciones.AtaqueEspacioVacioException;
 import fiuba.algo3.algoFormers.modelo.excepciones.AtaqueFueraDeRangoException;
 import fiuba.algo3.algoFormers.modelo.excepciones.FuegoAmigoException;
+import fiuba.algo3.algoFormers.modelo.excepciones.HumanoideNoPuedeAtravesarException;
 import fiuba.algo3.algoFormers.modelo.excepciones.MovimientosAgotadosException;
 
 public class EntregaDosTest {
@@ -45,8 +48,8 @@ public class EntregaDosTest {
 	}
 
 	@Test
-	public void testOptimusHumanoideAtraviezaZonaRocosa(){
-		SuperficieRocosa superficie = factoryS.getRocosa();
+	public void testOptimusHumanoideAtraviesaZonaRocosa(){
+		SuperficieTerrestre superficie = factoryS.getRocas();
 		Posicion posicion1 = new Posicion(1,1);
 		Posicion posicion2 = new Posicion(1,2);
 		mapa.ubicarAtacable(optimus, posicion1);
@@ -60,8 +63,8 @@ public class EntregaDosTest {
 	}
 	
 	@Test
-	public void testRatchetHumanoideAtraviezaZonaRocosa(){
-		SuperficieRocosa superficie = factoryS.getRocosa();
+	public void testRatchetHumanoideAtraviesaZonaRocosa(){
+		SuperficieTerrestre superficie = factoryS.getRocas();
 		Posicion posicion1 = new Posicion(1,1);
 		Posicion posicion2 = new Posicion(1,2);
 		mapa.ubicarAtacable(ratchet, posicion1);
@@ -75,8 +78,8 @@ public class EntregaDosTest {
 	}
 	
 	@Test
-	public void testBumblebeeHumanoideAtraviezaZonaRocosa(){
-		SuperficieRocosa superficie = factoryS.getRocosa();
+	public void testBumblebeeHumanoideAtraviesaZonaRocosa(){
+		SuperficieTerrestre superficie = factoryS.getRocas();
 		Posicion posicion1 = new Posicion(1,1);
 		Posicion posicion2 = new Posicion(1,2);
 		mapa.ubicarAtacable(bumblebee, posicion1);
@@ -90,8 +93,8 @@ public class EntregaDosTest {
 	}
 	
 	@Test
-	public void testMegatronHumanoideAtraviezaZonaRocosa(){
-		SuperficieRocosa superficie = factoryS.getRocosa();
+	public void testMegatronHumanoideAtraviesaZonaRocosa(){
+		SuperficieTerrestre superficie = factoryS.getRocas();
 		Posicion posicion1 = new Posicion(1,1);
 		Posicion posicion2 = new Posicion(1,2);
 		mapa.ubicarAtacable(megatron, posicion1);
@@ -105,8 +108,8 @@ public class EntregaDosTest {
 	}
 	
 	@Test
-	public void testFrenzyHumanoideAtraviezaZonaRocosa(){
-		SuperficieRocosa superficie = factoryS.getRocosa();
+	public void testFrenzyHumanoideAtraviesaZonaRocosa(){
+		SuperficieTerrestre superficie = factoryS.getRocas();
 		Posicion posicion1 = new Posicion(1,1);
 		Posicion posicion2 = new Posicion(1,2);
 		mapa.ubicarAtacable(frenzy, posicion1);
@@ -120,8 +123,8 @@ public class EntregaDosTest {
 	}
 	
 	@Test
-	public void testBonecrusherHumanoideAtraviezaZonaRocosa(){
-		SuperficieRocosa superficie = factoryS.getRocosa();
+	public void testBonecrusherHumanoideAtraviesaZonaRocosa(){
+		SuperficieTerrestre superficie = factoryS.getRocas();
 		Posicion posicion1 = new Posicion(1,1);
 		Posicion posicion2 = new Posicion(1,2);
 		mapa.ubicarAtacable(bonecrusher, posicion1);
@@ -135,8 +138,8 @@ public class EntregaDosTest {
 	}
 	
 	@Test
-	public void testOptimusAlternoAtraviezaZonaRocosa(){
-		SuperficieRocosa superficie = factoryS.getRocosa();
+	public void testOptimusAlternoAtraviesaZonaRocosa(){
+		SuperficieTerrestre superficie = factoryS.getRocas();
 		Posicion posicion1 = new Posicion(1,1);
 		Posicion posicion2 = new Posicion(1,2);
 		mapa.ubicarAtacable(optimus, posicion1);
@@ -151,8 +154,8 @@ public class EntregaDosTest {
 	}
 	
 	@Test
-	public void testRatchetAlternoAtraviezaZonaRocosa(){
-		SuperficieRocosa superficie = factoryS.getRocosa();
+	public void testRatchetAlternoAtraviesaZonaRocosa(){
+		SuperficieTerrestre superficie = factoryS.getRocas();
 		Posicion posicion1 = new Posicion(1,1);
 		Posicion posicion2 = new Posicion(1,2);
 		mapa.ubicarAtacable(ratchet, posicion1);
@@ -167,8 +170,8 @@ public class EntregaDosTest {
 	}
 	
 	@Test
-	public void testBumblebeeAlternoAtraviezaZonaRocosa(){
-		SuperficieRocosa superficie = factoryS.getRocosa();
+	public void testBumblebeeAlternoAtraviesaZonaRocosa(){
+		SuperficieTerrestre superficie = factoryS.getRocas();
 		Posicion posicion1 = new Posicion(1,1);
 		Posicion posicion2 = new Posicion(1,2);
 		mapa.ubicarAtacable(bumblebee, posicion1);
@@ -183,8 +186,8 @@ public class EntregaDosTest {
 	}
 	
 	@Test
-	public void testMegatronAlternoAtraviezaZonaRocosa(){
-		SuperficieRocosa superficie = factoryS.getRocosa();
+	public void testMegatronAlternoAtraviesaZonaRocosa(){
+		SuperficieTerrestre superficie = factoryS.getRocas();
 		Posicion posicion1 = new Posicion(1,1);
 		Posicion posicion2 = new Posicion(1,2);
 		mapa.ubicarAtacable(megatron, posicion1);
@@ -199,8 +202,8 @@ public class EntregaDosTest {
 	}
 	
 	@Test
-	public void testFrenzyAlternoAtraviezaZonaRocosa(){
-		SuperficieRocosa superficie = factoryS.getRocosa();
+	public void testFrenzyAlternoAtraviesaZonaRocosa(){
+		SuperficieTerrestre superficie = factoryS.getRocas();
 		Posicion posicion1 = new Posicion(1,1);
 		Posicion posicion2 = new Posicion(1,2);
 		mapa.ubicarAtacable(frenzy, posicion1);
@@ -215,8 +218,8 @@ public class EntregaDosTest {
 	}
 	
 	@Test
-	public void testBonecrusherAlternoAtraviezaZonaRocosa(){
-		SuperficieRocosa superficie = factoryS.getRocosa();
+	public void testBonecrusherAlternoAtraviesaZonaRocosa(){
+		SuperficieTerrestre superficie = factoryS.getRocas();
 		Posicion posicion1 = new Posicion(1,1);
 		Posicion posicion2 = new Posicion(1,2);
 		mapa.ubicarAtacable(bonecrusher, posicion1);
@@ -230,9 +233,9 @@ public class EntregaDosTest {
 		assertTrue(bonecrusher.getVelocidad() == 8);		
 	}
 	
-	@Test(expected = HumanoideNoPuedeAtravezarException.class)
-	public void testOptimusHumanoideNoAtraviezaZonaPantano(){
-		SuperficiePantano superficie = factoryS.getPantano();
+	@Test(expected = HumanoideNoPuedeAtravesarException.class)
+	public void testOptimusHumanoideNoAtraviesaZonaPantano(){
+		SuperficieTerrestre superficie = factoryS.getPantano();
 		Posicion posicion1 = new Posicion(1,1);
 		Posicion posicion2 = new Posicion(1,2);
 		mapa.ubicarAtacable(optimus, posicion1);
@@ -241,9 +244,9 @@ public class EntregaDosTest {
 		optimus.moverEnDireccion(direccion, mapa);	
 		}
 	
-	@Test(expected = HumanoideNoPuedeAtravezarException.class)
-	public void testBumblebeeHumanoideNoAtraviezaZonaPantano(){
-		SuperficiePantano superficie = factoryS.getPantano();
+	@Test(expected = HumanoideNoPuedeAtravesarException.class)
+	public void testBumblebeeHumanoideNoAtraviesaZonaPantano(){
+		SuperficieTerrestre superficie = factoryS.getPantano();
 		Posicion posicion1 = new Posicion(1,1);
 		Posicion posicion2 = new Posicion(1,2);
 		mapa.ubicarAtacable(bumblebee, posicion1);
@@ -252,9 +255,9 @@ public class EntregaDosTest {
 		bumblebee.moverEnDireccion(direccion, mapa);	
 		}
 
-	@Test(expected = HumanoideNoPuedeAtravezarException.class)
-	public void testRatchetHumanoideNoAtraviezaZonaPantano(){
-		SuperficiePantano superficie = factoryS.getPantano();
+	@Test(expected = HumanoideNoPuedeAtravesarException.class)
+	public void testRatchetHumanoideNoAtraviesaZonaPantano(){
+		SuperficieTerrestre superficie = factoryS.getPantano();
 		Posicion posicion1 = new Posicion(1,1);
 		Posicion posicion2 = new Posicion(1,2);
 		mapa.ubicarAtacable(ratchet, posicion1);
@@ -263,9 +266,9 @@ public class EntregaDosTest {
 		ratchet.moverEnDireccion(direccion, mapa);	
 		}
 	
-	@Test(expected = HumanoideNoPuedeAtravezarException.class)
-	public void testMegatronHumanoideNoAtraviezaZonaPantano(){
-		SuperficiePantano superficie = factoryS.getPantano();
+	@Test(expected = HumanoideNoPuedeAtravesarException.class)
+	public void testMegatronHumanoideNoAtraviesaZonaPantano(){
+		SuperficieTerrestre superficie = factoryS.getPantano();
 		Posicion posicion1 = new Posicion(1,1);
 		Posicion posicion2 = new Posicion(1,2);
 		mapa.ubicarAtacable(megatron, posicion1);
@@ -274,9 +277,9 @@ public class EntregaDosTest {
 		megatron.moverEnDireccion(direccion, mapa);	
 		}
 	
-	@Test(expected = HumanoideNoPuedeAtravezarException.class)
-	public void testFrenzyHumanoideNoAtraviezaZonaPantano(){
-		SuperficiePantano superficie = factoryS.getPantano();
+	@Test(expected = HumanoideNoPuedeAtravesarException.class)
+	public void testFrenzyHumanoideNoAtraviesaZonaPantano(){
+		SuperficieTerrestre superficie = factoryS.getPantano();
 		Posicion posicion1 = new Posicion(1,1);
 		Posicion posicion2 = new Posicion(1,2);
 		mapa.ubicarAtacable(frenzy, posicion1);
@@ -285,9 +288,9 @@ public class EntregaDosTest {
 		frenzy.moverEnDireccion(direccion, mapa);	
 		}
 	
-	@Test(expected = HumanoideNoPuedeAtravezarException.class)
-	public void testBonecrusherHumanoideNoAtraviezaZonaPantano(){
-		SuperficiePantano superficie = factoryS.getPantano();
+	@Test(expected = HumanoideNoPuedeAtravesarException.class)
+	public void testBonecrusherHumanoideNoAtraviesaZonaPantano(){
+		SuperficieTerrestre superficie = factoryS.getPantano();
 		Posicion posicion1 = new Posicion(1,1);
 		Posicion posicion2 = new Posicion(1,2);
 		mapa.ubicarAtacable(bonecrusher, posicion1);
@@ -297,8 +300,8 @@ public class EntregaDosTest {
 		}
 	
 	@Test
-	public void testOptimusAlternoAtraviezaZonaPantanoConLaMitadDeVelocidad(){
-		SuperficiePantano superficie = factoryS.getPantano();
+	public void testOptimusAlternoAtraviesaZonaPantanoConLaMitadDeVelocidad(){
+		SuperficieTerrestre superficie = factoryS.getPantano();
 		Posicion posicion1 = new Posicion(1,1);
 		Posicion posicion2 = new Posicion(1,2);
 		Posicion posicion3 = new Posicion(1,3);
@@ -315,8 +318,8 @@ public class EntregaDosTest {
 	}
 	
 	@Test
-	public void testRatchetAlternoAtraviezaZonaPantano(){
-		SuperficiePantano superficie = factoryS.getPantano();
+	public void testRatchetAlternoAtraviesaZonaPantano(){
+		SuperficieTerrestre superficie = factoryS.getPantano();
 		Posicion posicion1 = new Posicion(1,1);
 		Posicion posicion2 = new Posicion(1,2);
 		mapa.ubicarAtacable(ratchet, posicion1);
@@ -331,8 +334,8 @@ public class EntregaDosTest {
 	}
 	
 	@Test
-	public void testMegatronAlternoAtraviezaZonaPantano(){
-		SuperficiePantano superficie = factoryS.getPantano();
+	public void testMegatronAlternoAtraviesaZonaPantano(){
+		SuperficieTerrestre superficie = factoryS.getPantano();
 		Posicion posicion1 = new Posicion(1,1);
 		Posicion posicion2 = new Posicion(1,2);
 		mapa.ubicarAtacable(megatron, posicion1);
@@ -347,8 +350,8 @@ public class EntregaDosTest {
 	}
 	
 	@Test
-	public void testOptimusHumanoideAtraviezaZonaEspinasYSeDania(){
-		SuperficieEspinas superficie = factoryS.getEspinas();
+	public void testOptimusHumanoideAtraviesaZonaEspinasYSeDania(){
+		SuperficieTerrestre superficie = factoryS.getEspina();
 		Posicion posicion1 = new Posicion(1,1);
 		Posicion posicion2 = new Posicion(1,2);
 		Posicion posicion3 = new Posicion(1,3);
@@ -363,20 +366,20 @@ public class EntregaDosTest {
 	}
 	
 	@Test
-	public void testRatchetHumanoideAtraviezaZonaEspinasYSeDania(){
-		SuperficieEspinas superficie = factoryS.getEspinas();
+	public void testRatchetHumanoideAtraviesaZonaEspinasYSeDania(){
+		SuperficieTerrestre superficie = factoryS.getEspina();
 		Posicion posicion1 = new Posicion(1,1);
 		Posicion posicion2 = new Posicion(1,2);
 		mapa.ubicarAtacable(ratchet, posicion1);
 		mapa.ubicarSuperficie(superficie, posicion2);
 		DirArriba direccion = new DirArriba();
 		ratchet.moverEnDireccion(direccion, mapa);	
-		assertTrue(ratchet.getVida() == 143);		
+		assertEquals(ratchet.getVida(), 143);		
 	}
 	
 	@Test
-	public void testBumblebeeHumanoideAtraviezaZonaEspinasYSeDania(){
-		SuperficieEspinas superficie = factoryS.getEspinas();
+	public void testBumblebeeHumanoideAtraviesaZonaEspinasYSeDania(){
+		SuperficieTerrestre superficie = factoryS.getEspina();
 		Posicion posicion1 = new Posicion(1,1);
 		Posicion posicion2 = new Posicion(1,2);
 		Posicion posicion3 = new Posicion(1,3);
@@ -392,8 +395,8 @@ public class EntregaDosTest {
 	}
 	
 	@Test
-	public void testMegatronHumanoideAtraviezaZonaEspinasYSeDania(){
-		SuperficieEspinas superficie = factoryS.getEspinas();
+	public void testMegatronHumanoideAtraviesaZonaEspinasYSeDania(){
+		SuperficieTerrestre superficie = factoryS.getEspina();
 		Posicion posicion1 = new Posicion(1,1);
 		Posicion posicion2 = new Posicion(1,2);
 		mapa.ubicarAtacable(megatron, posicion1);
@@ -404,11 +407,11 @@ public class EntregaDosTest {
 	}
 	
 	@Test
-	public void testFrenzyHumanoideAtraviezaZonaEspinasYSeDania(){
-		SuperficieEspinas superficie = factoryS.getEspinas();
+	public void testFrenzyHumanoideAtraviesaZonaEspinasYSeDania(){
+		SuperficieTerrestre superficie = factoryS.getEspina();
 		Posicion posicion1 = new Posicion(1,1);
 		Posicion posicion2 = new Posicion(1,2);
-		Posicion posicion2 = new Posicion(1,3);
+		Posicion posicion3 = new Posicion(1,3);
 		mapa.ubicarAtacable(frenzy, posicion1);
 		mapa.ubicarSuperficie(superficie, posicion2);
 		mapa.ubicarSuperficie(superficie, posicion3);
@@ -420,8 +423,8 @@ public class EntregaDosTest {
 	}
 	
 	@Test
-	public void testBonecrusherHumanoideAtraviezaZonaEspinasYSeDania(){
-		SuperficieEspinas superficie = factoryS.getEspinas();
+	public void testBonecrusherHumanoideAtraviesaZonaEspinasYSeDania(){
+		SuperficieTerrestre superficie = factoryS.getEspina();
 		Posicion posicion1 = new Posicion(1,1);
 		Posicion posicion2 = new Posicion(1,2);
 		mapa.ubicarAtacable(bonecrusher, posicion1);
@@ -432,8 +435,8 @@ public class EntregaDosTest {
 	}
 	
 	@Test
-	public void testRatchetAlternoAtraviezaZonaEspinas(){
-		SuperficieEspinas superficie = factoryS.getEspinas();
+	public void testRatchetAlternoAtraviesaZonaEspinas(){
+		SuperficieTerrestre superficie = factoryS.getEspina();
 		Posicion posicion1 = new Posicion(1,1);
 		Posicion posicion2 = new Posicion(1,2);
 		mapa.ubicarAtacable(ratchet, posicion1);
@@ -448,8 +451,8 @@ public class EntregaDosTest {
 	}
 	
 	@Test
-	public void testMegatronAlternoAtraviezaZonaEspinas(){
-		SuperficieEspinas superficie = factoryS.getEspinas();
+	public void testMegatronAlternoAtraviesaZonaEspinas(){
+		SuperficieTerrestre superficie = factoryS.getEspina();
 		Posicion posicion1 = new Posicion(1,1);
 		Posicion posicion2 = new Posicion(1,2);
 		mapa.ubicarAtacable(megatron, posicion1);
@@ -464,8 +467,8 @@ public class EntregaDosTest {
 	}
 	
 	@Test
-	public void testRatchetAlternoAtraviezaZonaNube(){
-		SuperficieNube superficie = factoryS.getNube();
+	public void testRatchetAlternoAtraviesaZonaNube(){
+		SuperficieAerea superficie = factoryS.getNube();
 		Posicion posicion1 = new Posicion(1,1);
 		Posicion posicion2 = new Posicion(1,2);
 		mapa.ubicarAtacable(ratchet, posicion1);
@@ -480,8 +483,8 @@ public class EntregaDosTest {
 	}
 	
 	@Test
-	public void testMegatronAlternoAtraviezaZonaNube(){
-		SuperficieNube superficie = factoryS.getNube();
+	public void testMegatronAlternoAtraviesaZonaNube(){
+		SuperficieAerea superficie = factoryS.getNube();
 		Posicion posicion1 = new Posicion(1,1);
 		Posicion posicion2 = new Posicion(1,2);
 		mapa.ubicarAtacable(megatron, posicion1);
@@ -497,7 +500,7 @@ public class EntregaDosTest {
 	
 	@Test
 	public void testRatchetAlternoAtrapadoEnLaNebulosaDeAndromeda(){
-		SuperficieNebulosaDeAndromeda superficie = factoryS.getNebulosaDeAndromeda();
+		SuperficieAerea superficie = factoryS.getNebulosaAndromeda();
 		Posicion posicion1 = new Posicion(1,1);
 		Posicion posicion2 = new Posicion(1,2);
 		Posicion posicion3 = new Posicion(1,3);
@@ -519,7 +522,7 @@ public class EntregaDosTest {
 	
 	@Test
 	public void testMegatronAlternoAtrapadoEnLaNebulosaDeAndromeda(){
-		SuperficieNebulosaDeAndromeda superficie = factoryS.getNebulosaDeAndromeda();
+		SuperficieAerea superficie = factoryS.getNebulosaAndromeda();
 		Posicion posicion1 = new Posicion(1,1);
 		Posicion posicion2 = new Posicion(1,2);
 		Posicion posicion3 = new Posicion(1,3);
@@ -540,8 +543,8 @@ public class EntregaDosTest {
 	}
 	
 	@Test
-	public void testMegatronAlternoAtraviezaTormentaPsionicaYSeDania(){
-		SuperficieTormentaPsionica superficie = factoryS.getTormentaPsionica();
+	public void testMegatronAlternoAtraviesaTormentaPsionicaYSeDania(){
+		SuperficieAerea superficie = factoryS.getTormentaPsionica();
 		Posicion posicion1 = new Posicion(1,1);
 		Posicion posicion2 = new Posicion(1,2);
 		mapa.ubicarAtacable(megatron, posicion1);
@@ -552,8 +555,8 @@ public class EntregaDosTest {
 	}
 	
 	@Test
-	public void testRatchetAlternoAtraviezaTormentaPsionicaYSeDania(){
-		SuperficieTormentaPsionica superficie = factoryS.getTormentaPsionica();
+	public void testRatchetAlternoAtraviesaTormentaPsionicaYSeDania(){
+		SuperficieAerea superficie = factoryS.getTormentaPsionica();
 		Posicion posicion1 = new Posicion(1,1);
 		Posicion posicion2 = new Posicion(1,2);
 		mapa.ubicarAtacable(ratchet, posicion1);
@@ -564,8 +567,8 @@ public class EntregaDosTest {
 	}
 	
 	@Test
-	public void testMegatronAlternoAtraviezaTormentaPsionicaDosVecesYSeDaniaUna(){
-		SuperficieTormentaPsionica superficie = factoryS.getTormentaPsionica();
+	public void testMegatronAlternoAtraviesaTormentaPsionicaDosVecesYSeDaniaUna(){
+		SuperficieAerea superficie = factoryS.getTormentaPsionica();
 		Posicion posicion1 = new Posicion(1,1);
 		Posicion posicion2 = new Posicion(1,2);
 		Posicion posicion3 = new Posicion(1,3);
@@ -580,11 +583,11 @@ public class EntregaDosTest {
 	}
 	
 	@Test
-	public void testRatchetAlternoAtraviezaTormentaPsionicaDosVecesYSeDaniaUna(){
-		SuperficieTormentaPsionica superficie = factoryS.getTormentaPsionica();
+	public void testRatchetAlternoAtraviesaTormentaPsionicaDosVecesYSeDaniaUna(){
+		SuperficieAerea superficie = factoryS.getTormentaPsionica();
 		Posicion posicion1 = new Posicion(1,1);
 		Posicion posicion2 = new Posicion(1,2);
-		Posicion posicion2 = new Posicion(1,3);
+		Posicion posicion3 = new Posicion(1,3);
 		mapa.ubicarAtacable(ratchet, posicion1);
 		mapa.ubicarSuperficie(superficie, posicion2);
 		mapa.ubicarSuperficie(superficie, posicion3);
