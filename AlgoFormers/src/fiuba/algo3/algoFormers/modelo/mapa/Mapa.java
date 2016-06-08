@@ -5,9 +5,7 @@ import java.util.Random;
 
 import fiuba.algo3.algoFormers.modelo.capturables.Chispa;
 import fiuba.algo3.algoFormers.modelo.direcciones.Direccion;
-import fiuba.algo3.algoFormers.modelo.excepciones.AtaqueFueraDeRangoException;
 import fiuba.algo3.algoFormers.modelo.excepciones.UbicableNoPertenceAlMapaException;
-import fiuba.algo3.algoFormers.modelo.fabricas.SuperficieRocosa;
 import fiuba.algo3.algoFormers.modelo.interfaces.Atacable;
 import fiuba.algo3.algoFormers.modelo.interfaces.Capturable;
 import fiuba.algo3.algoFormers.modelo.interfaces.Ubicable;
