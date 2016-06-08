@@ -34,7 +34,7 @@ public abstract class Atributo {
 		}
 		for (EfectoTemporal efecto : this.efectosTemporales){
 			valorCalculado += efecto.obtenerValorFijo();
-			valorCalculado -= (valorActual*efecto.obtenerValorMult())/100;
+			valorCalculado += (valorActual*efecto.obtenerValorMult())/100;
 			efecto.restarTurno();
 			if (efecto.tiempoTerminado()){
 				efectosTemporales.remove(efecto);
