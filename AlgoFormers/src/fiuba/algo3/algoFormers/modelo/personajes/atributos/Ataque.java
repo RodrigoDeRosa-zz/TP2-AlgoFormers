@@ -23,7 +23,7 @@ public class Ataque extends Atributo {
 	}
 	//Este metodo es para las pruebas. No se deberia usar
 	public int getAtaque(){
-		return this.valorActual;
+		return this.calcularValorActual();
 	}
 	
 	public int getDistanciaDeAtaque(){

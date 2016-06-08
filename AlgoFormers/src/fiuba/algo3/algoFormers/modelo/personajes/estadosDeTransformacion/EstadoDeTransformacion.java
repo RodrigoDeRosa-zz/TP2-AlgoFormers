@@ -85,7 +85,7 @@ public abstract class EstadoDeTransformacion {
 	}
 
 	public void guardarEfectoEstatico(EfectoEstatico efecto, EfectoAtaque tipo) {
-		this.velocidad.agregarEfectoFijo(efecto);
+		this.ataque.agregarEfectoFijo(efecto);
 	}
 
 	public abstract void guardarEfectoPantano(EfectoPantano efecto);	

@@ -547,6 +547,7 @@ public class EntregaDosTest {
 		SuperficieAerea superficie = factoryS.getTormentaPsionica();
 		Posicion posicion1 = new Posicion(1,1);
 		Posicion posicion2 = new Posicion(1,2);
+		megatron.transformarse();
 		mapa.ubicarAtacable(megatron, posicion1);
 		mapa.ubicarSuperficie(superficie, posicion2);
 		DirArriba direccion = new DirArriba();
@@ -559,6 +560,7 @@ public class EntregaDosTest {
 		SuperficieAerea superficie = factoryS.getTormentaPsionica();
 		Posicion posicion1 = new Posicion(1,1);
 		Posicion posicion2 = new Posicion(1,2);
+		ratchet.transformarse();
 		mapa.ubicarAtacable(ratchet, posicion1);
 		mapa.ubicarSuperficie(superficie, posicion2);
 		DirArriba direccion = new DirArriba();
@@ -572,6 +574,7 @@ public class EntregaDosTest {
 		Posicion posicion1 = new Posicion(1,1);
 		Posicion posicion2 = new Posicion(1,2);
 		Posicion posicion3 = new Posicion(1,3);
+		megatron.transformarse();
 		mapa.ubicarAtacable(megatron, posicion1);
 		mapa.ubicarSuperficie(superficie, posicion2);
 		mapa.ubicarSuperficie(superficie, posicion3);
@@ -588,6 +591,7 @@ public class EntregaDosTest {
 		Posicion posicion1 = new Posicion(1,1);
 		Posicion posicion2 = new Posicion(1,2);
 		Posicion posicion3 = new Posicion(1,3);
+		ratchet.transformarse();
 		mapa.ubicarAtacable(ratchet, posicion1);
 		mapa.ubicarSuperficie(superficie, posicion2);
 		mapa.ubicarSuperficie(superficie, posicion3);
