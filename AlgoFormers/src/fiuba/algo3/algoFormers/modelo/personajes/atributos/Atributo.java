@@ -4,7 +4,6 @@ import java.util.ArrayList;
 
 import fiuba.algo3.algoFormers.modelo.efecto.EfectoEstatico;
 import fiuba.algo3.algoFormers.modelo.efecto.EfectoTemporal;
-import fiuba.algo3.algoFormers.modelo.personajes.AlgoFormer;
 
 public abstract class Atributo {
 	
