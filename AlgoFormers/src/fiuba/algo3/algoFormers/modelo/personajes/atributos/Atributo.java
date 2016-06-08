@@ -40,6 +40,10 @@ public abstract class Atributo {
 				efectosTemporales.remove(efecto);
 			}
 		}
+		
+		//Para la nebulosa de andromeda, el valor calculado va a ser negativo y por eso se restaura a cero
+		if (valorCalculado < 0) valorCalculado = 0;
+		
 		return valorCalculado;
 		
 	}
