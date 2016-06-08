@@ -21,7 +21,5 @@ public class Vida extends Atributo{
 
 	public void recalcularVida() {
 		valorActual = this.calcularValorActual();
-		
 	}
-	
 }

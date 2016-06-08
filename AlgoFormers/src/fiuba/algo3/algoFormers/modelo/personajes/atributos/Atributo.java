@@ -28,11 +28,13 @@ public abstract class Atributo {
 
 	public int calcularValorActual(){
 		int valorCalculado = valorActual;
-		for (EfectoEstatico efecto : this.efectosEstaticos){
+		for (int i = 0; i < efectosEstaticos.size(); i++){
+			EfectoEstatico efecto = efectosEstaticos.get(i); 
 			valorCalculado += efecto.obtenerValorFijo();
 			valorCalculado += (valorActual*efecto.obtenerValorMult())/100; 
 		}
-		for (EfectoTemporal efecto : this.efectosTemporales){
+		for (int i = 0; i < efectosTemporales.size(); i++){
+			EfectoTemporal efecto = efectosTemporales.get(i); 
 			valorCalculado += efecto.obtenerValorFijo();
 			valorCalculado += (valorActual*efecto.obtenerValorMult())/100;
 			efecto.restarTurno();
