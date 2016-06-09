@@ -12,5 +12,4 @@ public abstract class Bonus extends EfectoTemporal implements Capturable {
 	}
 	
 	public abstract void afectar(Atacable atacable);
-
 }

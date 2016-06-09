@@ -1,5 +1,6 @@
 package fiuba.algo3.algoFormers.modelo.interfaces;
 
+import fiuba.algo3.algoFormers.modelo.capturables.bonus.BurbujaInmaculada;
 import fiuba.algo3.algoFormers.modelo.capturables.bonus.DobleCanion;
 import fiuba.algo3.algoFormers.modelo.mapa.superficies.SuperficieAerea;
 import fiuba.algo3.algoFormers.modelo.mapa.superficies.SuperficieTerrestre;
@@ -17,5 +18,6 @@ public interface Atacable extends Ubicable{
 	public void afectarConSuperficie(SuperficieTerrestre superficie);
 
 	public void afectarConCapturable(DobleCanion dobleCanion);
+	public void afectarConCapturable(BurbujaInmaculada burbujaInmaculada);
 	
 }

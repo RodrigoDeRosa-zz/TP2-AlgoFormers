@@ -1,5 +1,7 @@
 package fiuba.algo3.algoFormers.modelo.personajes.atributos;
 
+import fiuba.algo3.algoFormers.modelo.capturables.bonus.BurbujaInmaculada;
+
 public class Vida extends Atributo{
 	
 	public Vida(int vida){
@@ -10,7 +12,15 @@ public class Vida extends Atributo{
 		/*Metodo que sirve para descontarle la vida a un jugador
 		 * que es atacado.
 		 */
-		this.valorActual -= descuento;
+		int danioTotal = this.calcularDanio(descuento);
+		this.valorActual -= danioTotal;
+	}
+	
+	private int calcularDanio(int danioOriginal){
+		if (this.efectosTemporales.contains((new BurbujaInmaculada()))){
+			return 0;
+		}
+		return danioOriginal;
 	}
 	
 	//Metodo para las pruebas. No se deberia usar

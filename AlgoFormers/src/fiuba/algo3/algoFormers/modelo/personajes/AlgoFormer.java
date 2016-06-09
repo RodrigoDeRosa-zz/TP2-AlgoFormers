@@ -1,5 +1,6 @@
 package fiuba.algo3.algoFormers.modelo.personajes;
 
+import fiuba.algo3.algoFormers.modelo.capturables.bonus.BurbujaInmaculada;
 import fiuba.algo3.algoFormers.modelo.capturables.bonus.DobleCanion;
 import fiuba.algo3.algoFormers.modelo.direcciones.Direccion;
 import fiuba.algo3.algoFormers.modelo.efecto.EfectoAtaque;
@@ -102,6 +103,10 @@ public abstract class AlgoFormer implements Atacable {
 		this.estadoDeTransformacionActual.afectarConCapturable(bonus);
 	}
 	
+	public void afectarConCapturable(BurbujaInmaculada bonus){
+		this.vida.agregarEfectoTemporal(bonus);
+	}
+	
 	public void afectarConSuperficie(SuperficieAerea superficie) {
 		this.estadoDeTransformacionActual.afectarConSuperficie(superficie,this);	
 	}
@@ -140,7 +145,6 @@ public abstract class AlgoFormer implements Atacable {
 	
 	public void guardarEfecto(EfectoTemporal efecto, EfectoVida tipo) {
 		this.vida.agregarEfectoTemporal(efecto);
-//		this.vida.recalcularVida();
 	}
 	
 	public void guardarEfecto(EfectoTemporal efecto, EfectoVelocidad tipo) {
@@ -154,7 +158,6 @@ public abstract class AlgoFormer implements Atacable {
 	
 	public void guardarEfecto(EfectoEstatico efecto, EfectoVida tipo) {
 		this.vida.agregarEfectoFijo(efecto);
-//		this.vida.recalcularVida();
 	}
 	
 	public void guardarEfecto(EfectoEstatico efecto, EfectoVelocidad tipo) {
