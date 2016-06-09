@@ -54,4 +54,10 @@ public class ManejadorDeMovimientos {
 	public int getMovimientosRestantes(){
 		return this.movimientosRestantes;
 	}
+
+	public void actualizarMovimientos(int nuevoValor) {
+		int diferencia = Math.abs(this.movimientosTotales - nuevoValor);
+		this.movimientosRestantes -= diferencia;
+		if (this.movimientosRestantes < 0) this.movimientosRestantes = 0;
+	}
 }

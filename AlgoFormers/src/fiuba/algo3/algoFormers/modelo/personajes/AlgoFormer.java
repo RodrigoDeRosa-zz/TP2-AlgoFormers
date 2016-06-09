@@ -44,7 +44,7 @@ public abstract class AlgoFormer implements Atacable {
 	}
 	
 	private void setManejadorMovimientos(){
-		ManejadorDeMovimientos manejadorM=this.estadoDeTransformacionActual.crearManejadorMovimientos();
+		ManejadorDeMovimientos manejadorM = this.estadoDeTransformacionActual.crearManejadorMovimientos();
 		this.manDeMovimientos = manejadorM;
 	}
 
@@ -91,7 +91,9 @@ public abstract class AlgoFormer implements Atacable {
 		/*Funcion para setear los manejadores de un algoformer en el momento
 		en el que el algoformer es seleccionado como el personaje de turno.
 		*/
-		this.manDeMovimientos.resetearMovimientos();
+//		this.vida.actualizar();
+		this.estadoDeTransformacionActual.actualizarAtributos();
+		this.setManejadorMovimientos();
 	}
 	
 	public void afectarConSuperficie(SuperficieAerea superficie) {
@@ -132,11 +134,12 @@ public abstract class AlgoFormer implements Atacable {
 	
 	public void guardarEfecto(EfectoTemporal efecto, EfectoVida tipo) {
 		this.vida.agregarEfectoTemporal(efecto);
-		this.vida.recalcularVida();
+//		this.vida.recalcularVida();
 	}
 	
 	public void guardarEfecto(EfectoTemporal efecto, EfectoVelocidad tipo) {
 		this.estadoDeTransformacionActual.guardarEfectoTemporal(efecto, tipo);
+		this.estadoDeTransformacionActual.actualizarManejadorMovimiento(this.manDeMovimientos);
 	}
 	
 	public void guardarEfecto(EfectoTemporal efecto, EfectoAtaque tipo) {
@@ -145,7 +148,7 @@ public abstract class AlgoFormer implements Atacable {
 	
 	public void guardarEfecto(EfectoEstatico efecto, EfectoVida tipo) {
 		this.vida.agregarEfectoFijo(efecto);
-		this.vida.recalcularVida();
+//		this.vida.recalcularVida();
 	}
 	
 	public void guardarEfecto(EfectoEstatico efecto, EfectoVelocidad tipo) {
@@ -179,5 +182,9 @@ public abstract class AlgoFormer implements Atacable {
 	
 	public String getNombre(){
 		return this.nombre;
+	}
+	
+	public int getMovRest(){
+		return this.manDeMovimientos.getMovimientosRestantes();
 	}
 }

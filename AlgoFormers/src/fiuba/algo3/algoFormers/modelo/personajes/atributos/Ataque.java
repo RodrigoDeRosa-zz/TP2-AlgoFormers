@@ -17,13 +17,13 @@ public class Ataque extends Atributo {
 	
 	public ManejadorDeAtaques crearManejadorAtaque() {
 		/*Funcion utilizada para la creacion del manejador de ataque*/
-		valorActual = this.calcularValorActual();
-		return this.distAtaque.crearManejadorAtaques(valorActual);
+//		valorActual = this.calcularValorActual();
+		return this.distAtaque.crearManejadorAtaques(this.valorActual);
 		
 	}
 	//Este metodo es para las pruebas. No se deberia usar
 	public int getAtaque(){
-		return this.calcularValorActual();
+		return this.valorActual();
 	}
 	
 	public int getDistanciaDeAtaque(){

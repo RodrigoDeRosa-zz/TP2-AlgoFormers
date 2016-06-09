@@ -10,13 +10,17 @@ public class Velocidad extends Atributo{
 	
 	//Metodo para las pruebas. No se deberian usar
 	public int getVelocidad(){
-		return this.valorActual;
+		return this.valorActual();
 	}
 
 	public ManejadorDeMovimientos crearManejadorMovimientos() {
-		valorActual = this.calcularValorActual();
-		ManejadorDeMovimientos manejador = new ManejadorDeMovimientos(valorActual);
+//		valorActual = this.calcularValorActual();
+		ManejadorDeMovimientos manejador = new ManejadorDeMovimientos(this.valorActual);
 		return manejador;
+	}
+
+	public void actualizarManejadorMovimiento(ManejadorDeMovimientos manejador) {
+		manejador.actualizarMovimientos(this.valorActual);
 	}
 	
 }

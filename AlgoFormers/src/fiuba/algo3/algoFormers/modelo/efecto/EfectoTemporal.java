@@ -20,6 +20,6 @@ public class EfectoTemporal extends Efecto{
 	}
 
 	public boolean tiempoTerminado() {
-		return (turnos == 0);
+		return (turnos <= 0);
 	}
 }

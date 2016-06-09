@@ -88,6 +88,15 @@ public abstract class EstadoDeTransformacion {
 		this.ataque.agregarEfectoFijo(efecto);
 	}
 
-	public abstract void guardarEfectoPantano(EfectoPantano efecto);	
+	public abstract void guardarEfectoPantano(EfectoPantano efecto);
+
+	public void actualizarManejadorMovimiento(ManejadorDeMovimientos manejador) {
+		this.velocidad.actualizarManejadorMovimiento(manejador);
+	}
+
+	public void actualizarAtributos() {
+		this.ataque.actualizar();
+		this.velocidad.actualizar();
+	}	
 	
 }

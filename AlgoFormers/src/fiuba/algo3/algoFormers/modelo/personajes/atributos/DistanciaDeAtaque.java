@@ -12,8 +12,8 @@ public class DistanciaDeAtaque extends Atributo{
 		/*Metodo que devuelve el manejador de ataque seteado con el poder
 		 * de ataque y la distancia.
 		 */
-		valorActual = this.calcularValorActual();
-		ManejadorDeAtaques manejador = new ManejadorDeAtaques(ataque, valorActual);
+//		valorActual = this.calcularValorActual();
+		ManejadorDeAtaques manejador = new ManejadorDeAtaques(ataque, this.valorActual);
 		return manejador;
 	}
 	

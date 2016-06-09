@@ -515,6 +515,7 @@ public class EntregaDosTest {
 			} catch (MovimientosAgotadosException e) {
 				assertEquals(mapa.getAtacable(posicion2).getClass(), ratchet.getClass());
 			}
+			ratchet.finalizarTurno();
 		}
 		ratchet.moverEnDireccion(direccion, mapa);
 		assertEquals(mapa.getAtacable(posicion3).getClass(), ratchet.getClass());
@@ -537,6 +538,7 @@ public class EntregaDosTest {
 			} catch (MovimientosAgotadosException e) {
 				assertEquals(mapa.getAtacable(posicion2).getClass(), megatron.getClass());
 			}
+			megatron.finalizarTurno();
 		}
 		megatron.moverEnDireccion(direccion, mapa);
 		assertEquals(mapa.getAtacable(posicion3).getClass(), megatron.getClass());
