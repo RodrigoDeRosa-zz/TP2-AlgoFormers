@@ -28,6 +28,12 @@ public class Casillero {
 		this.afectarConSuperficie(atacable);
 		this.afectarConCapturable(atacable);
 		this.setAtacable(atacable);
+		this.sacarCapturable();
+	}
+	
+	private void sacarCapturable(){
+		this.capturable = null;
+		this.ocupadoCapturable = false;
 	}
 	
 	private void afectarConCapturable(Atacable atacable) {

@@ -22,4 +22,8 @@ public class EfectoTemporal extends Efecto{
 	public boolean tiempoTerminado() {
 		return (turnos <= 0);
 	}
+
+	public int turnos() {
+		return this.turnos;
+	}
 }

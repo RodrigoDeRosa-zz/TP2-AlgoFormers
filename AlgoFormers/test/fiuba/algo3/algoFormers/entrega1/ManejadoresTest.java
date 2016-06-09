@@ -117,7 +117,6 @@ public class ManejadoresTest {
 		int distancia = optimus.getDistanciaDeAtaque();
 		ManejadorDeAtaques manejador = new ManejadorDeAtaques(poder, distancia);
 		manejador.atacar(optimus, posicionAtaque, mapa);
-		
 	}
 	
 	@Test(expected=AtaqueEspacioVacioException.class)

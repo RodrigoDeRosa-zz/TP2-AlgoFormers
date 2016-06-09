@@ -88,16 +88,16 @@ public class Mapa {
 		throw new UbicableNoPertenceAlMapaException("El ubicable no pertence al mapa");
 	}
 	
-	public double obtenerDistanciaF(Posicion posicionUbicable, Posicion posicionAtacable, int distanciaAtaque) {
-		double distanciaFila = posicionUbicable.obtenerDistanciaFila(posicionAtacable);
-		return distanciaFila;
-		
+	public int obtenerDistancia(Posicion posicionUbicable, Posicion posicionAtacable, int distanciaAtaque) {
+		int distanciaFila = posicionUbicable.obtenerDistanciaFila(posicionAtacable);
+		int distanciaColumna = posicionUbicable.obtenerDistanciaColumna(posicionAtacable);
+		return Math.max(distanciaFila, distanciaColumna);
 	}
 	
-	public double obtenerDistanciaC(Posicion posicionUbicable, Posicion posicionAtacable, int distanciaAtaque) {
-		double distanciaColumna = posicionUbicable.obtenerDistanciaColumna(posicionAtacable);
-		return distanciaColumna;
-	}
+//	public double obtenerDistanciaC(Posicion posicionUbicable, Posicion posicionAtacable, int distanciaAtaque) {
+//		double distanciaColumna = posicionUbicable.obtenerDistanciaColumna(posicionAtacable);
+//		return distanciaColumna;
+//	}
 	//Metodos privados.
 	
 	private void llenarTablero(HashMap<Posicion, Casillero> tablero) {	

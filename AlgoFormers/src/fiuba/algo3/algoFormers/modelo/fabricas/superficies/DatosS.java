@@ -2,9 +2,9 @@ package fiuba.algo3.algoFormers.modelo.fabricas.superficies;
 
 public enum DatosS {
 	
-	EFECTOPANTANO (0,-1,1),
+	EFECTOPANTANO (0,-1, 1),
 	EFECTOROCAS(0,0,1),
-	EFECTOESPINA(-5,0,1),
+	EFECTOESPINA(-5,0, 1),
 	EFECTONUBE(0,0,1),
 	EFECTOTORMENTAPSIONICA(-40,0,0),
 	EFECTONEBULOSAANDROMEDA(-100,0,3);

@@ -22,5 +22,6 @@ public abstract class Efecto {
 	
 	public int obtenerValorMult() {
 		return multiplicador;
-	}
+	}	
+	
 }

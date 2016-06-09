@@ -2,6 +2,7 @@ package fiuba.algo3.algoFormers.modelo.personajes;
 
 import fiuba.algo3.algoFormers.modelo.capturables.bonus.BurbujaInmaculada;
 import fiuba.algo3.algoFormers.modelo.capturables.bonus.DobleCanion;
+import fiuba.algo3.algoFormers.modelo.capturables.bonus.Flash;
 import fiuba.algo3.algoFormers.modelo.direcciones.Direccion;
 import fiuba.algo3.algoFormers.modelo.efecto.EfectoAtaque;
 import fiuba.algo3.algoFormers.modelo.efecto.EfectoEstatico;
@@ -51,7 +52,7 @@ public abstract class AlgoFormer implements Atacable {
 	}
 
 	private void setManejadorAtaques(){
-		ManejadorDeAtaques manejadorA=this.estadoDeTransformacionActual.crearManejadorAtaque();
+		ManejadorDeAtaques manejadorA = this.estadoDeTransformacionActual.crearManejadorAtaque();
 		this.manDeAtaques = manejadorA;
 	}
 
@@ -93,26 +94,33 @@ public abstract class AlgoFormer implements Atacable {
 		/*Funcion para setear los manejadores de un algoformer en el momento
 		en el que el algoformer es seleccionado como el personaje de turno.
 		*/
-//		this.vida.actualizar();
+		this.vida.actualizar();
 		this.estadoDeTransformacionActual.actualizarAtributos();
+		this.estadoDeTransformacionOpuesto.actualizarAtributos();
 		this.setManejadorMovimientos();
 		this.setManejadorAtaques();
 	}
 	
 	public void afectarConCapturable(DobleCanion bonus){
 		this.estadoDeTransformacionActual.afectarConCapturable(bonus);
+		this.estadoDeTransformacionOpuesto.afectarConCapturable(bonus);
 	}
 	
 	public void afectarConCapturable(BurbujaInmaculada bonus){
-		this.vida.agregarEfectoTemporal(bonus);
+		this.vida.crearEscudo();
+	}
+	
+	public void afectarConCapturable(Flash bonus){
+		this.estadoDeTransformacionActual.afectarConCapturable(bonus);
+		this.estadoDeTransformacionOpuesto.afectarConCapturable(bonus);
 	}
 	
 	public void afectarConSuperficie(SuperficieAerea superficie) {
-		this.estadoDeTransformacionActual.afectarConSuperficie(superficie,this);	
+		this.estadoDeTransformacionActual.afectarConSuperficie(superficie,this);
 	}
 
 	public void afectarConSuperficie(SuperficieTerrestre superficie) {
-		this.estadoDeTransformacionActual.afectarConSuperficie(superficie,this);
+		this.estadoDeTransformacionActual.afectarConSuperficie(superficie,this);	
 	}
 	
 	@Override
@@ -140,7 +148,7 @@ public abstract class AlgoFormer implements Atacable {
 	}
 	
 	public void guardarEfecto(EfectoPantano efecto){
-		this.estadoDeTransformacionActual.guardarEfectoPantano(efecto);		
+		this.estadoDeTransformacionActual.guardarEfectoPantano(efecto);
 	}
 	
 	public void guardarEfecto(EfectoTemporal efecto, EfectoVida tipo) {
@@ -149,11 +157,13 @@ public abstract class AlgoFormer implements Atacable {
 	
 	public void guardarEfecto(EfectoTemporal efecto, EfectoVelocidad tipo) {
 		this.estadoDeTransformacionActual.guardarEfectoTemporal(efecto, tipo);
+		this.estadoDeTransformacionOpuesto.guardarEfectoTemporal(efecto, tipo);
 		this.estadoDeTransformacionActual.actualizarManejadorMovimiento(this.manDeMovimientos);
 	}
 	
 	public void guardarEfecto(EfectoTemporal efecto, EfectoAtaque tipo) {
 		this.estadoDeTransformacionActual.guardarEfectoTemporal(efecto, tipo);
+		this.estadoDeTransformacionOpuesto.guardarEfectoTemporal(efecto, tipo);
 	}
 	
 	public void guardarEfecto(EfectoEstatico efecto, EfectoVida tipo) {
@@ -162,10 +172,12 @@ public abstract class AlgoFormer implements Atacable {
 	
 	public void guardarEfecto(EfectoEstatico efecto, EfectoVelocidad tipo) {
 		this.estadoDeTransformacionActual.guardarEfectoEstatico(efecto, tipo);	
+		this.estadoDeTransformacionOpuesto.guardarEfectoEstatico(efecto, tipo);
 	}
 	
 	public void guardarEfecto(EfectoEstatico efecto, EfectoAtaque tipo) {
-		this.estadoDeTransformacionActual.guardarEfectoEstatico(efecto, tipo);		
+		this.estadoDeTransformacionActual.guardarEfectoEstatico(efecto, tipo);
+		this.estadoDeTransformacionOpuesto.guardarEfectoEstatico(efecto, tipo);
 	}
 	
 	//Metodos para las pruebas. No se deberian llamar en otras clases.
