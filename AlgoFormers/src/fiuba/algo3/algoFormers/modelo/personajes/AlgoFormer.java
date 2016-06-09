@@ -1,5 +1,6 @@
 package fiuba.algo3.algoFormers.modelo.personajes;
 
+import fiuba.algo3.algoFormers.modelo.capturables.bonus.DobleCanion;
 import fiuba.algo3.algoFormers.modelo.direcciones.Direccion;
 import fiuba.algo3.algoFormers.modelo.efecto.EfectoAtaque;
 import fiuba.algo3.algoFormers.modelo.efecto.EfectoEstatico;
@@ -94,6 +95,11 @@ public abstract class AlgoFormer implements Atacable {
 //		this.vida.actualizar();
 		this.estadoDeTransformacionActual.actualizarAtributos();
 		this.setManejadorMovimientos();
+		this.setManejadorAtaques();
+	}
+	
+	public void afectarConCapturable(DobleCanion bonus){
+		this.estadoDeTransformacionActual.afectarConCapturable(bonus);
 	}
 	
 	public void afectarConSuperficie(SuperficieAerea superficie) {
@@ -186,5 +192,9 @@ public abstract class AlgoFormer implements Atacable {
 	
 	public int getMovRest(){
 		return this.manDeMovimientos.getMovimientosRestantes();
+	}
+	
+	public void resetearVida(){
+		this.vida.resetear();
 	}
 }

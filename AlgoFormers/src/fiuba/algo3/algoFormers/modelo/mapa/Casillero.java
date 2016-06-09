@@ -26,9 +26,16 @@ public class Casillero {
 	public void ubicar(Atacable atacable){
 		this.verificarCasilleroEstaVacio();
 		this.afectarConSuperficie(atacable);
+		this.afectarConCapturable(atacable);
 		this.setAtacable(atacable);
 	}
 	
+	private void afectarConCapturable(Atacable atacable) {
+		if (this.capturable != null){
+			this.capturable.afectar(atacable);		
+		}
+	}
+
 	private void afectarConSuperficie(Atacable atacable) {
 		for (Superficie superficie : this.superficies){
 			superficie.afectar(atacable);
@@ -64,7 +71,7 @@ public class Casillero {
 	}
 	
 	public Atacable getAtacable() {
-		return atacable;
+		return this.atacable;
 	}
 	
 	public Capturable getCapturable() {

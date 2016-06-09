@@ -1,13 +1,16 @@
 package fiuba.algo3.algoFormers.modelo.capturables;
 
+import fiuba.algo3.algoFormers.modelo.interfaces.Atacable;
 import fiuba.algo3.algoFormers.modelo.interfaces.Capturable;
 
 public class Chispa implements Capturable{
 
 	private int id = 0;
 	
-	public Chispa(){
-		
+	public Chispa(){}
+	
+	public void afectar(Atacable atacable){
+		//GANAR
 	}
 	
 	@Override

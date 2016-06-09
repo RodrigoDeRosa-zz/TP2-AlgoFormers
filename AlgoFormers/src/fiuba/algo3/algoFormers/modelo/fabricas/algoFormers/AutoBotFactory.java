@@ -1,4 +1,4 @@
-package fiuba.algo3.algoFormers.modelo.fabricas;
+package fiuba.algo3.algoFormers.modelo.fabricas.algoFormers;
 
 import fiuba.algo3.algoFormers.modelo.personajes.AutoBot;
 import fiuba.algo3.algoFormers.modelo.personajes.estadosDeTransformacion.Alterno;

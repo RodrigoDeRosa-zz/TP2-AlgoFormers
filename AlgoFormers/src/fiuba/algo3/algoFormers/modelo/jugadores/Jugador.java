@@ -1,6 +1,6 @@
 package fiuba.algo3.algoFormers.modelo.jugadores;
 
-import fiuba.algo3.algoFormers.modelo.fabricas.AlgoFormerFactory;
+import fiuba.algo3.algoFormers.modelo.fabricas.algoFormers.AlgoFormerFactory;
 import fiuba.algo3.algoFormers.modelo.mapa.Mapa;
 import fiuba.algo3.algoFormers.modelo.personajes.AlgoFormer;
 

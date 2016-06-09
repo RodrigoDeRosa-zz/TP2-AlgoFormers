@@ -1,5 +1,6 @@
 package fiuba.algo3.algoFormers.modelo.personajes.estadosDeTransformacion;
 
+import fiuba.algo3.algoFormers.modelo.capturables.bonus.DobleCanion;
 import fiuba.algo3.algoFormers.modelo.efecto.EfectoAtaque;
 import fiuba.algo3.algoFormers.modelo.efecto.EfectoEstatico;
 import fiuba.algo3.algoFormers.modelo.efecto.EfectoPantano;
@@ -97,6 +98,10 @@ public abstract class EstadoDeTransformacion {
 	public void actualizarAtributos() {
 		this.ataque.actualizar();
 		this.velocidad.actualizar();
+	}
+
+	public void afectarConCapturable(DobleCanion bonus) {
+		this.ataque.agregarEfectoTemporal(bonus);		
 	}	
 	
 }

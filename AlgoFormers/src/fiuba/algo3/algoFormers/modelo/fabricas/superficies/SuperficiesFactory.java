@@ -1,4 +1,4 @@
-package fiuba.algo3.algoFormers.modelo.fabricas;
+package fiuba.algo3.algoFormers.modelo.fabricas.superficies;
 
 import fiuba.algo3.algoFormers.modelo.efecto.EfectoAtaque;
 import fiuba.algo3.algoFormers.modelo.efecto.EfectoEstatico;

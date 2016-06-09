@@ -1,4 +1,4 @@
-package fiuba.algo3.algoFormers.modelo.fabricas;
+package fiuba.algo3.algoFormers.modelo.fabricas.superficies;
 
 public enum DatosS {
 	
@@ -7,7 +7,7 @@ public enum DatosS {
 	EFECTOESPINA(-5,0,1),
 	EFECTONUBE(0,0,0),
 	EFECTOTORMENTAPSIONICA(-40,0,0),
-	EFECTONEBULOSAANDROMEDA(-100,0,3);
+	EFECTONEBULOSAANDROMEDA(-100,0,4);
 	
 	private final int turnos;
 	private final int multiplicador;

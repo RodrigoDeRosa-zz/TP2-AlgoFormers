@@ -1,4 +1,4 @@
-package fiuba.algo3.algoFormers.modelo.fabricas;
+package fiuba.algo3.algoFormers.modelo.fabricas.algoFormers;
 
 public enum EAF {
 	OPTIMUS ("Optimus Prime", 500, 2, 5, 50, 15, 2, 4),

@@ -4,9 +4,9 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-import fiuba.algo3.algoFormers.modelo.fabricas.AlgoFormerFactory;
-import fiuba.algo3.algoFormers.modelo.fabricas.AutoBotFactory;
-import fiuba.algo3.algoFormers.modelo.fabricas.DecepticonFactory;
+import fiuba.algo3.algoFormers.modelo.fabricas.algoFormers.AlgoFormerFactory;
+import fiuba.algo3.algoFormers.modelo.fabricas.algoFormers.AutoBotFactory;
+import fiuba.algo3.algoFormers.modelo.fabricas.algoFormers.DecepticonFactory;
 import fiuba.algo3.algoFormers.modelo.personajes.AlgoFormer;
 
 public class CreacionPersonajesTest {

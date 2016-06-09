@@ -26,7 +26,7 @@ public abstract class Atributo {
 	}
 	
 	public void agregarEfectoTemporal(EfectoTemporal efecto){
-		efectosTemporales.add(efecto);
+		this.efectosTemporales.add(efecto);
 		this.valorActual = this.calcularValorActual(this.valorActual);
 	}	
 	
@@ -60,6 +60,11 @@ public abstract class Atributo {
 		
 		return valorCalculado;
 		
+	}
+	
+	//Metodo para pruebas
+	public void resetear(){
+		this.valorActual = this.valorOriginal;
 	}
 	
 }

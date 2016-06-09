@@ -34,7 +34,7 @@ public class JugadorAutobots extends Jugador {
 		for (AutoBot algoformer : this.personajes) {
             
 			Posicion pos = new Posicion(filaInicio, columnaActual);
-			mapa.ubicarAtacable(algoformer, pos);
+			mapa.ubicar(algoformer, pos);
             columnaActual++;
 		}
 

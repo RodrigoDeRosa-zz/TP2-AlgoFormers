@@ -24,17 +24,17 @@ public class Mapa {
 	}
 
 	
-	public void ubicarAtacable(Atacable atacable, Posicion posicion) {
+	public void ubicar(Atacable atacable, Posicion posicion) {
 		Casillero casillero = tablero.get(posicion);
 		casillero.ubicar(atacable);
 	}
 	
-	public void ubicarCapturable(Capturable capturable, Posicion posicion) {		
+	public void ubicar(Capturable capturable, Posicion posicion) {		
 		Casillero casillero = tablero.get(posicion);
 		casillero.ubicar(capturable);
 	}
 	
-	public void ubicarSuperficie(Superficie superficie, Posicion posicion) {
+	public void ubicar(Superficie superficie, Posicion posicion) {
 		Casillero casillero = tablero.get(posicion);
 		casillero.ubicar(superficie);
 	}
@@ -51,7 +51,7 @@ public class Mapa {
 		
 		Posicion posicion = new Posicion(resultadoX, resultadoY);
 		
-		this.ubicarCapturable(chispa, posicion);
+		this.ubicar(chispa, posicion);
 	}
 
 	public void moverAtacableEnDireccion(Atacable atacable, Direccion direccion) {

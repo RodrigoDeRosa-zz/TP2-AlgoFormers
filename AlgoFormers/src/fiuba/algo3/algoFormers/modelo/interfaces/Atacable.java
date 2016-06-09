@@ -1,5 +1,6 @@
 package fiuba.algo3.algoFormers.modelo.interfaces;
 
+import fiuba.algo3.algoFormers.modelo.capturables.bonus.DobleCanion;
 import fiuba.algo3.algoFormers.modelo.mapa.superficies.SuperficieAerea;
 import fiuba.algo3.algoFormers.modelo.mapa.superficies.SuperficieTerrestre;
 import fiuba.algo3.algoFormers.modelo.personajes.AlgoFormer;
@@ -15,4 +16,6 @@ public interface Atacable extends Ubicable{
 	public void afectarConSuperficie(SuperficieAerea superficie);
 	public void afectarConSuperficie(SuperficieTerrestre superficie);
 
+	public void afectarConCapturable(DobleCanion dobleCanion);
+	
 }

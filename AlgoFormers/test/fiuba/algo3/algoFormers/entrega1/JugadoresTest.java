@@ -2,8 +2,8 @@ package fiuba.algo3.algoFormers.entrega1;
 import static org.junit.Assert.*;
 import org.junit.Test;
 
-import fiuba.algo3.algoFormers.modelo.fabricas.AutoBotFactory;
-import fiuba.algo3.algoFormers.modelo.fabricas.DecepticonFactory;
+import fiuba.algo3.algoFormers.modelo.fabricas.algoFormers.AutoBotFactory;
+import fiuba.algo3.algoFormers.modelo.fabricas.algoFormers.DecepticonFactory;
 import fiuba.algo3.algoFormers.modelo.jugadores.JugadorAutobots;
 import fiuba.algo3.algoFormers.modelo.jugadores.JugadorDecepticons;
 import fiuba.algo3.algoFormers.modelo.mapa.Mapa;
