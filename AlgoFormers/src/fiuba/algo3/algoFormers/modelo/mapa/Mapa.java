@@ -94,10 +94,6 @@ public class Mapa {
 		return Math.max(distanciaFila, distanciaColumna);
 	}
 	
-//	public double obtenerDistanciaC(Posicion posicionUbicable, Posicion posicionAtacable, int distanciaAtaque) {
-//		double distanciaColumna = posicionUbicable.obtenerDistanciaColumna(posicionAtacable);
-//		return distanciaColumna;
-//	}
 	//Metodos privados.
 	
 	private void llenarTablero(HashMap<Posicion, Casillero> tablero) {	
