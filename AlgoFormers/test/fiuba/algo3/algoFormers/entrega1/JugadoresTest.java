@@ -58,18 +58,15 @@ public class JugadoresTest {
 		AutoBot optimus = fabrica.getOptimusPrime();
 		AutoBot bumb = fabrica.getBumblebee();
 		AutoBot rat = fabrica.getRatchet();
-		Posicion posOptimus = new Posicion(0, 18);
-		Posicion posBumb = new Posicion(0, 19);
+		Posicion posBumb = new Posicion(0, 18);
+		Posicion posOptimus = new Posicion(0, 19);
 		Posicion posRat = new Posicion(0, 20);
 		
 		jug.ubicarPersonajes(mapa);
 		
 		assertEquals(optimus, mapa.getAtacable(posOptimus));
 		assertEquals(bumb, mapa.getAtacable(posBumb));
-		assertEquals(rat, mapa.getAtacable(posRat));
-		
-		
-		
+		assertEquals(rat, mapa.getAtacable(posRat));		
 	}
 	
 	@Test
@@ -82,15 +79,15 @@ public class JugadoresTest {
 		Decepticon megatron = fabrica.getMegatron();
 		Decepticon boneC = fabrica.getBonecrusher();
 		Decepticon frenzy = fabrica.getFrenzy();
-		Posicion posOptimus = new Posicion(39, 18);
-		Posicion posBumb = new Posicion(39, 19);
-		Posicion posRat = new Posicion(39, 20);
+		Posicion posBone = new Posicion(39, 18);
+		Posicion posFrenzy = new Posicion(39, 19);
+		Posicion posMegatron = new Posicion(39, 20);
 		
 		jug.ubicarPersonajes(mapa);
 		
-		assertEquals(megatron, mapa.getAtacable(posOptimus));
-		assertEquals(boneC, mapa.getAtacable(posBumb));
-		assertEquals(frenzy, mapa.getAtacable(posRat));
+		assertEquals(megatron, mapa.getAtacable(posMegatron));
+		assertEquals(boneC, mapa.getAtacable(posBone));
+		assertEquals(frenzy, mapa.getAtacable(posFrenzy));
 		
 		
 		

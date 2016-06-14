@@ -1,39 +1,74 @@
 package fiuba.algo3.algoFormers.modelo.juego;
 
 import fiuba.algo3.algoFormers.modelo.capturables.Chispa;
+import fiuba.algo3.algoFormers.modelo.direcciones.Direccion;
 import fiuba.algo3.algoFormers.modelo.interfaces.Atacable;
 import fiuba.algo3.algoFormers.modelo.jugadores.JugadorAutobots;
 import fiuba.algo3.algoFormers.modelo.jugadores.JugadorDecepticons;
 import fiuba.algo3.algoFormers.modelo.mapa.Mapa;
 import fiuba.algo3.algoFormers.modelo.mapa.Posicion;
+import fiuba.algo3.algoFormers.modelo.personajes.AutoBot;
+import fiuba.algo3.algoFormers.modelo.personajes.Decepticon;
 
 
 public class Juego {
 
 	private Mapa mapa;
 	private Chispa chispa;
+	private ManejadorDeTurnos manejadorTurnos;
+	private ManejadorDeAcciones manejadorAcciones;
 	private JugadorAutobots jugadorA;
 	private JugadorDecepticons jugadorD;
 	
 	public Juego() {
-		
 		this.mapa = new Mapa();
-		jugadorA = new JugadorAutobots();
-		jugadorD = new JugadorDecepticons();
+		this.jugadorA = new JugadorAutobots();
+		this.jugadorD = new JugadorDecepticons();
 		
-		jugadorA.ubicarPersonajes(mapa);
-		jugadorD.ubicarPersonajes(mapa);
+		this.manejadorTurnos = new ManejadorDeTurnos(jugadorA, jugadorD);
+		this.manejadorAcciones = new ManejadorDeAcciones(this.mapa);
+		
+		this.jugadorA.ubicarPersonajes(mapa);
+		this.jugadorD.ubicarPersonajes(mapa);
 		
 		this.chispa = new Chispa();
 		this.ubicarChispa(this.chispa);
-		
-		}
-	
+	}
 	
 	public void ubicarChispa(Chispa chispa){
 		this.mapa.ubicarChispa(chispa);
 	}
 	
+	public void setPersonajeActual(AutoBot personaje){
+		this.manejadorTurnos.setPersonajeActual(personaje);
+	}
+	
+	public void setPersonajeActual(Decepticon personaje){
+		this.manejadorTurnos.setPersonajeActual(personaje);
+	}
+	
+	public void finalizarTurno(){
+		this.manejadorTurnos.finalizarTurno();
+	}
+	
+	public void atacar(Posicion posicion){
+		this.manejadorAcciones.atacar(this.manejadorTurnos.jugadorActual(), posicion);
+		this.finalizarTurno();
+	}
+	
+	public void transformar(){
+		this.manejadorAcciones.transformar(this.manejadorTurnos.jugadorActual());
+		this.finalizarTurno();
+	}
+	
+	public void combinar(){
+		this.manejadorAcciones.combinar(this.manejadorTurnos.jugadorActual());
+		this.finalizarTurno();
+	}
+	
+	public void mover(Direccion direccion){
+		this.manejadorAcciones.mover(this.manejadorTurnos.jugadorActual(), direccion);
+	}
 
 	//Metodos para las pruebas
 	public Atacable getAtacable(Posicion posicion) {

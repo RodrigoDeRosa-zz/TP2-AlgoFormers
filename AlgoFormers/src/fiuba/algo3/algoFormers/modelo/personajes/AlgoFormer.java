@@ -107,7 +107,7 @@ public abstract class AlgoFormer implements Atacable {
 	}
 	
 	public void afectarConCapturable(BurbujaInmaculada bonus){
-		this.vida.crearEscudo();
+		this.vida.ponerEscudo(bonus.turnos());
 	}
 	
 	public void afectarConCapturable(Flash bonus){
@@ -178,6 +178,10 @@ public abstract class AlgoFormer implements Atacable {
 	public void guardarEfecto(EfectoEstatico efecto, EfectoAtaque tipo) {
 		this.estadoDeTransformacionActual.guardarEfectoEstatico(efecto, tipo);
 		this.estadoDeTransformacionOpuesto.guardarEfectoEstatico(efecto, tipo);
+	}
+	
+	public void sumarVidaA(int total) {
+		this.vida.sumarVidaA(total);
 	}
 	
 	//Metodos para las pruebas. No se deberian llamar en otras clases.

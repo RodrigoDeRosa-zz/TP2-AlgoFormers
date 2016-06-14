@@ -2,10 +2,15 @@ package fiuba.algo3.algoFormers.modelo.personajes.atributos;
 
 public class Vida extends Atributo{
 	
-	private int escudo = 0;
+	private Escudo escudo;
 	
 	public Vida(int vida){
 		super(vida);
+		this.setEscudo();
+	}
+	
+	private void setEscudo(){
+		this.escudo = new Escudo();
 	}
 	
 	public void descontarVida(int descuento){
@@ -17,17 +22,20 @@ public class Vida extends Atributo{
 	}
 	
 	private int calcularDanio(int danioOriginal){
-		if (this.escudo != 0){ danioOriginal = 0; }
-		return danioOriginal;
+		return this.escudo.calcularDanio(danioOriginal);
 	}
 	
-	public void crearEscudo() {
-		this.escudo = 3;		
+	public void ponerEscudo(int turnos) {
+		this.escudo.activar(turnos);		
+	}
+
+	public void sumarVidaA(int total) {
+		total += this.valorActual;		
 	}
 	
 	@Override
 	public void actualizar(){
-		if(this.escudo > 0) this.escudo--;
+		this.escudo.actualizar();
 	}
 	
 	//Metodo para las pruebas. No se deberia usar

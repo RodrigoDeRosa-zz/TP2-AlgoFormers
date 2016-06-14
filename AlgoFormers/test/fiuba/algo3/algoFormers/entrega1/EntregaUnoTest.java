@@ -71,13 +71,13 @@ public class EntregaUnoTest {
 		AlgoFormer bonecrusher = factory.getBonecrusher();
 		AlgoFormer frenzy = factory.getFrenzy();
 		
-		assertEquals(optimus, juego.getAtacable(new Posicion(0, 18)));
-		assertEquals(bumblebee, juego.getAtacable(new Posicion(0, 19)));
+		assertEquals(optimus, juego.getAtacable(new Posicion(0, 19)));
+		assertEquals(bumblebee, juego.getAtacable(new Posicion(0, 18)));
 		assertEquals(ratchet, juego.getAtacable(new Posicion(0, 20)));
 		
-		assertEquals(megatron, juego.getAtacable(new Posicion(39, 18)));
-		assertEquals(bonecrusher, juego.getAtacable(new Posicion(39, 19)));
-		assertEquals(frenzy, juego.getAtacable(new Posicion(39, 20)));
+		assertEquals(megatron, juego.getAtacable(new Posicion(39, 20)));
+		assertEquals(bonecrusher, juego.getAtacable(new Posicion(39, 18)));
+		assertEquals(frenzy, juego.getAtacable(new Posicion(39, 19)));
 		
 		Posicion posicionChispa = juego.getPosicionChispa();
 		int coordenadaX = posicionChispa.getX();
