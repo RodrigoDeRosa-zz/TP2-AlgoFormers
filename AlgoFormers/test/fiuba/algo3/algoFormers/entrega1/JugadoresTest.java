@@ -54,19 +54,16 @@ public class JugadoresTest {
 		Mapa mapa = new Mapa();
 		JugadorAutobots jug = new JugadorAutobots();
 		jug.inicializarEquipo();
-		AutoBotFactory fabrica = new AutoBotFactory();
-		AutoBot optimus = fabrica.getOptimusPrime();
-		AutoBot bumb = fabrica.getBumblebee();
-		AutoBot rat = fabrica.getRatchet();
-		Posicion posBumb = new Posicion(0, 18);
-		Posicion posOptimus = new Posicion(0, 19);
-		Posicion posRat = new Posicion(0, 20);
+
+		Posicion pos1 = new Posicion(0, 18);
+		Posicion pos2 = new Posicion(0, 19);
+		Posicion pos3 = new Posicion(0, 20);
 		
 		jug.ubicarPersonajes(mapa);
 		
-		assertEquals(optimus, mapa.getAtacable(posOptimus));
-		assertEquals(bumb, mapa.getAtacable(posBumb));
-		assertEquals(rat, mapa.getAtacable(posRat));		
+		assertEquals(AutoBot.class, mapa.getAtacable(pos1).getClass());
+		assertEquals(AutoBot.class, mapa.getAtacable(pos2).getClass());
+		assertEquals(AutoBot.class, mapa.getAtacable(pos3).getClass());		
 	}
 	
 	@Test
@@ -75,21 +72,15 @@ public class JugadoresTest {
 		Mapa mapa = new Mapa();
 		JugadorDecepticons jug = new JugadorDecepticons();
 		jug.inicializarEquipo();
-		DecepticonFactory fabrica = new DecepticonFactory();
-		Decepticon megatron = fabrica.getMegatron();
-		Decepticon boneC = fabrica.getBonecrusher();
-		Decepticon frenzy = fabrica.getFrenzy();
-		Posicion posBone = new Posicion(39, 18);
-		Posicion posFrenzy = new Posicion(39, 19);
-		Posicion posMegatron = new Posicion(39, 20);
+		
+		Posicion pos1 = new Posicion(39, 18);
+		Posicion pos2 = new Posicion(39, 19);
+		Posicion pos3 = new Posicion(39, 20);
 		
 		jug.ubicarPersonajes(mapa);
 		
-		assertEquals(megatron, mapa.getAtacable(posMegatron));
-		assertEquals(boneC, mapa.getAtacable(posBone));
-		assertEquals(frenzy, mapa.getAtacable(posFrenzy));
-		
-		
-		
+		assertEquals(Decepticon.class, mapa.getAtacable(pos1).getClass());
+		assertEquals(Decepticon.class, mapa.getAtacable(pos2).getClass());
+		assertEquals(Decepticon.class, mapa.getAtacable(pos3).getClass());
 	}
 }

@@ -8,6 +8,8 @@ import fiuba.algo3.algoFormers.modelo.juego.Juego;
 import fiuba.algo3.algoFormers.modelo.mapa.Mapa;
 import fiuba.algo3.algoFormers.modelo.mapa.Posicion;
 import fiuba.algo3.algoFormers.modelo.personajes.AlgoFormer;
+import fiuba.algo3.algoFormers.modelo.personajes.AutoBot;
+import fiuba.algo3.algoFormers.modelo.personajes.Decepticon;
 import fiuba.algo3.algoFormers.modelo.personajes.estadosDeTransformacion.AlternoTerrestre;
 import fiuba.algo3.algoFormers.modelo.personajes.estadosDeTransformacion.Humanoide;
 import fiuba.algo3.algoFormers.modelo.excepciones.AtaqueEspacioVacioException;
@@ -61,23 +63,13 @@ public class EntregaUnoTest {
 	public void testIntegracionUbicarDosEquiposDeTresPersonajesYChispa(){
 		Juego juego = new Juego();
 		
-		AlgoFormerFactory factory = new AlgoFormerFactory();
+		assertEquals(AutoBot.class, juego.getAtacable(new Posicion(0, 19)).getClass());
+		assertEquals(AutoBot.class, juego.getAtacable(new Posicion(0, 18)).getClass());
+		assertEquals(AutoBot.class, juego.getAtacable(new Posicion(0, 20)).getClass());
 		
-		AlgoFormer optimus = factory.getOptimusPrime();
-		AlgoFormer bumblebee = factory.getBumblebee();
-		AlgoFormer ratchet = factory.getRatchet();
-		
-		AlgoFormer megatron = factory.getMegatron();
-		AlgoFormer bonecrusher = factory.getBonecrusher();
-		AlgoFormer frenzy = factory.getFrenzy();
-		
-		assertEquals(optimus, juego.getAtacable(new Posicion(0, 19)));
-		assertEquals(bumblebee, juego.getAtacable(new Posicion(0, 18)));
-		assertEquals(ratchet, juego.getAtacable(new Posicion(0, 20)));
-		
-		assertEquals(megatron, juego.getAtacable(new Posicion(39, 20)));
-		assertEquals(bonecrusher, juego.getAtacable(new Posicion(39, 18)));
-		assertEquals(frenzy, juego.getAtacable(new Posicion(39, 19)));
+		assertEquals(Decepticon.class, juego.getAtacable(new Posicion(39, 20)).getClass());
+		assertEquals(Decepticon.class, juego.getAtacable(new Posicion(39, 18)).getClass());
+		assertEquals(Decepticon.class, juego.getAtacable(new Posicion(39, 19)).getClass());
 		
 		Posicion posicionChispa = juego.getPosicionChispa();
 		int coordenadaX = posicionChispa.getX();
