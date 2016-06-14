@@ -33,7 +33,7 @@ public class ManejadorDeAtaques {
 		 * la posicion a la que se ataca y el mapa.
 		 */
 		Posicion posicionAlgoformerAtacante = mapa.obtenerPosicion(algoformer);
-		int distancia = mapa.obtenerDistancia(posicionAlgoformerAtacante, posicionAtacable, this.distanciaAtaque);
+		int distancia = mapa.obtenerDistancia(posicionAlgoformerAtacante, posicionAtacable);
 		
 		if (distancia > distanciaAtaque){
 			throw new AtaqueFueraDeRangoException("La distacia entre ellos es mayor que posible (" + distanciaAtaque + ")");

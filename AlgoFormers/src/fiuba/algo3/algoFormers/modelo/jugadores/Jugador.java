@@ -3,46 +3,35 @@ package fiuba.algo3.algoFormers.modelo.jugadores;
 import fiuba.algo3.algoFormers.modelo.fabricas.algoFormers.AlgoFormerFactory;
 import fiuba.algo3.algoFormers.modelo.mapa.Mapa;
 import fiuba.algo3.algoFormers.modelo.personajes.AlgoFormer;
-import fiuba.algo3.algoFormers.modelo.personajes.AutoBot;
-import fiuba.algo3.algoFormers.modelo.personajes.Decepticon;
 
 
 public abstract class Jugador {
 	
 	protected AlgoFormerFactory fabrica;
-	protected Equipo equipo;
 	
 	public Jugador(){
 		this.fabrica = new AlgoFormerFactory();
-		this.equipo = new Equipo();
 	}
 	
 	/**
 	 * Define como personaje actual al recibido.
 	 */
-	public abstract void setPersonajeActual(AutoBot personaje);
-	public abstract void setPersonajeActual(Decepticon personaje);
+	public abstract void setPersonajeActual(AlgoFormer personaje);
 	
 	/**
 	 * Combina a sus personajes en un MegaBot
 	 */
-//	public void combinar(){
-//		this.equipo.combinar();
-//	}
+	public abstract void combinar(Mapa mapa);
 	
 	/**
 	 * Finaliza el turno de todos los personajes de un jugador.
 	 */
-	public void finalizarTurno(){
-		this.equipo.finalizarTurno();
-	}
+	public abstract void finalizarTurno();
 	
 	/**
 	 * Devuelve el personaje que está actualmente seleccionado
 	 */
-	public AlgoFormer getPersonajeActual(){
-		return this.equipo.personajeActual();
-	}
+	public abstract AlgoFormer getPersonajeActual();
 	
 	/**
 	 * Inicializa los algoformers del jugador segun el tipo del jugador del

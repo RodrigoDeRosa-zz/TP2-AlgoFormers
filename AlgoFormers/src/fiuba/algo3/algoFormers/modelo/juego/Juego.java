@@ -7,9 +7,7 @@ import fiuba.algo3.algoFormers.modelo.jugadores.JugadorAutobots;
 import fiuba.algo3.algoFormers.modelo.jugadores.JugadorDecepticons;
 import fiuba.algo3.algoFormers.modelo.mapa.Mapa;
 import fiuba.algo3.algoFormers.modelo.mapa.Posicion;
-import fiuba.algo3.algoFormers.modelo.personajes.AutoBot;
-import fiuba.algo3.algoFormers.modelo.personajes.Decepticon;
-
+import fiuba.algo3.algoFormers.modelo.personajes.AlgoFormer;
 
 public class Juego {
 
@@ -39,11 +37,7 @@ public class Juego {
 		this.mapa.ubicarChispa(chispa);
 	}
 	
-	public void setPersonajeActual(AutoBot personaje){
-		this.manejadorTurnos.setPersonajeActual(personaje);
-	}
-	
-	public void setPersonajeActual(Decepticon personaje){
+	public void setPersonajeActual(AlgoFormer personaje){
 		this.manejadorTurnos.setPersonajeActual(personaje);
 	}
 	
@@ -62,7 +56,7 @@ public class Juego {
 	}
 	
 	public void combinar(){
-		this.manejadorAcciones.combinar(this.manejadorTurnos.jugadorActual());
+		this.manejadorAcciones.combinar(this.manejadorTurnos.jugadorActual(), mapa);
 		this.finalizarTurno();
 	}
 	

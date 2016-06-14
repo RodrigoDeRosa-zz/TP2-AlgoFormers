@@ -37,8 +37,8 @@ public class ManejadorDeAcciones {
 		accion.ejecutar();
 	}
 
-	public void combinar(Jugador jugador) {
-		Accion accion = new Combinar(jugador);
+	public void combinar(Jugador jugador, Mapa mapa) {
+		Accion accion = new Combinar(jugador, mapa);
 		accion.ejecutar();
 	}
 }

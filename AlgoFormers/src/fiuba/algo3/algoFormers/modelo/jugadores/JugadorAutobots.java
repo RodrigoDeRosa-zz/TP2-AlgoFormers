@@ -1,24 +1,41 @@
 package fiuba.algo3.algoFormers.modelo.jugadores;
 
-import fiuba.algo3.algoFormers.modelo.excepciones.SeleccionPersonajeEnemigoException;
 import fiuba.algo3.algoFormers.modelo.mapa.Mapa;
+import fiuba.algo3.algoFormers.modelo.personajes.AlgoFormer;
 import fiuba.algo3.algoFormers.modelo.personajes.AutoBot;
-import fiuba.algo3.algoFormers.modelo.personajes.Decepticon;
 
 public class JugadorAutobots extends Jugador {
 
 	private static int FILA_INICIO = 0;
+	private EquipoAutoBot equipo;
 	
 	public JugadorAutobots() {
 		super();
 		inicializarEquipo();
 	}
 	
+	public void setPersonajeActual(AlgoFormer personaje){
+		this.equipo.setPersonajeActual(personaje);
+	}
+	
+	public void combinar(Mapa mapa){
+		this.equipo.combinar(mapa);
+	}
+	
+	public void finalizarTurno(){
+		this.equipo.finalizarTurno();
+	}
+
+	public AlgoFormer getPersonajeActual(){
+		return this.equipo.personajeActual();
+	}
+	
 	@Override
 	public void inicializarEquipo() {
-		this.equipo.agregarIntegrante(this.fabrica.getOptimusPrime());
-		this.equipo.agregarIntegrante(this.fabrica.getBumblebee());
-		this.equipo.agregarIntegrante(this.fabrica.getRatchet());
+		AutoBot optimus = (AutoBot) this.fabrica.getOptimusPrime();
+		AutoBot bumblebee = (AutoBot) this.fabrica.getBumblebee();
+		AutoBot ratchet = (AutoBot) this.fabrica.getRatchet();
+		this.equipo = new EquipoAutoBot(optimus, bumblebee, ratchet);
 	}
 
 	@Override
@@ -31,15 +48,4 @@ public class JugadorAutobots extends Jugador {
 		AutoBot personaje = (AutoBot) this.equipo.getAlgoFormer(nombre);
 		return personaje;
 	}
-	
-	@Override
-	public void setPersonajeActual(AutoBot personaje) {
-		this.equipo.setPersonajeActual(personaje);
-	}
-
-	@Override
-	public void setPersonajeActual(Decepticon personaje) {
-		throw new SeleccionPersonajeEnemigoException();
-	}
-
 }

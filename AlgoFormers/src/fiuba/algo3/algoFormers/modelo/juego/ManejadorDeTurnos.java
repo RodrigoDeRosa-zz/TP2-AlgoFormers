@@ -1,8 +1,7 @@
 package fiuba.algo3.algoFormers.modelo.juego;
 
 import fiuba.algo3.algoFormers.modelo.jugadores.Jugador;
-import fiuba.algo3.algoFormers.modelo.personajes.AutoBot;
-import fiuba.algo3.algoFormers.modelo.personajes.Decepticon;
+import fiuba.algo3.algoFormers.modelo.personajes.AlgoFormer;
 
 public class ManejadorDeTurnos {
 
@@ -37,11 +36,7 @@ public class ManejadorDeTurnos {
 		this.jugadorOpuesto = jugadorAux;
 	}
 
-	public void setPersonajeActual(AutoBot personaje) {
-		this.jugadorActual.setPersonajeActual(personaje);
-	}
-	
-	public void setPersonajeActual(Decepticon personaje) {
+	public void setPersonajeActual(AlgoFormer personaje) {
 		this.jugadorActual.setPersonajeActual(personaje);
 	}
 	

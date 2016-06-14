@@ -88,7 +88,7 @@ public class Mapa {
 		throw new UbicableNoPertenceAlMapaException("El ubicable no pertence al mapa");
 	}
 	
-	public int obtenerDistancia(Posicion posicionUbicable, Posicion posicionAtacable, int distanciaAtaque) {
+	public int obtenerDistancia(Posicion posicionUbicable, Posicion posicionAtacable) {
 		int distanciaFila = posicionUbicable.obtenerDistanciaFila(posicionAtacable);
 		int distanciaColumna = posicionUbicable.obtenerDistanciaColumna(posicionAtacable);
 		return Math.max(distanciaFila, distanciaColumna);
