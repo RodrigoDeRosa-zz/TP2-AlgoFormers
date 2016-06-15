@@ -35,7 +35,7 @@ public abstract class Jugador {
 	public abstract void iniciarTurno(Mapa mapa);
 	
 	/**
-	 * Devuelve el personaje que está actualmente seleccionado
+	 * Devuelve el personaje que esta actualmente seleccionado
 	 */
 	public abstract AlgoFormer getPersonajeActual();
 	
