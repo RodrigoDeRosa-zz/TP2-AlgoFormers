@@ -32,6 +32,10 @@ public class Vida extends Atributo{
 	public void sumarVidaA(int total) {
 		total += this.valorActual;		
 	}
+
+	public boolean muerto() {
+		return (this.valorActual <= 0);
+	}
 	
 	@Override
 	public void actualizar(){

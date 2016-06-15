@@ -29,6 +29,12 @@ public abstract class Jugador {
 	public abstract void finalizarTurno();
 	
 	/**
+	 * Inicia un turno verificando si los personajes estan vivos o muertos para permanecer
+	 * o no en el juego.
+	 */
+	public abstract void iniciarTurno(Mapa mapa);
+	
+	/**
 	 * Devuelve el personaje que está actualmente seleccionado
 	 */
 	public abstract AlgoFormer getPersonajeActual();

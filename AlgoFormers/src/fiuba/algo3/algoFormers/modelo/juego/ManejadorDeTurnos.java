@@ -1,6 +1,7 @@
 package fiuba.algo3.algoFormers.modelo.juego;
 
 import fiuba.algo3.algoFormers.modelo.jugadores.Jugador;
+import fiuba.algo3.algoFormers.modelo.mapa.Mapa;
 import fiuba.algo3.algoFormers.modelo.personajes.AlgoFormer;
 
 public class ManejadorDeTurnos {
@@ -25,9 +26,10 @@ public class ManejadorDeTurnos {
 		return this.jugadorActual;
 	}
 	
-	public void finalizarTurno(){
+	public void finalizarTurno(Mapa mapa){
 		this.jugadorActual.finalizarTurno();
 		this.cambiarJugadores();
+		this.jugadorActual.iniciarTurno(mapa);
 	}
 	
 	private void cambiarJugadores(){

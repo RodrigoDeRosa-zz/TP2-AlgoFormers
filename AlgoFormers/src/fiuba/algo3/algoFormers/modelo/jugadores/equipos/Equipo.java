@@ -1,4 +1,4 @@
-package fiuba.algo3.algoFormers.modelo.jugadores;
+package fiuba.algo3.algoFormers.modelo.jugadores.equipos;
 
 import java.util.HashMap;
 import java.util.Iterator;
@@ -37,6 +37,23 @@ public abstract class Equipo {
 	
 	public void finalizarTurno(){
 		this.equipo.forEach( (nombre, personaje) -> personaje.finalizarTurno() );
+		this.checkCombinacion();
+	}
+	
+	private void checkCombinacion(){
+		if (this.turnosCombinacion > 0){
+			this.turnosCombinacion--;
+			this.finalizarTurnoMegaBot();
+		}
+	}
+	
+	protected abstract void finalizarTurnoMegaBot();
+	
+	public void iniciarTurno(Mapa mapa){
+		this.equipo.forEach( (nombre, personaje) -> {
+			this.checkPermanenciaEnJuego(personaje, mapa);
+		});
+		if (this.turnosCombinacion > 0 && this.equipo.size() < 3) this.finalizarCombinacion(mapa);
 	}
 	
 	public void setPersonajeActual(AlgoFormer personaje){
@@ -51,53 +68,31 @@ public abstract class Equipo {
 	
 	public void combinar(Mapa mapa){
 		this.verificarCondicionesCombinacion(mapa);
-		int vidaMegaBot = this.calcularVidaMegaBot();
 		this.anteriorACombinar = this.personajeActual;
-		this.definirMegaBotComoActual(vidaMegaBot);
-		this.turnosCombinacion = 2;
+		this.sacarIntegrantesDelMapa(mapa);
+		this.definirMegaBotComoActual(this.calcularVidaMegaBot());
+		this.ubicarMegabot(mapa);
+		this.turnosCombinacion = 3;
 	}
+	
+	protected abstract void ubicarMegabot(Mapa mapa);
 	
 	protected abstract void definirMegaBotComoActual(int vida);
 	
-	private void verificarCondicionesCombinacion(Mapa mapa){
-		this.verificarCantidadDePersonajes();
-		this.verificarDistanciaCombinacion(mapa);
+	private void sacarIntegrantesDelMapa(Mapa mapa){
+		this.equipo.forEach((nombre, personaje) -> mapa.borrarPersonaje(personaje));
 	}
 	
-	private void verificarCantidadDePersonajes(){
-		if (this.equipo.size() < 3) throw new EquipoNoCompletoException();
-	}
-	
-	private void verificarDistanciaCombinacion(Mapa mapa){
-		Set<String> nombres = this.equipo.keySet();
-		Iterator<String> iter1 = nombres.iterator();
-		for (int i = 0; i < 2; i++){
-			String nombre = iter1.next();
-			AlgoFormer algoformer = this.equipo.get(nombre);
-			Iterator<String> iter2 = nombres.iterator();
-			while (iter2.hasNext()) {
-				String nombreComparar = iter2.next();
-				AlgoFormer algoformerComparar = this.equipo.get(nombreComparar);
-				this.verificarDistanciaCombinacionEntre(algoformer, algoformerComparar, mapa);
-			}
-		}
-	}
-	
-	private void verificarDistanciaCombinacionEntre(AlgoFormer uno, AlgoFormer otro, Mapa mapa){
-		Posicion posicionUno = mapa.obtenerPosicion(uno);
-		Posicion posicionOtro = mapa.obtenerPosicion(otro);
-		int distancia = mapa.obtenerDistancia(posicionUno, posicionOtro);
-		if (distancia > 2) throw new FueraDeRangoParaCombinarException();
-	}
-	
-	private void finalizarCombinacion(){
-		this.reubicarPersonajes();
+	private void finalizarCombinacion(Mapa mapa){
+		this.reubicarPersonajes(mapa);
 		this.turnosCombinacion = 0;
 		this.personajeActual = this.anteriorACombinar;
 	}
 	
-	private void reubicarPersonajes(){
-		
+	protected abstract void reubicarPersonajes(Mapa mapa);
+	
+	protected void ubicarIntegrantesEnAlrededores(Posicion posicionMegaBot, Mapa mapa){
+		this.equipo.forEach( (nombre, personaje) -> mapa.ubicarEnAlrededores(personaje, posicionMegaBot));
 	}
 	
 	protected int calcularVidaMegaBot(){
@@ -129,5 +124,34 @@ public abstract class Equipo {
 			}			
 		}
 		return null;
+	}
+	
+	private void verificarCondicionesCombinacion(Mapa mapa){
+		this.verificarDistanciaCombinacion(mapa);
+		this.verificarCantidadDePersonajes();
+	}
+	
+	private void verificarCantidadDePersonajes(){
+		if (this.equipo.size() < 3) throw new EquipoNoCompletoException();
+	}
+	
+	public void checkPermanenciaEnJuego(AlgoFormer personaje, Mapa mapa){
+		if (personaje.muerto()){
+			mapa.borrarPersonaje(personaje);
+			this.equipo.remove(personaje.getNombre());
+		}
+	}
+	
+	private void verificarDistanciaCombinacion(Mapa mapa){
+		this.equipo.forEach((nombre, personaje) -> this.equipo.forEach( (nombre2, personaje2) -> {
+			this.verificarDistanciaCombinacionEntre(personaje, personaje2, mapa);
+		}));
+	}
+	
+	private void verificarDistanciaCombinacionEntre(AlgoFormer uno, AlgoFormer otro, Mapa mapa){
+		Posicion posicionUno = mapa.obtenerPosicion(uno);
+		Posicion posicionOtro = mapa.obtenerPosicion(otro);
+		int distancia = mapa.obtenerDistancia(posicionUno, posicionOtro);
+		if (distancia > 2) throw new FueraDeRangoParaCombinarException();
 	}
 }

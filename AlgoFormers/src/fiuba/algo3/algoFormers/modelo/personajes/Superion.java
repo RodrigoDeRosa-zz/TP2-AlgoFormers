@@ -22,7 +22,7 @@ public class Superion extends AutoBot{
 	}
 	
 	private void daniarIntegrantes(Decepticon decepticon, int poderAtaque){
-		this.integrantes.forEach((integrante) -> integrante.recibirDanio(decepticon, poderAtaque));
+		this.integrantes.forEach((integrante) -> integrante.recibirDanio(decepticon, poderAtaque / 3));
 	}
 	
 	/**

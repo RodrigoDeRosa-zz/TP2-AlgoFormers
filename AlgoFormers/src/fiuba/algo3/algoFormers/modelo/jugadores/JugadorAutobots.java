@@ -1,5 +1,6 @@
 package fiuba.algo3.algoFormers.modelo.jugadores;
 
+import fiuba.algo3.algoFormers.modelo.jugadores.equipos.EquipoAutoBot;
 import fiuba.algo3.algoFormers.modelo.mapa.Mapa;
 import fiuba.algo3.algoFormers.modelo.personajes.AlgoFormer;
 import fiuba.algo3.algoFormers.modelo.personajes.AutoBot;
@@ -11,7 +12,7 @@ public class JugadorAutobots extends Jugador {
 	
 	public JugadorAutobots() {
 		super();
-		inicializarEquipo();
+		this.inicializarEquipo();
 	}
 	
 	public void setPersonajeActual(AlgoFormer personaje){
@@ -28,6 +29,10 @@ public class JugadorAutobots extends Jugador {
 
 	public AlgoFormer getPersonajeActual(){
 		return this.equipo.personajeActual();
+	}
+	
+	public void iniciarTurno(Mapa mapa){
+		this.equipo.iniciarTurno(mapa);
 	}
 	
 	@Override

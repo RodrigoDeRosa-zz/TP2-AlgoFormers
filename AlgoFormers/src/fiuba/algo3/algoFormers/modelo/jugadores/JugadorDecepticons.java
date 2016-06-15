@@ -1,5 +1,6 @@
 package fiuba.algo3.algoFormers.modelo.jugadores;
 
+import fiuba.algo3.algoFormers.modelo.jugadores.equipos.EquipoDecepticon;
 import fiuba.algo3.algoFormers.modelo.mapa.Mapa;
 import fiuba.algo3.algoFormers.modelo.personajes.AlgoFormer;
 import fiuba.algo3.algoFormers.modelo.personajes.Decepticon;
@@ -28,6 +29,10 @@ public class JugadorDecepticons extends Jugador {
 
 	public AlgoFormer getPersonajeActual(){
 		return this.equipo.personajeActual();
+	}
+	
+	public void iniciarTurno(Mapa mapa){
+		this.equipo.iniciarTurno(mapa);
 	}
 	
 	@Override

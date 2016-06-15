@@ -42,7 +42,7 @@ public class Juego {
 	}
 	
 	public void finalizarTurno(){
-		this.manejadorTurnos.finalizarTurno();
+		this.manejadorTurnos.finalizarTurno(this.mapa);
 	}
 	
 	public void atacar(Posicion posicion){
@@ -71,6 +71,10 @@ public class Juego {
 	
 	public Posicion getPosicionChispa(){
 		return this.mapa.getPosicionChispa(this.chispa);
+	}
+	
+	public Mapa getMapa(){
+		return this.mapa;
 	}
 
 }

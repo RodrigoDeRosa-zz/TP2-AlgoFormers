@@ -1,5 +1,7 @@
-package fiuba.algo3.algoFormers.modelo.jugadores;
+package fiuba.algo3.algoFormers.modelo.jugadores.equipos;
 
+import fiuba.algo3.algoFormers.modelo.mapa.Mapa;
+import fiuba.algo3.algoFormers.modelo.mapa.Posicion;
 import fiuba.algo3.algoFormers.modelo.personajes.AlgoFormer;
 import fiuba.algo3.algoFormers.modelo.personajes.Menasor;
 
@@ -19,5 +21,20 @@ public class EquipoDecepticon extends Equipo {
 	@Override
 	protected void definirMegaBotComoActual(int vida) {
 		this.personajeActual = this.megabot.vida(vida);
+	}
+	
+	protected void finalizarTurnoMegaBot(){
+		this.megabot.finalizarTurno();
+	}
+	
+	protected void reubicarPersonajes(Mapa mapa){
+		Posicion posMegabot = mapa.obtenerPosicion(this.megabot);
+		mapa.borrarPersonaje(this.megabot);
+		this.ubicarIntegrantesEnAlrededores(posMegabot, mapa);
+	}
+	
+	protected void ubicarMegabot(Mapa mapa){
+		Posicion posUnion = mapa.obtenerPosicion(this.equipo.get("Megatron"));
+		mapa.ubicar(this.megabot, posUnion);
 	}
 }

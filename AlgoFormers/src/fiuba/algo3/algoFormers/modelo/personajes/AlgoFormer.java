@@ -56,7 +56,6 @@ public abstract class AlgoFormer implements Atacable {
 		this.manDeAtaques = manejadorA;
 	}
 
-	
 	private void setVida(int vida){
 		this.vida = new Vida(vida);
 	}
@@ -182,6 +181,10 @@ public abstract class AlgoFormer implements Atacable {
 	
 	public void sumarVidaA(int total) {
 		this.vida.sumarVidaA(total);
+	}
+	
+	public boolean muerto(){
+		return this.vida.muerto();
 	}
 	
 	//Metodos para las pruebas. No se deberian llamar en otras clases.

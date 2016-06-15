@@ -5,11 +5,14 @@ import java.util.Random;
 
 import fiuba.algo3.algoFormers.modelo.capturables.Chispa;
 import fiuba.algo3.algoFormers.modelo.direcciones.Direccion;
+import fiuba.algo3.algoFormers.modelo.excepciones.CasilleroOcupadoException;
+import fiuba.algo3.algoFormers.modelo.excepciones.HumanoideNoPuedeAtravesarException;
 import fiuba.algo3.algoFormers.modelo.excepciones.UbicableNoPertenceAlMapaException;
 import fiuba.algo3.algoFormers.modelo.interfaces.Atacable;
 import fiuba.algo3.algoFormers.modelo.interfaces.Capturable;
 import fiuba.algo3.algoFormers.modelo.interfaces.Ubicable;
 import fiuba.algo3.algoFormers.modelo.mapa.superficies.Superficie;
+import fiuba.algo3.algoFormers.modelo.personajes.AlgoFormer;
 
 public class Mapa {
 	
@@ -22,7 +25,6 @@ public class Mapa {
 		tablero = new HashMap<Posicion, Casillero>();
 		this.llenarTablero(tablero);
 	}
-
 	
 	public void ubicar(Atacable atacable, Posicion posicion) {
 		Casillero casillero = tablero.get(posicion);
@@ -92,6 +94,23 @@ public class Mapa {
 		int distanciaFila = posicionUbicable.obtenerDistanciaFila(posicionAtacable);
 		int distanciaColumna = posicionUbicable.obtenerDistanciaColumna(posicionAtacable);
 		return Math.max(distanciaFila, distanciaColumna);
+	}
+	
+	public void borrarPersonaje(AlgoFormer personaje) {
+		Posicion posicion = this.obtenerPosicion(personaje);
+		Casillero casillero = this.tablero.get(posicion);
+		casillero.desocuparAtacable();
+	}
+	
+	public void ubicarEnAlrededores(Atacable personaje, Posicion posOriginal){
+		Casillero casilleroOriginal = this.tablero.get(posOriginal);
+		try{casilleroOriginal.ubicar(personaje);} catch (CasilleroOcupadoException | HumanoideNoPuedeAtravesarException e){}
+		for (int i = 0; i < 3; i++){
+			Posicion posicion = new Posicion(posOriginal.getX() + i, posOriginal.getY() + i);
+			Casillero casillero = this.tablero.get(posicion);
+			try{casillero.ubicar(personaje);} catch (CasilleroOcupadoException | HumanoideNoPuedeAtravesarException e){continue;}
+			return;
+		}
 	}
 	
 	//Metodos privados.

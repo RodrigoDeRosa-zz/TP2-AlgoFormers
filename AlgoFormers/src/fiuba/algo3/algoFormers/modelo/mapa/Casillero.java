@@ -16,11 +16,11 @@ public class Casillero {
 	private ArrayList<Superficie> superficies;
 	
 	public Casillero(){
-		atacable = null;
-		capturable = null;
-		ocupado = false;
-		ocupadoCapturable = false;
-		superficies = new ArrayList<Superficie>();
+		this.atacable = null;
+		this.capturable = null;
+		this.ocupado = false;
+		this.ocupadoCapturable = false;
+		this.superficies = new ArrayList<Superficie>();
 	}
 	
 	public void ubicar(Atacable atacable){
@@ -65,11 +65,11 @@ public class Casillero {
 
 	private void setCapturable(Capturable capturable) {
 		this.capturable = capturable;
-		ocupadoCapturable = true;
+		this.ocupadoCapturable = true;
 	}
 	
 	private boolean estaOcupado() {
-		return ocupado;
+		return this.ocupado;
 	}
 
 	private boolean estaOcupadoCapturable() {
@@ -85,8 +85,8 @@ public class Casillero {
 	}
 	
 	public void desocuparAtacable() {
-		atacable = null;
-		ocupado = false;
+		this.atacable = null;
+		this.ocupado = false;
 	}
 	
 	private void verificarCasilleroEstaVacio() {
