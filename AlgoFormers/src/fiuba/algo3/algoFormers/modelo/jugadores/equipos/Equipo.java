@@ -69,13 +69,14 @@ public abstract class Equipo {
 	public void combinar(Mapa mapa){
 		this.verificarCondicionesCombinacion(mapa);
 		this.anteriorACombinar = this.personajeActual;
+		Posicion posUnion = mapa.obtenerPosicion(this.personajeActual);
 		this.sacarIntegrantesDelMapa(mapa);
 		this.definirMegaBotComoActual(this.calcularVidaMegaBot());
-		this.ubicarMegabot(mapa);
+		this.ubicarMegabot(mapa, posUnion);
 		this.turnosCombinacion = 3;
 	}
 	
-	protected abstract void ubicarMegabot(Mapa mapa);
+	protected abstract void ubicarMegabot(Mapa mapa, Posicion posUnion);
 	
 	protected abstract void definirMegaBotComoActual(int vida);
 	

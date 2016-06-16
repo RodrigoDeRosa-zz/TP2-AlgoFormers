@@ -33,8 +33,8 @@ public class EquipoDecepticon extends Equipo {
 		this.ubicarIntegrantesEnAlrededores(posMegabot, mapa);
 	}
 	
-	protected void ubicarMegabot(Mapa mapa){
-		Posicion posUnion = mapa.obtenerPosicion(this.equipo.get("Megatron"));
-		mapa.ubicar(this.megabot, posUnion);
+	protected void ubicarMegabot(Mapa mapa, Posicion pos){
+
+		mapa.ubicar(this.megabot, pos);
 	}
 }

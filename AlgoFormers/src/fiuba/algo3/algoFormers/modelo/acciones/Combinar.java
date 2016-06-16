@@ -22,7 +22,6 @@ public class Combinar implements Accion {
 		this.mapa = mapa;
 	}
 	
-	@Override
 	public void ejecutar() {
 		this.jugador.combinar(this.mapa);
 	}
