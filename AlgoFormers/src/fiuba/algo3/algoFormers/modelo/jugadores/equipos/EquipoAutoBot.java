@@ -12,6 +12,7 @@ public class EquipoAutoBot extends Equipo{
 	public EquipoAutoBot(AlgoFormer uno, AlgoFormer dos, AlgoFormer tres){
 		super(uno, dos, tres);
 		this.setMegaBot(uno, dos, tres);
+		
 	}
 	
 	public void setMegaBot(AlgoFormer uno, AlgoFormer dos, AlgoFormer tres) {
