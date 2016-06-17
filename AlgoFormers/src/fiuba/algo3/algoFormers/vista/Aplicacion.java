@@ -1,5 +1,7 @@
 package fiuba.algo3.algoFormers.vista;
 
+import java.io.IOException;
+
 import fiuba.algo3.algoFormers.modelo.juego.Juego;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -15,21 +17,24 @@ import javafx.stage.Stage;
 
 public class Aplicacion extends Application{
 	
+	private Stage primaryStage;
+	
 	public static void main(String[] args) {
         Application.launch(args);
     }
 
     @Override
-    public void start(Stage primaryStage) throws Exception {
-
-    	BorderPane contenedorBienvenida = (BorderPane) FXMLLoader.load(this.getClass().getResource("ContenedorBienvenida.fxml"));
+    public void start(final Stage primaryStage) throws Exception {
+    	this.primaryStage = primaryStage;
+    	BorderPane contenedorBienvenida = (BorderPane) FXMLLoader.load(getClass().getResource("ContenedorBienvenida.fxml"));
     	Image imagen = new Image("file:src/fiuba/algo3/algoFormers/vista/imagenes/2704.jpg");//si se cambia la imagen, cambiar esto
         BackgroundImage imagenDeFondo = new BackgroundImage(imagen, BackgroundRepeat.SPACE, BackgroundRepeat.SPACE, BackgroundPosition.DEFAULT, BackgroundSize.DEFAULT);
         contenedorBienvenida.setBackground(new Background(imagenDeFondo));
-    	primaryStage.setTitle("AlgoFormers");
-    	primaryStage.setScene(new Scene(contenedorBienvenida, 640, 480));
-        primaryStage.setFullScreen(true);
-        primaryStage.show();
+        this.primaryStage.setTitle("AlgoFormers");
+    	this.primaryStage.setScene(new Scene(contenedorBienvenida, 640, 480));
+        this.primaryStage.setFullScreen(true);
+        this.primaryStage.show();
+        
 
     }
 
@@ -37,6 +42,12 @@ public class Aplicacion extends Application{
         Juego juego = new Juego();
         return juego;
     }
+
+	public void comenzarJuego() throws Exception {
+		BorderPane contenedorJuego = (BorderPane) FXMLLoader.load(getClass().getResource("ContenedorJuego.fxml"));
+		this.primaryStage.setScene(new Scene(contenedorJuego));
+		this.primaryStage.show();
+	}
 }
 
 	
