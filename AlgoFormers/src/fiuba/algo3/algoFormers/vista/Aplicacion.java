@@ -26,10 +26,14 @@ public class Aplicacion extends Application{
     @Override
     public void start(final Stage primaryStage) throws Exception {
     	this.primaryStage = primaryStage;
+    	
+    	//Se carga el contenedor de bienvenida y se define su imagen de fondo
     	BorderPane contenedorBienvenida = (BorderPane) FXMLLoader.load(getClass().getResource("ContenedorBienvenida.fxml"));
     	Image imagen = new Image("file:src/fiuba/algo3/algoFormers/vista/imagenes/2704.jpg");//si se cambia la imagen, cambiar esto
         BackgroundImage imagenDeFondo = new BackgroundImage(imagen, BackgroundRepeat.SPACE, BackgroundRepeat.SPACE, BackgroundPosition.DEFAULT, BackgroundSize.DEFAULT);
         contenedorBienvenida.setBackground(new Background(imagenDeFondo));
+        
+        //Se agrega el contenedor de bienvenida al stage principal como una escena
         this.primaryStage.setTitle("AlgoFormers");
     	this.primaryStage.setScene(new Scene(contenedorBienvenida, 640, 480));
         this.primaryStage.setFullScreen(true);
@@ -43,9 +47,8 @@ public class Aplicacion extends Application{
         return juego;
     }
 
-	public void comenzarJuego() throws Exception {
-		BorderPane contenedorJuego = (BorderPane) FXMLLoader.load(getClass().getResource("ContenedorJuego.fxml"));
-		this.primaryStage.setScene(new Scene(contenedorJuego));
+	public void comenzarJuego(Scene proximaEscena) throws Exception {
+		this.primaryStage.setScene(proximaEscena);
 		this.primaryStage.show();
 	}
 }

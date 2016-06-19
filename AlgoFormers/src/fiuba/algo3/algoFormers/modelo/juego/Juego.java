@@ -7,6 +7,8 @@ import fiuba.algo3.algoFormers.modelo.jugadores.JugadorAutobots;
 import fiuba.algo3.algoFormers.modelo.jugadores.JugadorDecepticons;
 import fiuba.algo3.algoFormers.modelo.mapa.Mapa;
 import fiuba.algo3.algoFormers.modelo.mapa.Posicion;
+import fiuba.algo3.algoFormers.modelo.mapa.superficies.SuperficieAerea;
+import fiuba.algo3.algoFormers.modelo.mapa.superficies.SuperficieTerrestre;
 import fiuba.algo3.algoFormers.modelo.personajes.AlgoFormer;
 
 public class Juego {
@@ -75,6 +77,16 @@ public class Juego {
 	
 	public Mapa getMapa(){
 		return this.mapa;
+	}
+
+	public SuperficieTerrestre getSuperficieTerrestre(Posicion posicion) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public SuperficieAerea getSuperficieAerea(Posicion posicion) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }
