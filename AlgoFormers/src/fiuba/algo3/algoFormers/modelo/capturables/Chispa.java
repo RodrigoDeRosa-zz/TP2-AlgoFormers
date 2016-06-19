@@ -1,5 +1,6 @@
 package fiuba.algo3.algoFormers.modelo.capturables;
 
+import fiuba.algo3.algoFormers.modelo.excepciones.FinDelJuegoException;
 import fiuba.algo3.algoFormers.modelo.interfaces.Atacable;
 import fiuba.algo3.algoFormers.modelo.interfaces.Capturable;
 
@@ -10,7 +11,7 @@ public class Chispa implements Capturable{
 	public Chispa(){}
 	
 	public void afectar(Atacable atacable){
-		//GANAR
+		throw new FinDelJuegoException();
 	}
 	
 	@Override

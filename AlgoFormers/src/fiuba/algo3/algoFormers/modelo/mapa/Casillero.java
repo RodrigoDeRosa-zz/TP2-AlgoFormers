@@ -6,6 +6,8 @@ import fiuba.algo3.algoFormers.modelo.excepciones.CasilleroOcupadoException;
 import fiuba.algo3.algoFormers.modelo.interfaces.Atacable;
 import fiuba.algo3.algoFormers.modelo.interfaces.Capturable;
 import fiuba.algo3.algoFormers.modelo.mapa.superficies.Superficie;
+import fiuba.algo3.algoFormers.modelo.mapa.superficies.SuperficieAerea;
+import fiuba.algo3.algoFormers.modelo.mapa.superficies.SuperficieTerrestre;
 
 public class Casillero {
 
@@ -95,11 +97,30 @@ public class Casillero {
 		}
 	}
 
-
 	private void verificarCasilleroCapturableEstaVacio() {
 		if (this.estaOcupadoCapturable()){
 			throw new CasilleroOcupadoException("Ya hay un capturable en este casillero");
 		}
 	}
+	
+	public SuperficieTerrestre getSuperficieTerrestre(){
+		if (this.superficies.size() == 0) return null;
+		Superficie superficie = this.superficies.get(0);
+		if (superficie.getClass() == SuperficieTerrestre.class){
+			return (SuperficieTerrestre) superficie;
+		}
+		if (this.superficies.size() < 2) return null;
+		return (SuperficieTerrestre) this.superficies.get(1);
+	}
 
+	public SuperficieAerea getSuperficieAerea(){
+		if (this.superficies.size() == 0) return null;
+		Superficie superficie = this.superficies.get(0);
+		if (superficie.getClass() == SuperficieAerea.class){
+			return (SuperficieAerea) superficie;
+		}
+		if (this.superficies.size() < 2) return null;
+		return (SuperficieAerea) this.superficies.get(1);
+	}
+	
 }

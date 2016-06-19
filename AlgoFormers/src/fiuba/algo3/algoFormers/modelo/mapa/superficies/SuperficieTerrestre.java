@@ -5,8 +5,8 @@ import fiuba.algo3.algoFormers.modelo.interfaces.Atacable;
 
 public class SuperficieTerrestre extends Superficie{
 
-	public SuperficieTerrestre(Efecto efecto) {
-		super(efecto);
+	public SuperficieTerrestre(String nombre, Efecto efecto) {
+		super(nombre, efecto);
 	}
 
 	@Override

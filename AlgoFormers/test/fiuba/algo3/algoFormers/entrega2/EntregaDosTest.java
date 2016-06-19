@@ -7,11 +7,13 @@ import org.junit.Test;
 import fiuba.algo3.algoFormers.modelo.direcciones.DirArriba;
 import fiuba.algo3.algoFormers.modelo.fabricas.algoFormers.AlgoFormerFactory;
 import fiuba.algo3.algoFormers.modelo.fabricas.superficies.SuperficiesFactory;
+import fiuba.algo3.algoFormers.modelo.juego.Juego;
 import fiuba.algo3.algoFormers.modelo.mapa.Mapa;
 import fiuba.algo3.algoFormers.modelo.mapa.Posicion;
 import fiuba.algo3.algoFormers.modelo.mapa.superficies.SuperficieAerea;
 import fiuba.algo3.algoFormers.modelo.mapa.superficies.SuperficieTerrestre;
 import fiuba.algo3.algoFormers.modelo.personajes.AlgoFormer;
+import fiuba.algo3.algoFormers.modelo.excepciones.FinDelJuegoException;
 import fiuba.algo3.algoFormers.modelo.excepciones.HumanoideNoPuedeAtravesarException;
 import fiuba.algo3.algoFormers.modelo.excepciones.MovimientosAgotadosException;
 
@@ -597,5 +599,64 @@ public class EntregaDosTest {
 		assertEquals(ratchet.getAtaque(), 21);
 	}
 	
+	@Test
+	public void testGetSuperficieTerrestre(){
+		SuperficieTerrestre superficie = factoryS.getPantano();
+		Posicion posicion = new Posicion(1,1);
+		mapa.ubicar(superficie, posicion);
+		assertEquals(mapa.getSuperficieTerrestre(posicion), superficie);
+	}
 	
+	@Test
+	public void testGetSuperficieAerea(){
+		SuperficieAerea superficie = factoryS.getNube();
+		Posicion posicion = new Posicion(1,1);
+		mapa.ubicar(superficie, posicion);
+		assertEquals(mapa.getSuperficieAerea(posicion), superficie);
+	}
+	
+	@Test
+	public void testGetSuperficieTerrestreSinSuperficie(){
+		SuperficieTerrestre superficie = factoryS.getPantano();
+		Posicion posicion = new Posicion(1,1);
+		mapa.ubicar(superficie, posicion);
+		assertEquals(mapa.getSuperficieAerea(posicion), null);
+	}
+	
+	@Test
+	public void testGetSuperficieAereaSinSuperficie(){
+		SuperficieAerea superficie = factoryS.getNube();
+		Posicion posicion = new Posicion(1,1);
+		mapa.ubicar(superficie, posicion);
+		assertEquals(mapa.getSuperficieTerrestre(posicion), null);
+	}
+	
+	@Test
+	public void testGetSuperficieTerrestreConAerea(){
+		SuperficieAerea superficieA = factoryS.getNube();
+		SuperficieTerrestre superficieT = factoryS.getPantano();
+		Posicion posicion = new Posicion(1,1);
+		mapa.ubicar(superficieA, posicion);
+		mapa.ubicar(superficieT, posicion);
+		assertEquals(mapa.getSuperficieTerrestre(posicion), superficieT);
+	}
+	
+	@Test
+	public void testGetSuperficieAereaConTerrestre(){
+		SuperficieAerea superficieA = factoryS.getNube();	
+		SuperficieTerrestre superficieT = factoryS.getPantano();
+		Posicion posicion = new Posicion(1,1);
+		mapa.ubicar(superficieA, posicion);
+		mapa.ubicar(superficieT, posicion);
+		assertEquals(mapa.getSuperficieAerea(posicion), superficieA);
+	}
+	
+	@Test(expected=FinDelJuegoException.class)
+	public void testEntrarEnCasilleroConChispaFinalizaJuego(){
+		Juego juego = new Juego();
+		Posicion posChispa = juego.getPosicionChispa();
+		AlgoFormer optimus = (new AlgoFormerFactory()).getOptimusPrime();
+		Mapa mapa = juego.getMapa();
+		mapa.ubicar(optimus, posChispa);
+	}
 }

@@ -14,7 +14,7 @@ public class SuperficiesFactory {
 		
 	public SuperficieTerrestre getPantano(){
 		EfectoTemporal efectoPantano = new EfectoPantano();
-		SuperficieTerrestre sup = new SuperficieTerrestre(efectoPantano);
+		SuperficieTerrestre sup = new SuperficieTerrestre("Pantano", efectoPantano);
 		return sup;
 	}
 		
@@ -22,7 +22,7 @@ public class SuperficiesFactory {
 		EfectoVida efectoV = new EfectoVida();
 		EfectoTemporal efectoRocas = new EfectoTemporal(DatosS.EFECTOROCAS.getMultiplicador(),
 				DatosS.EFECTOROCAS.getBase(), efectoV, DatosS.EFECTOROCAS.getTurnos());
-		SuperficieTerrestre sup = new SuperficieTerrestre(efectoRocas);
+		SuperficieTerrestre sup = new SuperficieTerrestre("Rocas", efectoRocas);
 		return sup;
 	}
 		
@@ -30,7 +30,7 @@ public class SuperficiesFactory {
 		EfectoVida efectoV = new EfectoVida();
 		EfectoTemporal efectoEspina = new EfectoTemporal(DatosS.EFECTOESPINA.getMultiplicador(),
 				DatosS.EFECTOESPINA.getBase(), efectoV, DatosS.EFECTOESPINA.getTurnos());
-		SuperficieTerrestre sup = new SuperficieTerrestre(efectoEspina);
+		SuperficieTerrestre sup = new SuperficieTerrestre("Espina", efectoEspina);
 		return sup;
 	}
 	
@@ -38,7 +38,7 @@ public class SuperficiesFactory {
 		EfectoVida efectoV = new EfectoVida();
 		EfectoTemporal efectoNube = new EfectoTemporal(DatosS.EFECTONUBE.getMultiplicador(),
 				DatosS.EFECTONUBE.getBase(), efectoV, DatosS.EFECTONUBE.getTurnos());
-		SuperficieAerea sup = new SuperficieAerea(efectoNube);
+		SuperficieAerea sup = new SuperficieAerea("Nube", efectoNube);
 		return sup;
 	}
 	
@@ -46,7 +46,7 @@ public class SuperficiesFactory {
 		EfectoAtaque efectoA = new EfectoAtaque();
 		EfectoEstatico efectoTormenta = new EfectoEstatico(DatosS.EFECTOTORMENTAPSIONICA.getMultiplicador(),
 				DatosS.EFECTOTORMENTAPSIONICA.getBase(), efectoA);
-		SuperficieAerea sup = new SuperficieAerea(efectoTormenta);
+		SuperficieAerea sup = new SuperficieAerea("Tormenta Psionica", efectoTormenta);
 		return sup;
 	}
 	
@@ -55,7 +55,7 @@ public class SuperficiesFactory {
 		EfectoTemporal efectoNebulosa = new EfectoTemporal(DatosS.EFECTONEBULOSAANDROMEDA.getMultiplicador(),
 				DatosS.EFECTONEBULOSAANDROMEDA.getBase(), efectoV,
 				DatosS.EFECTONEBULOSAANDROMEDA.getTurnos());
-		SuperficieAerea sup = new SuperficieAerea(efectoNebulosa);
+		SuperficieAerea sup = new SuperficieAerea("Nebulosa", efectoNebulosa);
 		return sup;
 	}	
 }

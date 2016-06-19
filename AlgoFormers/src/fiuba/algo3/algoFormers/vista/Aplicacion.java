@@ -38,8 +38,6 @@ public class Aplicacion extends Application{
     	this.primaryStage.setScene(new Scene(contenedorBienvenida, 640, 480));
         this.primaryStage.setFullScreen(true);
         this.primaryStage.show();
-        
-
     }
 
     private Juego crearModelo() {

@@ -12,6 +12,8 @@ import fiuba.algo3.algoFormers.modelo.interfaces.Atacable;
 import fiuba.algo3.algoFormers.modelo.interfaces.Capturable;
 import fiuba.algo3.algoFormers.modelo.interfaces.Ubicable;
 import fiuba.algo3.algoFormers.modelo.mapa.superficies.Superficie;
+import fiuba.algo3.algoFormers.modelo.mapa.superficies.SuperficieAerea;
+import fiuba.algo3.algoFormers.modelo.mapa.superficies.SuperficieTerrestre;
 import fiuba.algo3.algoFormers.modelo.personajes.AlgoFormer;
 
 public class Mapa {
@@ -111,6 +113,16 @@ public class Mapa {
 			try{casillero.ubicar(personaje);} catch (CasilleroOcupadoException | HumanoideNoPuedeAtravesarException e){continue;}
 			return;
 		}
+	}
+	
+	public SuperficieTerrestre getSuperficieTerrestre(Posicion posicion){
+		Casillero casillero = this.tablero.get(posicion);
+		return casillero.getSuperficieTerrestre();
+	}
+	
+	public SuperficieAerea getSuperficieAerea(Posicion posicion){
+		Casillero casillero = this.tablero.get(posicion);
+		return casillero.getSuperficieAerea();
 	}
 	
 	//Metodos privados.

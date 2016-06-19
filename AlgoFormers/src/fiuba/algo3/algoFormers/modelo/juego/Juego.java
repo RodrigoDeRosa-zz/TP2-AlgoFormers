@@ -80,13 +80,11 @@ public class Juego {
 	}
 
 	public SuperficieTerrestre getSuperficieTerrestre(Posicion posicion) {
-		// TODO Auto-generated method stub
-		return null;
+		return this.mapa.getSuperficieTerrestre(posicion);
 	}
 
 	public SuperficieAerea getSuperficieAerea(Posicion posicion) {
-		// TODO Auto-generated method stub
-		return null;
+		return this.mapa.getSuperficieAerea(posicion);
 	}
 
 }
