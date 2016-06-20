@@ -8,6 +8,7 @@ import fiuba.algo3.algoFormers.modelo.personajes.AlgoFormer;
 public abstract class Jugador {
 	
 	protected AlgoFormerFactory fabrica;
+	protected String nombre;
 	
 	public Jugador(){
 		this.fabrica = new AlgoFormerFactory();
@@ -58,5 +59,10 @@ public abstract class Jugador {
 	 * @return Algoformer de nombre coincidente con el recibido.
 	 */
 	public abstract AlgoFormer getAlgoformer(String nombre);
+	
+	public void guardarNombre(String nombre){
+		this.nombre = nombre;
+		System.out.println(nombre);
+	}
 	
 }

@@ -88,4 +88,10 @@ public class Juego {
 		return this.mapa.getSuperficieAerea(posicion);
 	}
 
+	public void setNombres(String nombreAutobot, String nombreDecepticon) {
+		this.jugadorA.guardarNombre(nombreAutobot);
+		this.jugadorD.guardarNombre(nombreDecepticon);
+		
+	}
+
 }

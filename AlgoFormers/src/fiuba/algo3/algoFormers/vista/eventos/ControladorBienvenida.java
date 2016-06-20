@@ -59,7 +59,12 @@ public class ControladorBienvenida {
     	//obtengo el controlador para asignarle el juego
     	ControladorJuego controlador = loader.<ControladorJuego>getController();
     	controlador.initData(juego);
-    	stage.show();	
+    	stage.show();
+    
+    	String nombreA = NombreAutobot.getText();
+    	String nombreD = NombreDecepticon.getText();
+    	this.juego.setNombres(nombreA,nombreD);
+    	
     }
     
 	private void armarTablero(GridPane tablero, Juego juego) {

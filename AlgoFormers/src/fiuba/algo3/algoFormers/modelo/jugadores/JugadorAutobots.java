@@ -53,4 +53,5 @@ public class JugadorAutobots extends Jugador {
 		AutoBot personaje = (AutoBot) this.equipo.getAlgoFormer(nombre);
 		return personaje;
 	}
+
 }
