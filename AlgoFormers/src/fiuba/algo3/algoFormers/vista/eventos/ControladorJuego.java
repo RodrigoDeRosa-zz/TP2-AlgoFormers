@@ -19,7 +19,7 @@ public class ControladorJuego {
     void FinalzarTurno(ActionEvent event) {
 
     }
-
+    
 	public void initData(Juego juego) {
 		this.juego = juego;
 		

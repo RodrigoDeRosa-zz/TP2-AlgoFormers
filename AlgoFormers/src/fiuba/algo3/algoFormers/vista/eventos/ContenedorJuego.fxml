@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fiuba.algo3.algoFormers.vista.eventos.ControladorJuego">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="603.0" prefWidth="764.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fiuba.algo3.algoFormers.vista.eventos.ControladorJuego">
    <top>
       <MenuBar BorderPane.alignment="CENTER">
         <menus>
@@ -34,7 +34,7 @@
       </MenuBar>
    </top>
    <center>
-      <ScrollPane BorderPane.alignment="CENTER" />
+      <ScrollPane prefHeight="451.0" prefWidth="764.0" BorderPane.alignment="CENTER" />
    </center>
    <bottom>
       <GridPane prefHeight="61.0" prefWidth="595.0" BorderPane.alignment="CENTER">
@@ -60,7 +60,7 @@
               </rowConstraints>
                <children>
                   <Button fx:id="Mover" mnemonicParsing="false" text="Mover" GridPane.halignment="CENTER" />
-                  <Button fx:id="Atacar" mnemonicParsing="false" text="Atacar" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+                  <Button fx:id="Atacar" mnemonicParsing="false" onAction="#atacar" text="Atacar" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
                </children>
             </GridPane>
             <ImageView fitHeight="63.0" fitWidth="122.0" pickOnBounds="true" preserveRatio="true" />
