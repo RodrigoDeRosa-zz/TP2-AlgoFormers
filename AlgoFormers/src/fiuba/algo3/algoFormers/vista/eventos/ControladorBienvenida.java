@@ -59,7 +59,6 @@ public class ControladorBienvenida {
     	//obtengo el controlador para asignarle el juego
     	ControladorJuego controlador = loader.<ControladorJuego>getController();
     	controlador.initData(juego);
-    	controlador.setMoverBackground();
     	//se guardan los nombres de los jugadores
     	String nombreA = NombreAutobot.getText();
     	String nombreD = NombreDecepticon.getText();
@@ -69,20 +68,30 @@ public class ControladorBienvenida {
     }
     
 	private void armarTablero(GridPane tablero, Juego juego) {
-		for(int i = 1; i <= 40; i++){
-    		for(int j = 1; j <= 40; j++){
-//    			Posicion posicion = new Posicion(i,j);
-//    			SuperficieTerrestre supTerrestre = juego.getSuperficieTerrestre(posicion);
-//    			SuperficieAerea supAerea = juego.getSuperficieAerea(posicion);
-//    			GridPane casillero = new GridPane();
+		for(int i = 0; i < 40; i++){
+    		for(int j = 0; j < 40; j++){
+    			Posicion posicion = new Posicion(i,j);
+    			SuperficieTerrestre supTerrestre = juego.getSuperficieTerrestre(posicion);
+    			SuperficieAerea supAerea = juego.getSuperficieAerea(posicion);
     			HBox casillero = new HBox();
-    			casillero.getChildren().add(new ImageView(new Image("file:src/fiuba/algo3/algoFormers/vista/imagenes/transformers-optimus.png")));
-//    			if(supAerea != Nube){
-//    				casillero.add(new ImageView("direccion de la imagen SupTerrestre y aerea"), 1, 1);
-//    			}else{ 
-//    				casillero.add(new ImageView("superficie terrestre"), 1, 1);
-//    			}
-//    			casillero.add(new ImageView("file:src/fiuba/algo3/algoFormers/vista/imagenes/transformers-optimus.png"), 1, 2);
+    			
+    			//se dibujan y setean la superficies
+    			String nombreSupT = supTerrestre.getNombre();
+    			Image imagenTerrestre = new Image(("file:src/fiuba/algo3/algoFormers/vista/imagenes/" + nombreSupT + ".png"));
+    	        String nombreSupA = supAerea.getNombre();
+    	        if (nombreSupA != "Nube"){
+    	        	//se define la terrestre como fondo
+    	        	BackgroundImage imagenDeFondo = new BackgroundImage(imagenTerrestre, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT, BackgroundSize.DEFAULT);
+        	        casillero.setBackground(new Background(imagenDeFondo));
+    	        	//se superpone la aerea
+        	        ImageView imagenAerea = new ImageView(new Image(("file:src/fiuba/algo3/algoFormers/vista/imagenes/Tormenta.png")));
+    	        	casillero.getChildren().add(imagenAerea);
+    	        }else{
+    	        	//solo de define la terrestre
+    	        	ImageView imagen = new ImageView(imagenTerrestre);
+    	        	casillero.getChildren().add(imagen);
+    	        }
+    	        
     			casillero.setAlignment(Pos.CENTER);
     			tablero.add(casillero, i, j);
     		}

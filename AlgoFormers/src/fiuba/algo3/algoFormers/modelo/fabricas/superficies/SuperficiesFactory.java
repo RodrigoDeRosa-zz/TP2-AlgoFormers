@@ -46,7 +46,7 @@ public class SuperficiesFactory {
 		EfectoAtaque efectoA = new EfectoAtaque();
 		EfectoEstatico efectoTormenta = new EfectoEstatico(DatosS.EFECTOTORMENTAPSIONICA.getMultiplicador(),
 				DatosS.EFECTOTORMENTAPSIONICA.getBase(), efectoA);
-		SuperficieAerea sup = new SuperficieAerea("Tormenta Psionica", efectoTormenta);
+		SuperficieAerea sup = new SuperficieAerea("Tormenta", efectoTormenta);
 		return sup;
 	}
 	

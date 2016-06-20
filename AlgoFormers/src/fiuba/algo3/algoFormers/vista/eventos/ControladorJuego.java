@@ -38,12 +38,12 @@ public class ControladorJuego {
 		
 	}
 
-	public void setMoverBackground() {
-		ImageView imagen = new ImageView(new Image("file:src/fiuba/algo3/algoFormers/vista/imagenes/2704.jpg"));
-		imagen.setFitWidth(70);
-		imagen.setFitHeight(30);
-		Mover.setGraphic(imagen);
-		
-	}
+//	public void setMoverBackground() {
+//		Image imagen = new Image("file:src/fiuba/algo3/algoFormers/vista/imagenes/2704.jpg");
+//		BackgroundSize backgroundSize = new BackgroundSize(100, 100, true, true, true, false); 
+//		BackgroundImage backgroundImage = new BackgroundImage(imagen, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER, backgroundSize);
+//		Background background = new Background(backgroundImage);
+//		Mover.setBackground(background);
+//	}
 
 }
