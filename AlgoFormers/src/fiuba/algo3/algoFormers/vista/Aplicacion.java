@@ -46,11 +46,6 @@ public class Aplicacion extends Application{
         this.primaryStage.show();
     }
 
-    private Juego crearModelo() {
-        Juego juego = new Juego();
-        return juego;
-    }
-
 	public void comenzarJuego(Scene proximaEscena) throws Exception {
 		this.primaryStage.setScene(proximaEscena);
 		this.primaryStage.show();

@@ -19,7 +19,12 @@ public class ControladorJuego {
     void FinalzarTurno(ActionEvent event) {
 
     }
-    
+
+    @FXML
+    void atacar(ActionEvent event) {
+
+    }
+
 	public void initData(Juego juego) {
 		this.juego = juego;
 		
