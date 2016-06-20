@@ -138,28 +138,40 @@ public class Mapa {
 		rocosa = fabrica.getRocas();
 		espinosa = fabrica.getEspina();
 		pantano = fabrica.getPantano();
-		this.rellenarDiagonalTerrestreDerecha(rocosa,espinosa);
+		this.rellenarCompleto(rocosa,nube);
+		this.rellenarDiagonalTerrestreDerecha(espinosa);
 		this.rellenarDiagonalTerrestreIzquierda(pantano);
 		this.rellenarCentroAereo(nebulosa);
+		this.rellenarPorcionesAerea(tormenta, 4, 9,3,7);
+		this.rellenarPorcionesAerea(tormenta, (TAMANIO-10),(TAMANIO-4),(TAMANIO-8),(TAMANIO-2));
 		
 	}
-
+	
 	//Metodos privados.
 	
-	private void rellenarDiagonalTerrestreDerecha(SuperficieTerrestre terrestre1,SuperficieTerrestre terrestre2) {
+	private void rellenarCompleto(SuperficieTerrestre terrestre, SuperficieAerea aerea) {
+		for(int fila = 0; fila < TAMANIO; fila--){
+			for(int columna = 0; columna <TAMANIO; columna++){
+					this.ubicar(terrestre, new Posicion (fila,columna));
+					this.ubicar(aerea, new Posicion (fila,columna));
+			}
+		}
+	}
+	
+	private void rellenarDiagonalTerrestreDerecha(SuperficieTerrestre terrestre) {
 		
 		//el -1 para que no choquen el primero ni el ultimo.
 		for(int fila = 1; fila < TAMANIO-1; fila++){
 			//Rellena la diagonal, uno a la derecha y uno a la izquierda.
 			for(int columna = fila-1; columna <= fila+3; columna++){
-				if( fila>19 && fila<21){
-					this.ubicar(terrestre1, new Posicion (fila,columna));
-				}else{this.ubicar(terrestre2, new Posicion (fila,columna));}
+				if(fila<19 && fila>21){
+					this.ubicar(terrestre, new Posicion (fila,columna));
+				}
 			}
 		}
 		//ubico el primero y el ultimo.
-		this.ubicar(terrestre2, new Posicion (0,0));
-		this.ubicar(terrestre2, new Posicion (40,40));
+		this.ubicar(terrestre, new Posicion (0,0));
+		this.ubicar(terrestre, new Posicion (39,39));
 	}
 	
 	private void rellenarDiagonalTerrestreIzquierda(SuperficieTerrestre terrestre) {
@@ -172,8 +184,8 @@ public class Mapa {
 			}
 		}
 		//ubico el primero y el ultimo.
-		this.ubicar(terrestre, new Posicion (0,0));
-		this.ubicar(terrestre, new Posicion (40,40));
+		this.ubicar(terrestre, new Posicion (0,39));
+		this.ubicar(terrestre, new Posicion (39,0));
 	}
 	
 	private void rellenarCentroAereo(SuperficieAerea aerea){
@@ -185,8 +197,12 @@ public class Mapa {
 		}
 	}
 	
-	private void rellenarPorcionAerea(SuperficieAerea aerea, int inicio,int fin){
-		
+	private void rellenarPorcionesAerea(SuperficieAerea aerea, int inicioF,int finF, int inicioC, int finC){
+		for(int fila = inicioF; fila<finF; fila++){
+			for(int columna = inicioC; columna<finC; columna++){
+				this.ubicar(aerea, new Posicion(fila,columna));
+			}
+		}
 	}
 
 	private void llenarTablero(HashMap<Posicion, Casillero> tablero) {	
