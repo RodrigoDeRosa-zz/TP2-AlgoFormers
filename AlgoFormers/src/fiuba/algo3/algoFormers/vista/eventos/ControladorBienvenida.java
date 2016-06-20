@@ -4,6 +4,7 @@ import fiuba.algo3.algoFormers.modelo.juego.Juego;
 import fiuba.algo3.algoFormers.modelo.mapa.Posicion;
 import fiuba.algo3.algoFormers.modelo.mapa.superficies.SuperficieAerea;
 import fiuba.algo3.algoFormers.modelo.mapa.superficies.SuperficieTerrestre;
+import fiuba.algo3.algoFormers.modelo.personajes.AlgoFormer;
 import fiuba.algo3.algoFormers.vista.Aplicacion;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -15,6 +16,7 @@ import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundImage;
 import javafx.scene.layout.BackgroundPosition;
@@ -73,7 +75,8 @@ public class ControladorBienvenida {
     			Posicion posicion = new Posicion(i,j);
     			SuperficieTerrestre supTerrestre = juego.getSuperficieTerrestre(posicion);
     			SuperficieAerea supAerea = juego.getSuperficieAerea(posicion);
-    			HBox casillero = new HBox();
+    			AlgoFormer algoformer = (AlgoFormer) juego.getAtacable(posicion);
+    			AnchorPane casillero = new AnchorPane();
     			
     			//se dibujan y setean la superficies
     			String nombreSupT = supTerrestre.getNombre();
@@ -92,7 +95,15 @@ public class ControladorBienvenida {
     	        	casillero.getChildren().add(imagen);
     	        }
     	        
-    			casillero.setAlignment(Pos.CENTER);
+    	        //se agrega al algoformer
+    	        if(algoformer != null){
+    	        	String nombreAlgoformer = algoformer.getNombre();
+    	        	ImageView imagenAlgoformer = new ImageView(new Image(("file:src/fiuba/algo3/algoFormers/vista/imagenes/" + nombreAlgoformer + ".png")));
+    	        	casillero.getChildren().add(imagenAlgoformer);
+    	        }
+    	        
+    	        //se agrega al bonus
+    	        
     			tablero.add(casillero, i, j);
     		}
 		}	
