@@ -151,7 +151,7 @@ public class Mapa {
 	
 	private void rellenarCompleto(SuperficieTerrestre terrestre, SuperficieAerea aerea) {
 		//LLena todo el mapa con las superficies que recibe.
-		for(int fila = 0; fila < TAMANIO; fila--){
+		for(int fila = 0; fila < TAMANIO; fila++){
 			for(int columna = 0; columna <TAMANIO; columna++){
 					this.ubicar(terrestre, new Posicion (fila,columna));
 					this.ubicar(aerea, new Posicion (fila,columna));
@@ -179,7 +179,7 @@ public class Mapa {
 		
 		for(int fila = TAMANIO-1; fila > 0; fila--){
 			//Rellena la diagonal, uno a la derecha y uno a la izquierda.
-			for(int columna = fila-1; columna <= fila+3; columna++){
+			for(int columna = fila+1; columna <= fila-3; columna--){
 				if( fila<19 || fila>21){
 					this.ubicar(terrestre, new Posicion (fila,columna));}
 			}
