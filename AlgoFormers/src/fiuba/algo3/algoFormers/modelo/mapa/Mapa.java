@@ -150,6 +150,7 @@ public class Mapa {
 	//Metodos privados.
 	
 	private void rellenarCompleto(SuperficieTerrestre terrestre, SuperficieAerea aerea) {
+		//LLena todo el mapa con las superficies que recibe.
 		for(int fila = 0; fila < TAMANIO; fila--){
 			for(int columna = 0; columna <TAMANIO; columna++){
 					this.ubicar(terrestre, new Posicion (fila,columna));
@@ -198,6 +199,7 @@ public class Mapa {
 	}
 	
 	private void rellenarPorcionesAerea(SuperficieAerea aerea, int inicioF,int finF, int inicioC, int finC){
+		//Dadas las posiciones que le pasan por parametro llena esa parte del mapa con la superficie aerea.
 		for(int fila = inicioF; fila<finF; fila++){
 			for(int columna = inicioC; columna<finC; columna++){
 				this.ubicar(aerea, new Posicion(fila,columna));
