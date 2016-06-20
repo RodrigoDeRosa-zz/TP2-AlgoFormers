@@ -37,15 +37,17 @@ public class ControladorBienvenida {
     @FXML
     private TextField NombreDecepticon;
 
+	private Juego juego;
+
     @FXML
     private void ComenzarJuego(ActionEvent event) throws Exception {
-    	Juego juego = new Juego();
     	
     	//A partir del evento obtengo el stage principal
     	Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
     	
     	//Se carga el contenedor del juego
-    	BorderPane contenedorJuego = (BorderPane) FXMLLoader.load(getClass().getResource("ContenedorJuego.fxml"));
+    	FXMLLoader loader = new FXMLLoader(getClass().getResource("ContenedorJuego.fxml"));
+    	BorderPane contenedorJuego = (BorderPane) loader.load();
     	//Se busca en el centro donde hay guardado un GridPane de 40*40
     	ScrollPane contenedorCentro = (ScrollPane) contenedorJuego.getCenter();
     	GridPane tablero = new GridPane();
@@ -54,7 +56,10 @@ public class ControladorBienvenida {
     	contenedorCentro.setContent(tablero);
     	contenedorJuego.setCenter(contenedorCentro);
     	stage.setScene(new Scene(contenedorJuego));
-		stage.show();	
+    	//obtengo el controlador para asignarle el juego
+    	ControladorJuego controlador = loader.<ControladorJuego>getController();
+    	controlador.initData(juego);
+    	stage.show();	
     }
     
 	private void armarTablero(GridPane tablero, Juego juego) {
@@ -76,6 +81,11 @@ public class ControladorBienvenida {
     			tablero.add(casillero, i, j);
     		}
 		}	
+	}
+
+	public void initData(Juego juego) {
+		this.juego = juego;
+		
 	}
     
 

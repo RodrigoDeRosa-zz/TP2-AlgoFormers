@@ -3,6 +3,7 @@ package fiuba.algo3.algoFormers.vista;
 import java.io.IOException;
 
 import fiuba.algo3.algoFormers.modelo.juego.Juego;
+import fiuba.algo3.algoFormers.vista.eventos.ControladorBienvenida;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -26,9 +27,11 @@ public class Aplicacion extends Application{
     @Override
     public void start(final Stage primaryStage) throws Exception {
     	this.primaryStage = primaryStage;
+    	Juego juego = new Juego();
     	
     	//Se carga el contenedor de bienvenida y se define su imagen de fondo
-    	BorderPane contenedorBienvenida = (BorderPane) FXMLLoader.load(getClass().getResource("ContenedorBienvenida.fxml"));
+    	FXMLLoader loader = new FXMLLoader(getClass().getResource("ContenedorBienvenida.fxml"));
+    	BorderPane contenedorBienvenida = loader.load();
     	Image imagen = new Image("file:src/fiuba/algo3/algoFormers/vista/imagenes/2704.jpg");//si se cambia la imagen, cambiar esto
         BackgroundImage imagenDeFondo = new BackgroundImage(imagen, BackgroundRepeat.SPACE, BackgroundRepeat.SPACE, BackgroundPosition.DEFAULT, BackgroundSize.DEFAULT);
         contenedorBienvenida.setBackground(new Background(imagenDeFondo));
@@ -36,6 +39,9 @@ public class Aplicacion extends Application{
         //Se agrega el contenedor de bienvenida al stage principal como una escena
         this.primaryStage.setTitle("AlgoFormers");
     	this.primaryStage.setScene(new Scene(contenedorBienvenida, 640, 480));
+    	//obtengo el controlador para asignarle el juego
+    	ControladorBienvenida controlador = loader.<ControladorBienvenida>getController();
+    	controlador.initData(juego);
         this.primaryStage.setFullScreen(true);
         this.primaryStage.show();
     }

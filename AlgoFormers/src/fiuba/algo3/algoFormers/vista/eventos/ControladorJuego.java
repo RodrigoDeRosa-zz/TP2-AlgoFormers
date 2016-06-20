@@ -1,11 +1,14 @@
 package fiuba.algo3.algoFormers.vista.eventos;
 
+import fiuba.algo3.algoFormers.modelo.juego.Juego;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 
 public class ControladorJuego {
 
+	private Juego juego;
+	
     @FXML
     private Button Mover;
 
@@ -16,5 +19,10 @@ public class ControladorJuego {
     void FinalzarTurno(ActionEvent event) {
 
     }
+
+	public void initData(Juego juego) {
+		this.juego = juego;
+		
+	}
 
 }
