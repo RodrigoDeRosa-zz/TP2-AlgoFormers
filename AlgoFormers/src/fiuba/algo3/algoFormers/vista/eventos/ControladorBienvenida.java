@@ -60,7 +60,12 @@ public class ControladorBienvenida {
     	ControladorJuego controlador = loader.<ControladorJuego>getController();
     	controlador.initData(juego);
     	controlador.setMoverBackground();
-    	stage.show();	
+    	//se guardan los nombres de los jugadores
+    	String nombreA = NombreAutobot.getText();
+    	String nombreD = NombreDecepticon.getText();
+    	this.juego.setNombres(nombreA,nombreD);
+    	stage.show();
+    	
     }
     
 	private void armarTablero(GridPane tablero, Juego juego) {

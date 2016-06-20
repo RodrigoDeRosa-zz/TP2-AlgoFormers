@@ -177,9 +177,9 @@ public class Mapa {
 	
 	private void rellenarDiagonalTerrestreIzquierda(SuperficieTerrestre terrestre) {
 		
-		for(int fila = TAMANIO-1; fila > 0; fila--){
+		for(int fila = TAMANIO-2; fila > 0; fila--){
 			//Rellena la diagonal, uno a la derecha y uno a la izquierda.
-			for(int columna = fila+1; columna <= fila-3; columna--){
+			for(int columna = fila+1; columna >= fila-1; columna--){
 				if( fila<19 || fila>21){
 					this.ubicar(terrestre, new Posicion (fila,columna));}
 			}
