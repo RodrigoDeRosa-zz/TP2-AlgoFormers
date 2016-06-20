@@ -59,6 +59,7 @@ public class ControladorBienvenida {
     	//obtengo el controlador para asignarle el juego
     	ControladorJuego controlador = loader.<ControladorJuego>getController();
     	controlador.initData(juego);
+    	controlador.setMoverBackground();
     	stage.show();	
     }
     

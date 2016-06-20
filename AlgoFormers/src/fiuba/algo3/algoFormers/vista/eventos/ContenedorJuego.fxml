@@ -59,8 +59,8 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <Button fx:id="Mover" mnemonicParsing="false" text="Mover" GridPane.halignment="CENTER" />
                   <Button fx:id="Atacar" mnemonicParsing="false" onAction="#atacar" text="Atacar" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+                  <Button fx:id="Mover" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="26.0" prefWidth="62.0" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
                </children>
             </GridPane>
             <ImageView fitHeight="63.0" fitWidth="122.0" pickOnBounds="true" preserveRatio="true" />

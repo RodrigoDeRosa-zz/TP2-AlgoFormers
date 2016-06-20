@@ -33,7 +33,7 @@ public class Aplicacion extends Application{
     	FXMLLoader loader = new FXMLLoader(getClass().getResource("ContenedorBienvenida.fxml"));
     	BorderPane contenedorBienvenida = loader.load();
     	Image imagen = new Image("file:src/fiuba/algo3/algoFormers/vista/imagenes/2704.jpg");//si se cambia la imagen, cambiar esto
-        BackgroundImage imagenDeFondo = new BackgroundImage(imagen, BackgroundRepeat.SPACE, BackgroundRepeat.SPACE, BackgroundPosition.DEFAULT, BackgroundSize.DEFAULT);
+        BackgroundImage imagenDeFondo = new BackgroundImage(imagen, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT, BackgroundSize.DEFAULT);
         contenedorBienvenida.setBackground(new Background(imagenDeFondo));
         
         //Se agrega el contenedor de bienvenida al stage principal como una escena
