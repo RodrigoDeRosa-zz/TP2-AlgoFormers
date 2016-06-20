@@ -22,6 +22,7 @@ public class Juego {
 	
 	public Juego() {
 		this.mapa = new Mapa();
+		this.mapa.rellenarMapa();
 		this.jugadorA = new JugadorAutobots();
 		this.jugadorD = new JugadorDecepticons();
 		

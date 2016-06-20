@@ -8,6 +8,7 @@ import fiuba.algo3.algoFormers.modelo.direcciones.Direccion;
 import fiuba.algo3.algoFormers.modelo.excepciones.CasilleroOcupadoException;
 import fiuba.algo3.algoFormers.modelo.excepciones.HumanoideNoPuedeAtravesarException;
 import fiuba.algo3.algoFormers.modelo.excepciones.UbicableNoPertenceAlMapaException;
+import fiuba.algo3.algoFormers.modelo.fabricas.superficies.SuperficiesFactory;
 import fiuba.algo3.algoFormers.modelo.interfaces.Atacable;
 import fiuba.algo3.algoFormers.modelo.interfaces.Capturable;
 import fiuba.algo3.algoFormers.modelo.interfaces.Ubicable;
@@ -125,8 +126,69 @@ public class Mapa {
 		return casillero.getSuperficieAerea();
 	}
 	
+	public void rellenarMapa() {
+		/*Funcion que inicializa las superficies del mapa*/
+		
+		SuperficiesFactory fabrica = new SuperficiesFactory();
+		SuperficieAerea nebulosa,tormenta,nube;
+		SuperficieTerrestre rocosa,espinosa,pantano;
+		nebulosa = fabrica.getNebulosaAndromeda();
+		tormenta = fabrica.getTormentaPsionica();
+		nube = fabrica.getNube();
+		rocosa = fabrica.getRocas();
+		espinosa = fabrica.getEspina();
+		pantano = fabrica.getPantano();
+		this.rellenarDiagonalTerrestreDerecha(rocosa,espinosa);
+		this.rellenarDiagonalTerrestreIzquierda(pantano);
+		this.rellenarCentroAereo(nebulosa);
+		
+	}
+
 	//Metodos privados.
 	
+	private void rellenarDiagonalTerrestreDerecha(SuperficieTerrestre terrestre1,SuperficieTerrestre terrestre2) {
+		
+		//el -1 para que no choquen el primero ni el ultimo.
+		for(int fila = 1; fila < TAMANIO-1; fila++){
+			//Rellena la diagonal, uno a la derecha y uno a la izquierda.
+			for(int columna = fila-1; columna <= fila+3; columna++){
+				if( fila>19 && fila<21){
+					this.ubicar(terrestre1, new Posicion (fila,columna));
+				}else{this.ubicar(terrestre2, new Posicion (fila,columna));}
+			}
+		}
+		//ubico el primero y el ultimo.
+		this.ubicar(terrestre2, new Posicion (0,0));
+		this.ubicar(terrestre2, new Posicion (40,40));
+	}
+	
+	private void rellenarDiagonalTerrestreIzquierda(SuperficieTerrestre terrestre) {
+		
+		for(int fila = TAMANIO-1; fila > 0; fila--){
+			//Rellena la diagonal, uno a la derecha y uno a la izquierda.
+			for(int columna = fila-1; columna <= fila+3; columna++){
+				if( fila<19 || fila>21){
+					this.ubicar(terrestre, new Posicion (fila,columna));}
+			}
+		}
+		//ubico el primero y el ultimo.
+		this.ubicar(terrestre, new Posicion (0,0));
+		this.ubicar(terrestre, new Posicion (40,40));
+	}
+	
+	private void rellenarCentroAereo(SuperficieAerea aerea){
+		//Del medio 5 para cada lado
+		for(int fila = ((TAMANIO/2)-5); fila<((TAMANIO/2)+5); fila++){
+			for(int columna = fila; columna<((TAMANIO/2)+5); columna++){
+				this.ubicar(aerea, new Posicion(fila,columna));
+			}
+		}
+	}
+	
+	private void rellenarPorcionAerea(SuperficieAerea aerea, int inicio,int fin){
+		
+	}
+
 	private void llenarTablero(HashMap<Posicion, Casillero> tablero) {	
 		for(int fila = 0; fila < TAMANIO; fila++){
 			for(int columna = 0; columna < TAMANIO; columna++){
