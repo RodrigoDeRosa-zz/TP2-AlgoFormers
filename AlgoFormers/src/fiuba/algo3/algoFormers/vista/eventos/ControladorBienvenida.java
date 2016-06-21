@@ -89,7 +89,7 @@ public class ControladorBienvenida {
     	        	BackgroundImage imagenDeFondo = new BackgroundImage(imagenTerrestre, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT, BackgroundSize.DEFAULT);
         	        casillero.setBackground(new Background(imagenDeFondo));
     	        	//se superpone la aerea
-        	        ImageView imagenAerea = new ImageView(new Image(("file:src/fiuba/algo3/algoFormers/vista/imagenes/Tormenta.png")));
+        	        ImageView imagenAerea = new ImageView(new Image(("file:src/fiuba/algo3/algoFormers/vista/imagenes/" + nombreSupA + ".png")));
     	        	casillero.getChildren().add(imagenAerea);
     	        }else{
     	        	//solo de define la terrestre
