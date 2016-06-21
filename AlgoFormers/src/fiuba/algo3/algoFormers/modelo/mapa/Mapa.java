@@ -157,6 +157,8 @@ public class Mapa {
 		this.ubicar(canion, new Posicion(30,24));
 		this.ubicar(canion, new Posicion(16,36));
 		this.ubicar(burbuja, new Posicion(23,29));
+		this.ubicar(flash, new Posicion(30,39));
+		this.ubicar(burbuja, new Posicion(24,38));
 	}
 	
 	//Metodos privados.
