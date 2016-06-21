@@ -7,6 +7,7 @@ import fiuba.algo3.algoFormers.modelo.interfaces.Capturable;
 public class Chispa implements Capturable{
 
 	private int id = 0;
+	private String nombre = "Chispa";
 	
 	public Chispa(){}
 	
@@ -34,5 +35,9 @@ public class Chispa implements Capturable{
 		if (id != other.id)
 			return false;
 		return true;
-	}	
+	}
+	
+	public String getNombre(){
+		return this.nombre;
+	}
 }

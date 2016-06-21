@@ -70,7 +70,7 @@ public class Mapa {
 		casillero.desocuparAtacable();
 	}
 	
-	private Capturable getCapturable(Posicion posicion) {
+	public Capturable getCapturable(Posicion posicion) {
 		Casillero casillero = tablero.get(posicion);
 		return casillero.getCapturable();	
 	}

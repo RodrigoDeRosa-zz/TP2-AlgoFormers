@@ -9,6 +9,7 @@ public class BurbujaInmaculada extends Bonus {
 
 	public BurbujaInmaculada(){
 		super(0, 0, new EfectoVida(), 3);
+		this.nombre = "BurbujaInmaculada";
 	}
 	
 	@Override

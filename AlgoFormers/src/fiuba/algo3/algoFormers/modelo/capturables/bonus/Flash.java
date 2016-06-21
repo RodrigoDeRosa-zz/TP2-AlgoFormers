@@ -7,6 +7,7 @@ public class Flash extends Bonus {
 
 	public Flash() {
 		super(200, 0, new EfectoVelocidad(), 4);
+		this.nombre = "Flash";
 	}
 
 	@Override

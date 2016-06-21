@@ -3,6 +3,7 @@ package fiuba.algo3.algoFormers.modelo.juego;
 import fiuba.algo3.algoFormers.modelo.capturables.Chispa;
 import fiuba.algo3.algoFormers.modelo.direcciones.Direccion;
 import fiuba.algo3.algoFormers.modelo.interfaces.Atacable;
+import fiuba.algo3.algoFormers.modelo.interfaces.Capturable;
 import fiuba.algo3.algoFormers.modelo.jugadores.JugadorAutobots;
 import fiuba.algo3.algoFormers.modelo.jugadores.JugadorDecepticons;
 import fiuba.algo3.algoFormers.modelo.mapa.Mapa;
@@ -91,6 +92,11 @@ public class Juego {
 	public void setNombres(String nombreAutobot, String nombreDecepticon) {
 		this.jugadorA.guardarNombre(nombreAutobot);
 		this.jugadorD.guardarNombre(nombreDecepticon);
+		
+	}
+
+	public Capturable getCapturable(Posicion posicion) {
+		return this.mapa.getCapturable(posicion);
 		
 	}
 

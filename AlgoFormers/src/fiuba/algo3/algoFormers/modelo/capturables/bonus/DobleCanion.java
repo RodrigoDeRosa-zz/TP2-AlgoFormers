@@ -7,6 +7,7 @@ public class DobleCanion extends Bonus {
 
 	public DobleCanion() {
 		super(100, 0, new EfectoAtaque(), 4);
+		this.nombre = "DobleCanion";
 	}
 	
 	public void afectar(Atacable atacable){

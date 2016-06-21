@@ -1,5 +1,6 @@
 package fiuba.algo3.algoFormers.vista.eventos;
 
+import fiuba.algo3.algoFormers.modelo.interfaces.Capturable;
 import fiuba.algo3.algoFormers.modelo.juego.Juego;
 import fiuba.algo3.algoFormers.modelo.mapa.Posicion;
 import fiuba.algo3.algoFormers.modelo.mapa.superficies.SuperficieAerea;
@@ -77,6 +78,7 @@ public class ControladorBienvenida {
     			SuperficieAerea supAerea = juego.getSuperficieAerea(posicion);
     			AlgoFormer algoformer = (AlgoFormer) juego.getAtacable(posicion);
     			AnchorPane casillero = new AnchorPane();
+    			Capturable capturable = juego.getCapturable(posicion);
     			
     			//se dibujan y setean la superficies
     			String nombreSupT = supTerrestre.getNombre();
@@ -103,6 +105,11 @@ public class ControladorBienvenida {
     	        }
     	        
     	        //se agrega al bonus
+    	        if(capturable != null){
+    	        	String nombreCapturable = capturable.getNombre();
+    	        	ImageView imagenCapturable = new ImageView(new Image(("file:src/fiuba/algo3/algoFormers/vista/imagenes/" + nombreCapturable + ".png")));
+    	        	casillero.getChildren().add(imagenCapturable);
+    	        }
     	        
     			tablero.add(casillero, i, j);
     		}
