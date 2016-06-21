@@ -141,6 +141,9 @@ public class Mapa {
 		rocosa = fabrica.getRocas();
 		espinosa = fabrica.getEspina();
 		pantano = fabrica.getPantano();
+		BurbujaInmaculada burbuja = new BurbujaInmaculada();
+		DobleCanion canion = new DobleCanion();
+		Flash flash = new Flash();
 		this.rellenarCompleto(rocosa,nube);
 		this.rellenarDiagonalTerrestreDerecha(espinosa);
 		this.rellenarDiagonalTerrestreIzquierda(pantano);
@@ -148,6 +151,12 @@ public class Mapa {
 		this.rellenarPosiciones(nebulosa,3,6,10,30);
 		this.rellenarPosiciones(nebulosa,(TAMANIO-6),(TAMANIO-3),10,30);
 		this.rellenarZonaBonus(tormenta,nebulosa,nube,espinosa,pantano,rocosa);
+		this.ubicar(flash, new Posicion(10,35));
+		this.ubicar(burbuja, new Posicion(29,17));
+		this.ubicar(flash, new Posicion(14,27));
+		this.ubicar(canion, new Posicion(30,24));
+		this.ubicar(canion, new Posicion(16,36));
+		this.ubicar(burbuja, new Posicion(23,29));
 	}
 	
 	//Metodos privados.
