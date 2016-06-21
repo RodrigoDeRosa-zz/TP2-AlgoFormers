@@ -32,9 +32,7 @@ import javafx.stage.Stage;
 
 public class ControladorBienvenida {
 
-	private Aplicacion aplicacion;
-	
-    @FXML
+	@FXML
     private TextField NombreAutobot;
 
     @FXML
