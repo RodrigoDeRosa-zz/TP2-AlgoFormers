@@ -10,7 +10,7 @@ public class BotonAtacar extends BotonImagen {
 	private Juego juego;
 	
 	public BotonAtacar(Juego juego){
-		super("/home/rodrigo/git/PruebasJavaFX/Botones/Atacar.png", 150, 54);
+		super("file:src/fiuba/algo3/algoFormers/vista/imagenes/Atacar.png", 150, 54);
 		this.setJuego(juego);
 		this.setHandler();
 	}

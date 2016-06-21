@@ -10,7 +10,7 @@ public class BotonFinalizarTurno extends BotonImagen {
 	private Juego juego;
 	
 	public BotonFinalizarTurno(Juego juego){
-		super("/home/rodrigo/git/PruebasJavaFX/Botones/FinalizarTurno.png", 184, 108);
+		super("file:src/fiuba/algo3/algoFormers/vista/imagenes/FinalizarTurno.png", 184, 108);
 		this.setJuego(juego);
 		this.setHandler();
 	}

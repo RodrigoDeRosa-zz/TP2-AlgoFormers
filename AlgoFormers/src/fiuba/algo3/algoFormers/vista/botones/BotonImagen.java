@@ -1,6 +1,5 @@
 package fiuba.algo3.algoFormers.vista.botones;
 
-import java.io.File;
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
@@ -20,8 +19,7 @@ public class BotonImagen extends Button{
    }
     
     private void setGrafico(String urlImagen, int ancho, int alto){
-    	File file = new File(urlImagen);
-    	ImageView imagen = new ImageView(new Image(file.toURI().toString()));
+    	ImageView imagen = new ImageView(new Image(urlImagen));
     	imagen.setFitHeight(alto);
     	imagen.setFitWidth(ancho);
     	this.setGraphic(imagen);

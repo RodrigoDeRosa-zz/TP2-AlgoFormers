@@ -10,7 +10,7 @@ public class BotonTransformar extends BotonImagen {
 	private Juego juego;
 	
 	public BotonTransformar(Juego juego){
-		super("/home/rodrigo/git/PruebasJavaFX/Botones/Transformar.png", 210, 54);
+		super("file:src/fiuba/algo3/algoFormers/vista/imagenes/Transformar.png", 210, 54);
 		this.setJuego(juego);
 		this.setHandler();
 	}

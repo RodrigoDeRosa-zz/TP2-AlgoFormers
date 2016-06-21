@@ -10,7 +10,7 @@ public class BotonCombinar extends BotonImagen {
 	private Juego juego;
 	
 	public BotonCombinar(Juego juego){
-		super("/home/rodrigo/git/PruebasJavaFX/Botones/Combinar.png", 150, 54);
+		super("file:src/fiuba/algo3/algoFormers/vista/imagenes/Combinar.png", 150, 54);
 		this.setJuego(juego);
 		this.setHandler();
 	}

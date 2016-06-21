@@ -5,7 +5,7 @@ import fiuba.algo3.algoFormers.modelo.direcciones.DirAbajoIzq;
 
 public class BotonDireccionAbajoIzquierda extends BotonDireccion {
 
-	private final static String imagen = "/home/rodrigo/git/PruebasJavaFX/Flechas/AbajoIzquierda.png";
+	private final static String imagen ="file:src/fiuba/algo3/algoFormers/vista/imagenes/AbajoIzquierda.png";
 	
 	public BotonDireccionAbajoIzquierda(Juego juego) {
 		super(juego, new DirAbajoIzq(), imagen);
