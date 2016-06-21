@@ -4,7 +4,7 @@ import fiuba.algo3.algoFormers.modelo.juego.Juego;
 
 public class BotonOptimus extends BotonPersonaje{
 
-	private final static String imagen = "/home/rodrigo/git/PruebasJavaFX/AlgoFormers/Optimus Prime.png";	
+	private final static String imagen = "file:src/fiuba/algo3/algoFormers/vista/imagenes/Optimus Prime.png";	
 	
 	public BotonOptimus(Juego juego){
 		super(juego, imagen, 60, 60);

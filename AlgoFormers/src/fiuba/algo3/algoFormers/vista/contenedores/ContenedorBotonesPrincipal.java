@@ -36,13 +36,14 @@ public class ContenedorBotonesPrincipal extends GridPane{
 	}
 	
 	private void setImagenesLaterales() {
-		File autoBot = new File("/home/rodrigo/git/PruebasJavaFX/Etc/AutoBot.png");
-		ImageView imagenAB = new ImageView(new Image(autoBot.toURI().toString()));
+//		File autoBot = new File("/home/rodrigo/git/PruebasJavaFX/Etc/AutoBot.png");
+//		ImageView imagenAB = new ImageView(new Image(autoBot.toURI().toString()));
+		ImageView imagenAB = new ImageView(new Image("file:src/fiuba/algo3/algoFormers/vista/imagenes/Autobot.png"));
 		imagenAB.setFitHeight(50);
 		imagenAB.setFitWidth(50);
 		
-		File decepticon = new File("/home/rodrigo/git/PruebasJavaFX/Etc/Decepticon.png");
-		ImageView imagenD = new ImageView(new Image(decepticon.toURI().toString()));
+//		File decepticon = new File("/home/rodrigo/git/PruebasJavaFX/Etc/Decepticon.png");
+		ImageView imagenD = new ImageView(new Image("file:src/fiuba/algo3/algoFormers/vista/imagenes/Decepticon.png"));
 		imagenD.setFitHeight(50);
 		imagenD.setFitWidth(50);
 		
@@ -60,8 +61,8 @@ public class ContenedorBotonesPrincipal extends GridPane{
 	}
 	
 	private void setFondo(){
-	   	File file = new File("/home/rodrigo/git/PruebasJavaFX/Etc/FondoPanelBotones.png");
-	   	BackgroundImage imagen = new BackgroundImage(new Image(file.toURI().toString()),
+	   	Image imagenPanel = new Image("file:src/fiuba/algo3/algoFormers/vista/imagenes/FondoPanelBotones.png");
+	   	BackgroundImage imagen = new BackgroundImage(imagenPanel,
 		        BackgroundRepeat.REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,
 		          BackgroundSize.DEFAULT);
 		this.setBackground(new Background(imagen));

@@ -72,6 +72,7 @@ public class ControladorBienvenida {
     	String nombreA = NombreAutobot.getText();
     	String nombreD = NombreDecepticon.getText();
     	this.juego.setNombres(nombreA,nombreD);
+    	stage.setFullScreen(true);
     	stage.show();
     	
     }

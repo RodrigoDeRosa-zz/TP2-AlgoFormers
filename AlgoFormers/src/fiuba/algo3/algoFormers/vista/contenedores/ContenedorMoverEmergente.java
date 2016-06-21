@@ -53,8 +53,9 @@ public class ContenedorMoverEmergente extends VBox{
 	}
 	
 	private void setFondo(){
-	   	File file = new File("/home/rodrigo/git/PruebasJavaFX/Etc/FondoPanelBotones.png");
-	   	BackgroundImage imagen = new BackgroundImage(new Image(file.toURI().toString()),
+//	   	File file = new File("/home/rodrigo/git/PruebasJavaFX/Etc/FondoPanelBotones.png");
+	   	Image imagenPanel = new Image("file:src/fiuba/algo3/algoFormers/vista/imagenes/FondoPanelBotones.png");
+	   	BackgroundImage imagen = new BackgroundImage(imagenPanel,
 		        BackgroundRepeat.REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,
 		          BackgroundSize.DEFAULT);
 		this.setBackground(new Background(imagen));
