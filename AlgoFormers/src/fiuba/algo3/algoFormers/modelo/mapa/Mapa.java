@@ -142,13 +142,23 @@ public class Mapa {
 		this.rellenarDiagonalTerrestreDerecha(espinosa);
 		this.rellenarDiagonalTerrestreIzquierda(pantano);
 		this.rellenarCentroAereo(nebulosa);
-		this.rellenarPorcionesAerea(tormenta, 4, 9,3,7);
-		this.rellenarPorcionesAerea(tormenta, (TAMANIO-10),(TAMANIO-4),(TAMANIO-8),(TAMANIO-2));
-		
+		this.rellenarPorcionesAerea(tormenta,3,6,10,30);
+		this.rellenarPorcionesAerea(tormenta,(TAMANIO-6),(TAMANIO-3),10,30);
+		this.rellenarFranjaTerrestre(pantano,7,14,17,23);
 	}
 	
 	//Metodos privados.
 	
+	private void rellenarFranjaTerrestre(SuperficieTerrestre terrestre, int inicioF, int finF, 
+			int inicioC, int finC) {
+		for(int fila = inicioF; fila<finF; fila++){
+			for(int columna = inicioC; columna<finC; columna++){
+				this.ubicar(terrestre, new Posicion(fila,columna));
+			}
+		}
+		
+	}
+
 	private void rellenarCompleto(SuperficieTerrestre terrestre, SuperficieAerea aerea) {
 		//LLena todo el mapa con las superficies que recibe.
 		for(int fila = 0; fila < TAMANIO; fila++){
@@ -164,35 +174,41 @@ public class Mapa {
 		//el -1 para que no choquen el primero ni el ultimo.
 		for(int fila = 1; fila < TAMANIO-1; fila++){
 			//Rellena la diagonal, uno a la derecha y uno a la izquierda.
-			for(int columna = fila-1; columna <= fila+3; columna++){
-				if(fila<19 && fila>21){
+			for(int columna = fila-1; columna <= fila+1; columna++){
+				if(fila<18 || fila>21){
 					this.ubicar(terrestre, new Posicion (fila,columna));
 				}
 			}
 		}
 		//ubico el primero y el ultimo.
 		this.ubicar(terrestre, new Posicion (0,0));
+		this.ubicar(terrestre, new Posicion (0,1));
+		this.ubicar(terrestre, new Posicion (39,38));
 		this.ubicar(terrestre, new Posicion (39,39));
 	}
 	
 	private void rellenarDiagonalTerrestreIzquierda(SuperficieTerrestre terrestre) {
 		
-		for(int fila = TAMANIO-2; fila > 0; fila--){
+		//el -1 para que no choquen el primero ni el ultimo.
+		for(int fila = 1; fila < TAMANIO-1; fila++){
 			//Rellena la diagonal, uno a la derecha y uno a la izquierda.
-			for(int columna = fila+1; columna >= fila-1; columna--){
-				if( fila<19 || fila>21){
-					this.ubicar(terrestre, new Posicion (fila,columna));}
+			for(int columna = (TAMANIO-fila); columna > (TAMANIO-fila)-3; columna--){
+				if(fila<18 || fila>21){
+					this.ubicar(terrestre, new Posicion (fila,columna));
+				}
 			}
 		}
 		//ubico el primero y el ultimo.
 		this.ubicar(terrestre, new Posicion (0,39));
+		this.ubicar(terrestre, new Posicion (39,1));
 		this.ubicar(terrestre, new Posicion (39,0));
+		this.ubicar(terrestre, new Posicion (0,38));
 	}
 	
 	private void rellenarCentroAereo(SuperficieAerea aerea){
 		//Del medio 5 para cada lado
 		for(int fila = ((TAMANIO/2)-5); fila<((TAMANIO/2)+5); fila++){
-			for(int columna = fila; columna<((TAMANIO/2)+5); columna++){
+			for(int columna = ((TAMANIO/2)-5); columna<((TAMANIO/2)+5); columna++){
 				this.ubicar(aerea, new Posicion(fila,columna));
 			}
 		}

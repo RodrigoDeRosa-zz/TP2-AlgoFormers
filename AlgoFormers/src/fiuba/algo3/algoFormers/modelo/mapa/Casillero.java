@@ -57,7 +57,32 @@ public class Casillero {
 	}
 	
 	public void ubicar(Superficie superficie) {
-		this.superficies.add(superficie);
+		int tam =this.superficies.size();
+		SuperficieAerea aerea = this.getSuperficieAerea();
+		SuperficieTerrestre terrestre = this.getSuperficieTerrestre();
+		if(tam <= 2){
+			if(terrestre != null && superficie.getClass() == terrestre.getClass()){
+				if(tam ==1){
+					this.superficies.remove(0);
+				}
+				if(tam ==2){
+					this.superficies.remove(0);
+					this.superficies.remove(0);
+					this.superficies.add(aerea);
+				}
+			}
+			if( this.getSuperficieAerea() != null && superficie.getClass() == aerea.getClass()){
+				if(tam ==1){
+					this.superficies.remove(0);
+				}
+				if(tam ==2){
+					this.superficies.remove(0);
+					this.superficies.remove(0);
+					this.superficies.add(terrestre);
+				}
+			}
+		}
+		this.superficies.add(superficie);		
 	}
 	
 	private void setAtacable(Atacable atacable){

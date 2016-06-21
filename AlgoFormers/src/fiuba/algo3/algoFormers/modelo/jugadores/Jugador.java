@@ -62,7 +62,6 @@ public abstract class Jugador {
 	
 	public void guardarNombre(String nombre){
 		this.nombre = nombre;
-		System.out.println(nombre);
 	}
 	
 }
