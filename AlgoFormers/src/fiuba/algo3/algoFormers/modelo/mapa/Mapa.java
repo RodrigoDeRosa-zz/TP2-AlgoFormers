@@ -4,6 +4,9 @@ import java.util.HashMap;
 import java.util.Random;
 
 import fiuba.algo3.algoFormers.modelo.capturables.Chispa;
+import fiuba.algo3.algoFormers.modelo.capturables.bonus.BurbujaInmaculada;
+import fiuba.algo3.algoFormers.modelo.capturables.bonus.DobleCanion;
+import fiuba.algo3.algoFormers.modelo.capturables.bonus.Flash;
 import fiuba.algo3.algoFormers.modelo.direcciones.Direccion;
 import fiuba.algo3.algoFormers.modelo.excepciones.CasilleroOcupadoException;
 import fiuba.algo3.algoFormers.modelo.excepciones.HumanoideNoPuedeAtravesarException;
@@ -141,14 +144,86 @@ public class Mapa {
 		this.rellenarCompleto(rocosa,nube);
 		this.rellenarDiagonalTerrestreDerecha(espinosa);
 		this.rellenarDiagonalTerrestreIzquierda(pantano);
-		this.rellenarCentroAereo(nebulosa);
-		this.rellenarPosiciones(tormenta,3,6,10,30);
-		this.rellenarPosiciones(tormenta,(TAMANIO-6),(TAMANIO-3),10,30);
-		this.rellenarPosiciones(pantano,7,14,17,23);
+		this.rellenarCentroAereo(tormenta);
+		this.rellenarPosiciones(nebulosa,3,6,10,30);
+		this.rellenarPosiciones(nebulosa,(TAMANIO-6),(TAMANIO-3),10,30);
+		this.rellenarZonaBonus(tormenta,nebulosa,nube,espinosa,pantano,rocosa);
 	}
 	
 	//Metodos privados.
 	
+	private void rellenarZonaBonus(SuperficieAerea tormenta, SuperficieAerea nebulosa, SuperficieAerea nube, 
+			SuperficieTerrestre espinosa, SuperficieTerrestre pantano, SuperficieTerrestre rocosa) {
+		//Funcion que crea una zona de bonus
+		this.interiorZonaBonus(tormenta,pantano);
+		this.exteriorZonaBonus(nebulosa,espinosa);
+		this.entradaZonaBonus(nube, rocosa);
+		this.agregarBonus();
+	}
+	
+	private void agregarBonus() {
+		BurbujaInmaculada burbuja = new BurbujaInmaculada();
+		DobleCanion canion = new DobleCanion();
+		Flash flash = new Flash();
+		
+		this.ubicar(burbuja, new Posicion((TAMANIO/2)+1,3));
+		this.ubicar(flash, new Posicion((TAMANIO/2)-1,3));
+		this.ubicar(canion, new Posicion((TAMANIO/2)-1,4));
+		this.ubicar(burbuja, new Posicion((TAMANIO/2),4));
+		this.ubicar(flash, new Posicion((TAMANIO/2)+1,4));
+		this.ubicar(flash, new Posicion((TAMANIO/2)+1,5));
+		this.ubicar(canion, new Posicion((TAMANIO/2),5));
+		this.ubicar(flash, new Posicion((TAMANIO/2)-1,5));
+		this.ubicar(canion, new Posicion((TAMANIO/2)+1,6));
+		this.ubicar(burbuja, new Posicion((TAMANIO/2),6));
+		this.ubicar(canion, new Posicion((TAMANIO/2)-1,6));
+		
+	}
+
+	private void entradaZonaBonus(SuperficieAerea supA, SuperficieTerrestre supT){
+		this.ubicar(supA, new Posicion((TAMANIO/2),2));
+		this.ubicar(supT, new Posicion((TAMANIO/2),2));
+		this.ubicar(supA, new Posicion((TAMANIO/2),1));
+		this.ubicar(supT, new Posicion((TAMANIO/2),1));
+	}
+	
+	private void exteriorZonaBonus(SuperficieAerea superficieA, SuperficieTerrestre superficieT){
+		for(int fila = (TAMANIO/2)-3; fila<(TAMANIO/2)-2; fila++){
+			for(int columna = 1; columna<9; columna++){
+				this.ubicar(superficieA, new Posicion(fila,columna));
+				this.ubicar(superficieA, new Posicion(fila+6,columna));
+				this.ubicar(superficieT, new Posicion(fila,columna));
+				this.ubicar(superficieT, new Posicion(fila+6,columna));
+				if (columna>=8 || columna <=1){
+					//Para cerrar el cuadradito
+					for(int aux=1; aux <= 6; aux++){
+						this.ubicar(superficieA, new Posicion(fila+aux,columna));
+						this.ubicar(superficieT, new Posicion(fila+aux,columna));
+
+					}
+				}
+			}
+		}
+	}
+	
+	private void interiorZonaBonus(SuperficieAerea superficieA, SuperficieTerrestre superficieT){
+		for(int fila = (TAMANIO/2)-2; fila<(TAMANIO/2)-1; fila++){
+			for(int columna = 2; columna<8; columna++){
+				this.ubicar(superficieA, new Posicion(fila,columna));
+				this.ubicar(superficieA, new Posicion(fila+4,columna));
+				this.ubicar(superficieT, new Posicion(fila,columna));
+				this.ubicar(superficieT, new Posicion(fila+4,columna));
+				if (columna>=7 || columna <=2){
+					//Para cerrar el cuadradito
+					for(int aux=1; aux <= 5; aux++){
+						this.ubicar(superficieA, new Posicion(fila+aux,columna));
+						this.ubicar(superficieT, new Posicion(fila+aux,columna));
+
+					}
+				}
+			}
+		}
+	}
 	private void rellenarPosiciones(Superficie superficie, int inicioF, int finF, 
 			int inicioC, int finC) {
 		for(int fila = inicioF; fila<finF; fila++){
