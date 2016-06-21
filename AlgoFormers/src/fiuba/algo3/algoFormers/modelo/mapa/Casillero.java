@@ -57,30 +57,13 @@ public class Casillero {
 	}
 	
 	public void ubicar(Superficie superficie) {
-		int tam =this.superficies.size();
-		SuperficieAerea aerea = this.getSuperficieAerea();
-		SuperficieTerrestre terrestre = this.getSuperficieTerrestre();
-		if(tam <= 2){
-			if(terrestre != null && superficie.getClass() == terrestre.getClass()){
-				if(tam ==1){
-					this.superficies.remove(0);
-				}
-				if(tam ==2){
-					this.superficies.remove(0);
-					this.superficies.remove(0);
-					this.superficies.add(aerea);
-				}
+		int indiceA = this.obtenerIndiceSuperficieAerea();
+		int indiceT = this.obtenerIndiceSuperficieTerrestre();
+		if(indiceT >= 0 && superficie.getClass() == SuperficieTerrestre.class){
+			this.superficies.remove(indiceT);
 			}
-			if( this.getSuperficieAerea() != null && superficie.getClass() == aerea.getClass()){
-				if(tam ==1){
-					this.superficies.remove(0);
-				}
-				if(tam ==2){
-					this.superficies.remove(0);
-					this.superficies.remove(0);
-					this.superficies.add(terrestre);
-				}
-			}
+		if(indiceA >= 0 && superficie.getClass() == SuperficieAerea.class){
+			this.superficies.remove(indiceA);	
 		}
 		this.superficies.add(superficie);		
 	}
@@ -146,6 +129,26 @@ public class Casillero {
 		}
 		if (this.superficies.size() < 2) return null;
 		return (SuperficieAerea) this.superficies.get(1);
+	}
+	
+	public int obtenerIndiceSuperficieTerrestre(){
+		if (this.superficies.size() == 0) return -1;
+		Superficie superficie = this.superficies.get(0);
+		if (superficie.getClass() == SuperficieTerrestre.class){
+			return 0;
+		}
+		if (this.superficies.size() < 2) return -1;
+		return 1;
+	}
+
+	public int obtenerIndiceSuperficieAerea(){
+		if (this.superficies.size() == 0) return -1;
+		Superficie superficie = this.superficies.get(0);
+		if (superficie.getClass() == SuperficieAerea.class){
+			return 0;
+		}
+		if (this.superficies.size() < 2) return -1;
+		return 1;
 	}
 	
 }
