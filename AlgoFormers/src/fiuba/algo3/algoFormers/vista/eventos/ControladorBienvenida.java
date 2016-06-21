@@ -7,12 +7,19 @@ import fiuba.algo3.algoFormers.modelo.mapa.superficies.SuperficieAerea;
 import fiuba.algo3.algoFormers.modelo.mapa.superficies.SuperficieTerrestre;
 import fiuba.algo3.algoFormers.modelo.personajes.AlgoFormer;
 import fiuba.algo3.algoFormers.vista.Aplicacion;
+import fiuba.algo3.algoFormers.vista.botones.acciones.BotonAtacar;
+import fiuba.algo3.algoFormers.vista.botones.acciones.BotonCombinar;
+import fiuba.algo3.algoFormers.vista.botones.acciones.BotonFinalizarTurno;
+import fiuba.algo3.algoFormers.vista.botones.acciones.BotonMover;
+import fiuba.algo3.algoFormers.vista.botones.acciones.BotonTransformar;
+import fiuba.algo3.algoFormers.vista.contenedores.ContenedorBotonesPrincipal;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
@@ -56,6 +63,7 @@ public class ControladorBienvenida {
     	this.armarTablero(tablero, juego);
     	contenedorCentro.setContent(tablero);
     	contenedorJuego.setCenter(contenedorCentro);
+    	this.setBotonera(contenedorJuego);
     	stage.setScene(new Scene(contenedorJuego));
     	//obtengo el controlador para asignarle el juego
     	ControladorJuego controlador = loader.<ControladorJuego>getController();
@@ -67,6 +75,19 @@ public class ControladorBienvenida {
     	stage.show();
     	
     }
+    
+	private void setBotonera(BorderPane stage){
+		
+		Button mover = new BotonMover(this.juego);
+		Button atacar = new BotonAtacar(this.juego);
+		Button transformar = new BotonTransformar(this.juego);
+		Button combinar = new BotonCombinar(this.juego);
+		Button finalizarTurno = new BotonFinalizarTurno(this.juego);
+		
+		ContenedorBotonesPrincipal botones = new ContenedorBotonesPrincipal(mover, atacar, transformar, combinar, finalizarTurno);
+		
+		stage.setBottom(botones);		
+	}
     
 	private void armarTablero(GridPane tablero, Juego juego) {
 		for(int i = 0; i < 40; i++){
