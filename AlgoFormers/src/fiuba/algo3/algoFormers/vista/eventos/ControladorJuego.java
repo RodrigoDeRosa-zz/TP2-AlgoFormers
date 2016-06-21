@@ -1,6 +1,7 @@
 package fiuba.algo3.algoFormers.vista.eventos;
 
 import fiuba.algo3.algoFormers.modelo.juego.Juego;
+import fiuba.algo3.algoFormers.modelo.personajes.AlgoFormer;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
@@ -25,17 +26,37 @@ public class ControladorJuego {
 
     @FXML
     void FinalzarTurno(ActionEvent event) {
-
+    	juego.finalizarTurno();
     }
 
     @FXML
     void atacar(ActionEvent event) {
-
     }
+    
+    /*Comportamiento de los metodos que faltan todavia*/
+//
+//	private AlgoFormer atacante;
+//	private AlgoFormer atacado;
+// 
+//    void transformar(ActionEvent event){
+//       	juego.transformar();
+//    }
+//    
+//    void combinar(ActionEvent event){
+//    	juego.combinar();
+//    }
+//    
+//    void atacar(ActionEvent event){		
+//    }
+//    
+//    void cualquierAlgo(ActionEvent event){
+//    	Button botonClick = (Button)event.getSource();
+//    	//Ahi seteas atacante o atacado segun corresponda
+//    }
+    
 
 	public void initData(Juego juego) {
 		this.juego = juego;
-		
 	}
 
 //	public void setMoverBackground() {
