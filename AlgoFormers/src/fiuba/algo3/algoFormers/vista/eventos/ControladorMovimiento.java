@@ -10,6 +10,7 @@ import fiuba.algo3.algoFormers.modelo.direcciones.DirArribaIzq;
 import fiuba.algo3.algoFormers.modelo.direcciones.DirDerecha;
 import fiuba.algo3.algoFormers.modelo.direcciones.DirIzquierda;
 import fiuba.algo3.algoFormers.modelo.direcciones.Direccion;
+import fiuba.algo3.algoFormers.modelo.excepciones.FueraDelMapaException;
 import fiuba.algo3.algoFormers.modelo.juego.Juego;
 import fiuba.algo3.algoFormers.vista.contenedores.ContenedorTablero;
 import javafx.event.ActionEvent;
@@ -60,7 +61,11 @@ public class ControladorMovimiento {
     @FXML
     void MoverAbajo(ActionEvent event) {
     	Direccion dir = new DirAbajo();
-    	this.juego.mover(dir);
+    	try{
+    		this.juego.mover(dir);
+    	}catch(FueraDelMapaException e){
+    		System.out.println("No es una posicion disponible");
+    	} 
     	this.redibujarTablero();
     	this.cerrarStage(event);
     }
@@ -68,7 +73,11 @@ public class ControladorMovimiento {
     @FXML
     void MoverAbajoIzq(ActionEvent event) {
     	Direccion dir = new DirAbajoIzq();
-    	this.juego.mover(dir);
+    	try{
+    		this.juego.mover(dir); 
+    	}catch(FueraDelMapaException e){
+    		System.out.println("No es una posicion disponible");
+    	} 
     	this.redibujarTablero();
     	this.cerrarStage(event);
     }
@@ -76,7 +85,11 @@ public class ControladorMovimiento {
     @FXML
     void MoverAbjDer(ActionEvent event) {
     	Direccion dir = new DirAbajoDer();
-    	this.juego.mover(dir);
+    	try{
+    		this.juego.mover(dir);
+    	}catch(FueraDelMapaException e){
+    		System.out.println("No es una posicion disponible");
+    	} 
     	this.redibujarTablero();
     	this.cerrarStage(event);
     }
@@ -84,7 +97,11 @@ public class ControladorMovimiento {
     @FXML
     void MoverArrDer(ActionEvent event) {
     	Direccion dir = new DirArribaDer();
-    	this.juego.mover(dir);
+    	try{
+    		this.juego.mover(dir);
+    	}catch(FueraDelMapaException e){
+    		System.out.println("No es una posicion disponible");
+    	} 
     	this.redibujarTablero();
     	this.cerrarStage(event);
     }
@@ -92,7 +109,11 @@ public class ControladorMovimiento {
     @FXML
     void MoverArriba(ActionEvent event) {
     	Direccion dir = new DirArriba();
-    	this.juego.mover(dir);
+    	try{
+    		this.juego.mover(dir);
+    	}catch(FueraDelMapaException e){
+    		System.out.println("No es una posicion disponible");
+    	} 
     	this.redibujarTablero();
     	this.cerrarStage(event);
     }
@@ -100,7 +121,11 @@ public class ControladorMovimiento {
     @FXML
     void MoverDerecha(ActionEvent event) {
     	Direccion dir = new DirDerecha();
-    	this.juego.mover(dir);
+    	try{
+    		this.juego.mover(dir);
+    	}catch(FueraDelMapaException e){
+    		System.out.println("No es una posicion disponible");
+    	} 
     	this.redibujarTablero();
     	this.cerrarStage(event);
     }
@@ -108,7 +133,11 @@ public class ControladorMovimiento {
     @FXML
     void MoverIzqArr(ActionEvent event) {
     	Direccion dir = new DirArribaIzq();
-    	this.juego.mover(dir);
+    	try{
+    		this.juego.mover(dir);
+    	}catch(FueraDelMapaException e){
+    		System.out.println("No es una posicion disponible");
+    	} 
     	this.redibujarTablero();
     	this.cerrarStage(event);
     }
@@ -116,7 +145,11 @@ public class ControladorMovimiento {
     @FXML
     void MoverIzquierda(ActionEvent event) {
     	Direccion dir = new DirIzquierda();
-    	this.juego.mover(dir);
+    	try{
+    		this.juego.mover(dir);
+    	}catch(FueraDelMapaException e){
+    		System.out.println("No es una posicion disponible");
+    	} 
     	this.redibujarTablero();
     	this.cerrarStage(event);
     }

@@ -9,6 +9,7 @@ import fiuba.algo3.algoFormers.modelo.capturables.bonus.DobleCanion;
 import fiuba.algo3.algoFormers.modelo.capturables.bonus.Flash;
 import fiuba.algo3.algoFormers.modelo.direcciones.Direccion;
 import fiuba.algo3.algoFormers.modelo.excepciones.CasilleroOcupadoException;
+import fiuba.algo3.algoFormers.modelo.excepciones.FueraDelMapaException;
 import fiuba.algo3.algoFormers.modelo.excepciones.HumanoideNoPuedeAtravesarException;
 import fiuba.algo3.algoFormers.modelo.excepciones.UbicableNoPertenceAlMapaException;
 import fiuba.algo3.algoFormers.modelo.fabricas.superficies.SuperficiesFactory;
@@ -68,6 +69,9 @@ public class Mapa {
 		Casillero casillero = tablero.get(posicion);
 		Casillero nuevoCasillero = tablero.get(nuevaPosicion);
 		//Se agrega el atacable a la nueva posicion
+		if(nuevoCasillero == null){
+			throw new FueraDelMapaException();
+		}
 		nuevoCasillero.ubicar(atacable);
 		//Se borra de la posicion vieja
 		casillero.desocuparAtacable();
