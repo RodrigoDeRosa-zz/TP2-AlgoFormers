@@ -113,4 +113,12 @@ public class Juego {
 		return this.manejadorTurnos.jugadorActual();
 	}
 
+	public AlgoFormer getAlgoformer(String nombre) {
+		AlgoFormer algoformer = this.jugadorA.getAlgoformer(nombre);
+		if(algoformer == null){
+			algoformer = this.jugadorD.getAlgoformer(nombre);
+		}
+		return algoformer;
+	}
+
 }

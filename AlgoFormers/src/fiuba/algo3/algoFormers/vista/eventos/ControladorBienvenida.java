@@ -100,32 +100,39 @@ public class ControladorBienvenida {
 		Button transformar = new BotonTransformar(this.juego);
 		Button combinar = new BotonCombinar(this.juego);
 		Button finalizarTurno = new BotonFinalizarTurno(this.juego, tablero);
+		Button personaje1, personaje2, personaje3;
+		personaje1 = new BotonOptimus(this.juego);
+		personaje2 = new BotonBumblebee(this.juego);
+		personaje3 = new BotonRatchet(this.juego);
+		
 //		ArrayList<Button> personajes = setBotonesPersonajes();
 //		
 //		ContenedorBotonesPrincipal botones = new ContenedorBotonesPrincipal(mover, atacar, transformar, combinar,
 //				finalizarTurno,personajes.get(1), personajes.get(2), personajes.get(3));
-//		
-//		stage.setBottom(botones);
+		ContenedorBotonesPrincipal botones = new ContenedorBotonesPrincipal(mover, atacar, transformar, combinar,
+				finalizarTurno,personaje1, personaje2, personaje3);
+		
+		stage.setBottom(botones);
 	}
 	
-//	private ArrayList<Button> setBotonesPersonajes(){
-//		Button personaje1, personaje2, personaje3;
-//		if( ((this.juego.getJugadorActual()).getClass()) == (new JugadorAutobots()).getClass()){
-//			personaje1 = new BotonOptimus(this.juego);
-//			personaje2 = new BotonBumblebee(this.juego);
-//			personaje3 = new BotonRatchet(this.juego);
-//		}
-//		else{
-//			personaje1 = new BotonMegatron(this.juego);
-//			personaje2 = new BotonFrenzy(this.juego);
-//			personaje3 = new BotonBonecrusher(this.juego);
-//		}
-//		ArrayList<Button> personajes = new ArrayList<Button>();
-//		personajes.add(personaje1);
-//		personajes.add(personaje2);
-//		personajes.add(personaje3);
-//		return personajes;
-//	}
+	private ArrayList<Button> setBotonesPersonajes(){
+		Button personaje1, personaje2, personaje3;
+		if( ((this.juego.getJugadorActual()).getClass()) == (new JugadorAutobots()).getClass()){
+			personaje1 = new BotonOptimus(this.juego);
+			personaje2 = new BotonBumblebee(this.juego);
+			personaje3 = new BotonRatchet(this.juego);
+		}
+		else{
+			personaje1 = new BotonMegatron(this.juego);
+			personaje2 = new BotonFrenzy(this.juego);
+			personaje3 = new BotonBonecrusher(this.juego);
+		}
+		ArrayList<Button> personajes = new ArrayList<Button>();
+		personajes.add(personaje1);
+		personajes.add(personaje2);
+		personajes.add(personaje3);
+		return personajes;
+	}
 
 	public void initData(Juego juego) {
 		this.juego = juego;
