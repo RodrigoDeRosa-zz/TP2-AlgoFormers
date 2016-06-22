@@ -145,12 +145,12 @@ public class ControladorJuego {
     
     private void deseleccionarToggle(ToggleButton boton, AlgoFormer personaje){
     	boton.setSelected(false);
-    	boton.setGraphic(new ImageView(new Image(("file:src/fiuba/algo3/algoFormers/vista/imagenes/" + personaje.getNombre() + ".png"))));
+    	boton.setStyle("-fx-background-color: transparent;");
     }
     
     private void seleccionarToggle(ToggleButton boton, AlgoFormer personaje){
     	boton.setSelected(true);
-    	boton.setGraphic(new ImageView(new Image(("file:src/fiuba/algo3/algoFormers/vista/imagenes/" + personaje.getNombre() + "Glow.png"))));
+    	boton.setStyle("-fx-shadow: black");
     }
 
 	public void initData(Juego juego) {
