@@ -1,5 +1,7 @@
 package fiuba.algo3.algoFormers.modelo.jugadores;
 
+import java.util.Set;
+
 import fiuba.algo3.algoFormers.modelo.fabricas.algoFormers.AlgoFormerFactory;
 import fiuba.algo3.algoFormers.modelo.mapa.Mapa;
 import fiuba.algo3.algoFormers.modelo.personajes.AlgoFormer;
@@ -63,5 +65,8 @@ public abstract class Jugador {
 	public void guardarNombre(String nombre){
 		this.nombre = nombre;
 	}
-	
+
+	public abstract Set<AlgoFormer> getPersonajes();
+
+	//public abstract Set<String> getPersonajes();
 }

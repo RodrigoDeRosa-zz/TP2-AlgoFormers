@@ -1,9 +1,12 @@
 package fiuba.algo3.algoFormers.modelo.juego;
 
+import java.util.Set;
+
 import fiuba.algo3.algoFormers.modelo.capturables.Chispa;
 import fiuba.algo3.algoFormers.modelo.direcciones.Direccion;
 import fiuba.algo3.algoFormers.modelo.interfaces.Atacable;
 import fiuba.algo3.algoFormers.modelo.interfaces.Capturable;
+import fiuba.algo3.algoFormers.modelo.jugadores.Jugador;
 import fiuba.algo3.algoFormers.modelo.jugadores.JugadorAutobots;
 import fiuba.algo3.algoFormers.modelo.jugadores.JugadorDecepticons;
 import fiuba.algo3.algoFormers.modelo.mapa.Mapa;
@@ -37,6 +40,10 @@ public class Juego {
 		this.ubicarChispa(this.chispa);
 	}
 	
+	public void borrarPersonaje(AlgoFormer algoformer){
+		this.mapa.borrarPersonaje(algoformer);
+	}
+	
 	public void ubicarChispa(Chispa chispa){
 		this.mapa.ubicarChispa(chispa);
 	}
@@ -50,7 +57,9 @@ public class Juego {
 	}
 	
 	public void atacar(Posicion posicion){
+		//try{
 		this.manejadorAcciones.atacar(this.manejadorTurnos.jugadorActual(), posicion);
+		//}(catch PersonajeMuertoException e)
 		this.finalizarTurno();
 	}
 	
@@ -98,6 +107,10 @@ public class Juego {
 	public Capturable getCapturable(Posicion posicion) {
 		return this.mapa.getCapturable(posicion);
 		
+	}
+
+	public Jugador getJugadorActual() {
+		return this.manejadorTurnos.jugadorActual();
 	}
 
 }

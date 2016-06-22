@@ -1,5 +1,7 @@
 package fiuba.algo3.algoFormers.modelo.jugadores;
 
+import java.util.Set;
+
 import fiuba.algo3.algoFormers.modelo.jugadores.equipos.EquipoAutoBot;
 import fiuba.algo3.algoFormers.modelo.mapa.Mapa;
 import fiuba.algo3.algoFormers.modelo.personajes.AlgoFormer;
@@ -52,6 +54,11 @@ public class JugadorAutobots extends Jugador {
 	public AutoBot getAlgoformer(String nombre) {
 		AutoBot personaje = (AutoBot) this.equipo.getAlgoFormer(nombre);
 		return personaje;
+	}
+
+	@Override
+	public Set<AlgoFormer> getPersonajes() {
+		return this.equipo.getPersonajes();
 	}
 
 }

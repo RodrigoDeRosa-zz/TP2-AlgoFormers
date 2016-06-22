@@ -1,5 +1,8 @@
 package fiuba.algo3.algoFormers.modelo.jugadores.equipos;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import fiuba.algo3.algoFormers.modelo.mapa.Mapa;
 import fiuba.algo3.algoFormers.modelo.mapa.Posicion;
 import fiuba.algo3.algoFormers.modelo.personajes.AlgoFormer;
@@ -36,5 +39,14 @@ public class EquipoDecepticon extends Equipo {
 	protected void ubicarMegabot(Mapa mapa, Posicion pos){
 
 		mapa.ubicar(this.megabot, pos);
+	}
+	
+	public Set<AlgoFormer> getPersonajes() {
+		Set<AlgoFormer> personajes = new HashSet<AlgoFormer>();
+		personajes.add(this.getAlgoFormer("Megatron"));
+		personajes.add(this.getAlgoFormer("Frenzy"));
+		personajes.add(this.getAlgoFormer("Bonecrusher"));
+		
+		return personajes;
 	}
 }

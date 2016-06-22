@@ -21,13 +21,20 @@ public class ContenedorBotonesPrincipal extends GridPane{
 	private Button combinar;
 	private Button transformar;
 	private Button finalizarTurno;
+	private Button personaje1;
+	private Button personaje2;
+	private Button personaje3;
 	
-	public ContenedorBotonesPrincipal(Button mover, Button atacar, Button transformar, Button combinar, Button finalizarTurno){
+	public ContenedorBotonesPrincipal(Button mover, Button atacar, Button transformar, Button combinar,
+			Button finalizarTurno, Button personaje1, Button personaje2, Button personaje3){
 		this.setMover(mover);
 		this.setAtacar(atacar);
 		this.setTransformar(transformar);
 		this.setCombinar(combinar);
 		this.setFinalizarTurno(finalizarTurno);
+		this.setPersonaje1(personaje1);
+		this.setPersonaje2(personaje2);
+		this.setPersonaje3(personaje3);
 		this.setImagenesLaterales();
 
 		this.distribuirBotones();
@@ -35,6 +42,19 @@ public class ContenedorBotonesPrincipal extends GridPane{
 		this.setFondo();
 	}
 	
+	private void setPersonaje1(Button personaje1){
+		this.personaje1 = personaje1;
+	}
+
+	private void setPersonaje2(Button personaje2){
+		this.personaje2 = personaje2;
+	}
+
+	private void setPersonaje3(Button personaje3){
+		this.personaje3 = personaje3;
+	}
+
+
 	private void setImagenesLaterales() {
 //		File autoBot = new File("/home/rodrigo/git/PruebasJavaFX/Etc/AutoBot.png");
 //		ImageView imagenAB = new ImageView(new Image(autoBot.toURI().toString()));
@@ -53,11 +73,14 @@ public class ContenedorBotonesPrincipal extends GridPane{
 	}
 
 	private void distribuirBotones(){
-		this.add(this.mover, 1, 0);
-		this.add(this.atacar, 2, 0);
-		this.add(this.transformar, 3, 0);
-		this.add(this.combinar, 4, 0);
-		this.add(this.finalizarTurno, 5, 0);
+		this.add(this.personaje1, 1, 0);
+		this.add(this.personaje2, 2, 0);
+		this.add(this.personaje3, 3, 0);
+		this.add(this.mover, 4, 0);
+		this.add(this.atacar, 5, 0);
+		this.add(this.transformar, 6, 0);
+		this.add(this.combinar, 7, 0);
+		this.add(this.finalizarTurno, 8, 0);
 	}
 	
 	private void setFondo(){

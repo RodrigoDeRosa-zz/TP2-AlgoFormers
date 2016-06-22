@@ -6,6 +6,7 @@ import javafx.scene.control.Button;
 import javafx.scene.layout.HBox;
 import fiuba.algo3.algoFormers.modelo.juego.Juego;
 import fiuba.algo3.algoFormers.modelo.jugadores.Jugador;
+import fiuba.algo3.algoFormers.modelo.personajes.AlgoFormer;
 import fiuba.algo3.algoFormers.vista.botones.personajes.BotonBonecrusher;
 import fiuba.algo3.algoFormers.vista.botones.personajes.BotonBumblebee;
 import fiuba.algo3.algoFormers.vista.botones.personajes.BotonFrenzy;
@@ -33,14 +34,15 @@ public class ContenedorSeleccionObjetivo extends HBox{
 	}
 	
 	private void distribuirPersonajes(){
-//		Set<String> personajes = jugador.getPersonajes();
+		this.agregarOptimus(this.juego);
+//		Set<AlgoFormer> personajes = (this.juego.getJugadorActual()).getPersonajes();//.getPersonajes();
 //		personajes.forEach((personaje) -> {
-			/*if (personaje == "Optimus Prime")*/ this.agregarOptimus(this.juego);
-//			else if (personaje == "Bumblebee") this.agregarBumblebee(juego);
-//			else if (personaje == "Ratchet") this.agregarRatchet(juego);
-//			else if (personaje == "Megatron") this.agregarMegatron(juego);
-//			else if (personaje == "Frenzy") this.agregarFrenzy(juego);
-//			else if (personaje == "Bonecrusher") this.agregarBonecrusher(juego);
+//			if (personaje.getNombre() == "Optimus Prime")this.agregarOptimus(this.juego);
+//			else if (personaje.getNombre() == "Bumblebee") this.agregarBumblebee(juego);
+//			else if (personaje.getNombre() == "Ratchet") this.agregarRatchet(juego);
+//			else if (personaje.getNombre() == "Megatron") this.agregarMegatron(juego);
+//			else if (personaje.getNombre() == "Frenzy") this.agregarFrenzy(juego);
+//			else if (personaje.getNombre() == "Bonecrusher") this.agregarBonecrusher(juego);
 //		});
 	}
 	
