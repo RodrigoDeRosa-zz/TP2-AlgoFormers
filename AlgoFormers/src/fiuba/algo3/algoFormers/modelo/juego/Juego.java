@@ -76,6 +76,14 @@ public class Juego {
 	public void mover(Direccion direccion){
 		this.manejadorAcciones.mover(this.manejadorTurnos.jugadorActual(), direccion);
 	}
+	
+	public AlgoFormer getAlgoformer(String nombre) {
+		AlgoFormer algoformer = this.jugadorA.getAlgoformer(nombre);
+		if(algoformer == null){
+			algoformer = this.jugadorD.getAlgoformer(nombre);
+		}
+		return algoformer;
+	}
 
 	//Metodos para las pruebas
 	public Atacable getAtacable(Posicion posicion) {
@@ -112,13 +120,4 @@ public class Juego {
 	public Jugador getJugadorActual() {
 		return this.manejadorTurnos.jugadorActual();
 	}
-
-	public AlgoFormer getAlgoformer(String nombre) {
-		AlgoFormer algoformer = this.jugadorA.getAlgoformer(nombre);
-		if(algoformer == null){
-			algoformer = this.jugadorD.getAlgoformer(nombre);
-		}
-		return algoformer;
-	}
-
 }
