@@ -5,6 +5,7 @@ import java.util.Set;
 
 import fiuba.algo3.algoFormers.modelo.capturables.Chispa;
 import fiuba.algo3.algoFormers.modelo.direcciones.Direccion;
+import fiuba.algo3.algoFormers.modelo.excepciones.MovimientosAgotadosException;
 import fiuba.algo3.algoFormers.modelo.interfaces.Atacable;
 import fiuba.algo3.algoFormers.modelo.interfaces.Capturable;
 import fiuba.algo3.algoFormers.modelo.jugadores.Jugador;
@@ -75,8 +76,11 @@ public class Juego {
 	}
 	
 	public void mover(Direccion direccion){
-		this.manejadorAcciones.mover(this.manejadorTurnos.jugadorActual(), direccion);
-	}
+		try{
+			this.manejadorAcciones.mover(this.manejadorTurnos.jugadorActual(), direccion);
+		}catch (MovimientosAgotadosException e){
+			System.out.println("No quedan movimientos disponibles");}
+		}
 	
 	public ArrayList<AlgoFormer> getAlgoformersActuales() {
 		return this.manejadorTurnos.getAlgoformersActuales();
