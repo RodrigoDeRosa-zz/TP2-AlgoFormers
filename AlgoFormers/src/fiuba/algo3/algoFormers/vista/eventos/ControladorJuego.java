@@ -3,6 +3,7 @@ package fiuba.algo3.algoFormers.vista.eventos;
 import java.io.IOException;
 
 import fiuba.algo3.algoFormers.modelo.juego.Juego;
+import fiuba.algo3.algoFormers.modelo.personajes.AlgoFormer;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -16,6 +17,10 @@ import javafx.stage.Stage;
 
 public class ControladorJuego {
 
+	private AlgoFormer personajeUno;
+	private AlgoFormer personajeDos;
+	private AlgoFormer personajeTres;
+	
     @FXML
     private MenuBar BarraMenu;
 
@@ -80,22 +85,28 @@ public class ControladorJuego {
 
     @FXML
     void SeleccionarPersonajeActual1(ActionEvent event) {
-    	
+    	this.juego.setPersonajeActual(this.personajeUno);
     }
 
     @FXML
     void SeleccionarPersonajeActual2(ActionEvent event) {
-
+    	this.juego.setPersonajeActual(this.personajeDos);
     }
 
     @FXML
     void SeleccionarPersonajeActual3(ActionEvent event) {
-
+    	this.juego.setPersonajeActual(this.personajeTres);
     }
 
     @FXML
     void Transformar(ActionEvent event) {
     	this.juego.transformar();
+    }
+    
+    public void setPersonajes(AlgoFormer uno, AlgoFormer dos, AlgoFormer tres){
+    	this.personajeUno = uno;
+    	this.personajeDos = dos;
+    	this.personajeTres = tres;
     }
 
 	public void initData(Juego juego) {
