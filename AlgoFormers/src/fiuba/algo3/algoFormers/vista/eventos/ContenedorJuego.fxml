@@ -5,15 +5,16 @@
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.ScrollPane?>
-<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.control.ToggleButton?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="603.0" prefWidth="764.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fiuba.algo3.algoFormers.vista.eventos.ControladorJuego">
    <top>
-      <MenuBar BorderPane.alignment="CENTER">
+      <MenuBar fx:id="BarraMenu" BorderPane.alignment="CENTER">
         <menus>
           <Menu mnemonicParsing="false" text="File">
             <items>
@@ -42,6 +43,8 @@
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -50,23 +53,18 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <GridPane GridPane.columnIndex="3">
-              <columnConstraints>
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-              </columnConstraints>
-              <rowConstraints>
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-              </rowConstraints>
-               <children>
-                  <Button fx:id="Atacar" mnemonicParsing="false" onAction="#atacar" text="Atacar" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
-                  <Button fx:id="Mover" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="26.0" prefWidth="62.0" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
-               </children>
-            </GridPane>
-            <ImageView fitHeight="63.0" fitWidth="122.0" pickOnBounds="true" preserveRatio="true" />
-            <ImageView fitHeight="65.0" fitWidth="119.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" />
-            <ImageView fitHeight="67.0" fitWidth="121.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" />
-            <Button mnemonicParsing="false" onAction="#FinalzarTurno" prefHeight="50.0" prefWidth="94.0" text="Finalizar &#10;Turno" textAlignment="CENTER" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+            <Button fx:id="BotonFinalizarTurno" mnemonicParsing="false" onAction="#FinalzarTurno" prefHeight="50.0" prefWidth="94.0" text="Finalizar &#10;Turno" textAlignment="CENTER" GridPane.columnIndex="7" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+            <Button fx:id="BotonCombinar" mnemonicParsing="false" onAction="#Combinar" text="Combinar" GridPane.columnIndex="6" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+            <Button fx:id="BotonTransformar" mnemonicParsing="false" onAction="#Transformar" text="Transformar" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+               <font>
+                  <Font size="12.0" />
+               </font>
+            </Button>
+            <Button fx:id="BotonAtacar" mnemonicParsing="false" onAction="#Atacar" text="Atacar" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+            <Button fx:id="BotonMover" mnemonicParsing="false" onAction="#Mover" text="Mover" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+            <ToggleButton fx:id="Personaje2" mnemonicParsing="false" onAction="#SeleccionarPersonajeActual2" prefHeight="61.0" prefWidth="65.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+            <ToggleButton fx:id="Personaje3" layoutX="120.0" layoutY="10.0" mnemonicParsing="false" onAction="#SeleccionarPersonajeActual3" prefHeight="61.0" prefWidth="65.0" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+            <ToggleButton fx:id="Personaje1" layoutX="215.0" layoutY="10.0" mnemonicParsing="false" onAction="#SeleccionarPersonajeActual1" prefHeight="61.0" prefWidth="65.0" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
          </children>
       </GridPane>
    </bottom>
