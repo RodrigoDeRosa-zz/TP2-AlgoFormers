@@ -1,3 +1,4 @@
+
 package fiuba.algo3.algoFormers.vista.eventos;
 
 import fiuba.algo3.algoFormers.modelo.direcciones.DirAbajo;
@@ -9,7 +10,9 @@ import fiuba.algo3.algoFormers.modelo.direcciones.DirArribaIzq;
 import fiuba.algo3.algoFormers.modelo.direcciones.DirDerecha;
 import fiuba.algo3.algoFormers.modelo.direcciones.DirIzquierda;
 import fiuba.algo3.algoFormers.modelo.direcciones.Direccion;
+import fiuba.algo3.algoFormers.modelo.excepciones.FueraDelMapaException;
 import fiuba.algo3.algoFormers.modelo.juego.Juego;
+import fiuba.algo3.algoFormers.vista.contenedores.ContenedorTablero;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
@@ -47,6 +50,8 @@ public class ControladorMovimiento {
 
 	private Juego juego;
 
+	private ContenedorTablero tablero;
+
     @FXML
     void CancelarMovimiento(ActionEvent event) {
     	//A partir del evento obtengo el stage principal
@@ -56,56 +61,96 @@ public class ControladorMovimiento {
     @FXML
     void MoverAbajo(ActionEvent event) {
     	Direccion dir = new DirAbajo();
-    	this.juego.mover(dir);
+    	try{
+    		this.juego.mover(dir);
+    	}catch(FueraDelMapaException e){
+    		System.out.println("No es una posicion disponible");
+    	} 
+    	this.redibujarTablero();
     	this.cerrarStage(event);
     }
 
     @FXML
     void MoverAbajoIzq(ActionEvent event) {
     	Direccion dir = new DirAbajoIzq();
-    	this.juego.mover(dir);
+    	try{
+    		this.juego.mover(dir); 
+    	}catch(FueraDelMapaException e){
+    		System.out.println("No es una posicion disponible");
+    	} 
+    	this.redibujarTablero();
     	this.cerrarStage(event);
     }
 
     @FXML
     void MoverAbjDer(ActionEvent event) {
     	Direccion dir = new DirAbajoDer();
-    	this.juego.mover(dir);
+    	try{
+    		this.juego.mover(dir);
+    	}catch(FueraDelMapaException e){
+    		System.out.println("No es una posicion disponible");
+    	} 
+    	this.redibujarTablero();
     	this.cerrarStage(event);
     }
 
     @FXML
     void MoverArrDer(ActionEvent event) {
     	Direccion dir = new DirArribaDer();
-    	this.juego.mover(dir);
+    	try{
+    		this.juego.mover(dir);
+    	}catch(FueraDelMapaException e){
+    		System.out.println("No es una posicion disponible");
+    	} 
+    	this.redibujarTablero();
     	this.cerrarStage(event);
     }
 
     @FXML
     void MoverArriba(ActionEvent event) {
     	Direccion dir = new DirArriba();
-    	this.juego.mover(dir);
+    	try{
+    		this.juego.mover(dir);
+    	}catch(FueraDelMapaException e){
+    		System.out.println("No es una posicion disponible");
+    	} 
+    	this.redibujarTablero();
     	this.cerrarStage(event);
     }
 
     @FXML
     void MoverDerecha(ActionEvent event) {
     	Direccion dir = new DirDerecha();
-    	this.juego.mover(dir);
+    	try{
+    		this.juego.mover(dir);
+    	}catch(FueraDelMapaException e){
+    		System.out.println("No es una posicion disponible");
+    	} 
+    	this.redibujarTablero();
     	this.cerrarStage(event);
     }
 
     @FXML
     void MoverIzqArr(ActionEvent event) {
     	Direccion dir = new DirArribaIzq();
-    	this.juego.mover(dir);
+    	try{
+    		this.juego.mover(dir);
+    	}catch(FueraDelMapaException e){
+    		System.out.println("No es una posicion disponible");
+    	} 
+    	this.redibujarTablero();
     	this.cerrarStage(event);
     }
 
     @FXML
     void MoverIzquierda(ActionEvent event) {
     	Direccion dir = new DirIzquierda();
-    	this.juego.mover(dir);
+    	try{
+    		this.juego.mover(dir);
+    	}catch(FueraDelMapaException e){
+    		System.out.println("No es una posicion disponible");
+    	} 
+    	this.redibujarTablero();
     	this.cerrarStage(event);
     }
     
@@ -113,8 +158,13 @@ public class ControladorMovimiento {
     	Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
     	stage.close();
     }
-
-	public void initData(Juego juego) {
+    
+    private void redibujarTablero(){
+    	this.tablero.armarTablero(this.juego);
+    }
+    
+	public void initData(Juego juego, ContenedorTablero tablero) {
+		this.tablero = tablero;
 		this.juego = juego;
 	}
 

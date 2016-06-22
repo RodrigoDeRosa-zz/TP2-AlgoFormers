@@ -84,6 +84,7 @@ public class ControladorJuego {
     void FinalzarTurno(ActionEvent event) {
     	this.juego.finalizarTurno();
     	this.setJugador(juego.getJugadorActual());
+    	this.tablero.armarTablero(this.juego);
     }
 
     @FXML
@@ -94,7 +95,7 @@ public class ControladorJuego {
     	
     	//obtengo el controlador para asignarle el juego
     	ControladorMovimiento controlador = loader.<ControladorMovimiento>getController();
-    	controlador.initData(juego);
+    	controlador.initData(this.juego,this.tablero);
     	
     	Stage stage = new Stage();
 		stage.setTitle("Mover");
@@ -104,9 +105,9 @@ public class ControladorJuego {
 
     @FXML
     void SeleccionarPersonajeActual1(ActionEvent event) {
-    	this.deseleccionarToggle(Personaje2, personajeDos);
-    	this.deseleccionarToggle(Personaje3, personajeTres);
-    	this.seleccionarToggle(Personaje1, personajeUno);
+    	this.deseleccionarToggle(this.Personaje2, this.personajeDos);
+    	this.deseleccionarToggle(this.Personaje3, this.personajeTres);
+    	this.seleccionarToggle(this.Personaje1, this.personajeUno);
     	this.juego.setPersonajeActual(this.personajeUno);
     }
 
