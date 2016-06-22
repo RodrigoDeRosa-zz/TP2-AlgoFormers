@@ -1,7 +1,6 @@
 package fiuba.algo3.algoFormers.modelo.juego;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.Set;
 
 import fiuba.algo3.algoFormers.modelo.jugadores.Jugador;

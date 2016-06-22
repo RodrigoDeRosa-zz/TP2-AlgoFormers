@@ -46,6 +46,7 @@ public class ControladorBienvenida {
     	contenedorJuego.setCenter(contenedorCentro);
     	this.setBotonera(contenedorJuego, tablero);
     	stage.setScene(new Scene(contenedorJuego));
+    	
     	//obtengo el controlador para asignarle el juego
     	ControladorJuego controlador = loader.<ControladorJuego>getController();
     	controlador.initData(juego);

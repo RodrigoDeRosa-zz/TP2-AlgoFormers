@@ -122,4 +122,8 @@ public class Juego {
 	public AlgoFormer getAlgoformer(String string) {
 		return null;
 	}
+
+	public AlgoFormer getPersonajeActual() {
+		return this.getJugadorActual().getPersonajeActual();
+	}
 }
