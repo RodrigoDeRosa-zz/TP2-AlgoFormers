@@ -50,58 +50,68 @@ public class ControladorMovimiento {
     @FXML
     void CancelarMovimiento(ActionEvent event) {
     	//A partir del evento obtengo el stage principal
-    	Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-    	stage.close();
+    	this.cerrarStage(event);
     }
 
     @FXML
     void MoverAbajo(ActionEvent event) {
     	Direccion dir = new DirAbajo();
     	this.juego.mover(dir);
-
+    	this.cerrarStage(event);
     }
 
     @FXML
     void MoverAbajoIzq(ActionEvent event) {
     	Direccion dir = new DirAbajoIzq();
     	this.juego.mover(dir);
-
+    	this.cerrarStage(event);
     }
 
     @FXML
     void MoverAbjDer(ActionEvent event) {
     	Direccion dir = new DirAbajoDer();
     	this.juego.mover(dir);
+    	this.cerrarStage(event);
     }
 
     @FXML
     void MoverArrDer(ActionEvent event) {
     	Direccion dir = new DirArribaDer();
     	this.juego.mover(dir);
+    	this.cerrarStage(event);
     }
 
     @FXML
     void MoverArriba(ActionEvent event) {
     	Direccion dir = new DirArriba();
     	this.juego.mover(dir);
+    	this.cerrarStage(event);
     }
 
     @FXML
     void MoverDerecha(ActionEvent event) {
     	Direccion dir = new DirDerecha();
     	this.juego.mover(dir);
+    	this.cerrarStage(event);
     }
 
     @FXML
     void MoverIzqArr(ActionEvent event) {
     	Direccion dir = new DirArribaIzq();
     	this.juego.mover(dir);
+    	this.cerrarStage(event);
     }
 
     @FXML
     void MoverIzquierda(ActionEvent event) {
     	Direccion dir = new DirIzquierda();
     	this.juego.mover(dir);
+    	this.cerrarStage(event);
+    }
+    
+    private void cerrarStage(ActionEvent event){
+    	Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+    	stage.close();
     }
 
 	public void initData(Juego juego) {
