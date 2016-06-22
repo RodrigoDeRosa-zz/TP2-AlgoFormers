@@ -2,10 +2,15 @@ package fiuba.algo3.algoFormers.vista.botones.handlers;
 
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.scene.Node;
 import javafx.scene.control.Button;
+import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
+import javafx.stage.Window;
 import fiuba.algo3.algoFormers.modelo.juego.Juego;
 import fiuba.algo3.algoFormers.modelo.personajes.AlgoFormer;
+import fiuba.algo3.algoFormers.vista.botones.personajes.BotonPersonaje;
+import fiuba.algo3.algoFormers.vista.contenedores.ContenedorBotonesPrincipal;
 
 public class HandlerBotonPersonaje implements EventHandler<ActionEvent>{
 
@@ -37,6 +42,10 @@ public class HandlerBotonPersonaje implements EventHandler<ActionEvent>{
 //		stage.close();
 		
 		this.juego.setPersonajeActual(this.algoformer);
+		BotonPersonaje stage = ((BotonPersonaje) event.getSource());
+		GridPane botonesPersonajes = (GridPane) stage.getParent();
+		ContenedorBotonesPrincipal contenedorPrincipal = (ContenedorBotonesPrincipal) botonesPersonajes.getParent();
+		contenedorPrincipal.actualizarBotonesPersonajes(this.juego);
 	}
 	
 	

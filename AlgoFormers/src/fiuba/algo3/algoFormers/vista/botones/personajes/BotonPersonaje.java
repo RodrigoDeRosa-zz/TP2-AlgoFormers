@@ -8,8 +8,8 @@ import fiuba.algo3.algoFormers.vista.botones.handlers.HandlerBotonPersonaje;
 
 public class BotonPersonaje extends BotonImagen{
 
-	public BotonPersonaje(Juego juego, String urlImagen, int ancho, int alto, AlgoFormer algo) {
-		super(urlImagen, ancho, alto);
+	public BotonPersonaje(Juego juego, AlgoFormer algo) {
+		super("file:src/fiuba/algo3/algoFormers/vista/imagenes/" + algo.getNombre() + ".png", 60, 60);
 		this.setHandler(juego, algo);
 	}
 	

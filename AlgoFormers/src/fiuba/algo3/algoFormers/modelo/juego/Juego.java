@@ -78,7 +78,7 @@ public class Juego {
 		this.manejadorAcciones.mover(this.manejadorTurnos.jugadorActual(), direccion);
 	}
 	
-	public ArrayList<AlgoFormer> getAlgoformersActuales(String nombre) {
+	public ArrayList<AlgoFormer> getAlgoformersActuales() {
 		return this.manejadorTurnos.getAlgoformersActuales();
 	
 	}

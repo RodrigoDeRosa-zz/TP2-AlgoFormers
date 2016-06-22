@@ -16,13 +16,7 @@ import fiuba.algo3.algoFormers.vista.botones.acciones.BotonCombinar;
 import fiuba.algo3.algoFormers.vista.botones.acciones.BotonFinalizarTurno;
 import fiuba.algo3.algoFormers.vista.botones.acciones.BotonMover;
 import fiuba.algo3.algoFormers.vista.botones.acciones.BotonTransformar;
-import fiuba.algo3.algoFormers.vista.botones.personajes.BotonBonecrusher;
-import fiuba.algo3.algoFormers.vista.botones.personajes.BotonBumblebee;
-import fiuba.algo3.algoFormers.vista.botones.personajes.BotonFrenzy;
-import fiuba.algo3.algoFormers.vista.botones.personajes.BotonMegatron;
-import fiuba.algo3.algoFormers.vista.botones.personajes.BotonOptimus;
 import fiuba.algo3.algoFormers.vista.botones.personajes.BotonPersonaje;
-import fiuba.algo3.algoFormers.vista.botones.personajes.BotonRatchet;
 import fiuba.algo3.algoFormers.vista.contenedores.ContenedorBotonesPrincipal;
 import fiuba.algo3.algoFormers.vista.contenedores.ContenedorTablero;
 import javafx.event.ActionEvent;
@@ -101,37 +95,18 @@ public class ControladorBienvenida {
 		Button combinar = new BotonCombinar(this.juego);
 		Button finalizarTurno = new BotonFinalizarTurno(this.juego, tablero);
 		Button personaje1, personaje2, personaje3;
-		personaje1 = new BotonOptimus(this.juego);
-		personaje2 = new BotonBumblebee(this.juego);
-		personaje3 = new BotonRatchet(this.juego);
+//		personaje1 = new BotonOptimus(this.juego);
+//		personaje2 = new BotonBumblebee(this.juego);
+//		personaje3 = new BotonRatchet(this.juego);
 		
 //		ArrayList<Button> personajes = setBotonesPersonajes();
 //		
 //		ContenedorBotonesPrincipal botones = new ContenedorBotonesPrincipal(mover, atacar, transformar, combinar,
 //				finalizarTurno,personajes.get(1), personajes.get(2), personajes.get(3));
 		ContenedorBotonesPrincipal botones = new ContenedorBotonesPrincipal(mover, atacar, transformar, combinar,
-				finalizarTurno,personaje1, personaje2, personaje3);
+				finalizarTurno, this.juego);
 		
 		stage.setBottom(botones);
-	}
-	
-	private ArrayList<Button> setBotonesPersonajes(){
-		Button personaje1, personaje2, personaje3;
-		if( ((this.juego.getJugadorActual()).getClass()) == (new JugadorAutobots()).getClass()){
-			personaje1 = new BotonOptimus(this.juego);
-			personaje2 = new BotonBumblebee(this.juego);
-			personaje3 = new BotonRatchet(this.juego);
-		}
-		else{
-			personaje1 = new BotonMegatron(this.juego);
-			personaje2 = new BotonFrenzy(this.juego);
-			personaje3 = new BotonBonecrusher(this.juego);
-		}
-		ArrayList<Button> personajes = new ArrayList<Button>();
-		personajes.add(personaje1);
-		personajes.add(personaje2);
-		personajes.add(personaje3);
-		return personajes;
 	}
 
 	public void initData(Juego juego) {

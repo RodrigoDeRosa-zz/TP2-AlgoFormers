@@ -7,12 +7,6 @@ import javafx.scene.layout.HBox;
 import fiuba.algo3.algoFormers.modelo.juego.Juego;
 import fiuba.algo3.algoFormers.modelo.jugadores.Jugador;
 import fiuba.algo3.algoFormers.modelo.personajes.AlgoFormer;
-import fiuba.algo3.algoFormers.vista.botones.personajes.BotonBonecrusher;
-import fiuba.algo3.algoFormers.vista.botones.personajes.BotonBumblebee;
-import fiuba.algo3.algoFormers.vista.botones.personajes.BotonFrenzy;
-import fiuba.algo3.algoFormers.vista.botones.personajes.BotonMegatron;
-import fiuba.algo3.algoFormers.vista.botones.personajes.BotonOptimus;
-import fiuba.algo3.algoFormers.vista.botones.personajes.BotonRatchet;
 
 public class ContenedorSeleccionObjetivo extends HBox{
 
@@ -34,7 +28,7 @@ public class ContenedorSeleccionObjetivo extends HBox{
 	}
 	
 	private void distribuirPersonajes(){
-		this.agregarOptimus(this.juego);
+//		this.agregarOptimus(this.juego);
 //		Set<AlgoFormer> personajes = (this.juego.getJugadorActual()).getPersonajes();//.getPersonajes();
 //		personajes.forEach((personaje) -> {
 //			if (personaje.getNombre() == "Optimus Prime")this.agregarOptimus(this.juego);
@@ -45,35 +39,35 @@ public class ContenedorSeleccionObjetivo extends HBox{
 //			else if (personaje.getNombre() == "Bonecrusher") this.agregarBonecrusher(juego);
 //		});
 	}
-	
-	private void agregarOptimus(Juego juego){
-		Button boton = new BotonOptimus(juego);
-		this.getChildren().add(boton);
-	}
-	
-	private void agregarBumblebee(Juego juego){
-		Button boton = new BotonBumblebee(juego);
-		this.getChildren().add(boton);
-	}
-	
-	private void agregarRatchet(Juego juego){
-		Button boton = new BotonRatchet(juego);
-		this.getChildren().add(boton);
-	}
-	
-	private void agregarFrenzy(Juego juego){
-		Button boton = new BotonFrenzy(juego);
-		this.getChildren().add(boton);
-	}
-	
-	private void agregarMegatron(Juego juego){
-		Button boton = new BotonMegatron(juego);
-		this.getChildren().add(boton);
-	}
-	
-	private void agregarBonecrusher(Juego juego){
-		Button boton = new BotonBonecrusher(juego);
-		this.getChildren().add(boton);
-	}
-	
+//	
+//	private void agregarOptimus(Juego juego){
+//		Button boton = new BotonOptimus(juego);
+//		this.getChildren().add(boton);
+//	}
+//	
+//	private void agregarBumblebee(Juego juego){
+//		Button boton = new BotonBumblebee(juego);
+//		this.getChildren().add(boton);
+//	}
+//	
+//	private void agregarRatchet(Juego juego){
+//		Button boton = new BotonRatchet(juego);
+//		this.getChildren().add(boton);
+//	}
+//	
+//	private void agregarFrenzy(Juego juego){
+//		Button boton = new BotonFrenzy(juego);
+//		this.getChildren().add(boton);
+//	}
+//	
+//	private void agregarMegatron(Juego juego){
+//		Button boton = new BotonMegatron(juego);
+//		this.getChildren().add(boton);
+//	}
+//	
+//	private void agregarBonecrusher(Juego juego){
+//		Button boton = new BotonBonecrusher(juego);
+//		this.getChildren().add(boton);
+//	}
+//	
 }
