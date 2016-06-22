@@ -40,17 +40,17 @@ public class ControladorJuego {
 
     @FXML
     void Atacar(ActionEvent event) {
-
+    	
     }
 
     @FXML
     void Combinar(ActionEvent event) {
-
+    	this.juego.combinar();
     }
 
     @FXML
     void FinalzarTurno(ActionEvent event) {
-
+    	this.juego.finalizarTurno();
     }
 
     @FXML
@@ -75,7 +75,7 @@ public class ControladorJuego {
 
     @FXML
     void Transformar(ActionEvent event) {
-
+    	this.juego.transformar();
     }
 
 	public void initData(Juego juego) {
