@@ -1,5 +1,6 @@
 package fiuba.algo3.algoFormers.vista.eventos;
 
+import fiuba.algo3.algoFormers.modelo.juego.Juego;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
@@ -34,6 +35,8 @@ public class ControladorMovimiento {
 
     @FXML
     private Button BotonCancelarMovimiento;
+
+	private Juego juego;
 
     @FXML
     void CancelarMovimiento(ActionEvent event) {
@@ -82,5 +85,10 @@ public class ControladorMovimiento {
     void MoverIzquierda(ActionEvent event) {
 
     }
+
+	public void initData(Juego juego) {
+		this.juego = juego;
+		
+	}
 
 }

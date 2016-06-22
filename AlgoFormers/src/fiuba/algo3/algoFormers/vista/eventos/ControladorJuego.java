@@ -66,6 +66,10 @@ public class ControladorJuego {
     	FXMLLoader loader = new FXMLLoader(getClass().getResource("ContenedorMovimiento.fxml"));
     	BorderPane contenedorMovimiento = (BorderPane) loader.load();
     	
+    	//obtengo el controlador para asignarle el juego
+    	ControladorMovimiento controlador = loader.<ControladorMovimiento>getController();
+    	controlador.initData(juego);
+    	
     	Stage stage = new Stage();
 		stage.setTitle("Mover");
     	stage.setScene(new Scene(contenedorMovimiento));

@@ -45,20 +45,17 @@ public class ControladorBienvenida {
     	contenedorCentro.setContent(tablero);
     	contenedorJuego.setCenter(contenedorCentro);
 //    	this.setBotonera(contenedorJuego, tablero);
-    	stage.setScene(new Scene(contenedorJuego));
     	
-    	//obtengo el controlador para asignarle el juego
-    	ControladorJuego controlador = loader.<ControladorJuego>getController();
-    	controlador.initData(juego);
-
     	//se guardan los nombres de los jugadores
     	String nombreA = NombreAutobot.getText();
     	String nombreD = NombreDecepticon.getText();
     	this.juego.setNombres(nombreA,nombreD);
     	
-//    	AlgoFormerFactory factory = new AlgoFormerFactory();
-//    	AlgoFormer optimus = factory.getOptimusPrime();
-//    	this.juego.setPersonajeActual(optimus);
+    	//obtengo el controlador para asignarle el juego
+    	ControladorJuego controlador = loader.<ControladorJuego>getController();
+    	controlador.initData(juego);
+    	
+    	stage.setScene(new Scene(contenedorJuego));
     	stage.setFullScreen(true);
     	stage.show();
     	
