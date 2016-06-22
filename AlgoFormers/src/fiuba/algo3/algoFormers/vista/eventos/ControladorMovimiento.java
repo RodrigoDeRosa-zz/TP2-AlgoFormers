@@ -2,7 +2,9 @@ package fiuba.algo3.algoFormers.vista.eventos;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.Node;
 import javafx.scene.control.Button;
+import javafx.stage.Stage;
 
 public class ControladorMovimiento {
 
@@ -35,7 +37,10 @@ public class ControladorMovimiento {
 
     @FXML
     void CancelarMovimiento(ActionEvent event) {
-
+    	//A partir del evento obtengo el stage principal
+    	Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+    	stage.close();
+    	
     }
 
     @FXML

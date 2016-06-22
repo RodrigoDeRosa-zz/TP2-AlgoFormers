@@ -1,11 +1,18 @@
 package fiuba.algo3.algoFormers.vista.eventos;
 
+import java.io.IOException;
+
 import fiuba.algo3.algoFormers.modelo.juego.Juego;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.ToggleButton;
+import javafx.scene.layout.BorderPane;
+import javafx.stage.Stage;
 
 public class ControladorJuego {
 
@@ -54,7 +61,15 @@ public class ControladorJuego {
     }
 
     @FXML
-    void Mover(ActionEvent event) {
+    void Mover(ActionEvent event) throws IOException {
+    	//se abre la ventana de movimiento
+    	FXMLLoader loader = new FXMLLoader(getClass().getResource("ContenedorMovimiento.fxml"));
+    	BorderPane contenedorMovimiento = (BorderPane) loader.load();
+    	
+    	Stage stage = new Stage();
+		stage.setTitle("Mover");
+    	stage.setScene(new Scene(contenedorMovimiento));
+    	stage.show();
 
     }
 
