@@ -79,8 +79,6 @@ public class ControladorJuego {
 		stage.setTitle("Mover");
     	stage.setScene(new Scene(contenedorMovimiento));
     	stage.show();
-    	
-
     }
 
     @FXML
