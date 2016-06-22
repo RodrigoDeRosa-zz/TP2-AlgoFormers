@@ -1,8 +1,11 @@
 package fiuba.algo3.algoFormers.vista.eventos;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Set;
 
 import fiuba.algo3.algoFormers.modelo.juego.Juego;
+import fiuba.algo3.algoFormers.modelo.jugadores.Jugador;
 import fiuba.algo3.algoFormers.modelo.personajes.AlgoFormer;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -12,6 +15,8 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.ToggleButton;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
@@ -63,6 +68,7 @@ public class ControladorJuego {
     @FXML
     void FinalzarTurno(ActionEvent event) {
     	this.juego.finalizarTurno();
+    	this.setJugador(juego.getJugadorActual());
     }
 
     @FXML
@@ -104,13 +110,34 @@ public class ControladorJuego {
     
     public void setPersonajes(AlgoFormer uno, AlgoFormer dos, AlgoFormer tres){
     	this.personajeUno = uno;
+    	this.setEstiloToggle(uno.getNombre(), this.Personaje1);    	
     	this.personajeDos = dos;
+    	this.setEstiloToggle(dos.getNombre(), this.Personaje2);
     	this.personajeTres = tres;
+    	this.setEstiloToggle(tres.getNombre(), this.Personaje3);
+    }
+    
+    private void setEstiloToggle(String nombre, ToggleButton boton){
+    	boton.setGraphic(new ImageView(new Image((("file:src/fiuba/algo3/algoFormers/vista/imagenes/" + nombre + ".png")))));
+    	boton.setStyle("-fx-background-color: transparent");
+//    	boton.
     }
 
 	public void initData(Juego juego) {
-		this.juego = juego;
-		
+		this.juego = juego;	
+		this.setJugador(juego.getJugadorActual());
+	}
+	
+	private void setJugador(Jugador jugador){
+		Set<AlgoFormer> personajes  = jugador.getPersonajes();
+		ArrayList<AlgoFormer> guardar = new ArrayList<AlgoFormer>();
+		personajes.forEach((personaje) -> guardar.add(personaje));
+		int tam = guardar.size();
+		AlgoFormer uno=null, dos=null, tres=null;
+		uno = guardar.get(0);
+		if (tam > 1) dos = guardar.get(1);
+		if (tam > 2) tres = guardar.get(2);
+		this.setPersonajes(uno, dos, tres);
 	}
 
 }
