@@ -51,8 +51,19 @@ public class ControladorJuego {
 	private Juego juego;
 
     @FXML
-    void Atacar(ActionEvent event) {
+    void Atacar(ActionEvent event) throws IOException {
+    	//se abre la ventana de ataque
+    	FXMLLoader loader = new FXMLLoader(getClass().getResource("ContenedorAtaque.fxml"));
+    	BorderPane contenedorAtaque = (BorderPane) loader.load();
     	
+    	//obtengo el controlador para asignarle el juego
+    	ControladorAtaque controlador = loader.<ControladorAtaque>getController();
+    	controlador.initData(juego);
+    	
+    	Stage stage = new Stage();
+		stage.setTitle("Mover");
+    	stage.setScene(new Scene(contenedorAtaque));
+    	stage.show();
     }
 
     @FXML
