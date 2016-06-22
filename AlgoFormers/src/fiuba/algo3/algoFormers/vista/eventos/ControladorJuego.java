@@ -60,7 +60,7 @@ public class ControladorJuego {
 
     @FXML
     void SeleccionarPersonajeActual1(ActionEvent event) {
-
+    	
     }
 
     @FXML
