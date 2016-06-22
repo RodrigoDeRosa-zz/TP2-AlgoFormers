@@ -23,26 +23,33 @@ import fiuba.algo3.algoFormers.vista.botones.direcciones.BotonDireccionIzquierda
 public class ContenedorMoverEmergente extends VBox{
 	
 	private Juego juego;
+	//private ContenedorTablero contenedor;
 	
-	public ContenedorMoverEmergente(Juego juego){
+	public ContenedorMoverEmergente(Juego juego, ContenedorTablero tablero){
+		//this.setcontenedor(tablero);
 		this.setJuego(juego);
-		this.setBotonera();
+		this.setBotonera(tablero);
 		this.setFondo();
 	}
 	
+//	private void setcontenedor(ContenedorTablero tablero) {
+//		this.contenedor = tablero;
+//		
+//	}
+
 	private void setJuego(Juego juego){
 		this.juego = juego;
 	}
 	
-	private void setBotonera(){
-		Button arriba = new BotonDireccionArriba(this.juego);
-		Button abajo = new BotonDireccionAbajo(this.juego);
-		Button derecha = new BotonDireccionDerecha(this.juego);
-		Button izquierda = new BotonDireccionIzquierda(this.juego);
-		Button arribaDerecha = new BotonDireccionArribaDerecha(this.juego);
-		Button arribaIzquierda = new BotonDireccionArribaIzquierda(this.juego);
-		Button abajoDerecha = new BotonDireccionAbajoDerecha(this.juego);
-		Button abajoIzquierda = new BotonDireccionAbajoIzquierda(this.juego);
+	private void setBotonera(ContenedorTablero tablero){
+		Button arriba = new BotonDireccionArriba(this.juego, tablero);
+		Button abajo = new BotonDireccionAbajo(this.juego, tablero);
+		Button derecha = new BotonDireccionDerecha(this.juego, tablero);
+		Button izquierda = new BotonDireccionIzquierda(this.juego, tablero);
+		Button arribaDerecha = new BotonDireccionArribaDerecha(this.juego, tablero);
+		Button arribaIzquierda = new BotonDireccionArribaIzquierda(this.juego, tablero);
+		Button abajoDerecha = new BotonDireccionAbajoDerecha(this.juego, tablero);
+		Button abajoIzquierda = new BotonDireccionAbajoIzquierda(this.juego, tablero);
 		
 		ContenedorBotonesMoverEmergente movimientos = new ContenedorBotonesMoverEmergente(arriba, abajo, derecha, izquierda, arribaDerecha, 
 				arribaIzquierda, abajoDerecha, abajoIzquierda);

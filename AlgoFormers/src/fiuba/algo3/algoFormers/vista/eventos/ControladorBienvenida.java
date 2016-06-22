@@ -1,5 +1,6 @@
 package fiuba.algo3.algoFormers.vista.eventos;
 
+import fiuba.algo3.algoFormers.modelo.fabricas.algoFormers.AlgoFormerFactory;
 import fiuba.algo3.algoFormers.modelo.interfaces.Capturable;
 import fiuba.algo3.algoFormers.modelo.juego.Juego;
 import fiuba.algo3.algoFormers.modelo.mapa.Posicion;
@@ -63,7 +64,7 @@ public class ControladorBienvenida {
     	tablero.armarTablero(juego);
     	contenedorCentro.setContent(tablero);
     	contenedorJuego.setCenter(contenedorCentro);
-    	this.setBotonera(contenedorJuego);
+    	this.setBotonera(contenedorJuego, tablero);
     	stage.setScene(new Scene(contenedorJuego));
     	//obtengo el controlador para asignarle el juego
     	ControladorJuego controlador = loader.<ControladorJuego>getController();
@@ -72,18 +73,22 @@ public class ControladorBienvenida {
     	String nombreA = NombreAutobot.getText();
     	String nombreD = NombreDecepticon.getText();
     	this.juego.setNombres(nombreA,nombreD);
+    	
+//    	AlgoFormerFactory factory = new AlgoFormerFactory();
+//    	AlgoFormer optimus = factory.getOptimusPrime();
+//    	this.juego.setPersonajeActual(optimus);
     	stage.setFullScreen(true);
     	stage.show();
     	
     }
     
-	private void setBotonera(BorderPane stage){
+	private void setBotonera(BorderPane stage,ContenedorTablero tablero){
 		
-		Button mover = new BotonMover(this.juego);
+		Button mover = new BotonMover(this.juego, tablero);
 		Button atacar = new BotonAtacar(this.juego);
 		Button transformar = new BotonTransformar(this.juego);
 		Button combinar = new BotonCombinar(this.juego);
-		Button finalizarTurno = new BotonFinalizarTurno(this.juego);
+		Button finalizarTurno = new BotonFinalizarTurno(this.juego, tablero);
 		
 		ContenedorBotonesPrincipal botones = new ContenedorBotonesPrincipal(mover, atacar, transformar, combinar, finalizarTurno);
 		

@@ -6,24 +6,27 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import fiuba.algo3.algoFormers.modelo.juego.Juego;
 import fiuba.algo3.algoFormers.vista.contenedores.ContenedorMoverEmergente;
+import fiuba.algo3.algoFormers.vista.contenedores.ContenedorTablero;
 
 public class HandlerBotonMover implements EventHandler<ActionEvent>{
 
 	private Juego juego;
 	private Scene ventanaEmergente;
 	
-	public HandlerBotonMover(Juego juego){
+	public HandlerBotonMover(Juego juego, ContenedorTablero tablero){
 		this.setJuego(juego);
-		this.setVentanaEmergente();
+		this.setVentanaEmergente(tablero);
+		
 	}
-	
+
 	private void setJuego(Juego juego){
 		this.juego = juego;
 	}
 	
-	private void setVentanaEmergente(){
-		ContenedorMoverEmergente contenedorEmergente = new ContenedorMoverEmergente(this.juego);
+	private void setVentanaEmergente(ContenedorTablero tablero){
+		ContenedorMoverEmergente contenedorEmergente = new ContenedorMoverEmergente(this.juego, tablero);
 		this.ventanaEmergente = new Scene(contenedorEmergente);
+
 	}
 	
 	@Override
