@@ -56,6 +56,8 @@ public class ControladorJuego {
 
 	private Juego juego;
 	private ContenedorTablero tablero;
+	private ToggleButton toggleActual;
+	private AlgoFormer personajeActual;
 
     @FXML
     void Atacar(ActionEvent event) throws IOException {
@@ -127,15 +129,17 @@ public class ControladorJuego {
     @FXML
     void Transformar(ActionEvent event) {
     	this.juego.transformar();
+    	this.setEstiloToggle(this.personajeActual.getNombreEstado(), this.toggleActual); 
+    	this.seleccionarToggle(this.toggleActual, this.personajeActual);
     }
     
     public void setPersonajes(AlgoFormer uno, AlgoFormer dos, AlgoFormer tres){
     	this.personajeUno = uno;
-    	this.setEstiloToggle(uno.getNombre(), this.Personaje1);    	
+    	this.setEstiloToggle(uno.getNombreEstado(), this.Personaje1);    	
     	this.personajeDos = dos;
-    	this.setEstiloToggle(dos.getNombre(), this.Personaje2);
+    	this.setEstiloToggle(dos.getNombreEstado(), this.Personaje2);
     	this.personajeTres = tres;
-    	this.setEstiloToggle(tres.getNombre(), this.Personaje3);
+    	this.setEstiloToggle(tres.getNombreEstado(), this.Personaje3);
     }
     
     private void setEstiloToggle(String nombre, ToggleButton boton){
@@ -149,7 +153,10 @@ public class ControladorJuego {
     }
     
     private void seleccionarToggle(ToggleButton boton, AlgoFormer personaje){
+    	this.personajeActual = personaje;
+    	this.toggleActual = boton;
     	boton.setSelected(true);
+    	boton.requestFocus();
     	boton.setStyle("-fx-shadow: black");
     }
 

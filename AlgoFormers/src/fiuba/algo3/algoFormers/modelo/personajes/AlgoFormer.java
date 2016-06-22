@@ -219,4 +219,8 @@ public abstract class AlgoFormer implements Atacable {
 	public void resetearVida(){
 		this.vida.resetear();
 	}
+	public String getNombreEstado() {
+		if (Humanoide.class == this.estadoDeTransformacionActual.getClass()) return this.getNombre();
+		return (this.getNombre() + "Alterno");
+	}
 }
