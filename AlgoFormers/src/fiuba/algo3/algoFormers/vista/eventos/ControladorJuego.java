@@ -7,6 +7,7 @@ import java.util.Set;
 import fiuba.algo3.algoFormers.modelo.juego.Juego;
 import fiuba.algo3.algoFormers.modelo.jugadores.Jugador;
 import fiuba.algo3.algoFormers.modelo.personajes.AlgoFormer;
+import fiuba.algo3.algoFormers.vista.contenedores.ContenedorTablero;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -54,6 +55,7 @@ public class ControladorJuego {
     private ToggleButton Personaje1;
 
 	private Juego juego;
+	private ContenedorTablero tablero;
 
     @FXML
     void Atacar(ActionEvent event) throws IOException {
@@ -148,6 +150,11 @@ public class ControladorJuego {
 		if (tam > 1) dos = guardar.get(1);
 		if (tam > 2) tres = guardar.get(2);
 		this.setPersonajes(uno, dos, tres);
+	}
+
+	public void initTablero(ContenedorTablero tablero) {
+		this.tablero = tablero;
+		
 	}
 
 }
