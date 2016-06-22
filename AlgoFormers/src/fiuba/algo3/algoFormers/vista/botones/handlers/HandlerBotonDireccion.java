@@ -25,7 +25,6 @@ public class HandlerBotonDireccion implements EventHandler<ActionEvent>{
 	
 	private void setContenedor(ContenedorTablero tablero) {
 		this.contenedor = tablero;
-		
 	}
 	
 	private void setJuego(Juego juego){
