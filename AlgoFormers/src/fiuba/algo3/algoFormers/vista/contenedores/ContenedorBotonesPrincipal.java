@@ -1,6 +1,5 @@
 package fiuba.algo3.algoFormers.vista.contenedores;
 
-import java.io.File;
 import java.util.ArrayList;
 
 import fiuba.algo3.algoFormers.modelo.juego.Juego;
@@ -56,7 +55,7 @@ public class ContenedorBotonesPrincipal extends GridPane{
 	}
 
 	private void setImagenesLaterales() {
-		ImageView imagenAB = new ImageView(new Image("file:src/fiuba/algo3/algoFormers/vista/imagenes/Autobot.png"));
+		ImageView imagenAB = new ImageView(new Image("file:src/fiuba/algo3/algoFormers/vista/imagenes/AutoBot.png"));
 		imagenAB.setFitHeight(50);
 		imagenAB.setFitWidth(50);
 		
@@ -92,10 +91,9 @@ public class ContenedorBotonesPrincipal extends GridPane{
 	private void setTransformar(Button transformar){this.transformar = transformar;}
 	private void setFinalizarTurno(Button finalizarTurno){this.finalizarTurno = finalizarTurno;}
 
-
-
 	public void actualizarBotonesPersonajes(Juego juegoActual) {
 		this.juego = juegoActual;
+		this.getChildren().remove(this.botonesJugadores);
 		this.setBotonesPersonajes();
 		this.add(this.botonesJugadores, 1, 0);
 		

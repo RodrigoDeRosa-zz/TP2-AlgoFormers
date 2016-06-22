@@ -1,6 +1,5 @@
 package fiuba.algo3.algoFormers.vista;
 
-import java.io.IOException;
 
 import fiuba.algo3.algoFormers.modelo.juego.Juego;
 import fiuba.algo3.algoFormers.vista.eventos.ControladorBienvenida;
