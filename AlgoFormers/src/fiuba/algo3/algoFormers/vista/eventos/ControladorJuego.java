@@ -74,6 +74,7 @@ public class ControladorJuego {
 		stage.setTitle("Mover");
     	stage.setScene(new Scene(contenedorMovimiento));
     	stage.show();
+    	
 
     }
 
@@ -98,8 +99,7 @@ public class ControladorJuego {
     }
 
 	public void initData(Juego juego) {
-		this.juego = juego;
-		
+		this.juego = juego;	
 	}
 
 }
