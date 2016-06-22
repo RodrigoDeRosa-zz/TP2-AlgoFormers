@@ -89,16 +89,25 @@ public class ControladorJuego {
 
     @FXML
     void SeleccionarPersonajeActual1(ActionEvent event) {
+    	this.deseleccionarToggle(Personaje2, personajeDos);
+    	this.deseleccionarToggle(Personaje3, personajeTres);
+    	this.seleccionarToggle(Personaje1, personajeUno);
     	this.juego.setPersonajeActual(this.personajeUno);
     }
 
     @FXML
     void SeleccionarPersonajeActual2(ActionEvent event) {
+    	this.deseleccionarToggle(Personaje1, personajeUno);
+    	this.deseleccionarToggle(Personaje3, personajeTres);
+    	this.seleccionarToggle(Personaje2, personajeDos);
     	this.juego.setPersonajeActual(this.personajeDos);
     }
 
     @FXML
     void SeleccionarPersonajeActual3(ActionEvent event) {
+    	this.deseleccionarToggle(Personaje2, personajeDos);
+    	this.deseleccionarToggle(Personaje1, personajeUno);
+    	this.seleccionarToggle(Personaje3, personajeTres);
     	this.juego.setPersonajeActual(this.personajeTres);
     }
 
@@ -118,8 +127,17 @@ public class ControladorJuego {
     
     private void setEstiloToggle(String nombre, ToggleButton boton){
     	boton.setGraphic(new ImageView(new Image((("file:src/fiuba/algo3/algoFormers/vista/imagenes/" + nombre + ".png")))));
-    	boton.setStyle("-fx-background-color: transparent");
-//    	boton.
+    	boton.setStyle("-fx-background-color: transparent;");
+    }
+    
+    private void deseleccionarToggle(ToggleButton boton, AlgoFormer personaje){
+    	boton.setSelected(false);
+    	boton.setGraphic(new ImageView(new Image(("file:src/fiuba/algo3/algoFormers/vista/imagenes/" + personaje.getNombre() + ".png"))));
+    }
+    
+    private void seleccionarToggle(ToggleButton boton, AlgoFormer personaje){
+    	boton.setSelected(true);
+    	boton.setGraphic(new ImageView(new Image(("file:src/fiuba/algo3/algoFormers/vista/imagenes/" + personaje.getNombre() + "Glow.png"))));
     }
 
 	public void initData(Juego juego) {
