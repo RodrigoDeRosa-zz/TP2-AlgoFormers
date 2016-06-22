@@ -1,5 +1,6 @@
 package fiuba.algo3.algoFormers.modelo.juego;
 
+import java.util.ArrayList;
 import java.util.Set;
 
 import fiuba.algo3.algoFormers.modelo.capturables.Chispa;
@@ -77,12 +78,9 @@ public class Juego {
 		this.manejadorAcciones.mover(this.manejadorTurnos.jugadorActual(), direccion);
 	}
 	
-	public AlgoFormer getAlgoformer(String nombre) {
-		AlgoFormer algoformer = this.jugadorA.getAlgoformer(nombre);
-		if(algoformer == null){
-			algoformer = this.jugadorD.getAlgoformer(nombre);
-		}
-		return algoformer;
+	public ArrayList<AlgoFormer> getAlgoformersActuales(String nombre) {
+		return this.manejadorTurnos.getAlgoformersActuales();
+	
 	}
 
 	//Metodos para las pruebas
@@ -119,5 +117,9 @@ public class Juego {
 
 	public Jugador getJugadorActual() {
 		return this.manejadorTurnos.jugadorActual();
+	}
+
+	public AlgoFormer getAlgoformer(String string) {
+		return null;
 	}
 }

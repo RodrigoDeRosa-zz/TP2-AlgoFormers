@@ -1,5 +1,9 @@
 package fiuba.algo3.algoFormers.modelo.juego;
 
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Set;
+
 import fiuba.algo3.algoFormers.modelo.jugadores.Jugador;
 import fiuba.algo3.algoFormers.modelo.mapa.Mapa;
 import fiuba.algo3.algoFormers.modelo.personajes.AlgoFormer;
@@ -40,6 +44,19 @@ public class ManejadorDeTurnos {
 
 	public void setPersonajeActual(AlgoFormer personaje) {
 		this.jugadorActual.setPersonajeActual(personaje);
+	}
+	
+	public ArrayList<AlgoFormer> getAlgoformersActuales() {
+		ArrayList<AlgoFormer> ListaAlgoformer = new ArrayList<AlgoFormer>();
+		AlgoFormer actual = this.jugadorActual.getPersonajeActual();
+		Set<AlgoFormer> personajes = this.jugadorActual.getPersonajes();
+		ListaAlgoformer.add(actual);
+		personajes.forEach((personaje) -> {
+			if(personaje.getNombre() != actual.getNombre()){
+				ListaAlgoformer.add(personaje);
+			}
+		});
+		return ListaAlgoformer;
 	}
 	
 }
