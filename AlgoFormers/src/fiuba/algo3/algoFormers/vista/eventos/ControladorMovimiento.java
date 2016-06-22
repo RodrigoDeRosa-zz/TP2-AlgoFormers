@@ -1,5 +1,14 @@
 package fiuba.algo3.algoFormers.vista.eventos;
 
+import fiuba.algo3.algoFormers.modelo.direcciones.DirAbajo;
+import fiuba.algo3.algoFormers.modelo.direcciones.DirAbajoDer;
+import fiuba.algo3.algoFormers.modelo.direcciones.DirAbajoIzq;
+import fiuba.algo3.algoFormers.modelo.direcciones.DirArriba;
+import fiuba.algo3.algoFormers.modelo.direcciones.DirArribaDer;
+import fiuba.algo3.algoFormers.modelo.direcciones.DirArribaIzq;
+import fiuba.algo3.algoFormers.modelo.direcciones.DirDerecha;
+import fiuba.algo3.algoFormers.modelo.direcciones.DirIzquierda;
+import fiuba.algo3.algoFormers.modelo.direcciones.Direccion;
 import fiuba.algo3.algoFormers.modelo.juego.Juego;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -41,54 +50,72 @@ public class ControladorMovimiento {
     @FXML
     void CancelarMovimiento(ActionEvent event) {
     	//A partir del evento obtengo el stage principal
-    	Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-    	stage.close();
-    	
+    	this.cerrarStage(event);
     }
 
     @FXML
     void MoverAbajo(ActionEvent event) {
-
+    	Direccion dir = new DirAbajo();
+    	this.juego.mover(dir);
+    	this.cerrarStage(event);
     }
 
     @FXML
     void MoverAbajoIzq(ActionEvent event) {
-
+    	Direccion dir = new DirAbajoIzq();
+    	this.juego.mover(dir);
+    	this.cerrarStage(event);
     }
 
     @FXML
     void MoverAbjDer(ActionEvent event) {
-
+    	Direccion dir = new DirAbajoDer();
+    	this.juego.mover(dir);
+    	this.cerrarStage(event);
     }
 
     @FXML
     void MoverArrDer(ActionEvent event) {
-
+    	Direccion dir = new DirArribaDer();
+    	this.juego.mover(dir);
+    	this.cerrarStage(event);
     }
 
     @FXML
     void MoverArriba(ActionEvent event) {
-
+    	Direccion dir = new DirArriba();
+    	this.juego.mover(dir);
+    	this.cerrarStage(event);
     }
 
     @FXML
     void MoverDerecha(ActionEvent event) {
-
+    	Direccion dir = new DirDerecha();
+    	this.juego.mover(dir);
+    	this.cerrarStage(event);
     }
 
     @FXML
     void MoverIzqArr(ActionEvent event) {
-
+    	Direccion dir = new DirArribaIzq();
+    	this.juego.mover(dir);
+    	this.cerrarStage(event);
     }
 
     @FXML
     void MoverIzquierda(ActionEvent event) {
-
+    	Direccion dir = new DirIzquierda();
+    	this.juego.mover(dir);
+    	this.cerrarStage(event);
+    }
+    
+    private void cerrarStage(ActionEvent event){
+    	Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+    	stage.close();
     }
 
 	public void initData(Juego juego) {
 		this.juego = juego;
-		
 	}
 
 }
