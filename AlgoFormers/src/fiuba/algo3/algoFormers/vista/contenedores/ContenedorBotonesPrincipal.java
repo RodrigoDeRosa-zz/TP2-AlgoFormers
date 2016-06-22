@@ -97,7 +97,7 @@ public class ContenedorBotonesPrincipal extends GridPane{
 	public void actualizarBotonesPersonajes(Juego juegoActual) {
 		this.juego = juegoActual;
 		this.setBotonesPersonajes();
-		this.distribuirBotones();
+		this.add(this.botonesJugadores, 1, 0);
 		
 	}
 	
