@@ -82,6 +82,7 @@ public class ControladorJuego {
     void FinalzarTurno(ActionEvent event) {
     	this.juego.finalizarTurno();
     	this.setJugador(juego.getJugadorActual());
+    	this.tablero.armarTablero(this.juego);
     }
 
     @FXML
