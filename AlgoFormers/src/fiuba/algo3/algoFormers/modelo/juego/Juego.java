@@ -1,10 +1,12 @@
 package fiuba.algo3.algoFormers.modelo.juego;
 
 import java.util.ArrayList;
-import java.util.Set;
+
 
 import fiuba.algo3.algoFormers.modelo.capturables.Chispa;
 import fiuba.algo3.algoFormers.modelo.direcciones.Direccion;
+import fiuba.algo3.algoFormers.modelo.excepciones.AtaqueFueraDeRangoException;
+import fiuba.algo3.algoFormers.modelo.excepciones.FueraDeRangoParaCombinarException;
 import fiuba.algo3.algoFormers.modelo.excepciones.MovimientosAgotadosException;
 import fiuba.algo3.algoFormers.modelo.interfaces.Atacable;
 import fiuba.algo3.algoFormers.modelo.interfaces.Capturable;
@@ -59,9 +61,10 @@ public class Juego {
 	}
 	
 	public void atacar(Posicion posicion){
-		//try{
-		this.manejadorAcciones.atacar(this.manejadorTurnos.jugadorActual(), posicion);
-		//}(catch PersonajeMuertoException e)
+		try{
+			this.manejadorAcciones.atacar(this.manejadorTurnos.jugadorActual(), posicion);}
+		catch(AtaqueFueraDeRangoException e){
+			System.out.print("No llegas a atacar a ese lugar");}		
 		this.finalizarTurno();
 	}
 	
@@ -71,7 +74,11 @@ public class Juego {
 	}
 	
 	public void combinar(){
-		this.manejadorAcciones.combinar(this.manejadorTurnos.jugadorActual(), mapa);
+		try{
+			this.manejadorAcciones.combinar(this.manejadorTurnos.jugadorActual(), mapa);
+		}catch(FueraDeRangoParaCombinarException e){
+			System.out.println("No es posible combinarse");
+		}
 		this.finalizarTurno();
 	}
 	
