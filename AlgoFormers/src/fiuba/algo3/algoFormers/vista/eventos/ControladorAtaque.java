@@ -66,12 +66,13 @@ public class ControladorAtaque {
 
     @FXML
     void Atacar(ActionEvent event) throws IOException {
+    	try{this.checkSeleccion();}catch(Exception e){return;}
     	Posicion posicion = this.juego.getPosicionAlgoformer(this.elegido);
     	try{this.juego.atacar(posicion);} 
     	catch(AtaqueFueraDeRangoException e){
     		NotificacionError.setText(e.getMessage());
     		return;
-    		}
+    	}
     	catch(EquipoDestruidoException e){
     		this.controlador.armarTablero();
         	this.CerrarVentana(event);
@@ -81,6 +82,13 @@ public class ControladorAtaque {
     	this.controlador.setJugador(juego.getJugadorActual());
     	this.controlador.armarTablero();
     	this.CerrarVentana(event);
+    }
+    
+    private void checkSeleccion() throws Exception{
+    	if (!this.SeleccionEnemigo1.isSelected() && !this.SeleccionEnemigo1.isSelected() && !this.SeleccionEnemigo1.isSelected()){
+    		this.NotificacionError.setText("Debe elegir a un enemigo");
+    		throw new Exception();
+    	}
     }
 
     @FXML
