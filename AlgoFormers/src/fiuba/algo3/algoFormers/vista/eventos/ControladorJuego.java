@@ -208,6 +208,9 @@ public class ControladorJuego {
     	this.setEstiloToggle(this.personajeActual.getNombreEstado(), this.toggleActual); 
     	this.tablero.armarTablero(this.juego);
     	this.setJugador(this.juego.getJugadorActual());
+    	String musicFile = "src/fiuba/algo3/algoFormers/vista/sonidos/Transformacion.mp3";
+    	Media sonido = new Media(new File(musicFile).toURI().toString());
+    	MediaPlayer mediaPlayer = new MediaPlayer(sonido);
     	this.finAccion();
     }
     
