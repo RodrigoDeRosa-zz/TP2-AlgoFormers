@@ -188,7 +188,7 @@ public class MovimientosTest {
 		DirArribaDer direccion = new DirArribaDer();
 		
 		optimus.moverEnDireccion(direccion, mapa);	
-		assertEquals(optimus, mapa.getAtacable(new Posicion(2, 20)));
+		assertEquals(optimus, mapa.getAtacable(new Posicion(2, 18)));
 		assertEquals(bumblebee, mapa.getAtacable(posicionB));
 		assertEquals(ratchet, mapa.getAtacable(posicionR));	
 	}

@@ -532,7 +532,8 @@ public class EntregaDosTest {
 		for(int i = 0; i < 3; i++){
 			try {
 				megatron.moverEnDireccion(direccion, mapa);
-			} catch (MovimientosAgotadosException e) {
+			} catch (MovimientosAgotadosException e){
+				
 				assertEquals(mapa.getAtacable(posicion2).getClass(), megatron.getClass());
 			}
 			megatron.finalizarTurno();

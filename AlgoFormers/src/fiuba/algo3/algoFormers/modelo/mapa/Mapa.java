@@ -65,21 +65,12 @@ public class Mapa {
 
 	public void moverAtacableEnDireccion(Atacable atacable, Direccion direccion) {
 		Posicion posicion = this.obtenerPosicion(atacable);
-//		System.out.println("La x es "+posicion.getX());
-//		System.out.println("La y es "+posicion.getY());
+
 		Posicion nuevaPosicion = posicion.sumarDireccion(direccion);
 		Casillero casillero = tablero.get(posicion);
 		Casillero nuevoCasillero = tablero.get(nuevaPosicion);
 		//Se agrega el atacable a la nueva posicion
-		if(nuevaPosicion.getX()<=0 || nuevaPosicion.getY()<=0){
-//			System.out.println("La x es menor que:"+nuevaPosicion.getX());
-//			System.out.println("La y es menor que:"+nuevaPosicion.getY());
-		}
-		if(nuevaPosicion.getX()>=TAMANIO || nuevaPosicion.getY()>=TAMANIO){
-			
-//			System.out.println("La x es mayor que:"+nuevaPosicion.getX());
-//			System.out.println("La y es mayor que:"+nuevaPosicion.getY());
-		}
+
 		if(nuevoCasillero == null){
 			throw new FueraDelMapaException();
 		}

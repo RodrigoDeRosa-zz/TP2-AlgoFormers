@@ -94,7 +94,7 @@ public class MapaTest {
 		Posicion posicion = new Posicion(2,8); 
 		mapa.ubicar(megatron, posicion);
 		mapa.moverAtacableEnDireccion(megatron, new DirArribaDer());
-		Posicion nuevaPosicion = new Posicion (3,9);
+		Posicion nuevaPosicion = new Posicion (3,7);
 		
 		assertEquals(mapa.getAtacable(nuevaPosicion).getClass(), megatron.getClass());
 		//En la posicion vieja no esta mas megatron
