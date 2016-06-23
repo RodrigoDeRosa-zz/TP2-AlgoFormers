@@ -49,7 +49,7 @@ public class ControladorMovimiento {
     private Button BotonCancelarMovimiento;
 
 	private Juego juego;
-
+	private ControladorJuego controlador;
 	private ContenedorTablero tablero;
 
     @FXML
@@ -67,6 +67,7 @@ public class ControladorMovimiento {
     		System.out.println("No es una posicion disponible");
     	} 
     	this.redibujarTablero();
+    	this.controlador.accionado();
     	this.cerrarStage(event);
     }
 
@@ -79,6 +80,7 @@ public class ControladorMovimiento {
     		System.out.println("No es una posicion disponible");
     	} 
     	this.redibujarTablero();
+    	this.controlador.accionado();
     	this.cerrarStage(event);
     }
 
@@ -91,6 +93,7 @@ public class ControladorMovimiento {
     		System.out.println("No es una posicion disponible");
     	} 
     	this.redibujarTablero();
+    	this.controlador.accionado();
     	this.cerrarStage(event);
     }
 
@@ -103,6 +106,7 @@ public class ControladorMovimiento {
     		System.out.println("No es una posicion disponible");
     	} 
     	this.redibujarTablero();
+    	this.controlador.accionado();
     	this.cerrarStage(event);
     }
 
@@ -115,6 +119,7 @@ public class ControladorMovimiento {
     		System.out.println("No es una posicion disponible");
     	} 
     	this.redibujarTablero();
+    	this.controlador.accionado();
     	this.cerrarStage(event);
     }
 
@@ -127,6 +132,7 @@ public class ControladorMovimiento {
     		System.out.println("No es una posicion disponible");
     	} 
     	this.redibujarTablero();
+    	this.controlador.accionado();
     	this.cerrarStage(event);
     }
 
@@ -139,6 +145,7 @@ public class ControladorMovimiento {
     		System.out.println("No es una posicion disponible");
     	} 
     	this.redibujarTablero();
+    	this.controlador.accionado();
     	this.cerrarStage(event);
     }
 
@@ -151,6 +158,7 @@ public class ControladorMovimiento {
     		System.out.println("No es una posicion disponible");
     	} 
     	this.redibujarTablero();
+    	this.controlador.accionado();
     	this.cerrarStage(event);
     }
     
@@ -163,9 +171,10 @@ public class ControladorMovimiento {
     	this.tablero.armarTablero(this.juego);
     }
     
-	public void initData(Juego juego, ContenedorTablero tablero) {
+	public void initData(Juego juego, ContenedorTablero tablero, ControladorJuego controlador) {
 		this.tablero = tablero;
 		this.juego = juego;
+		this.controlador = controlador;
 	}
 
 }

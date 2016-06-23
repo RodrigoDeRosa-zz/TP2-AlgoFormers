@@ -61,10 +61,7 @@ public class Juego {
 	}
 	
 	public void atacar(Posicion posicion){
-		try{
-			this.manejadorAcciones.atacar(this.manejadorTurnos.jugadorActual(), posicion);}
-		catch(AtaqueFueraDeRangoException e){
-			System.out.print("No llegas a atacar a ese lugar");}		
+		this.manejadorAcciones.atacar(this.manejadorTurnos.jugadorActual(), posicion);
 		this.finalizarTurno();
 	}
 	

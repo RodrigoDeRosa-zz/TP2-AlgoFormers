@@ -3,6 +3,7 @@ package fiuba.algo3.algoFormers.vista.eventos;
 import java.util.ArrayList;
 import java.util.Set;
 
+import fiuba.algo3.algoFormers.modelo.excepciones.AtaqueFueraDeRangoException;
 import fiuba.algo3.algoFormers.modelo.juego.Juego;
 import fiuba.algo3.algoFormers.modelo.jugadores.Jugador;
 import fiuba.algo3.algoFormers.modelo.mapa.Posicion;
@@ -12,9 +13,7 @@ import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.Labeled;
 import javafx.scene.control.RadioButton;
-import javafx.scene.control.ToggleButton;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
@@ -47,8 +46,9 @@ public class ControladorAtaque {
 
     @FXML
     private Button BotonAtacar;
-
+    
 	private Juego juego;
+	private ControladorJuego controlador;
 
 	private AlgoFormer personajeUno;
 	private AlgoFormer personajeDos;
@@ -58,7 +58,8 @@ public class ControladorAtaque {
     @FXML
     void Atacar(ActionEvent event) {
     	Posicion posicion = this.juego.getPosicionAlgoformer(this.elegido);
-    	this.juego.atacar(posicion);
+    	try{this.juego.atacar(posicion);} catch(AtaqueFueraDeRangoException e){return;}
+    	this.controlador.setJugador(juego.getJugadorActual());
     	this.CerrarVentana(event);
     }
 
@@ -97,9 +98,9 @@ public class ControladorAtaque {
     	this.elegido= this.personajeTres;
     }
     
-	public void initData(Juego juego) {
+	public void initData(Juego juego, ControladorJuego controlador) {
 		this.juego = juego;
-		ArrayList<AlgoFormer> lista = this.juego.getAlgoformersActuales();
+		this.controlador = controlador;
 		this.setJugador(this.juego.getJugadorOpuesto());
 	}
 	
@@ -129,12 +130,25 @@ public class ControladorAtaque {
 		this.setPersonajes(uno, dos, tres);
 	}
 	
-    public void setPersonajes(AlgoFormer uno, AlgoFormer dos, AlgoFormer tres){
-    	this.personajeUno = uno;
-    	this.setEstiloRadio(uno.getNombreEstado(),this.ImagenEnemigo1);    	
-    	this.personajeDos = dos;
-    	this.setEstiloRadio(dos.getNombreEstado(), this.ImagenEnemigo2);
-    	this.personajeTres = tres;
-    	this.setEstiloRadio(tres.getNombreEstado(), this.ImagenEnemigo3);
-    }
+	public void setPersonajes(AlgoFormer uno, AlgoFormer dos, AlgoFormer tres){
+		if (uno != null){
+			this.personajeUno = uno;
+			this.setEstiloRadio(uno.getNombreEstado(), this.ImagenEnemigo1);    	
+		} else {this.desactivar(this.ImagenEnemigo1, this.SeleccionEnemigo1);}
+		if (dos != null){
+			this.personajeDos = dos;
+			this.setEstiloRadio(dos.getNombreEstado(), this.ImagenEnemigo2);
+		} else {this.desactivar(this.ImagenEnemigo2, this.SeleccionEnemigo2);}
+		if (tres != null){
+			this.personajeTres = tres;
+			this.setEstiloRadio(tres.getNombreEstado(), this.ImagenEnemigo3);
+		} else {this.desactivar(this.ImagenEnemigo3, this.SeleccionEnemigo3);;}
+	}
+	 
+	
+	private void desactivar(ImageView imagen, RadioButton radio){
+		imagen.setVisible(false);
+		radio.setVisible(false);
+	}
+	  
 }
