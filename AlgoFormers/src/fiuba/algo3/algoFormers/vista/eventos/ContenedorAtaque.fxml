@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="296.0" prefWidth="403.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fiuba.algo3.algoFormers.vista.eventos.ControladorAtaque">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="320.0" prefWidth="437.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fiuba.algo3.algoFormers.vista.eventos.ControladorAtaque">
    <center>
       <GridPane BorderPane.alignment="CENTER">
         <columnConstraints>
@@ -30,7 +30,10 @@
                   <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                      <children>
                         <ImageView fx:id="ImagenEnemigo1" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" />
-                        <Label fx:id="Vida1" prefHeight="16.0" prefWidth="66.0" textFill="WHITE" />
+                        <Label fx:id="Vida1" prefHeight="16.0" prefWidth="124.0" textFill="WHITE" HBox.hgrow="ALWAYS">
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin></Label>
                      </children>
                   </HBox>
                   <RadioButton fx:id="SeleccionEnemigo1" mnemonicParsing="false" onAction="#SeleccionarEnemigo1" />
@@ -41,7 +44,7 @@
                   <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                      <children>
                         <ImageView fx:id="ImagenEnemigo2" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" />
-                        <Label fx:id="Vida2" prefHeight="16.0" prefWidth="66.0" textFill="WHITE" />
+                        <Label fx:id="Vida2" prefHeight="16.0" prefWidth="110.0" textFill="WHITE" />
                      </children>
                   </HBox>
                   <RadioButton fx:id="SeleccionEnemigo2" mnemonicParsing="false" onAction="#SeleccionarEnemigo2" />
@@ -52,7 +55,7 @@
                   <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                      <children>
                         <ImageView fx:id="ImagenEnemigo3" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" />
-                        <Label fx:id="Vida3" prefHeight="16.0" prefWidth="66.0" textFill="WHITE" />
+                        <Label fx:id="Vida3" prefHeight="16.0" prefWidth="107.0" textFill="WHITE" />
                      </children>
                   </HBox>
                   <RadioButton fx:id="SeleccionEnemigo3" mnemonicParsing="false" onAction="#SeleccionarEnemigo3" />
