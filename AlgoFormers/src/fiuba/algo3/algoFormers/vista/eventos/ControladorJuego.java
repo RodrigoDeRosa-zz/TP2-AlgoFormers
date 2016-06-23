@@ -9,6 +9,7 @@ import fiuba.algo3.algoFormers.modelo.jugadores.Jugador;
 import fiuba.algo3.algoFormers.modelo.personajes.AlgoFormer;
 import fiuba.algo3.algoFormers.vista.contenedores.ContenedorTablero;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -16,6 +17,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
@@ -57,6 +59,8 @@ public class ControladorJuego {
 	private ToggleButton toggleActual;
 	private AlgoFormer personajeActual;
 	private boolean accionado = false;
+	private static final String normal = "-fx-background-color: transparent; -fx-padding: 5, 5, 5, 5;";
+    private static final String presionado = "-fx-background-color: transparent; -fx-padding: 6 4 4 6;";
 	
 
     @FXML
@@ -155,7 +159,7 @@ public class ControladorJuego {
     public void setPersonajes(AlgoFormer uno, AlgoFormer dos, AlgoFormer tres){
     	if (uno != null){
     		this.personajeUno = uno;
-    		this.setEstiloToggle(uno.getNombreEstado(), this.Personaje1);    	
+    		this.setEstiloToggle(uno.getNombreEstado(), this.Personaje1);
     	} else {this.desactivar(Personaje1);}
     	if (dos != null){
     		this.personajeDos = dos;
@@ -164,7 +168,14 @@ public class ControladorJuego {
     	if (tres != null){
     		this.personajeTres = tres;
     		this.setEstiloToggle(tres.getNombreEstado(), this.Personaje3);
-    	} else {this.desactivar(Personaje3);;}
+    	} else {this.desactivar(Personaje3);}
+    	this.focusActual(this.juego.getPersonajeActual());
+    }
+    
+    private void focusActual(AlgoFormer personaje){
+    	if (personaje == this.personajeUno) this.seleccionarToggle(Personaje1, personajeUno);
+    	if (personaje == this.personajeDos) this.seleccionarToggle(Personaje2, personajeDos);
+    	if (personaje == this.personajeTres) this.seleccionarToggle(Personaje3, personajeTres);
     }
     
     private void desactivar(ToggleButton boton){
@@ -193,8 +204,32 @@ public class ControladorJuego {
     	boton.setStyle("-fx-shadow: black");
     }
 
+    private void setDisenioBotones(){
+    	this.setDisenio(this.BotonAtacar, "Atacar", 36, 100);
+    	this.setDisenio(this.BotonCombinar, "Combinar", 36, 100);
+    	this.setDisenio(this.BotonMover, "Mover", 36, 100);
+    	this.setDisenio(this.BotonTransformar, "Transformar", 36, 140);
+    	this.setDisenio(this.BotonFinalizarTurno, "FinalizarTurno", 72, 103);
+    }
+    
+    private void setDisenio(Button boton, String url, int alto, int ancho){
+    	boton.setText("");
+    	boton.setStyle(normal);
+    	ImageView imagen = new ImageView(new Image(("file:src/fiuba/algo3/algoFormers/vista/imagenes/" + url + ".png")));
+    	imagen.setFitHeight(alto);
+    	imagen.setFitWidth(ancho);
+    	boton.setGraphic(imagen);
+    	boton.setOnMousePressed(new EventHandler<MouseEvent>() {
+    		@Override
+    		public void handle(MouseEvent event) {boton.setStyle(presionado);}});
+    	boton.setOnMouseReleased(new EventHandler<MouseEvent>() {
+    		@Override
+    		public void handle(MouseEvent event) {boton.setStyle(normal);}});
+    }
+    
 	public void initData(Juego juego) {
 		this.juego = juego;	
+		this.setDisenioBotones();
 		this.setJugador(juego.getJugadorActual());
 	}
 	

@@ -9,6 +9,7 @@ import fiuba.algo3.algoFormers.modelo.jugadores.Jugador;
 import fiuba.algo3.algoFormers.modelo.mapa.Posicion;
 import fiuba.algo3.algoFormers.modelo.personajes.AlgoFormer;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
@@ -16,6 +17,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 public class ControladorAtaque {
@@ -57,6 +59,8 @@ public class ControladorAtaque {
 	private AlgoFormer personajeDos;
 	private AlgoFormer personajeTres;
 	private AlgoFormer elegido;
+	private static final String normal = "-fx-background-color: transparent; -fx-padding: 5, 5, 5, 5;";
+    private static final String presionado = "-fx-background-color: transparent; -fx-padding: 6 4 4 6;";
 
     @FXML
     void Atacar(ActionEvent event) {
@@ -105,6 +109,7 @@ public class ControladorAtaque {
 		this.juego = juego;
 		this.controlador = controlador;
 		this.setJugador(this.juego.getJugadorOpuesto());
+		this.setDisenioBotones();
 	}
 	
     private void deseleccionarRadio(RadioButton boton){
@@ -152,6 +157,26 @@ public class ControladorAtaque {
 	private void desactivar(ImageView imagen, RadioButton radio){
 		imagen.setVisible(false);
 		radio.setVisible(false);
+	}
+	
+	private void setDisenioBotones(){
+		this.setDisenio(BotonAtacar, "Atacar", 36, 100);
+		this.setDisenio(BotonCancelar, "Cancelar", 36, 100);
+	}
+	
+	private void setDisenio(Button boton, String url, int alto, int ancho){	
+		boton.setText("");
+		boton.setStyle(normal);
+		ImageView imagen = new ImageView(new Image(("file:src/fiuba/algo3/algoFormers/vista/imagenes/" + url + ".png")));
+		imagen.setFitHeight(alto);
+		imagen.setFitWidth(ancho);
+		boton.setGraphic(imagen);
+		boton.setOnMousePressed(new EventHandler<MouseEvent>() {
+			@Override
+			public void handle(MouseEvent event) {boton.setStyle(presionado);}});
+		boton.setOnMouseReleased(new EventHandler<MouseEvent>() {
+			@Override
+			public void handle(MouseEvent event) {boton.setStyle(normal);}});
 	}
 	  
 }
