@@ -73,8 +73,8 @@ public class ControladorJuego {
 		stage.setTitle("Atacar");
     	stage.setScene(new Scene(contenedorAtaque));
     	stage.show();
-    	this.juego.finalizarTurno();
-    	this.setJugador(juego.getJugadorActual());
+//    	this.juego.finalizarTurno();
+//    	this.setJugador(juego.getJugadorActual());
     	this.tablero.armarTablero(this.juego);
     	
     }
