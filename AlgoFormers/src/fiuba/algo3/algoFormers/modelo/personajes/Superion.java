@@ -2,6 +2,7 @@ package fiuba.algo3.algoFormers.modelo.personajes;
 
 import java.util.HashSet;
 
+import fiuba.algo3.algoFormers.modelo.excepciones.TransformacionMegabotException;
 import fiuba.algo3.algoFormers.modelo.personajes.atributos.Vida;
 
 public class Superion extends AutoBot{
@@ -30,6 +31,11 @@ public class Superion extends AutoBot{
 	 */
 	private void setEstadoOpuesto(){
 		this.estadoDeTransformacionOpuesto = this.estadoDeTransformacionActual;
+	}
+	
+	@Override
+	public void transformarse(){
+		throw new TransformacionMegabotException();
 	}
 	
 	public Superion vida(int vida){

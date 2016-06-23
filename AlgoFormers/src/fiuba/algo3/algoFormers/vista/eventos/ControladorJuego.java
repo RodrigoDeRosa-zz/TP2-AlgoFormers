@@ -4,6 +4,9 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Set;
 
+import fiuba.algo3.algoFormers.modelo.excepciones.EquipoNoCompletoException;
+import fiuba.algo3.algoFormers.modelo.excepciones.FueraDeRangoParaCombinarException;
+import fiuba.algo3.algoFormers.modelo.excepciones.TransformacionMegabotException;
 import fiuba.algo3.algoFormers.modelo.juego.Juego;
 import fiuba.algo3.algoFormers.modelo.jugadores.Jugador;
 import fiuba.algo3.algoFormers.modelo.personajes.AlgoFormer;
@@ -19,6 +22,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 public class ControladorJuego {
@@ -86,9 +90,13 @@ public class ControladorJuego {
     }
 
     @FXML
-    void Combinar(ActionEvent event) {
+    void Combinar(ActionEvent event) throws IOException {
     	if (accionado) return;
-    	this.juego.combinar();
+    	try{this.juego.combinar();}
+    	catch(FueraDeRangoParaCombinarException | EquipoNoCompletoException e ){
+    		this.mostrarError(e.getMessage());
+    		return;
+    	}
     	this.setJugador(juego.getJugadorActual());
     	this.tablero.armarTablero(this.juego);
     }
@@ -148,12 +156,27 @@ public class ControladorJuego {
     }
 
     @FXML
-    void Transformar(ActionEvent event) {
+    void Transformar(ActionEvent event) throws IOException{
     	if (accionado) return;
-    	this.juego.transformar();
+    	try{this.juego.transformar();}catch(TransformacionMegabotException e){this.mostrarError(e.getMessage());return;}
     	this.setEstiloToggle(this.personajeActual.getNombreEstado(), this.toggleActual); 
     	this.tablero.armarTablero(this.juego);
     	this.setJugador(this.juego.getJugadorActual());
+    }
+    
+    public void armarTablero(){
+    	this.tablero.armarTablero(this.juego);
+    }
+    
+    private void mostrarError(String mensaje) throws IOException{
+		FXMLLoader loader = new FXMLLoader(getClass().getResource("ContenedorError.fxml"));
+    	VBox contenedorError = (VBox) loader.load();
+    	ControladorError controlador = loader.<ControladorError>getController();
+    	controlador.initData(mensaje);
+    	Stage stage = new Stage();
+		stage.setTitle("Error");
+    	stage.setScene(new Scene(contenedorError));
+    	stage.show();
     }
     
     public void setPersonajes(AlgoFormer uno, AlgoFormer dos, AlgoFormer tres){

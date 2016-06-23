@@ -67,6 +67,7 @@ public class ControladorAtaque {
     	Posicion posicion = this.juego.getPosicionAlgoformer(this.elegido);
     	try{this.juego.atacar(posicion);} catch(AtaqueFueraDeRangoException e){NotificacionError.setText(e.getMessage());return;}
     	this.controlador.setJugador(juego.getJugadorActual());
+    	this.controlador.armarTablero();
     	this.CerrarVentana(event);
     }
 

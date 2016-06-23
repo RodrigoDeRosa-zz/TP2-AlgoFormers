@@ -2,6 +2,7 @@ package fiuba.algo3.algoFormers.modelo.personajes;
 
 import java.util.HashSet;
 
+import fiuba.algo3.algoFormers.modelo.excepciones.TransformacionMegabotException;
 import fiuba.algo3.algoFormers.modelo.personajes.atributos.Vida;
 
 public class Menasor extends Decepticon {
@@ -30,6 +31,11 @@ private HashSet<AlgoFormer> integrantes;
 	 */
 	private void setEstadoOpuesto(){
 		this.estadoDeTransformacionOpuesto = this.estadoDeTransformacionActual;
+	}
+	
+	@Override
+	public void transformarse(){
+		throw new TransformacionMegabotException();
 	}
 	
 	public Menasor vida(int vida){
