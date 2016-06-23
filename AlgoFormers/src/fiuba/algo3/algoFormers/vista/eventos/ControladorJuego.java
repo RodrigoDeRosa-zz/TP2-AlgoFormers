@@ -30,6 +30,7 @@ import javafx.scene.layout.BackgroundPosition;
 import javafx.scene.layout.BackgroundRepeat;
 import javafx.scene.layout.BackgroundSize;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
@@ -175,6 +176,7 @@ public class ControladorJuego {
     private void mostrarVictoria() throws IOException{
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("ContenedorVictoria.fxml"));
     	VBox contenedorVictoria = (VBox) loader.load();
+    	this.setBackgroundVictoria(contenedorVictoria);
     	ControladorVictoria controlador = loader.<ControladorVictoria>getController();
     	controlador.initData(this.juego.getJugadorActual());
     	Stage stage = new Stage();
@@ -182,8 +184,8 @@ public class ControladorJuego {
     	stage.setScene(new Scene(contenedorVictoria));
     	stage.show();
     }
-    
-    @FXML
+
+	@FXML
     void SeleccionarPersonajeActual1(ActionEvent event) {
     	if (accionado) return;
     	this.deseleccionarToggle(this.Personaje2, this.personajeDos);
@@ -359,6 +361,12 @@ public class ControladorJuego {
 	}
 	
 	private void setBackground(BorderPane contenedor) {
+		Image imagen = new Image("file:src/fiuba/algo3/algoFormers/vista/imagenes/FondoPanelBotones.png");
+        BackgroundImage imagenDeFondo = new BackgroundImage(imagen, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT, BackgroundSize.DEFAULT);
+        contenedor.setBackground(new Background(imagenDeFondo));
+	}
+	
+    private void setBackgroundVictoria(VBox contenedor) {
 		Image imagen = new Image("file:src/fiuba/algo3/algoFormers/vista/imagenes/FondoPanelBotones.png");
         BackgroundImage imagenDeFondo = new BackgroundImage(imagen, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT, BackgroundSize.DEFAULT);
         contenedor.setBackground(new Background(imagenDeFondo));

@@ -81,11 +81,11 @@ public class ControladorAtaque {
     		this.controlador.finalizarJuego();
     		return;
     	}
-    	int numDisparo = 1 + (int)(Math.random() * ((3 - 1) + 1));
-    	String musicFile = "src/fiuba/algo3/algoFormers/vista/sonidos/Disparo"+Integer.toString(numDisparo) +".mp3";
-    	Media sonido = new Media(new File(musicFile).toURI().toString());
-    	MediaPlayer mediaPlayer = new MediaPlayer(sonido);
-    	mediaPlayer.play();
+//    	int numDisparo = 1 + (int)(Math.random() * ((3 - 1) + 1));
+//    	String musicFile = "src/fiuba/algo3/algoFormers/vista/sonidos/Disparo"+Integer.toString(numDisparo) +".mp3";
+//    	Media sonido = new Media(new File(musicFile).toURI().toString());
+//    	MediaPlayer mediaPlayer = new MediaPlayer(sonido);
+//    	mediaPlayer.play();
     	this.controlador.setJugador(juego.getJugadorActual());
     	this.controlador.armarTablero();
     	this.controlador.finAccion();
