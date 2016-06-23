@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="279.0" prefWidth="380.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fiuba.algo3.algoFormers.vista.eventos.ControladorMovimiento">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="246.0" prefWidth="319.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fiuba.algo3.algoFormers.vista.eventos.ControladorMovimiento">
    <center>
       <GridPane fx:id="Grid" prefHeight="153.0" prefWidth="380.0" BorderPane.alignment="CENTER">
         <columnConstraints>
@@ -33,10 +34,11 @@
       </GridPane>
    </center>
    <bottom>
-      <Button fx:id="BotonCancelarMovimiento" mnemonicParsing="false" onAction="#CancelarMovimiento" prefHeight="47.0" prefWidth="114.0" text="Cancelar" BorderPane.alignment="CENTER">
-         <BorderPane.margin>
-            <Insets bottom="30.0" top="30.0" />
-         </BorderPane.margin>
-      </Button>
+      <VBox alignment="CENTER" prefHeight="102.0" prefWidth="319.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="BotonCancelarMovimiento" alignment="CENTER" mnemonicParsing="false" onAction="#CancelarMovimiento" prefHeight="47.0" prefWidth="114.0" text="Cancelar" />
+            <Label fx:id="NotificacionError" alignment="CENTER" prefHeight="16.0" prefWidth="387.0" textFill="RED" />
+         </children>
+      </VBox>
    </bottom>
 </BorderPane>

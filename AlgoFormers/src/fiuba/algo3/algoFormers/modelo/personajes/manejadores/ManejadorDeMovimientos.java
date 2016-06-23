@@ -46,9 +46,8 @@ public class ManejadorDeMovimientos {
 			throw new MovimientosAgotadosException();
 		}
 		
-		this.restarMovimiento();
 		mapa.moverAtacableEnDireccion(algoformer,direccion);
-		//this.restarMovimiento();
+		this.restarMovimiento();
 	}
 	
 	//funcion que sirve para las pruebas

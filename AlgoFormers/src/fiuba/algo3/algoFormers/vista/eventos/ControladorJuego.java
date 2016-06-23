@@ -15,6 +15,7 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -116,6 +117,7 @@ public class ControladorJuego {
     	}
     	this.setJugador(juego.getJugadorActual());
     	this.tablero.armarTablero(this.juego);
+    	this.finAccion();
     }
 
     @FXML
@@ -123,6 +125,7 @@ public class ControladorJuego {
     	this.juego.finalizarTurno();
     	this.setJugador(juego.getJugadorActual());
     	this.tablero.armarTablero(this.juego);
+    	this.finAccion();
     }
 
     @FXML
@@ -145,6 +148,10 @@ public class ControladorJuego {
     	this.accionado = true;
     }
 
+    public void finAccion(){
+    	this.accionado = false;
+    }
+    
     public void finalizarJuego() throws IOException{
     	this.mostrarError("Has ganado!!!");
     }
@@ -183,6 +190,7 @@ public class ControladorJuego {
     	this.setEstiloToggle(this.personajeActual.getNombreEstado(), this.toggleActual); 
     	this.tablero.armarTablero(this.juego);
     	this.setJugador(this.juego.getJugadorActual());
+    	this.finAccion();
     }
     
     public void armarTablero(){
@@ -229,6 +237,8 @@ public class ControladorJuego {
     }
     
     private void setEstiloLabel(Label etiqueta, String base, int valor){
+    	etiqueta.setVisible(true);
+    	etiqueta.setAlignment(Pos.CENTER);
     	etiqueta.setText(base + valor);
     }
     

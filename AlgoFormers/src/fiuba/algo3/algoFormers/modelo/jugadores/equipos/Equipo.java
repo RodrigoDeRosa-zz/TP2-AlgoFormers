@@ -124,7 +124,13 @@ public abstract class Equipo {
 	
 	protected int calcularVidaMegaBot(){
 		int total = 0;
-		this.equipo.forEach( (nombre, personaje) -> personaje.sumarVidaA(total));
+		Set<String> nombres = this.equipo.keySet();
+		Iterator<String> iter = nombres.iterator();
+		while (iter.hasNext()) {
+			String nombre = iter.next();
+			AlgoFormer algoformer = this.equipo.get(nombre);
+			total += algoformer.getVida();
+		}
 		return total;
 	}
 	
