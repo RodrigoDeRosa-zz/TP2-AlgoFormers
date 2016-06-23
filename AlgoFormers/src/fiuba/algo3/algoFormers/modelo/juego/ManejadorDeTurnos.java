@@ -28,6 +28,9 @@ public class ManejadorDeTurnos {
 	public Jugador jugadorActual(){
 		return this.jugadorActual;
 	}
+	public Jugador jugadorOpuesto() {
+		return this.jugadorOpuesto;
+	}
 	
 	public void finalizarTurno(Mapa mapa){
 		this.jugadorActual.finalizarTurno();
@@ -56,6 +59,5 @@ public class ManejadorDeTurnos {
 			}
 		});
 		return ListaAlgoformer;
-	}
-	
+	}	
 }

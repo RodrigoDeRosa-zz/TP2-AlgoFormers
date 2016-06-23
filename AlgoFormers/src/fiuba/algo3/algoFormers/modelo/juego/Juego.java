@@ -91,7 +91,10 @@ public class Juego {
 	
 	public ArrayList<AlgoFormer> getAlgoformersActuales() {
 		return this.manejadorTurnos.getAlgoformersActuales();
+	}
 	
+	public Posicion getPosicionAlgoformer(AlgoFormer algoformer){
+		return this.mapa.obtenerPosicion(algoformer);
 	}
 
 	//Metodos para las pruebas
@@ -136,5 +139,9 @@ public class Juego {
 
 	public AlgoFormer getPersonajeActual() {
 		return this.getJugadorActual().getPersonajeActual();
+	}
+
+	public Jugador getJugadorOpuesto(){
+		return this.manejadorTurnos.jugadorOpuesto();
 	}
 }

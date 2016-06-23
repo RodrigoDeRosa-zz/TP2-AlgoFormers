@@ -67,12 +67,16 @@ public class ControladorJuego {
     	
     	//obtengo el controlador para asignarle el juego
     	ControladorAtaque controlador = loader.<ControladorAtaque>getController();
-    	controlador.initData(juego);
+    	controlador.initData(this.juego);
     	
     	Stage stage = new Stage();
-		stage.setTitle("Mover");
+		stage.setTitle("Atacar");
     	stage.setScene(new Scene(contenedorAtaque));
     	stage.show();
+    	this.juego.finalizarTurno();
+    	this.setJugador(juego.getJugadorActual());
+    	this.tablero.armarTablero(this.juego);
+    	
     }
 
     @FXML
