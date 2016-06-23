@@ -47,7 +47,7 @@ public class ContenedorTablero extends GridPane{
     	        
     	        //se agrega al algoformer
     	        if(algoformer != null){
-    	        	String nombreAlgoformer = algoformer.getNombre();
+    	        	String nombreAlgoformer = algoformer.getNombreEstado();
     	        	ImageView imagenAlgoformer = new ImageView(new Image(("file:src/fiuba/algo3/algoFormers/vista/imagenes/" + nombreAlgoformer + ".png")));
     	        	casillero.getChildren().add(imagenAlgoformer);
     	        }

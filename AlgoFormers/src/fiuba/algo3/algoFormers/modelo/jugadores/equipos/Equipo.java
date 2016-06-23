@@ -17,6 +17,7 @@ public abstract class Equipo {
 	protected AlgoFormer personajeActual;
 	protected AlgoFormer anteriorACombinar;
 	protected int turnosCombinacion = 0;
+	protected boolean combinado = false;
 	
 	public Equipo(AlgoFormer uno, AlgoFormer dos, AlgoFormer tres){
 		this.setEquipo(uno, dos, tres);
@@ -53,7 +54,7 @@ public abstract class Equipo {
 		this.equipo.forEach( (nombre, personaje) -> {
 			this.checkPermanenciaEnJuego(personaje, mapa);
 		});
-		if (this.turnosCombinacion > 0 && this.equipo.size() < 3) this.finalizarCombinacion(mapa);
+		if (this.turnosCombinacion == 0 && this.combinado) this.finalizarCombinacion(mapa);
 	}
 	
 	public void setPersonajeActual(AlgoFormer personaje){
@@ -74,6 +75,7 @@ public abstract class Equipo {
 		this.definirMegaBotComoActual(this.calcularVidaMegaBot());
 		this.ubicarMegabot(mapa, posUnion);
 		this.turnosCombinacion = 3;
+		this.combinado = true;
 	}
 	
 	protected abstract void ubicarMegabot(Mapa mapa, Posicion posUnion);
@@ -88,6 +90,7 @@ public abstract class Equipo {
 		this.reubicarPersonajes(mapa);
 		this.turnosCombinacion = 0;
 		this.personajeActual = this.anteriorACombinar;
+		this.combinado = false;
 	}
 	
 	protected abstract void reubicarPersonajes(Mapa mapa);

@@ -78,6 +78,8 @@ public class ControladorJuego {
     @FXML
     void Combinar(ActionEvent event) {
     	this.juego.combinar();
+    	this.setJugador(juego.getJugadorActual());
+    	this.tablero.armarTablero(this.juego);
     }
 
     @FXML
@@ -131,7 +133,8 @@ public class ControladorJuego {
     void Transformar(ActionEvent event) {
     	this.juego.transformar();
     	this.setEstiloToggle(this.personajeActual.getNombreEstado(), this.toggleActual); 
-    	this.seleccionarToggle(this.toggleActual, this.personajeActual);
+    	this.tablero.armarTablero(this.juego);
+    	this.setJugador(this.juego.getJugadorActual());
     }
     
     public void setPersonajes(AlgoFormer uno, AlgoFormer dos, AlgoFormer tres){
