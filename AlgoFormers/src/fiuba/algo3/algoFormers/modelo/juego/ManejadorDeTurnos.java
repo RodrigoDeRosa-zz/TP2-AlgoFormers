@@ -1,6 +1,7 @@
 package fiuba.algo3.algoFormers.modelo.juego;
 
 import java.util.ArrayList;
+import java.util.Random;
 import java.util.Set;
 
 import fiuba.algo3.algoFormers.modelo.jugadores.Jugador;
@@ -12,17 +13,21 @@ public class ManejadorDeTurnos {
 	private Jugador jugadorActual;
 	private Jugador jugadorOpuesto;
 	
-	public ManejadorDeTurnos(Jugador jugadorActual, Jugador jugadorOpuesto){
-		this.setJugadorActual(jugadorActual);
-		this.setJugadorOpuesto(jugadorOpuesto);
+	public ManejadorDeTurnos(Jugador jugadorUno, Jugador jugadorDos){
+		this.seleccionarJugadorRandom(jugadorUno, jugadorDos);
 	}
 	
-	private void setJugadorActual(Jugador jugadorActual){
-		this.jugadorActual = jugadorActual;
-	}
-	
-	private void setJugadorOpuesto(Jugador jugadorOpuesto){
-		this.jugadorOpuesto = jugadorOpuesto;
+	private void seleccionarJugadorRandom(Jugador jugadorUno, Jugador jugadorDos){
+		ArrayList<Jugador> jugadores = new ArrayList<Jugador>();
+		jugadores.add(jugadorUno);
+		jugadores.add(jugadorDos);
+		
+		Random generador = new Random();
+		int seleccion = generador.nextInt(jugadores.size());
+		
+		this.jugadorActual = jugadores.get(seleccion);
+		if (seleccion == 1) this.jugadorOpuesto = jugadores.get(0);
+		else this.jugadorOpuesto = jugadores.get(1);
 	}
 	
 	public Jugador jugadorActual(){

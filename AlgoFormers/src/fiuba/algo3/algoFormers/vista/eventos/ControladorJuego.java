@@ -102,8 +102,9 @@ public class ControladorJuego {
     	
     	//obtengo el controlador para asignarle el juego
     	ControladorAtaque controlador = loader.<ControladorAtaque>getController();
-    	controlador.initData(this.juego, this);
-    	
+    	controlador.initData(this.juego, this, this.BotonAtacar);
+    
+    	this.BotonAtacar.setDisable(true);
     	Stage stage = new Stage();
 		stage.setTitle("Atacar");
     	stage.setScene(new Scene(contenedorAtaque));
@@ -143,8 +144,9 @@ public class ControladorJuego {
     	
     	//obtengo el controlador para asignarle el juego
     	ControladorMovimiento controlador = loader.<ControladorMovimiento>getController();
-    	controlador.initData(this.juego, this.tablero, this);
+    	controlador.initData(this.juego, this.tablero, this, this.BotonMover);
     	
+    	this.BotonMover.setDisable(true);
     	Stage stage = new Stage();
 		stage.setTitle("Mover");
     	stage.setScene(new Scene(contenedorMovimiento));

@@ -66,6 +66,7 @@ public class ControladorMovimiento {
 	private Juego juego;
 	private ControladorJuego controlador;
 	private ContenedorTablero tablero;
+	private Button botonMover;
 	private static final String normal = "-fx-background-color: transparent; -fx-padding: 5, 5, 5, 5;";
     private static final String presionado = "-fx-background-color: transparent; -fx-padding: 6 4 4 6;";
 
@@ -73,6 +74,7 @@ public class ControladorMovimiento {
     void CancelarMovimiento(ActionEvent event) {
     	//A partir del evento obtengo el stage principal
     	this.cerrarStage(event);
+    	this.botonMover.setDisable(false);
     }
     
     private void mostrarError(String mensaje) throws IOException{
@@ -190,10 +192,11 @@ public class ControladorMovimiento {
 		this.Grid.setBackground(new Background(imagen));
     }
     
-	public void initData(Juego juego, ContenedorTablero tablero, ControladorJuego controlador) {
+	public void initData(Juego juego, ContenedorTablero tablero, ControladorJuego controlador, Button botonMover) {
 		this.tablero = tablero;
 		this.juego = juego;
 		this.controlador = controlador;
+		this.botonMover = botonMover;
 //		this.setDisenioGrid();
 		this.setDisenioBotones();
 	}

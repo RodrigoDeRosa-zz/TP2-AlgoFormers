@@ -55,6 +55,7 @@ public class ControladorAtaque {
 	private AlgoFormer personajeDos;
 	private AlgoFormer personajeTres;
 	private AlgoFormer elegido;
+	private Button botonAtacar;
 	private static final String normal = "-fx-background-color: transparent; -fx-padding: 5, 5, 5, 5;";
     private static final String presionado = "-fx-background-color: transparent; -fx-padding: 6 4 4 6;";
 
@@ -82,6 +83,7 @@ public class ControladorAtaque {
     	this.controlador.setJugador(juego.getJugadorActual());
     	this.controlador.armarTablero();
     	this.controlador.finAccion();
+    	this.botonAtacar.setDisable(false);
     	this.CerrarVentana(event);
     }
     
@@ -102,6 +104,7 @@ public class ControladorAtaque {
     public void CerrarVentana(ActionEvent event){
     	Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
     	stage.close();
+    	this.botonAtacar.setDisable(false);
     }
 
     @FXML
@@ -128,9 +131,10 @@ public class ControladorAtaque {
     	this.elegido= this.personajeTres;
     }
     
-	public void initData(Juego juego, ControladorJuego controlador) {
+	public void initData(Juego juego, ControladorJuego controlador, Button botonAtacar) {
 		this.juego = juego;
 		this.controlador = controlador;
+		this.botonAtacar = botonAtacar;
 		this.setJugador(this.juego.getJugadorOpuesto());
 		this.setDisenioBotones();
 	}

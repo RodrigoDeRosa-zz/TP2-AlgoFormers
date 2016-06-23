@@ -8,11 +8,12 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="213.0" prefWidth="286.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fiuba.algo3.algoFormers.vista.eventos.ControladorAtaque">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="253.0" prefWidth="342.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fiuba.algo3.algoFormers.vista.eventos.ControladorAtaque">
    <center>
       <GridPane BorderPane.alignment="CENTER">
         <columnConstraints>
@@ -24,28 +25,34 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <ImageView fx:id="ImagenEnemigo1" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.valignment="TOP" />
-            <RadioButton fx:id="SeleccionEnemigo1" mnemonicParsing="false" onAction="#SeleccionarEnemigo1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
-               <GridPane.margin>
-                  <Insets left="10.0" top="40.0" />
-               </GridPane.margin>
-            </RadioButton>
-            <RadioButton fx:id="SeleccionEnemigo2" layoutX="46.0" layoutY="120.0" mnemonicParsing="false" onAction="#SeleccionarEnemigo2" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
-               <GridPane.margin>
-                  <Insets left="10.0" top="40.0" />
-               </GridPane.margin>
-            </RadioButton>
             <RadioButton fx:id="SeleccionEnemigo3" layoutX="141.0" layoutY="120.0" mnemonicParsing="false" onAction="#SeleccionarEnemigo3" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                <GridPane.margin>
                   <Insets left="10.0" top="40.0" />
                </GridPane.margin>
             </RadioButton>
-            <ImageView fx:id="ImagenEnemigo2" fitHeight="60.0" fitWidth="60.0" layoutX="28.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="TOP">
-               <GridPane.margin>
-                  <Insets />
-               </GridPane.margin>
-            </ImageView>
             <ImageView fx:id="ImagenEnemigo3" fitHeight="60.0" fitWidth="60.0" layoutX="123.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="TOP" />
+            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+               <children>
+                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <ImageView fx:id="ImagenEnemigo1" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" />
+                        <Label fx:id="Vida1" prefHeight="16.0" prefWidth="66.0" />
+                     </children>
+                  </HBox>
+                  <RadioButton fx:id="SeleccionEnemigo1" mnemonicParsing="false" onAction="#SeleccionarEnemigo1" />
+               </children>
+            </VBox>
+            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1">
+               <children>
+                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <ImageView fx:id="ImagenEnemigo2" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" />
+                        <Label fx:id="Vida2" prefHeight="16.0" prefWidth="66.0" />
+                     </children>
+                  </HBox>
+                  <RadioButton fx:id="SeleccionEnemigo2" mnemonicParsing="false" onAction="#SeleccionarEnemigo2" />
+               </children>
+            </VBox>
          </children>
          <BorderPane.margin>
             <Insets top="20.0" />
