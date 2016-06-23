@@ -17,6 +17,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -33,28 +34,44 @@ public class ControladorJuego {
 	
     @FXML
     private Button BotonSalir;
-	
     @FXML
     private Button BotonFinalizarTurno;
-
     @FXML
     private Button BotonCombinar;
-
     @FXML
     private Button BotonTransformar;
-
     @FXML
     private Button BotonAtacar;
-
     @FXML
     private Button BotonMover;
-
+    @FXML
+    private Label Vida1;
+    @FXML
+    private Label Poder1;
+    @FXML
+    private Label Rango1;
+    @FXML
+    private Label Vel1;
+    @FXML
+    private Label Vida2;
+    @FXML
+    private Label Poder2;
+    @FXML
+    private Label Rango2;
+    @FXML
+    private Label Vel2;
+    @FXML
+    private Label Vida3;
+    @FXML
+    private Label Poder3;
+    @FXML
+    private Label Rango3;
+    @FXML
+    private Label Vel3;
     @FXML
     private ToggleButton Personaje2;
-
     @FXML
     private ToggleButton Personaje3;
-
     @FXML
     private ToggleButton Personaje1;
 
@@ -187,16 +204,32 @@ public class ControladorJuego {
     	if (uno != null){
     		this.personajeUno = uno;
     		this.setEstiloToggle(uno.getNombreEstado(), this.Personaje1);
-    	} else {this.desactivar(Personaje1);}
+    		this.setEstiloLabel(this.Vida1, "Vida: ", uno.getVida());
+    		this.setEstiloLabel(this.Poder1, "Poder: ", uno.getAtaque());
+    		this.setEstiloLabel(this.Rango1, "Rango: ", uno.getDistanciaDeAtaque());
+    		this.setEstiloLabel(this.Vel1, "Vel: ", uno.getVelocidad());
+    	} else {this.desactivar(Personaje1, Vida1, Poder1, Rango1, Vel1);}
     	if (dos != null){
     		this.personajeDos = dos;
     		this.setEstiloToggle(dos.getNombreEstado(), this.Personaje2);
-    	} else {this.desactivar(Personaje2);}
+    		this.setEstiloLabel(this.Vida2, "Vida: ", dos.getVida());
+    		this.setEstiloLabel(this.Poder2, "Poder: ", dos.getAtaque());
+    		this.setEstiloLabel(this.Rango2, "Rango: ", dos.getDistanciaDeAtaque());
+    		this.setEstiloLabel(this.Vel2,"Vel: ",  dos.getVelocidad());
+    	} else {this.desactivar(Personaje2, Vida2, Poder2, Rango2, Vel2);}
     	if (tres != null){
     		this.personajeTres = tres;
     		this.setEstiloToggle(tres.getNombreEstado(), this.Personaje3);
-    	} else {this.desactivar(Personaje3);}
+    		this.setEstiloLabel(this.Vida3, "Vida: ", tres.getVida());
+    		this.setEstiloLabel(this.Poder3, "Poder: ", tres.getAtaque());
+    		this.setEstiloLabel(this.Rango3, "Rango: ", tres.getDistanciaDeAtaque());
+    		this.setEstiloLabel(this.Vel3, "Vel: ", tres.getVelocidad());
+    	} else {this.desactivar(Personaje3, Vida3, Poder3, Rango3, Vel3);}
     	this.focusActual(this.juego.getPersonajeActual());
+    }
+    
+    private void setEstiloLabel(Label etiqueta, String base, int valor){
+    	etiqueta.setText(base + valor);
     }
     
     private void focusActual(AlgoFormer personaje){
@@ -205,10 +238,18 @@ public class ControladorJuego {
     	if (personaje == this.personajeTres) this.seleccionarToggle(Personaje3, personajeTres);
     }
     
-    private void desactivar(ToggleButton boton){
+    private void desactivar(ToggleButton boton, Label vida, Label poder, Label rango, Label velocidad){
     	boton.setGraphic(null);
     	boton.setVisible(false);
     	boton.setDisable(true);
+    	this.desactivarLabel(vida);
+    	this.desactivarLabel(poder);
+    	this.desactivarLabel(rango);
+    	this.desactivarLabel(velocidad);
+    }
+    
+    private void desactivarLabel(Label label){
+    	label.setVisible(false);
     }
     
     private void setEstiloToggle(String nombre, ToggleButton boton){
