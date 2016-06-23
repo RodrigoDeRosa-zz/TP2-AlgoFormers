@@ -40,10 +40,10 @@ public class ControladorVictoria {
     	}
     	ImagenTrofeo.setImage(new Image(("file:src/fiuba/algo3/algoFormers/vista/imagenes/Trofeo.png")));
     	CartelGanador.setText((this.ganador.getNombre() + " GANASTE!"));
-//    	String musicFile = "src/fiuba/algo3/algoFormers/vista/sonidos/Victoria.mp3";
-//    	Media sonido = new Media(new File(musicFile).toURI().toString());
-//    	MediaPlayer mediaPlayer = new MediaPlayer(sonido);
-//    	mediaPlayer.play();
+    	String musicFile = "src/fiuba/algo3/algoFormers/vista/sonidos/Victoria.mp3";
+    	Media sonido = new Media(new File(musicFile).toURI().toString());
+    	MediaPlayer mediaPlayer = new MediaPlayer(sonido);
+    	mediaPlayer.play();
     }
 
     public void initData(Jugador ganador){
