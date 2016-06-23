@@ -1,11 +1,15 @@
 package fiuba.algo3.algoFormers.vista.eventos;
 
+import java.io.File;
+
 import fiuba.algo3.algoFormers.modelo.jugadores.Jugador;
 import fiuba.algo3.algoFormers.modelo.jugadores.JugadorAutobots;
 import fiuba.algo3.algoFormers.modelo.jugadores.JugadorDecepticons;
 import javafx.fxml.FXML;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 
 public class ControladorVictoria {
 
@@ -27,6 +31,10 @@ public class ControladorVictoria {
     	if (this.ganador.getClass() == JugadorDecepticons.class){
     		ImagenVictoria.setImage(new Image(decepticons));
     	}
+    	String musicFile = "src/fiuba/algo3/algoFormers/vista/sonidos/Victoria.mp3";
+    	Media sonido = new Media(new File(musicFile).toURI().toString());
+    	MediaPlayer mediaPlayer = new MediaPlayer(sonido);
+    	mediaPlayer.play();
     }
 
     public void initData(Jugador ganador){
