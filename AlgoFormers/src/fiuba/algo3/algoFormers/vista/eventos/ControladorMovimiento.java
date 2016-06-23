@@ -1,6 +1,7 @@
 
 package fiuba.algo3.algoFormers.vista.eventos;
 
+import java.io.File;
 import java.io.IOException;
 
 import fiuba.algo3.algoFormers.modelo.direcciones.DirAbajo;
@@ -33,6 +34,8 @@ import javafx.scene.layout.BackgroundPosition;
 import javafx.scene.layout.BackgroundRepeat;
 import javafx.scene.layout.BackgroundSize;
 import javafx.scene.layout.GridPane;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
 
 public class ControladorMovimiento {
@@ -92,7 +95,11 @@ public class ControladorMovimiento {
         	this.redibujarTablero();
     		this.controlador.finalizarJuego();
     		return;
-    	}    	
+    	}
+    	String musicFile = "src/fiuba/algo3/algoFormers/vista/sonidos/Mover.mp3";
+    	Media sonido = new Media(new File(musicFile).toURI().toString());
+    	MediaPlayer mediaPlayer = new MediaPlayer(sonido);
+    	mediaPlayer.play();
     	this.redibujarTablero();
     	this.controlador.accionado();
     }

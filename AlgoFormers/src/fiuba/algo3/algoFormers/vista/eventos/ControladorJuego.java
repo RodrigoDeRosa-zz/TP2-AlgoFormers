@@ -1,5 +1,6 @@
 package fiuba.algo3.algoFormers.vista.eventos;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Set;
@@ -25,6 +26,8 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
 
 public class ControladorJuego {
@@ -115,6 +118,10 @@ public class ControladorJuego {
     		this.mostrarError(e.getMessage());
     		return;
     	}
+    	String musicFile = "src/fiuba/algo3/algoFormers/vista/sonidos/Transformacion.mp3";
+    	Media sonido = new Media(new File(musicFile).toURI().toString());
+    	MediaPlayer mediaPlayer = new MediaPlayer(sonido);
+    	mediaPlayer.play();
     	this.setJugador(juego.getJugadorActual());
     	this.tablero.armarTablero(this.juego);
     	this.finAccion();
