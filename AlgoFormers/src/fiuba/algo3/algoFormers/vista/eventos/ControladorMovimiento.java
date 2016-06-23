@@ -1,6 +1,8 @@
 
 package fiuba.algo3.algoFormers.vista.eventos;
 
+import java.io.IOException;
+
 import fiuba.algo3.algoFormers.modelo.direcciones.DirAbajo;
 import fiuba.algo3.algoFormers.modelo.direcciones.DirAbajoDer;
 import fiuba.algo3.algoFormers.modelo.direcciones.DirAbajoIzq;
@@ -10,13 +12,17 @@ import fiuba.algo3.algoFormers.modelo.direcciones.DirArribaIzq;
 import fiuba.algo3.algoFormers.modelo.direcciones.DirDerecha;
 import fiuba.algo3.algoFormers.modelo.direcciones.DirIzquierda;
 import fiuba.algo3.algoFormers.modelo.direcciones.Direccion;
+import fiuba.algo3.algoFormers.modelo.excepciones.CasilleroOcupadoException;
 import fiuba.algo3.algoFormers.modelo.excepciones.FueraDelMapaException;
 import fiuba.algo3.algoFormers.modelo.juego.Juego;
 import fiuba.algo3.algoFormers.vista.contenedores.ContenedorTablero;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 public class ControladorMovimiento {
@@ -57,109 +63,74 @@ public class ControladorMovimiento {
     	//A partir del evento obtengo el stage principal
     	this.cerrarStage(event);
     }
+    
+    private void mostrarError(String mensaje) throws IOException{
+		FXMLLoader loader = new FXMLLoader(getClass().getResource("ContenedorError.fxml"));
+    	VBox contenedorError = (VBox) loader.load();
+    	ControladorError controlador = loader.<ControladorError>getController();
+    	controlador.initData(mensaje);
+    	Stage stage = new Stage();
+		stage.setTitle("Error");
+    	stage.setScene(new Scene(contenedorError));
+    	stage.show();
+    }
 
     @FXML
-    void MoverAbajo(ActionEvent event) {
+    void MoverAbajo(ActionEvent event) throws IOException{
     	Direccion dir = new DirAbajo();
+    	this.mover(dir, event);
+    }
+
+    private void mover(Direccion direccion, ActionEvent event) throws IOException{
     	try{
-    		this.juego.mover(dir);
-    	}catch(FueraDelMapaException e){
-    		System.out.println("No es una posicion disponible");
+    		this.juego.mover(direccion);
+    	}catch(FueraDelMapaException | CasilleroOcupadoException e){
+    		this.mostrarError(e.getMessage());
     	} 
     	this.redibujarTablero();
     	this.controlador.accionado();
-    	this.cerrarStage(event);
     }
-
+    
     @FXML
-    void MoverAbajoIzq(ActionEvent event) {
+    void MoverAbajoIzq(ActionEvent event) throws IOException{
     	Direccion dir = new DirAbajoIzq();
-    	try{
-    		this.juego.mover(dir); 
-    	}catch(FueraDelMapaException e){
-    		System.out.println("No es una posicion disponible");
-    	} 
-    	this.redibujarTablero();
-    	this.controlador.accionado();
-    	this.cerrarStage(event);
+    	this.mover(dir, event);
     }
 
     @FXML
-    void MoverAbjDer(ActionEvent event) {
+    void MoverAbjDer(ActionEvent event) throws IOException{
     	Direccion dir = new DirAbajoDer();
-    	try{
-    		this.juego.mover(dir);
-    	}catch(FueraDelMapaException e){
-    		System.out.println("No es una posicion disponible");
-    	} 
-    	this.redibujarTablero();
-    	this.controlador.accionado();
-    	this.cerrarStage(event);
+    	this.mover(dir, event);
     }
 
     @FXML
-    void MoverArrDer(ActionEvent event) {
+    void MoverArrDer(ActionEvent event) throws IOException{
     	Direccion dir = new DirArribaDer();
-    	try{
-    		this.juego.mover(dir);
-    	}catch(FueraDelMapaException e){
-    		System.out.println("No es una posicion disponible");
-    	} 
-    	this.redibujarTablero();
-    	this.controlador.accionado();
-    	this.cerrarStage(event);
+    	this.mover(dir, event);
     }
 
     @FXML
-    void MoverArriba(ActionEvent event) {
+    void MoverArriba(ActionEvent event) throws IOException{
     	Direccion dir = new DirArriba();
-    	try{
-    		this.juego.mover(dir);
-    	}catch(FueraDelMapaException e){
-    		System.out.println("No es una posicion disponible");
-    	} 
-    	this.redibujarTablero();
-    	this.controlador.accionado();
-    	this.cerrarStage(event);
+    	this.mover(dir, event);
     }
 
     @FXML
-    void MoverDerecha(ActionEvent event) {
+    void MoverDerecha(ActionEvent event) throws IOException{
     	Direccion dir = new DirDerecha();
-    	try{
-    		this.juego.mover(dir);
-    	}catch(FueraDelMapaException e){
-    		System.out.println("No es una posicion disponible");
-    	} 
-    	this.redibujarTablero();
-    	this.controlador.accionado();
-    	this.cerrarStage(event);
+    	this.mover(dir, event);
     }
 
     @FXML
-    void MoverIzqArr(ActionEvent event) {
+    void MoverIzqArr(ActionEvent event) throws IOException{
     	Direccion dir = new DirArribaIzq();
-    	try{
-    		this.juego.mover(dir);
-    	}catch(FueraDelMapaException e){
-    		System.out.println("No es una posicion disponible");
-    	} 
-    	this.redibujarTablero();
-    	this.controlador.accionado();
-    	this.cerrarStage(event);
+    	this.mover(dir, event);
     }
 
     @FXML
-    void MoverIzquierda(ActionEvent event) {
+    void MoverIzquierda(ActionEvent event) throws IOException{
     	Direccion dir = new DirIzquierda();
-    	try{
-    		this.juego.mover(dir);
-    	}catch(FueraDelMapaException e){
-    		System.out.println("No es una posicion disponible");
-    	} 
-    	this.redibujarTablero();
-    	this.controlador.accionado();
-    	this.cerrarStage(event);
+    	this.mover(dir, event);
     }
     
     private void cerrarStage(ActionEvent event){

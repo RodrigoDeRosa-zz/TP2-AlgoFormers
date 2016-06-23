@@ -11,10 +11,8 @@ import fiuba.algo3.algoFormers.vista.contenedores.ContenedorTablero;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.MenuBar;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -28,8 +26,8 @@ public class ControladorJuego {
 	private AlgoFormer personajeTres;
 	
     @FXML
-    private MenuBar BarraMenu;
-
+    private Button BotonSalir;
+	
     @FXML
     private Button BotonFinalizarTurno;
 
@@ -59,6 +57,12 @@ public class ControladorJuego {
 	private ToggleButton toggleActual;
 	private AlgoFormer personajeActual;
 	private boolean accionado = false;
+	
+
+    @FXML
+    void Salir(ActionEvent event) {
+    	System.exit(0);
+    }
 	
     @FXML
     void Atacar(ActionEvent event) throws IOException {

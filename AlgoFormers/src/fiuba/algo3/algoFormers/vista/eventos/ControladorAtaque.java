@@ -47,6 +47,9 @@ public class ControladorAtaque {
     @FXML
     private Button BotonAtacar;
     
+    @FXML
+    private Label NotificacionError;
+    
 	private Juego juego;
 	private ControladorJuego controlador;
 
@@ -58,7 +61,7 @@ public class ControladorAtaque {
     @FXML
     void Atacar(ActionEvent event) {
     	Posicion posicion = this.juego.getPosicionAlgoformer(this.elegido);
-    	try{this.juego.atacar(posicion);} catch(AtaqueFueraDeRangoException e){return;}
+    	try{this.juego.atacar(posicion);} catch(AtaqueFueraDeRangoException e){NotificacionError.setText(e.getMessage());return;}
     	this.controlador.setJugador(juego.getJugadorActual());
     	this.CerrarVentana(event);
     }
