@@ -26,31 +26,22 @@ public class ControladorAtaque {
 
     @FXML
     private ImageView ImagenEnemigo1;
-
     @FXML
     private RadioButton SeleccionEnemigo1;
-
     @FXML
     private RadioButton SeleccionEnemigo2;
-
     @FXML
     private RadioButton SeleccionEnemigo3;
-
     @FXML
     private ImageView ImagenEnemigo2;
-
     @FXML
     private ImageView ImagenEnemigo3;
-
     @FXML
     private Label CartelMensaje;
-
     @FXML
     private Button BotonCancelar;
-
     @FXML
     private Button BotonAtacar;
-    
     @FXML
     private Label NotificacionError;
     
@@ -86,7 +77,7 @@ public class ControladorAtaque {
     }
     
     private boolean enemigoSeleccionado(){
-    	if (!this.SeleccionEnemigo1.isSelected() && !this.SeleccionEnemigo1.isSelected() && !this.SeleccionEnemigo1.isSelected()){
+    	if (!this.SeleccionEnemigo1.isSelected() && !this.SeleccionEnemigo2.isSelected() && !this.SeleccionEnemigo3.isSelected()){
     		this.NotificacionError.setText("Debe elegir a un enemigo");
     		return false;
     	}
