@@ -27,6 +27,12 @@ import javafx.stage.Stage;
 
 public class ControladorAtaque {
 
+	@FXML
+	private Label Vida1;
+	@FXML
+	private Label Vida2;
+	@FXML
+	private Label Vida3;
     @FXML
     private ImageView ImagenEnemigo1;
     @FXML
@@ -168,22 +174,30 @@ public class ControladorAtaque {
 	public void setPersonajes(AlgoFormer uno, AlgoFormer dos, AlgoFormer tres){
 		if (uno != null){
 			this.personajeUno = uno;
-			this.setEstiloRadio(uno.getNombreEstado(), this.ImagenEnemigo1);    	
-		} else {this.desactivar(this.ImagenEnemigo1, this.SeleccionEnemigo1);}
+			this.setEstiloRadio(uno.getNombreEstado(), this.ImagenEnemigo1);
+			this.setLabel(this.Vida1, uno.getVida());
+		} else {this.desactivar(this.ImagenEnemigo1, this.SeleccionEnemigo1, this.Vida1);}
 		if (dos != null){
 			this.personajeDos = dos;
 			this.setEstiloRadio(dos.getNombreEstado(), this.ImagenEnemigo2);
-		} else {this.desactivar(this.ImagenEnemigo2, this.SeleccionEnemigo2);}
+			this.setLabel(this.Vida2, dos.getVida());
+		} else {this.desactivar(this.ImagenEnemigo2, this.SeleccionEnemigo2, this.Vida2);}
 		if (tres != null){
 			this.personajeTres = tres;
 			this.setEstiloRadio(tres.getNombreEstado(), this.ImagenEnemigo3);
-		} else {this.desactivar(this.ImagenEnemigo3, this.SeleccionEnemigo3);;}
+			this.setLabel(this.Vida3, tres.getVida());
+		} else {this.desactivar(this.ImagenEnemigo3, this.SeleccionEnemigo3, this.Vida3);;}
 	}
 	 
+	private void setLabel(Label etiqueta, int valor){
+		etiqueta.setText("Vida: " + valor);
+		etiqueta.setVisible(true);
+	}
 	
-	private void desactivar(ImageView imagen, RadioButton radio){
+	private void desactivar(ImageView imagen, RadioButton radio, Label etiqueta){
 		imagen.setVisible(false);
 		radio.setVisible(false);
+		etiqueta.setVisible(false);
 	}
 	
 	private void setDisenioBotones(){
