@@ -53,10 +53,10 @@
                   <ToggleButton fx:id="Personaje1" mnemonicParsing="false" onAction="#SeleccionarPersonajeActual1" prefHeight="61.0" prefWidth="65.0" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
                   <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                      <children>
-                        <Label fx:id="Vida1" prefHeight="16.0" prefWidth="181.0" text="Vida:" />
-                        <Label fx:id="Poder1" prefHeight="16.0" prefWidth="81.0" text="Poder:" />
-                        <Label fx:id="Rango1" prefHeight="16.0" prefWidth="131.0" text="Rango:" />
-                        <Label fx:id="Vel1" prefHeight="16.0" prefWidth="129.0" text="Vel:" />
+                        <Label fx:id="Vida1" prefHeight="16.0" prefWidth="181.0" text="Vida:" textFill="WHITE" />
+                        <Label fx:id="Poder1" prefHeight="16.0" prefWidth="81.0" text="Poder:" textFill="WHITE" />
+                        <Label fx:id="Rango1" prefHeight="16.0" prefWidth="131.0" text="Rango:" textFill="WHITE" />
+                        <Label fx:id="Vel1" prefHeight="16.0" prefWidth="129.0" text="Vel:" textFill="WHITE" />
                      </children>
                   </VBox>
                </children>
@@ -72,10 +72,10 @@
                <children>
                   <VBox alignment="CENTER" prefHeight="55.0" prefWidth="69.0" GridPane.columnIndex="1">
                      <children>
-                        <Label fx:id="Vida2" prefHeight="16.0" prefWidth="155.0" text="Vida:" />
-                        <Label fx:id="Poder2" prefHeight="16.0" prefWidth="81.0" text="Poder:" />
-                        <Label fx:id="Rango2" prefHeight="16.0" prefWidth="88.0" text="Rango:" />
-                        <Label fx:id="Vel2" prefHeight="16.0" prefWidth="124.0" text="Vel:" />
+                        <Label fx:id="Vida2" prefHeight="16.0" prefWidth="155.0" text="Vida:" textFill="WHITE" />
+                        <Label fx:id="Poder2" prefHeight="16.0" prefWidth="81.0" text="Poder:" textFill="WHITE" />
+                        <Label fx:id="Rango2" prefHeight="16.0" prefWidth="88.0" text="Rango:" textFill="WHITE" />
+                        <Label fx:id="Vel2" prefHeight="16.0" prefWidth="124.0" text="Vel:" textFill="WHITE" />
                      </children>
                   </VBox>
                   <ToggleButton fx:id="Personaje2" mnemonicParsing="false" onAction="#SeleccionarPersonajeActual2" prefHeight="61.0" prefWidth="65.0" />
@@ -93,10 +93,10 @@
                   <ToggleButton fx:id="Personaje3" mnemonicParsing="false" onAction="#SeleccionarPersonajeActual3" prefHeight="61.0" prefWidth="65.0" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
                   <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1">
                      <children>
-                        <Label fx:id="Vida3" prefHeight="16.0" prefWidth="75.0" text="Vida:" />
-                        <Label fx:id="Poder3" prefHeight="16.0" prefWidth="81.0" text="Poder:" />
-                        <Label fx:id="Rango3" prefHeight="16.0" prefWidth="112.0" text="Rango:" />
-                        <Label fx:id="Vel3" prefHeight="16.0" prefWidth="150.0" text="Vel:" />
+                        <Label fx:id="Vida3" prefHeight="16.0" prefWidth="75.0" text="Vida:" textFill="WHITE" />
+                        <Label fx:id="Poder3" prefHeight="16.0" prefWidth="81.0" text="Poder:" textFill="WHITE" />
+                        <Label fx:id="Rango3" prefHeight="16.0" prefWidth="112.0" text="Rango:" textFill="WHITE" />
+                        <Label fx:id="Vel3" prefHeight="16.0" prefWidth="150.0" text="Vel:" textFill="WHITE" />
                      </children>
                   </VBox>
                </children>
