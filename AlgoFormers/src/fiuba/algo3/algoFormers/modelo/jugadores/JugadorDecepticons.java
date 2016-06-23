@@ -9,7 +9,7 @@ import fiuba.algo3.algoFormers.modelo.personajes.Decepticon;
 
 public class JugadorDecepticons extends Jugador {
 
-	private static int FILA_INICIO = 39;
+	private static int FILA_INICIO = 2;
 	private EquipoDecepticon equipo;
 	
 	public JugadorDecepticons() {

@@ -96,7 +96,7 @@ public abstract class Equipo {
 	protected abstract void reubicarPersonajes(Mapa mapa);
 	
 	protected void ubicarIntegrantesEnAlrededores(Posicion posicionMegaBot, Mapa mapa){
-		this.equipo.forEach( (nombre, personaje) -> mapa.ubicarEnAlrededores(personaje, posicionMegaBot));
+		this.equipo.forEach( (nombre, personaje) ->	mapa.ubicarEnAlrededores(personaje, posicionMegaBot));
 	}
 	
 	protected int calcularVidaMegaBot(){

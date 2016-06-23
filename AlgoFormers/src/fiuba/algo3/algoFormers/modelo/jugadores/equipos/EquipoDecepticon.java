@@ -11,6 +11,7 @@ import fiuba.algo3.algoFormers.modelo.personajes.Menasor;
 public class EquipoDecepticon extends Equipo {
 
 	private Menasor megabot;
+	private boolean combinado = false;
 	
 	public EquipoDecepticon(AlgoFormer uno, AlgoFormer dos, AlgoFormer tres){
 		super(uno, dos, tres);
@@ -24,6 +25,7 @@ public class EquipoDecepticon extends Equipo {
 	@Override
 	protected void definirMegaBotComoActual(int vida) {
 		this.personajeActual = this.megabot.vida(vida);
+		this.combinado = true;
 	}
 	
 	protected void finalizarTurnoMegaBot(){
@@ -43,10 +45,13 @@ public class EquipoDecepticon extends Equipo {
 	
 	public Set<AlgoFormer> getPersonajes() {
 		Set<AlgoFormer> personajes = new HashSet<AlgoFormer>();
-		personajes.add(this.getAlgoFormer("Megatron"));
-		personajes.add(this.getAlgoFormer("Frenzy"));
-		personajes.add(this.getAlgoFormer("Bonecrusher"));
 		
+		if (this.combinado) personajes.add(this.megabot);
+		else{
+			personajes.add(this.getAlgoFormer("Megatron"));
+			personajes.add(this.getAlgoFormer("Frenzy"));
+			personajes.add(this.getAlgoFormer("Bonecrusher"));
+		}
 		return personajes;
 	}
 }

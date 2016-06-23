@@ -36,7 +36,7 @@ public class ManejadorDeAtaques {
 		int distancia = mapa.obtenerDistancia(posicionAlgoformerAtacante, posicionAtacable);
 		
 		if (distancia > distanciaAtaque){
-			throw new AtaqueFueraDeRangoException("La distacia entre ellos es mayor que posible (" + distanciaAtaque + ")");
+			throw new AtaqueFueraDeRangoException("Esta muy lejos para atacar!!!");
 		}
 		
 		AlgoFormer algoformerAtacado = (AlgoFormer) mapa.getAtacable(posicionAtacable);

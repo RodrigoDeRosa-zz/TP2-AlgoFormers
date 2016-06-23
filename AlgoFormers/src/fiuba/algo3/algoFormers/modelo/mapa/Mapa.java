@@ -119,7 +119,10 @@ public class Mapa {
 	
 	public void ubicarEnAlrededores(Atacable personaje, Posicion posOriginal){
 		Casillero casilleroOriginal = this.tablero.get(posOriginal);
-		try{casilleroOriginal.ubicar(personaje);} catch (CasilleroOcupadoException | HumanoideNoPuedeAtravesarException e){}
+		try{
+			casilleroOriginal.ubicar(personaje);
+			return;
+		} catch (CasilleroOcupadoException | HumanoideNoPuedeAtravesarException e){	}
 		for (int i = 0; i < 3; i++){
 			Posicion posicion = new Posicion(posOriginal.getX() + i, posOriginal.getY() + i);
 			Casillero casillero = this.tablero.get(posicion);

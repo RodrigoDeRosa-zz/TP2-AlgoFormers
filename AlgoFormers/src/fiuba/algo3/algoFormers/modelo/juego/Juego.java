@@ -61,10 +61,7 @@ public class Juego {
 	}
 	
 	public void atacar(Posicion posicion){
-		try{
-			this.manejadorAcciones.atacar(this.manejadorTurnos.jugadorActual(), posicion);}
-		catch(AtaqueFueraDeRangoException e){
-			System.out.print("No llegas a atacar a ese lugar");}		
+		this.manejadorAcciones.atacar(this.manejadorTurnos.jugadorActual(), posicion);
 		this.finalizarTurno();
 	}
 	
@@ -91,7 +88,10 @@ public class Juego {
 	
 	public ArrayList<AlgoFormer> getAlgoformersActuales() {
 		return this.manejadorTurnos.getAlgoformersActuales();
+	}
 	
+	public Posicion getPosicionAlgoformer(AlgoFormer algoformer){
+		return this.mapa.obtenerPosicion(algoformer);
 	}
 
 	//Metodos para las pruebas
@@ -136,5 +136,9 @@ public class Juego {
 
 	public AlgoFormer getPersonajeActual() {
 		return this.getJugadorActual().getPersonajeActual();
+	}
+
+	public Jugador getJugadorOpuesto(){
+		return this.manejadorTurnos.jugadorOpuesto();
 	}
 }
