@@ -4,6 +4,6 @@ public class DirAbajoIzq extends Direccion {
 
 	public DirAbajoIzq (){
 		x = -1;
-		y = -1;
+		y = 1;
 	}
 }

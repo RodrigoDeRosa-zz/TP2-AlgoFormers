@@ -4,7 +4,7 @@ public class DirArribaDer extends Direccion {
 
 	public DirArribaDer (){
 		x = 1;
-		y = 1;
+		y = -1;
 	}
 	
 }
