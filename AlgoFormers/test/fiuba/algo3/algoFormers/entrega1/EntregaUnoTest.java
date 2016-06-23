@@ -3,7 +3,9 @@ package fiuba.algo3.algoFormers.entrega1;
 import static org.junit.Assert.*;
 import org.junit.Test;
 
+import fiuba.algo3.algoFormers.modelo.direcciones.DirAbajoDer;
 import fiuba.algo3.algoFormers.modelo.direcciones.DirArriba;
+import fiuba.algo3.algoFormers.modelo.direcciones.DirDerecha;
 import fiuba.algo3.algoFormers.modelo.juego.Juego;
 import fiuba.algo3.algoFormers.modelo.mapa.Mapa;
 import fiuba.algo3.algoFormers.modelo.mapa.Posicion;
@@ -26,11 +28,11 @@ public class EntregaUnoTest {
 		Mapa mapa = new Mapa();
 		Posicion posicion = new Posicion(1,1);
 		mapa.ubicar(optimus, posicion);
-		DirArriba direccion = new DirArriba();
+		DirAbajoDer direccion = new DirAbajoDer();
 		for (int i = 1; i <= optimus.getVelocidad(); i++){
 			optimus.moverEnDireccion(direccion, mapa);	
 		}
-		assertEquals(optimus, mapa.getAtacable(new Posicion(1, 3)));
+		assertEquals(optimus, mapa.getAtacable(new Posicion(3, 3)));
 	}
 	
 	@Test
@@ -41,11 +43,11 @@ public class EntregaUnoTest {
 		Mapa mapa = new Mapa();
 		Posicion posicion = new Posicion(1,1);
 		mapa.ubicar(ratchet, posicion);
-		DirArriba direccion = new DirArriba();
+		DirDerecha direccion = new DirDerecha();
 		for (int i = 1; i <= ratchet.getVelocidad(); i++){
 			ratchet.moverEnDireccion(direccion, mapa);	
 		}
-		assertEquals(ratchet, mapa.getAtacable(new Posicion(1, 9)));
+		assertEquals(ratchet, mapa.getAtacable(new Posicion(9, 1)));
 	}
 	
 	@Test

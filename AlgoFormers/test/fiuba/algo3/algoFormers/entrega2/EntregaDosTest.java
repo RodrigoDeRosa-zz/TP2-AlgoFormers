@@ -4,6 +4,8 @@ import static org.junit.Assert.*;
 
 import org.junit.Before;
 import org.junit.Test;
+
+import fiuba.algo3.algoFormers.modelo.direcciones.DirAbajo;
 import fiuba.algo3.algoFormers.modelo.direcciones.DirArriba;
 import fiuba.algo3.algoFormers.modelo.fabricas.algoFormers.AlgoFormerFactory;
 import fiuba.algo3.algoFormers.modelo.fabricas.superficies.SuperficiesFactory;
@@ -235,7 +237,7 @@ public class EntregaDosTest {
 		Posicion posicion2 = new Posicion(1,2);
 		mapa.ubicar(optimus, posicion1);
 		mapa.ubicar(superficie, posicion2);
-		DirArriba direccion = new DirArriba();
+		DirAbajo direccion = new DirAbajo();
 		optimus.moverEnDireccion(direccion, mapa);	
 		}
 	
@@ -246,7 +248,7 @@ public class EntregaDosTest {
 		Posicion posicion2 = new Posicion(1,2);
 		mapa.ubicar(bumblebee, posicion1);
 		mapa.ubicar(superficie, posicion2);
-		DirArriba direccion = new DirArriba();
+		DirAbajo direccion = new DirAbajo();
 		bumblebee.moverEnDireccion(direccion, mapa);	
 		}
 
@@ -257,7 +259,7 @@ public class EntregaDosTest {
 		Posicion posicion2 = new Posicion(1,2);
 		mapa.ubicar(ratchet, posicion1);
 		mapa.ubicar(superficie, posicion2);
-		DirArriba direccion = new DirArriba();
+		DirAbajo direccion = new DirAbajo();
 		ratchet.moverEnDireccion(direccion, mapa);	
 		}
 	
@@ -268,7 +270,7 @@ public class EntregaDosTest {
 		Posicion posicion2 = new Posicion(1,2);
 		mapa.ubicar(megatron, posicion1);
 		mapa.ubicar(superficie, posicion2);
-		DirArriba direccion = new DirArriba();
+		DirAbajo direccion = new DirAbajo();
 		megatron.moverEnDireccion(direccion, mapa);	
 		}
 	
@@ -279,7 +281,7 @@ public class EntregaDosTest {
 		Posicion posicion2 = new Posicion(1,2);
 		mapa.ubicar(frenzy, posicion1);
 		mapa.ubicar(superficie, posicion2);
-		DirArriba direccion = new DirArriba();
+		DirAbajo direccion = new DirAbajo();
 		frenzy.moverEnDireccion(direccion, mapa);	
 		}
 	
@@ -290,7 +292,7 @@ public class EntregaDosTest {
 		Posicion posicion2 = new Posicion(1,2);
 		mapa.ubicar(bonecrusher, posicion1);
 		mapa.ubicar(superficie, posicion2);
-		DirArriba direccion = new DirArriba();
+		DirAbajo direccion = new DirAbajo();
 		bonecrusher.moverEnDireccion(direccion, mapa);	
 		}
 	
@@ -305,7 +307,7 @@ public class EntregaDosTest {
 		mapa.ubicar(superficie, posicion2);
 		mapa.ubicar(superficie, posicion3);
 		mapa.ubicar(superficie, posicion4);
-		DirArriba direccion = new DirArriba();
+		DirAbajo direccion = new DirAbajo();
 		optimus.transformarse();
 		for(int x=0; x<=3; x++){
 			optimus.moverEnDireccion(direccion, mapa);	
@@ -353,7 +355,7 @@ public class EntregaDosTest {
 		mapa.ubicar(optimus, posicion1);
 		mapa.ubicar(superficie, posicion2);
 		mapa.ubicar(superficie, posicion3);
-		DirArriba direccion = new DirArriba();
+		DirAbajo direccion = new DirAbajo();
 		optimus.moverEnDireccion(direccion, mapa);	
 		assertEquals(optimus.getVida(), 475);
 		optimus.moverEnDireccion(direccion, mapa);	
@@ -367,7 +369,7 @@ public class EntregaDosTest {
 		Posicion posicion2 = new Posicion(1,2);
 		mapa.ubicar(ratchet, posicion1);
 		mapa.ubicar(superficie, posicion2);
-		DirArriba direccion = new DirArriba();
+		DirAbajo direccion = new DirAbajo();
 		ratchet.moverEnDireccion(direccion, mapa);	
 		assertEquals(ratchet.getVida(), 143);		
 	}
@@ -381,7 +383,7 @@ public class EntregaDosTest {
 		mapa.ubicar(bumblebee, posicion1);
 		mapa.ubicar(superficie, posicion2);
 		mapa.ubicar(superficie, posicion3);
-		DirArriba direccion = new DirArriba();
+		DirAbajo direccion = new DirAbajo();
 		bumblebee.moverEnDireccion(direccion, mapa);	
 		assertEquals(bumblebee.getVida(), 333);
 		bumblebee.moverEnDireccion(direccion, mapa);	
@@ -396,7 +398,7 @@ public class EntregaDosTest {
 		Posicion posicion2 = new Posicion(1,2);
 		mapa.ubicar(megatron, posicion1);
 		mapa.ubicar(superficie, posicion2);
-		DirArriba direccion = new DirArriba();
+		DirAbajo direccion = new DirAbajo();
 		megatron.moverEnDireccion(direccion, mapa);	
 		assertEquals(megatron.getVida(), 523);
 	}
@@ -410,7 +412,7 @@ public class EntregaDosTest {
 		mapa.ubicar(frenzy, posicion1);
 		mapa.ubicar(superficie, posicion2);
 		mapa.ubicar(superficie, posicion3);
-		DirArriba direccion = new DirArriba();
+		DirAbajo direccion = new DirAbajo();
 		frenzy.moverEnDireccion(direccion, mapa);	
 		assertEquals(frenzy.getVida(), 380);
 		frenzy.moverEnDireccion(direccion, mapa);	
@@ -424,7 +426,7 @@ public class EntregaDosTest {
 		Posicion posicion2 = new Posicion(1,2);
 		mapa.ubicar(bonecrusher, posicion1);
 		mapa.ubicar(superficie, posicion2);
-		DirArriba direccion = new DirArriba();
+		DirAbajo direccion = new DirAbajo();
 		bonecrusher.moverEnDireccion(direccion, mapa);	
 		assertEquals(bonecrusher.getVida(), 190);		
 	}
@@ -501,7 +503,7 @@ public class EntregaDosTest {
 		Posicion posicion3 = new Posicion(1,3);
 		mapa.ubicar(ratchet, posicion1);
 		mapa.ubicar(superficie, posicion2);
-		DirArriba direccion = new DirArriba();
+		DirAbajo direccion = new DirAbajo();
 		ratchet.transformarse();
 		ratchet.moverEnDireccion(direccion, mapa);
 		for(int i = 0; i < 3; i++){
@@ -524,7 +526,7 @@ public class EntregaDosTest {
 		Posicion posicion3 = new Posicion(1,3);
 		mapa.ubicar(megatron, posicion1);
 		mapa.ubicar(superficie, posicion2);
-		DirArriba direccion = new DirArriba();
+		DirAbajo direccion = new DirAbajo();
 		megatron.transformarse();
 		megatron.moverEnDireccion(direccion, mapa);
 		for(int i = 0; i < 3; i++){
@@ -547,7 +549,7 @@ public class EntregaDosTest {
 		megatron.transformarse();
 		mapa.ubicar(megatron, posicion1);
 		mapa.ubicar(superficie, posicion2);
-		DirArriba direccion = new DirArriba();
+		DirAbajo direccion = new DirAbajo();
 		megatron.moverEnDireccion(direccion, mapa);	
 		assertEquals(megatron.getAtaque(), 33);		
 	}
@@ -560,7 +562,7 @@ public class EntregaDosTest {
 		ratchet.transformarse();
 		mapa.ubicar(ratchet, posicion1);
 		mapa.ubicar(superficie, posicion2);
-		DirArriba direccion = new DirArriba();
+		DirAbajo direccion = new DirAbajo();
 		ratchet.moverEnDireccion(direccion, mapa);	
 		assertEquals(ratchet.getAtaque(), 21);		
 	}
@@ -575,7 +577,7 @@ public class EntregaDosTest {
 		mapa.ubicar(megatron, posicion1);
 		mapa.ubicar(superficie, posicion2);
 		mapa.ubicar(superficie, posicion3);
-		DirArriba direccion = new DirArriba();
+		DirAbajo direccion = new DirAbajo();
 		megatron.moverEnDireccion(direccion, mapa);	
 		assertEquals(megatron.getAtaque(), 33);
 		megatron.moverEnDireccion(direccion, mapa);	
@@ -592,7 +594,7 @@ public class EntregaDosTest {
 		mapa.ubicar(ratchet, posicion1);
 		mapa.ubicar(superficie, posicion2);
 		mapa.ubicar(superficie, posicion3);
-		DirArriba direccion = new DirArriba();
+		DirAbajo direccion = new DirAbajo();
 		ratchet.moverEnDireccion(direccion, mapa);	
 		assertEquals(ratchet.getAtaque(), 21);
 		ratchet.moverEnDireccion(direccion, mapa);	

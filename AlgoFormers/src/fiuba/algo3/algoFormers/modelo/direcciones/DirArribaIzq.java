@@ -4,7 +4,7 @@ public class DirArribaIzq extends Direccion {
 
 	public DirArribaIzq(){
 		x = -1;
-		y = 1;
+		y = -1;
 	}
 	
 }

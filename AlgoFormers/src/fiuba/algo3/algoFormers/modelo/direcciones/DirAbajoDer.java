@@ -4,6 +4,6 @@ public class DirAbajoDer extends Direccion {
 
 	public DirAbajoDer (){
 		x = 1;
-		y = -1;
+		y = 1;
 	}
 }

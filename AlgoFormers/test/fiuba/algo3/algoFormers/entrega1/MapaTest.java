@@ -82,7 +82,7 @@ public class MapaTest {
 		Posicion posicion = new Posicion(2,8); 
 		mapa.ubicar(optimusPrime, posicion);
 		mapa.moverAtacableEnDireccion(optimusPrime, new DirAbajoDer());
-		Posicion nuevaPosicion = new Posicion (3,7);
+		Posicion nuevaPosicion = new Posicion (3,9);
 		
 		assertEquals(mapa.getAtacable(nuevaPosicion).getClass(), optimusPrime.getClass());
 		//En la posicion vieja no esta mas optimus
@@ -106,7 +106,7 @@ public class MapaTest {
 		Posicion posicion = new Posicion(2,8); 
 		mapa.ubicar(optimusPrime, posicion);
 		
-		Posicion nuevaPosicion = new Posicion (2,9);
+		Posicion nuevaPosicion = new Posicion (2,7);
 		mapa.ubicar(bumblebee, nuevaPosicion);
 		
 		mapa.moverAtacableEnDireccion(optimusPrime, new DirArriba());
@@ -117,7 +117,7 @@ public class MapaTest {
 		Posicion posicion = new Posicion(2,8); 
 		mapa.ubicar(optimusPrime, posicion);
 		
-		Posicion nuevaPosicion = new Posicion (2,9);
+		Posicion nuevaPosicion = new Posicion (2,7);
 		mapa.ubicar(megatron, nuevaPosicion);
 		
 		mapa.moverAtacableEnDireccion(optimusPrime, new DirArriba());
