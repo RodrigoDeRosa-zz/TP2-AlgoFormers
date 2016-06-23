@@ -70,6 +70,5 @@ public class ControladorAtaque {
     
 	public void initData(Juego juego) {
 		this.juego = juego;
-		
 	}
 }

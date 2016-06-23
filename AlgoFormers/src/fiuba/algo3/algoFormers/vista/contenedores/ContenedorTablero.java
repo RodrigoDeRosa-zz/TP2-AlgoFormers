@@ -6,6 +6,8 @@ import fiuba.algo3.algoFormers.modelo.mapa.Posicion;
 import fiuba.algo3.algoFormers.modelo.mapa.superficies.SuperficieAerea;
 import fiuba.algo3.algoFormers.modelo.mapa.superficies.SuperficieTerrestre;
 import fiuba.algo3.algoFormers.modelo.personajes.AlgoFormer;
+import javafx.collections.ObservableList;
+import javafx.scene.Node;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
@@ -60,6 +62,10 @@ public class ContenedorTablero extends GridPane{
     	        }
     	        
     			this.add(casillero, i, j);
+//    			//agrega foco principal si es el personaje principal
+//	        	if(algoformer != null && algoformer.getNombre() == juego.getPersonajeActual().getNombre()){
+//	        		casillero.requestFocus();
+//	        	}
     		}
 		}	
 	}
