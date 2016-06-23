@@ -80,11 +80,8 @@ public class Juego {
 	}
 	
 	public void mover(Direccion direccion){
-		try{
-			this.manejadorAcciones.mover(this.manejadorTurnos.jugadorActual(), direccion);
-		}catch (MovimientosAgotadosException e){
-			System.out.println("No quedan movimientos disponibles");}
-		}
+		this.manejadorAcciones.mover(this.manejadorTurnos.jugadorActual(), direccion);
+	}
 	
 	public ArrayList<AlgoFormer> getAlgoformersActuales() {
 		return this.manejadorTurnos.getAlgoformersActuales();

@@ -28,10 +28,10 @@ public class Vida extends Atributo{
 	public void ponerEscudo(int turnos) {
 		this.escudo.activar(turnos);		
 	}
-
-	public void sumarVidaA(int total) {
-		total += this.valorActual;		
-	}
+//
+//	public void sumarVidaA(int total) {
+//		total += this.valorActual;		
+//	}
 
 	public boolean muerto() {
 		return (this.valorActual <= 0);

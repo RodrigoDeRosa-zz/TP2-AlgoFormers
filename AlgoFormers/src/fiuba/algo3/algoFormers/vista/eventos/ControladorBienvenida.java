@@ -70,10 +70,11 @@ public class ControladorBienvenida {
     	
     	stage.setFullScreen(true);
     	stage.show();
-    	String musicFile = "file:src/fiuba/algo3/algoFormers/vista/sonidos/InicioJuego.mp3";
-    	Media sonido = new Media(musicFile);
+    	String musicFile = "src/fiuba/algo3/algoFormers/vista/sonidos/InicioJuego.mp3";
+    	Media sonido = new Media(new File(musicFile).toURI().toString());
     	MediaPlayer mediaPlayer = new MediaPlayer(sonido);
     	mediaPlayer.play();
+    	
     }
     
 	private void setBackground(BorderPane contenedorJuego) {

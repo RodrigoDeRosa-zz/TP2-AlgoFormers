@@ -1,5 +1,6 @@
 package fiuba.algo3.algoFormers.vista.eventos;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Set;
@@ -15,8 +16,10 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -28,6 +31,8 @@ import javafx.scene.layout.BackgroundRepeat;
 import javafx.scene.layout.BackgroundSize;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
 
 public class ControladorJuego {
@@ -38,28 +43,44 @@ public class ControladorJuego {
 	
     @FXML
     private Button BotonSalir;
-	
     @FXML
     private Button BotonFinalizarTurno;
-
     @FXML
     private Button BotonCombinar;
-
     @FXML
     private Button BotonTransformar;
-
     @FXML
     private Button BotonAtacar;
-
     @FXML
     private Button BotonMover;
-
+    @FXML
+    private Label Vida1;
+    @FXML
+    private Label Poder1;
+    @FXML
+    private Label Rango1;
+    @FXML
+    private Label Vel1;
+    @FXML
+    private Label Vida2;
+    @FXML
+    private Label Poder2;
+    @FXML
+    private Label Rango2;
+    @FXML
+    private Label Vel2;
+    @FXML
+    private Label Vida3;
+    @FXML
+    private Label Poder3;
+    @FXML
+    private Label Rango3;
+    @FXML
+    private Label Vel3;
     @FXML
     private ToggleButton Personaje2;
-
     @FXML
     private ToggleButton Personaje3;
-
     @FXML
     private ToggleButton Personaje1;
 
@@ -103,8 +124,13 @@ public class ControladorJuego {
     		this.mostrarError(e.getMessage());
     		return;
     	}
+    	String musicFile = "src/fiuba/algo3/algoFormers/vista/sonidos/Transformacion.mp3";
+    	Media sonido = new Media(new File(musicFile).toURI().toString());
+    	MediaPlayer mediaPlayer = new MediaPlayer(sonido);
+    	mediaPlayer.play();
     	this.setJugador(juego.getJugadorActual());
     	this.tablero.armarTablero(this.juego);
+    	this.finAccion();
     }
 
     @FXML
@@ -112,6 +138,7 @@ public class ControladorJuego {
     	this.juego.finalizarTurno();
     	this.setJugador(juego.getJugadorActual());
     	this.tablero.armarTablero(this.juego);
+    	this.finAccion();
     }
 
     @FXML
@@ -135,8 +162,23 @@ public class ControladorJuego {
     	this.accionado = true;
     }
 
+    public void finAccion(){
+    	this.accionado = false;
+    }
+    
     public void finalizarJuego() throws IOException{
-    	this.mostrarError("Has ganado!!!");
+    	this.mostrarVictoria();
+    }
+    
+    private void mostrarVictoria() throws IOException{
+		FXMLLoader loader = new FXMLLoader(getClass().getResource("ContenedorVictoria.fxml"));
+    	VBox contenedorVictoria = (VBox) loader.load();
+    	ControladorVictoria controlador = loader.<ControladorVictoria>getController();
+    	controlador.initData(this.juego.getJugadorActual());
+    	Stage stage = new Stage();
+		stage.setTitle("Victoria");
+    	stage.setScene(new Scene(contenedorVictoria));
+    	stage.show();
     }
     
     @FXML
@@ -173,6 +215,11 @@ public class ControladorJuego {
     	this.setEstiloToggle(this.personajeActual.getNombreEstado(), this.toggleActual); 
     	this.tablero.armarTablero(this.juego);
     	this.setJugador(this.juego.getJugadorActual());
+    	String musicFile = "src/fiuba/algo3/algoFormers/vista/sonidos/Transformacion.mp3";
+    	Media sonido = new Media(new File(musicFile).toURI().toString());
+    	MediaPlayer mediaPlayer = new MediaPlayer(sonido);
+    	mediaPlayer.play();
+    	this.finAccion();
     }
     
     public void armarTablero(){
@@ -194,16 +241,34 @@ public class ControladorJuego {
     	if (uno != null){
     		this.personajeUno = uno;
     		this.setEstiloToggle(uno.getNombreEstado(), this.Personaje1);
-    	} else {this.desactivar(Personaje1);}
+    		this.setEstiloLabel(this.Vida1, "Vida: ", uno.getVida());
+    		this.setEstiloLabel(this.Poder1, "Poder: ", uno.getAtaque());
+    		this.setEstiloLabel(this.Rango1, "Rango: ", uno.getDistanciaDeAtaque());
+    		this.setEstiloLabel(this.Vel1, "Vel: ", uno.getVelocidad());
+    	} else {this.desactivar(Personaje1, Vida1, Poder1, Rango1, Vel1);}
     	if (dos != null){
     		this.personajeDos = dos;
     		this.setEstiloToggle(dos.getNombreEstado(), this.Personaje2);
-    	} else {this.desactivar(Personaje2);}
+    		this.setEstiloLabel(this.Vida2, "Vida: ", dos.getVida());
+    		this.setEstiloLabel(this.Poder2, "Poder: ", dos.getAtaque());
+    		this.setEstiloLabel(this.Rango2, "Rango: ", dos.getDistanciaDeAtaque());
+    		this.setEstiloLabel(this.Vel2,"Vel: ",  dos.getVelocidad());
+    	} else {this.desactivar(Personaje2, Vida2, Poder2, Rango2, Vel2);}
     	if (tres != null){
     		this.personajeTres = tres;
     		this.setEstiloToggle(tres.getNombreEstado(), this.Personaje3);
-    	} else {this.desactivar(Personaje3);}
+    		this.setEstiloLabel(this.Vida3, "Vida: ", tres.getVida());
+    		this.setEstiloLabel(this.Poder3, "Poder: ", tres.getAtaque());
+    		this.setEstiloLabel(this.Rango3, "Rango: ", tres.getDistanciaDeAtaque());
+    		this.setEstiloLabel(this.Vel3, "Vel: ", tres.getVelocidad());
+    	} else {this.desactivar(Personaje3, Vida3, Poder3, Rango3, Vel3);}
     	this.focusActual(this.juego.getPersonajeActual());
+    }
+    
+    private void setEstiloLabel(Label etiqueta, String base, int valor){
+    	etiqueta.setVisible(true);
+    	etiqueta.setAlignment(Pos.CENTER);
+    	etiqueta.setText(base + valor);
     }
     
     private void focusActual(AlgoFormer personaje){
@@ -212,10 +277,18 @@ public class ControladorJuego {
     	if (personaje == this.personajeTres) this.seleccionarToggle(Personaje3, personajeTres);
     }
     
-    private void desactivar(ToggleButton boton){
+    private void desactivar(ToggleButton boton, Label vida, Label poder, Label rango, Label velocidad){
     	boton.setGraphic(null);
     	boton.setVisible(false);
     	boton.setDisable(true);
+    	this.desactivarLabel(vida);
+    	this.desactivarLabel(poder);
+    	this.desactivarLabel(rango);
+    	this.desactivarLabel(velocidad);
+    }
+    
+    private void desactivarLabel(Label label){
+    	label.setVisible(false);
     }
     
     private void setEstiloToggle(String nombre, ToggleButton boton){

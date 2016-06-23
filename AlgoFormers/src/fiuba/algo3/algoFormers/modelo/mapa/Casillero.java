@@ -101,7 +101,7 @@ public class Casillero {
 	
 	private void verificarCasilleroEstaVacio() {
 		if (this.estaOcupado()){
-			throw new CasilleroOcupadoException("Ya hay un atacable en este casillero");
+			throw new CasilleroOcupadoException("Ya hay un personaje en este casillero");
 		}
 	}
 

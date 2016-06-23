@@ -1,6 +1,7 @@
 
 package fiuba.algo3.algoFormers.vista.eventos;
 
+import java.io.File;
 import java.io.IOException;
 
 import fiuba.algo3.algoFormers.modelo.direcciones.DirAbajo;
@@ -15,15 +16,15 @@ import fiuba.algo3.algoFormers.modelo.direcciones.Direccion;
 import fiuba.algo3.algoFormers.modelo.excepciones.CasilleroOcupadoException;
 import fiuba.algo3.algoFormers.modelo.excepciones.FinDelJuegoException;
 import fiuba.algo3.algoFormers.modelo.excepciones.FueraDelMapaException;
+import fiuba.algo3.algoFormers.modelo.excepciones.MovimientosAgotadosException;
 import fiuba.algo3.algoFormers.modelo.juego.Juego;
 import fiuba.algo3.algoFormers.vista.contenedores.ContenedorTablero;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -33,38 +34,32 @@ import javafx.scene.layout.BackgroundPosition;
 import javafx.scene.layout.BackgroundRepeat;
 import javafx.scene.layout.BackgroundSize;
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.VBox;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
 
 public class ControladorMovimiento {
 
     @FXML
+    private Label NotificacionError;
+    @FXML
     private GridPane Grid;
-	
     @FXML
     private Button BotonArriba;
-
     @FXML
     private Button BotonAbajo;
-
     @FXML
     private Button BotonIzqArr;
-
     @FXML
     private Button BotonArrDer;
-
     @FXML
     private Button BotonIzquierda;
-
     @FXML
     private Button BotonDerecha;
-
     @FXML
     private Button BotonAbajoIzq;
-
     @FXML
     private Button BotonAbjDer;
-
     @FXML
     private Button BotonCancelarMovimiento;
 
@@ -81,14 +76,7 @@ public class ControladorMovimiento {
     }
     
     private void mostrarError(String mensaje) throws IOException{
-		FXMLLoader loader = new FXMLLoader(getClass().getResource("ContenedorError.fxml"));
-    	VBox contenedorError = (VBox) loader.load();
-    	ControladorError controlador = loader.<ControladorError>getController();
-    	controlador.initData(mensaje);
-    	Stage stage = new Stage();
-		stage.setTitle("Error");
-    	stage.setScene(new Scene(contenedorError));
-    	stage.show();
+		this.NotificacionError.setText(mensaje);
     }
 
     @FXML
@@ -99,14 +87,19 @@ public class ControladorMovimiento {
 
     private void mover(Direccion direccion, ActionEvent event) throws IOException{
     	try{this.juego.mover(direccion);}
-    	catch(FueraDelMapaException | CasilleroOcupadoException e){
+    	catch(FueraDelMapaException | CasilleroOcupadoException | MovimientosAgotadosException e){
     		this.mostrarError(e.getMessage());
+    		return;
     	} 
     	catch(FinDelJuegoException e){
         	this.redibujarTablero();
     		this.controlador.finalizarJuego();
     		return;
-    	}    	
+    	}
+    	String musicFile = "src/fiuba/algo3/algoFormers/vista/sonidos/Mover.mp3";
+    	Media sonido = new Media(new File(musicFile).toURI().toString());
+    	MediaPlayer mediaPlayer = new MediaPlayer(sonido);
+    	mediaPlayer.play();
     	this.redibujarTablero();
     	this.controlador.accionado();
     }

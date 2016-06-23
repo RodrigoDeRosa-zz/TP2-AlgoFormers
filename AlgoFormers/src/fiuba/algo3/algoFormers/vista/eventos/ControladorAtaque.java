@@ -1,5 +1,6 @@
 package fiuba.algo3.algoFormers.vista.eventos;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Set;
@@ -20,37 +21,30 @@ import javafx.scene.control.RadioButton;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
 
 public class ControladorAtaque {
 
     @FXML
     private ImageView ImagenEnemigo1;
-
     @FXML
     private RadioButton SeleccionEnemigo1;
-
     @FXML
     private RadioButton SeleccionEnemigo2;
-
     @FXML
     private RadioButton SeleccionEnemigo3;
-
     @FXML
     private ImageView ImagenEnemigo2;
-
     @FXML
     private ImageView ImagenEnemigo3;
-
     @FXML
     private Label CartelMensaje;
-
     @FXML
     private Button BotonCancelar;
-
     @FXML
     private Button BotonAtacar;
-    
     @FXML
     private Label NotificacionError;
     
@@ -66,7 +60,7 @@ public class ControladorAtaque {
 
     @FXML
     void Atacar(ActionEvent event) throws IOException {
-    	try{this.checkSeleccion();}catch(Exception e){return;}
+    	if (!this.enemigoSeleccionado()) return;
     	Posicion posicion = this.juego.getPosicionAlgoformer(this.elegido);
     	try{this.juego.atacar(posicion);} 
     	catch(AtaqueFueraDeRangoException e){
@@ -76,19 +70,27 @@ public class ControladorAtaque {
     	catch(EquipoDestruidoException e){
     		this.controlador.armarTablero();
         	this.CerrarVentana(event);
+        	this.juego.finalizarTurno();
     		this.controlador.finalizarJuego();
     		return;
     	}
+    	int numDisparo = 1 + (int)(Math.random() * ((3 - 1) + 1));
+    	String musicFile = "src/fiuba/algo3/algoFormers/vista/sonidos/Disparo"+Integer.toString(numDisparo) +".mp3";
+    	Media sonido = new Media(new File(musicFile).toURI().toString());
+    	MediaPlayer mediaPlayer = new MediaPlayer(sonido);
+    	mediaPlayer.play();
     	this.controlador.setJugador(juego.getJugadorActual());
     	this.controlador.armarTablero();
+    	this.controlador.finAccion();
     	this.CerrarVentana(event);
     }
     
-    private void checkSeleccion() throws Exception{
-    	if (!this.SeleccionEnemigo1.isSelected() && !this.SeleccionEnemigo1.isSelected() && !this.SeleccionEnemigo1.isSelected()){
+    private boolean enemigoSeleccionado(){
+    	if (!this.SeleccionEnemigo1.isSelected() && !this.SeleccionEnemigo2.isSelected() && !this.SeleccionEnemigo3.isSelected()){
     		this.NotificacionError.setText("Debe elegir a un enemigo");
-    		throw new Exception();
+    		return false;
     	}
+    	return true;
     }
 
     @FXML

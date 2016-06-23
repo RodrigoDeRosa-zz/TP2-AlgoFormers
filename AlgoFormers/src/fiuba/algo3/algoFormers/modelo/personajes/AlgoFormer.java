@@ -179,9 +179,9 @@ public abstract class AlgoFormer implements Atacable {
 		this.estadoDeTransformacionOpuesto.guardarEfectoEstatico(efecto, tipo);
 	}
 	
-	public void sumarVidaA(int total) {
-		this.vida.sumarVidaA(total);
-	}
+//	public void sumarVidaA(int total) {
+//		this.vida.sumarVidaA(total);
+//	}
 	
 	public boolean muerto(){
 		return this.vida.muerto();
