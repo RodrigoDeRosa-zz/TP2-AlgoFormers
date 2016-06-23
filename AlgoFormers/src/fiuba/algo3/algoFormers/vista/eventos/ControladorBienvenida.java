@@ -38,12 +38,14 @@ public class ControladorBienvenida {
     	//Se carga el contenedor del juego
     	FXMLLoader loader = new FXMLLoader(getClass().getResource("ContenedorJuego.fxml"));
     	BorderPane contenedorJuego = (BorderPane) loader.load();
+    	stage.setScene(new Scene(contenedorJuego));
     	//Se busca en el centro donde hay guardado un GridPane de 40*40
     	ScrollPane contenedorCentro = (ScrollPane) contenedorJuego.getCenter();
     	ContenedorTablero tablero = new ContenedorTablero();
-    	tablero.armarTablero(juego);
     	contenedorCentro.setContent(tablero);
     	contenedorJuego.setCenter(contenedorCentro);
+    	tablero.armarTablero(juego);
+    	
 //    	this.setBotonera(contenedorJuego, tablero);
     	
     	//se guardan los nombres de los jugadores
@@ -56,7 +58,6 @@ public class ControladorBienvenida {
     	controlador.initData(juego);
     	controlador.initTablero(tablero);
     	
-    	stage.setScene(new Scene(contenedorJuego));
     	stage.setFullScreen(true);
     	stage.show();
     	
