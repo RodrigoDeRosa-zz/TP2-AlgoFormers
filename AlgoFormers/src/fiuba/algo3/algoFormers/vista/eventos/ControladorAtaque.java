@@ -67,6 +67,7 @@ public class ControladorAtaque {
     	catch(EquipoDestruidoException e){
     		this.controlador.armarTablero();
         	this.CerrarVentana(event);
+        	this.juego.finalizarTurno();
     		this.controlador.finalizarJuego();
     		return;
     	}

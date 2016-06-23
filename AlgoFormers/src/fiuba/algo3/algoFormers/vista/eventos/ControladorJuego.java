@@ -153,7 +153,18 @@ public class ControladorJuego {
     }
     
     public void finalizarJuego() throws IOException{
-    	this.mostrarError("Has ganado!!!");
+    	this.mostrarVictoria();
+    }
+    
+    private void mostrarVictoria() throws IOException{
+		FXMLLoader loader = new FXMLLoader(getClass().getResource("ContenedorVictoria.fxml"));
+    	VBox contenedorVictoria = (VBox) loader.load();
+    	ControladorVictoria controlador = loader.<ControladorVictoria>getController();
+    	controlador.initData(this.juego.getJugadorActual());
+    	Stage stage = new Stage();
+		stage.setTitle("Victoria");
+    	stage.setScene(new Scene(contenedorVictoria));
+    	stage.show();
     }
     
     @FXML
