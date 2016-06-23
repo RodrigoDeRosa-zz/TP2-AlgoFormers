@@ -18,6 +18,12 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundImage;
+import javafx.scene.layout.BackgroundPosition;
+import javafx.scene.layout.BackgroundRepeat;
+import javafx.scene.layout.BackgroundSize;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
@@ -50,7 +56,7 @@ public class ControladorBienvenida {
     	contenedorJuego.setCenter(contenedorCentro);
     	tablero.armarTablero(juego);
     	
-//    	this.setBotonera(contenedorJuego, tablero);
+    	this.setBackground(contenedorJuego);
     	
     	//se guardan los nombres de los jugadores
     	String nombreA = NombreAutobot.getText();
@@ -70,26 +76,10 @@ public class ControladorBienvenida {
     	mediaPlayer.play();
     }
     
-	private void setBotonera(BorderPane stage, ContenedorTablero tablero){
-		
-		Button mover = new BotonMover(this.juego, tablero);
-		Button atacar = new BotonAtacar(this.juego);
-		Button transformar = new BotonTransformar(this.juego);
-		Button combinar = new BotonCombinar(this.juego);
-		Button finalizarTurno = new BotonFinalizarTurno(this.juego, tablero);
-//		Button personaje1, personaje2, personaje3;
-//		personaje1 = new BotonOptimus(this.juego);
-//		personaje2 = new BotonBumblebee(this.juego);
-//		personaje3 = new BotonRatchet(this.juego);
-		
-//		ArrayList<Button> personajes = setBotonesPersonajes();
-//		
-//		ContenedorBotonesPrincipal botones = new ContenedorBotonesPrincipal(mover, atacar, transformar, combinar,
-//				finalizarTurno,personajes.get(1), personajes.get(2), personajes.get(3));
-		ContenedorBotonesPrincipal botones = new ContenedorBotonesPrincipal(mover, atacar, transformar, combinar,
-				finalizarTurno, this.juego);
-		
-		stage.setBottom(botones);
+	private void setBackground(BorderPane contenedorJuego) {
+		Image imagen = new Image("file:src/fiuba/algo3/algoFormers/vista/imagenes/FondoPanelBotones.png");
+        BackgroundImage imagenDeFondo = new BackgroundImage(imagen, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT, BackgroundSize.DEFAULT);
+        contenedorJuego.setBackground(new Background(imagenDeFondo));
 	}
 
 	public void initData(Juego juego) {

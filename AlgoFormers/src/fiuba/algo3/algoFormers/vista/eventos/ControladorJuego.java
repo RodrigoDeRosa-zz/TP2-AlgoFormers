@@ -21,6 +21,11 @@ import javafx.scene.control.ToggleButton;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundImage;
+import javafx.scene.layout.BackgroundPosition;
+import javafx.scene.layout.BackgroundRepeat;
+import javafx.scene.layout.BackgroundSize;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
@@ -78,6 +83,7 @@ public class ControladorJuego {
     	//se abre la ventana de ataque
     	FXMLLoader loader = new FXMLLoader(getClass().getResource("ContenedorAtaque.fxml"));
     	BorderPane contenedorAtaque = (BorderPane) loader.load();
+    	this.setBackground(contenedorAtaque);
     	
     	//obtengo el controlador para asignarle el juego
     	ControladorAtaque controlador = loader.<ControladorAtaque>getController();
@@ -113,6 +119,7 @@ public class ControladorJuego {
     	//se abre la ventana de movimiento
     	FXMLLoader loader = new FXMLLoader(getClass().getResource("ContenedorMovimiento.fxml"));
     	BorderPane contenedorMovimiento = (BorderPane) loader.load();
+    	this.setBackground(contenedorMovimiento);
     	
     	//obtengo el controlador para asignarle el juego
     	ControladorMovimiento controlador = loader.<ControladorMovimiento>getController();
@@ -274,6 +281,12 @@ public class ControladorJuego {
 
 	public void initTablero(ContenedorTablero tablero) {
 		this.tablero = tablero;
+	}
+	
+	private void setBackground(BorderPane contenedor) {
+		Image imagen = new Image("file:src/fiuba/algo3/algoFormers/vista/imagenes/FondoPanelBotones.png");
+        BackgroundImage imagenDeFondo = new BackgroundImage(imagen, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT, BackgroundSize.DEFAULT);
+        contenedor.setBackground(new Background(imagenDeFondo));
 	}
 
 }
