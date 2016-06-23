@@ -68,5 +68,9 @@ public abstract class Jugador {
 
 	public abstract Set<AlgoFormer> getPersonajes();
 
+	public String getNombre() {
+		return this.nombre;
+	}
+
 	//public abstract Set<String> getPersonajes();
 }
