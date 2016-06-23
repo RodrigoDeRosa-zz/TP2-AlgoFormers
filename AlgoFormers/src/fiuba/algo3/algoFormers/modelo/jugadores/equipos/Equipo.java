@@ -1,9 +1,11 @@
 package fiuba.algo3.algoFormers.modelo.jugadores.equipos;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Set;
 
+import fiuba.algo3.algoFormers.modelo.excepciones.EquipoDestruidoException;
 import fiuba.algo3.algoFormers.modelo.excepciones.EquipoNoCompletoException;
 import fiuba.algo3.algoFormers.modelo.excepciones.FueraDeRangoParaCombinarException;
 import fiuba.algo3.algoFormers.modelo.excepciones.SeleccionPersonajeEnemigoException;
@@ -51,10 +53,31 @@ public abstract class Equipo {
 	protected abstract void finalizarTurnoMegaBot();
 	
 	public void iniciarTurno(Mapa mapa){
-		this.equipo.forEach( (nombre, personaje) -> {
+
+		Set<String> nombres = this.equipo.keySet();
+		Iterator<String> iter = nombres.iterator();
+		ArrayList<AlgoFormer> personajes = new ArrayList<AlgoFormer>();
+		while (iter.hasNext()) {
+			String nombre = iter.next();
+			AlgoFormer algoformer = this.equipo.get(nombre);
+			personajes.add(algoformer);
+		}
+		int tam = personajes.size();
+		for (int i = 0; i < tam; i++){
+			AlgoFormer personaje = personajes.get(i);
 			this.checkPermanenciaEnJuego(personaje, mapa);
-		});
-		if (this.turnosCombinacion == 0 && this.combinado) this.finalizarCombinacion(mapa);
+		}
+		if (this.todosMuertos()) throw new EquipoDestruidoException();
+		if ((this.turnosCombinacion == 0 || this.equipoIncompleto()) && this.combinado) this.finalizarCombinacion(mapa);
+		
+	}
+	
+	private boolean equipoIncompleto(){
+		return this.equipo.size() < 3;
+	}
+	
+	private boolean todosMuertos(){
+		return this.equipo.size() == 0;
 	}
 	
 	public void setPersonajeActual(AlgoFormer personaje){

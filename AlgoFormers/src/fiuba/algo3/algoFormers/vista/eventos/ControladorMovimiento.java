@@ -13,6 +13,7 @@ import fiuba.algo3.algoFormers.modelo.direcciones.DirDerecha;
 import fiuba.algo3.algoFormers.modelo.direcciones.DirIzquierda;
 import fiuba.algo3.algoFormers.modelo.direcciones.Direccion;
 import fiuba.algo3.algoFormers.modelo.excepciones.CasilleroOcupadoException;
+import fiuba.algo3.algoFormers.modelo.excepciones.FinDelJuegoException;
 import fiuba.algo3.algoFormers.modelo.excepciones.FueraDelMapaException;
 import fiuba.algo3.algoFormers.modelo.juego.Juego;
 import fiuba.algo3.algoFormers.vista.contenedores.ContenedorTablero;
@@ -97,11 +98,15 @@ public class ControladorMovimiento {
     }
 
     private void mover(Direccion direccion, ActionEvent event) throws IOException{
-    	try{
-    		this.juego.mover(direccion);
-    	}catch(FueraDelMapaException | CasilleroOcupadoException e){
+    	try{this.juego.mover(direccion);}
+    	catch(FueraDelMapaException | CasilleroOcupadoException e){
     		this.mostrarError(e.getMessage());
     	} 
+    	catch(FinDelJuegoException e){
+        	this.redibujarTablero();
+    		this.controlador.finalizarJuego();
+    		return;
+    	}    	
     	this.redibujarTablero();
     	this.controlador.accionado();
     }
