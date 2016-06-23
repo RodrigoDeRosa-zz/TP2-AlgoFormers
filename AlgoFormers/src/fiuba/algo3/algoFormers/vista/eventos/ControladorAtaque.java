@@ -1,9 +1,11 @@
 package fiuba.algo3.algoFormers.vista.eventos;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Set;
 
 import fiuba.algo3.algoFormers.modelo.excepciones.AtaqueFueraDeRangoException;
+import fiuba.algo3.algoFormers.modelo.excepciones.EquipoDestruidoException;
 import fiuba.algo3.algoFormers.modelo.juego.Juego;
 import fiuba.algo3.algoFormers.modelo.jugadores.Jugador;
 import fiuba.algo3.algoFormers.modelo.mapa.Posicion;
@@ -63,9 +65,19 @@ public class ControladorAtaque {
     private static final String presionado = "-fx-background-color: transparent; -fx-padding: 6 4 4 6;";
 
     @FXML
-    void Atacar(ActionEvent event) {
+    void Atacar(ActionEvent event) throws IOException {
     	Posicion posicion = this.juego.getPosicionAlgoformer(this.elegido);
-    	try{this.juego.atacar(posicion);} catch(AtaqueFueraDeRangoException e){NotificacionError.setText(e.getMessage());return;}
+    	try{this.juego.atacar(posicion);} 
+    	catch(AtaqueFueraDeRangoException e){
+    		NotificacionError.setText(e.getMessage());
+    		return;
+    		}
+    	catch(EquipoDestruidoException e){
+    		this.controlador.armarTablero();
+        	this.CerrarVentana(event);
+    		this.controlador.finalizarJuego();
+    		return;
+    	}
     	this.controlador.setJugador(juego.getJugadorActual());
     	this.controlador.armarTablero();
     	this.CerrarVentana(event);

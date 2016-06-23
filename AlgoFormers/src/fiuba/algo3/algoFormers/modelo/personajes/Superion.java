@@ -46,6 +46,6 @@ public class Superion extends AutoBot{
 	@Override
 	public void recibirDanio(Decepticon decepticon, int poderAtaque){
 		this.vida.descontarVida(poderAtaque);
-		this.daniarIntegrantes(decepticon, poderAtaque);
+		this.daniarIntegrantes(decepticon, poderAtaque/3);
 	}
 }

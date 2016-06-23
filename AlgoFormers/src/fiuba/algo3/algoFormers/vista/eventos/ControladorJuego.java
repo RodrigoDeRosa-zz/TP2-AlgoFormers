@@ -128,6 +128,10 @@ public class ControladorJuego {
     	this.accionado = true;
     }
 
+    public void finalizarJuego() throws IOException{
+    	this.mostrarError("Has ganado!!!");
+    }
+    
     @FXML
     void SeleccionarPersonajeActual1(ActionEvent event) {
     	if (accionado) return;

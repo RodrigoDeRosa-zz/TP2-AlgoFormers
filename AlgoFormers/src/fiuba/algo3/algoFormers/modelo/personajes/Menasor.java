@@ -46,7 +46,7 @@ private HashSet<AlgoFormer> integrantes;
 	@Override
 	public void recibirDanio(AutoBot autobot, int poderAtaque){
 		this.vida.descontarVida(poderAtaque);
-		this.daniarIntegrantes(autobot, poderAtaque);
+		this.daniarIntegrantes(autobot, poderAtaque/3);
 	}
 	
 }
