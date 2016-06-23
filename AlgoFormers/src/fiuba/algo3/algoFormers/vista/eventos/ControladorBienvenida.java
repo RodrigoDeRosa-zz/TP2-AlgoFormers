@@ -1,5 +1,7 @@
 package fiuba.algo3.algoFormers.vista.eventos;
 
+import java.io.File;
+
 import fiuba.algo3.algoFormers.modelo.juego.Juego;
 import fiuba.algo3.algoFormers.vista.botones.acciones.BotonAtacar;
 import fiuba.algo3.algoFormers.vista.botones.acciones.BotonCombinar;
@@ -17,6 +19,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
 
 public class ControladorBienvenida {
@@ -60,7 +64,10 @@ public class ControladorBienvenida {
     	
     	stage.setFullScreen(true);
     	stage.show();
-    	
+    	String musicFile = "file:src/fiuba/algo3/algoFormers/vista/sonidos/InicioJuego.mp3";
+    	Media sonido = new Media(musicFile);
+    	MediaPlayer mediaPlayer = new MediaPlayer(sonido);
+    	mediaPlayer.play();
     }
     
 	private void setBotonera(BorderPane stage, ContenedorTablero tablero){
