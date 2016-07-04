@@ -78,7 +78,7 @@ public class CombinacionTest {
 		
 		Combinar accion = new Combinar(jug, map);
 		accion.ejecutar();
-		
+		//
 		map.obtenerPosicion(jug.getAlgoformer("Megatron"));
 	}
 	
