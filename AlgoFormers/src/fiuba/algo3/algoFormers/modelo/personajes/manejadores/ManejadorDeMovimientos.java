@@ -19,7 +19,7 @@ public class ManejadorDeMovimientos {
 		this.setMovimientosTotales(movimientos);
 	}
 	
-	private void setMovimientosRestantes(int movimientos){
+	public void setMovimientosRestantes(int movimientos){
 		this.movimientosRestantes = movimientos;
 	}
 	

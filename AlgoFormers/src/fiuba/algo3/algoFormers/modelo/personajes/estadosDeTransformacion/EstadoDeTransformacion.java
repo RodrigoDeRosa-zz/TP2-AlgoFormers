@@ -53,7 +53,6 @@ public abstract class EstadoDeTransformacion {
 		return this.ataque.crearManejadorAtaque();
 	}
 	
-	//Metodos para las pruebas. No se deberian usar.
 	public int getVelocidad(){
 		return this.velocidad.getVelocidad();
 	}

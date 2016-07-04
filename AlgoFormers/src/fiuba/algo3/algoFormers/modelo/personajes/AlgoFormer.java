@@ -79,6 +79,8 @@ public abstract class AlgoFormer implements Atacable {
 		 * y el mapa. Esta delega su comportamiento en el manejador de movimiento.
 		 */
 		this.manDeMovimientos.moverEnDireccion(this, direccion,mapa);
+		//chequea si no esta parado en la nebulosa de andromeda
+		if(estadoDeTransformacionActual.getVelocidad() == 0)manDeMovimientos.setMovimientosRestantes(0);
 	}
 	
 	public void atacarPosicion(Posicion posicion, Mapa mapa){
